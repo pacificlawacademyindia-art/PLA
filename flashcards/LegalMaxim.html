@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PLA – Legal Maxims Flash Cards</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#1B2A4A;--navy-dark:#0d1b2e;
+  --gold:#C8922A;--gold-light:#e8b84b;
+  --gold-pale:rgba(200,146,42,0.13);--gold-border:rgba(200,146,42,0.35);
+  --text:#ffffff;--sub:#a0b8cc;--blue:#8eb4d4;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--navy-dark);font-family:'Source Sans 3',sans-serif;color:var(--text);min-height:100vh;}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:radial-gradient(ellipse 80% 50% at 20% 20%,rgba(200,146,42,0.04) 0%,transparent 60%);}
+
+/* HEADER */
+.header{position:relative;z-index:10;padding:20px 36px 16px;
+  border-bottom:1px solid rgba(200,146,42,0.2);
+  background:rgba(13,27,46,0.95);backdrop-filter:blur(10px);
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.logo{display:flex;align-items:center;gap:12px;}
+.logo-badge{width:36px;height:36px;border:2px solid var(--gold);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Playfair Display',serif;font-size:15px;font-weight:900;color:var(--gold);position:relative;}
+.logo-badge::before{content:'';position:absolute;inset:3px;border:1px solid rgba(200,146,42,0.3);}
+.logo-name{font-family:'Playfair Display',serif;font-size:15px;font-weight:900;color:var(--gold);letter-spacing:2px;}
+.logo-sub{font-size:10px;color:var(--sub);letter-spacing:2px;text-transform:uppercase;margin-top:1px;}
+.hdr-right{display:flex;flex-direction:column;align-items:flex-end;gap:5px;}
+.hdr-title{font-size:11px;color:var(--gold);letter-spacing:1.5px;text-transform:uppercase;}
+.prog-bar{width:180px;height:3px;background:rgba(255,255,255,0.08);}
+.prog-fill{height:100%;background:linear-gradient(90deg,var(--gold),var(--gold-light));transition:width 0.4s;}
+.prog-txt{font-size:10px;color:var(--sub);text-align:right;}
+
+/* STAGE */
+.stage{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;padding:28px 16px 110px;}
+
+/* CARD */
+.card-scene{width:860px;max-width:96vw;perspective:1200px;cursor:pointer;}
+.card-flipper{width:100%;position:relative;transform-style:preserve-3d;
+  transition:transform 0.65s cubic-bezier(0.4,0.2,0.2,1);min-height:510px;}
+.card-scene.flipped .card-flipper{transform:rotateY(180deg);}
+.card-face{backface-visibility:hidden;-webkit-backface-visibility:hidden;
+  border:2.5px solid var(--gold);box-shadow:0 20px 60px rgba(0,0,0,0.5);
+  display:flex;flex-direction:column;overflow:hidden;}
+@media(min-width:601px){.card-face{position:absolute;inset:0;}}
+@media(max-width:600px){
+  .card-flipper{transform-style:flat;transition:none;min-height:unset;}
+  .card-scene.flipped .card-flipper{transform:none;}
+  .card-front{display:flex;}.card-back{display:none;}
+  .card-scene.flipped .card-front{display:none;}
+  .card-scene.flipped .card-back{display:flex;}
+}
+.card-front{background:var(--navy);}
+.card-back{transform:rotateY(180deg);background:#162035;}
+@media(max-width:600px){.card-back{transform:none;}}
+.card-face::before{content:'';position:absolute;top:0;left:0;width:140px;height:140px;
+  border-bottom-right-radius:100%;background:rgba(200,146,42,0.09);}
+.card-face::after{content:'';position:absolute;bottom:0;right:0;width:120px;height:120px;
+  border-top-left-radius:100%;background:rgba(200,146,42,0.05);}
+.gold-line{position:absolute;bottom:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--gold),var(--gold-light),var(--gold));}
+
+/* FRONT */
+.f-head{display:flex;justify-content:space-between;align-items:flex-start;
+  padding:18px 28px 0;position:relative;z-index:2;}
+.f-brand{font-family:'Playfair Display',serif;font-size:11px;color:var(--gold);letter-spacing:3px;text-transform:uppercase;}
+.f-num{font-family:'Playfair Display',serif;font-size:48px;font-weight:900;color:rgba(200,146,42,0.14);line-height:1;}
+.f-body{flex:1;display:flex;flex-direction:column;justify-content:center;padding:6px 28px 6px;position:relative;z-index:2;}
+.f-foot{display:flex;justify-content:space-between;align-items:center;padding:0 28px 14px;position:relative;z-index:2;}
+.topic-tag{display:inline-block;background:var(--gold-pale);border:1px solid var(--gold-border);
+  color:var(--gold);font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+  padding:3px 12px;margin-bottom:12px;width:fit-content;}
+.card-q{font-size:11.5px;font-weight:700;color:var(--blue);letter-spacing:0.5px;text-transform:uppercase;margin-bottom:14px;line-height:1.5;}
+
+/* MAXIM BOXES */
+.maxims-wrap{display:flex;flex-direction:column;gap:12px;margin-bottom:10px;}
+.maxim-box{background:var(--gold-pale);border:1px solid var(--gold-border);padding:14px 16px;position:relative;}
+.maxim-box::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--gold);}
+.maxim-num{font-size:9px;font-weight:700;color:var(--gold);letter-spacing:2px;text-transform:uppercase;margin-bottom:5px;}
+.maxim-latin{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;font-style:italic;color:#ffffff;line-height:1.3;margin-bottom:5px;}
+.maxim-meaning{font-size:12.5px;font-weight:700;color:var(--gold);letter-spacing:0.5px;margin-bottom:4px;}
+.maxim-use{font-size:11.5px;color:var(--sub);line-height:1.5;}
+
+.divider{width:48px;height:2px;background:var(--gold);margin:8px 0;}
+.card-detail{font-size:12px;color:var(--sub);line-height:1.7;}
+.card-detail strong{color:var(--gold);font-weight:700;}
+.ft-exam{font-size:10px;letter-spacing:2px;color:#3d5570;text-transform:uppercase;font-weight:700;}
+.ft-ref{font-size:10px;color:#3d5570;font-weight:600;letter-spacing:1px;}
+.flip-hint{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);
+  font-size:9px;color:rgba(200,146,42,0.4);letter-spacing:2px;text-transform:uppercase;z-index:3;pointer-events:none;}
+
+/* BACK */
+.b-head{display:flex;justify-content:space-between;align-items:center;padding:16px 28px 0;position:relative;z-index:2;}
+.b-label{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-weight:700;}
+.b-body{flex:1;display:flex;flex-direction:column;justify-content:center;padding:8px 28px 12px;position:relative;z-index:2;overflow-y:auto;}
+.c-table{width:100%;border-collapse:collapse;font-size:12px;font-family:'Source Sans 3',sans-serif;}
+.c-table th{background:rgba(200,146,42,0.18);color:var(--gold);font-weight:700;padding:5px 8px;text-align:left;border:1px solid rgba(200,146,42,0.2);}
+.c-table td{padding:5px 8px;color:#c0d4e4;border:1px solid rgba(255,255,255,0.05);vertical-align:top;line-height:1.4;}
+.c-table tr:nth-child(even) td{background:rgba(255,255,255,0.025);}
+.back-maxim-block{margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid rgba(200,146,42,0.15);}
+.back-maxim-block:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0;}
+.bm-latin{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;font-style:italic;color:var(--gold);margin-bottom:5px;}
+.bm-detail{font-size:12px;color:var(--sub);line-height:1.65;}
+.bm-detail strong{color:var(--gold);font-weight:700;}
+
+/* KNOWN */
+.known-badge{position:absolute;top:12px;right:12px;background:rgba(40,167,69,0.2);
+  border:1px solid rgba(40,167,69,0.5);color:#5cb85c;font-size:9px;font-weight:700;
+  letter-spacing:1.5px;text-transform:uppercase;padding:3px 10px;z-index:5;display:none;}
+.card-scene.known .known-badge{display:block;}
+.card-scene.known .card-face{border-color:rgba(92,184,92,0.4);}
+
+/* CONTROLS */
+.controls{display:flex;align-items:center;gap:16px;margin-top:20px;position:relative;z-index:1;}
+@media(max-width:600px){
+  .controls{position:fixed;bottom:0;left:0;right:0;margin-top:0;
+    background:rgba(10,20,35,0.97);border-top:1px solid rgba(200,146,42,0.2);
+    padding:10px 16px 16px;gap:10px;z-index:50;justify-content:space-between;}
+  .kb-hint{display:none;}
+  .f-body{padding:6px 16px 6px;}
+  .b-body{padding:8px 16px 10px;}
+  .f-head,.b-head{padding:14px 16px 0;}
+  .f-foot{padding:0 16px 12px;}
+  .maxim-latin{font-size:15px;}
+  .maxim-meaning{font-size:12px;}
+  .maxim-use{font-size:11px;}
+  .header{padding:14px 16px;}
+}
+.ctrl-btn{background:transparent;border:1.5px solid var(--gold-border);color:var(--gold);
+  width:44px;height:44px;display:flex;align-items:center;justify-content:center;
+  cursor:pointer;transition:all 0.2s;font-size:18px;}
+.ctrl-btn:hover:not(:disabled){background:var(--gold);color:var(--navy-dark);}
+.ctrl-btn:disabled{opacity:0.25;cursor:not-allowed;}
+.ctrl-center{display:flex;flex-direction:column;align-items:center;gap:7px;}
+.ctrl-counter{font-family:'Playfair Display',serif;font-size:14px;color:var(--sub);}
+.ctrl-counter strong{color:var(--gold);font-size:20px;}
+.ctrl-actions{display:flex;gap:7px;}
+.action-btn{border:1.5px solid;padding:5px 12px;font-size:11px;font-weight:700;
+  letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;font-family:'Source Sans 3',sans-serif;transition:all 0.2s;}
+.btn-known{border-color:rgba(92,184,92,0.5);color:#5cb85c;background:rgba(92,184,92,0.08);}
+.btn-known:hover{background:rgba(92,184,92,0.2);}
+.btn-flip{border-color:var(--gold-border);color:var(--blue);background:transparent;}
+.btn-flip:hover{background:rgba(142,180,212,0.1);}
+.btn-shuffle{border-color:var(--gold-border);color:var(--gold);background:transparent;}
+.btn-shuffle:hover{background:var(--gold-pale);}
+.kb-hint{margin-top:12px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+.kb-key{display:flex;align-items:center;gap:5px;font-size:10px;color:#3d5570;letter-spacing:1px;}
+.key{border:1px solid #2a3d55;background:rgba(255,255,255,0.03);padding:2px 7px;font-size:10px;color:#4a6080;}
+@keyframes cardIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+.card-scene{animation:cardIn 0.35s ease both;}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="logo">
+    <div class="logo-badge">P</div>
+    <div>
+      <div class="logo-name">PACIFIC LAW ACADEMY</div>
+      <div class="logo-sub">PU BA.LLB 2026 &nbsp;·&nbsp; Legal Maxims — 40 Maxims · 20 Cards</div>
+    </div>
+  </div>
+  <div class="hdr-right">
+    <div class="hdr-title">Legal Maxims Master Deck</div>
+    <div class="prog-bar"><div class="prog-fill" id="progFill" style="width:0%"></div></div>
+    <div class="prog-txt"><span id="knownCt">0</span> known / <span id="totalCt">20</span> total</div>
+  </div>
+</div>
+
+<div class="stage">
+  <div class="card-scene" id="scene" onclick="flip()">
+    <div class="known-badge">✓ KNOWN</div>
+    <div class="card-flipper" id="flipper">
+      <div class="card-face card-front">
+        <div class="f-head"><div class="f-brand">Pacific Law Academy</div><div class="f-num" id="fNum"></div></div>
+        <div class="f-body" id="fBody"></div>
+        <div class="f-foot"><div class="ft-exam">PU BA.LLB · CLAT · AILET</div><div class="ft-ref" id="fRef"></div></div>
+        <div class="gold-line"></div>
+        <div class="flip-hint">TAP TO SEE FULL DETAIL ↻</div>
+      </div>
+      <div class="card-face card-back">
+        <div class="b-head"><div class="b-label" id="bLabel"></div><div class="f-num" id="bNum" style="font-size:38px;"></div></div>
+        <div class="b-body" id="bBody"></div>
+        <div class="f-foot"><div class="ft-exam">PU BA.LLB · CLAT · AILET</div><div class="ft-ref" id="bRef"></div></div>
+        <div class="gold-line"></div>
+        <div class="flip-hint">TAP TO GO BACK ↻</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="controls">
+    <button class="ctrl-btn" id="prevBtn" onclick="nav(-1)">&#8592;</button>
+    <div class="ctrl-center">
+      <div class="ctrl-counter"><strong id="curN">1</strong> / <span id="totN">20</span></div>
+      <div class="ctrl-actions">
+        <button class="action-btn btn-flip" onclick="flip()">↻ Flip</button>
+        <button class="action-btn btn-known" onclick="markKnown()">✓ Known</button>
+        <button class="action-btn btn-shuffle" onclick="shuffle()">⇌ Shuffle</button>
+      </div>
+    </div>
+    <button class="ctrl-btn" id="nextBtn" onclick="nav(1)">&#8594;</button>
+  </div>
+
+  <div class="kb-hint">
+    <div class="kb-key"><span class="key">←</span> Prev</div>
+    <div class="kb-key"><span class="key">→</span> Next</div>
+    <div class="kb-key"><span class="key">Space</span> Flip</div>
+    <div class="kb-key"><span class="key">K</span> Known</div>
+    <div class="kb-key"><span class="key">S</span> Shuffle</div>
+  </div>
+</div>
+
+<script>
+const CARDS = [
+  {
+    num:"01", tag:"Criminal Law Maxims", ref:"BNS · IPC · Evidence",
+    q:"Identify these two foundational criminal law maxims",
+    m1:{
+      latin:"Actus non facit reum nisi mens sit rea",
+      meaning:"An act does not make a person guilty unless the mind is also guilty",
+      use:"Essential element of crime — both Actus Reus + Mens Rea required. Basis of criminal liability."
+    },
+    m2:{
+      latin:"Ignorantia juris non excusat",
+      meaning:"Ignorance of law is no excuse",
+      use:"Every person is presumed to know the law. Cannot plead ignorance of law as defence."
+    },
+    bLabel:"Deep Dive",
+    back:[
+      {latin:"Actus non facit reum nisi mens sit rea",detail:"<strong>Origin:</strong> Edward Coke. Applied in: All criminal trials under BNS/IPC.<br><strong>Exception:</strong> Strict liability offences (e.g., food adulteration, motor vehicles) — no mens rea needed.<br><strong>Trap:</strong> This maxim supports the defence of mistake of fact (Sec. 76–79 BNS) but NOT mistake of law."},
+      {latin:"Ignorantia juris non excusat",detail:"<strong>Full form:</strong> Ignorantia juris neminem excusat — ignorance of law excuses no one.<br><strong>Distinction:</strong> Ignorance of <em>fact</em> CAN be a defence (Sec. 76 BNS). Ignorance of <em>law</em> cannot.<br><strong>Landmark:</strong> State of Maharashtra v. Mayer Hans George (1965) — applied strictly."}
+    ],
+    bRef:"BNS Sec. 76, IPC Sec. 76"
+  },
+  {
+    num:"02", tag:"Evidence Law Maxims", ref:"BSA · Evidence Act",
+    q:"Identify these two evidence law maxims",
+    m1:{
+      latin:"Ei incumbit probatio qui dicit, non qui negat",
+      meaning:"The burden of proof lies on the one who asserts, not the one who denies",
+      use:"Basis of Sec. 101 IEA / Sec. 104 BSA — he who asserts a fact must prove it."
+    },
+    m2:{
+      latin:"Omnia praesumuntur rite esse acta",
+      meaning:"All acts are presumed to have been done rightly and regularly",
+      use:"Presumption of regularity — official acts presumed valid unless proved otherwise."
+    },
+    bLabel:"Evidence Maxims Explained",
+    back:[
+      {latin:"Ei incumbit probatio qui dicit",detail:"<strong>Codified in:</strong> Sec. 101 Indian Evidence Act / Sec. 104 BSA 2023.<br><strong>Application:</strong> In civil cases — plaintiff bears burden. In criminal — prosecution bears burden to prove guilt beyond reasonable doubt.<br><strong>Reversal:</strong> Sec. 105 IEA — burden shifts to accused for exceptions (insanity, self-defence)."},
+      {latin:"Omnia praesumuntur rite esse acta",detail:"<strong>Application:</strong> Official documents, court orders, government notifications presumed valid.<br><strong>Illustrated in:</strong> Presumption of regularity of judicial acts under Sec. 114 IEA.<br><strong>Trap:</strong> This is a rebuttable presumption — can be disproved. Not conclusive."}
+    ],
+    bRef:"BSA Sec. 104, IEA Sec. 101"
+  },
+  {
+    num:"03", tag:"Contract Law Maxims", ref:"Indian Contract Act 1872",
+    q:"Identify these two contract law maxims",
+    m1:{
+      latin:"Consensus ad idem",
+      meaning:"Meeting of minds — both parties agree on the same thing in the same sense",
+      use:"Essential for a valid contract. No contract without consensus. Basis of Sec. 13 ICA."
+    },
+    m2:{
+      latin:"Ex nudo pacto non oritur actio",
+      meaning:"No action arises from a bare promise without consideration",
+      use:"Consideration is essential for enforceability. Nudum pactum = unenforceable agreement."
+    },
+    bLabel:"Contract Maxims Deep Dive",
+    back:[
+      {latin:"Consensus ad idem",detail:"<strong>Sec. 13 ICA:</strong> 'Two or more persons are said to consent when they agree upon the same thing in the same sense.'<br><strong>Absence:</strong> Mistake as to subject matter (Sec. 20) destroys consensus — contract void.<br><strong>Trap:</strong> Mere agreement ≠ contract. Must have consideration, capacity, free consent, lawful object."},
+      {latin:"Ex nudo pacto non oritur actio",detail:"<strong>Codified in:</strong> Sec. 25 ICA — agreement without consideration is void (nudum pactum).<br><strong>Exceptions to consideration (Sec. 25):</strong> Love &amp; affection (registered + near relation) | Past voluntary service | Time-barred debt.<br><strong>Trap:</strong> In England, deeds under seal require no consideration. In India, no such exception."}
+    ],
+    bRef:"Indian Contract Act Sec. 13, 25"
+  },
+  {
+    num:"04", tag:"Natural Justice Maxims", ref:"Constitutional Law · Admin Law",
+    q:"Identify these two natural justice maxims",
+    m1:{
+      latin:"Audi alteram partem",
+      meaning:"Hear the other side — no person shall be condemned unheard",
+      use:"Core of natural justice. Both parties must be given fair opportunity to be heard."
+    },
+    m2:{
+      latin:"Nemo judex in causa sua",
+      meaning:"No one should be a judge in their own cause",
+      use:"Rule against bias. A judge with personal interest in a case must recuse himself."
+    },
+    bLabel:"Natural Justice — Full Explanation",
+    back:[
+      {latin:"Audi alteram partem",detail:"<strong>Components:</strong> (1) Notice of charges (2) Opportunity to be heard (3) Opportunity to rebut evidence.<br><strong>Application:</strong> Administrative orders, disciplinary proceedings, quasi-judicial bodies.<br><strong>Art. 21:</strong> Maneka Gandhi (1978) — any procedure must be just, fair &amp; reasonable — incorporates this maxim.<br><strong>Trap:</strong> Can be excluded by statute or in cases of extreme urgency (ex parte orders)."},
+      {latin:"Nemo judex in causa sua",detail:"<strong>3 types of bias:</strong> (1) Pecuniary bias — any financial interest, however small, disqualifies. (2) Personal bias — friendship/enmity. (3) Subject-matter bias — prior involvement.<br><strong>Test:</strong> 'Real danger of bias' or 'Reasonable suspicion of bias' — courts vary.<br><strong>Landmark:</strong> Mineral Development Ltd v. State of Bihar (1960)."}
+    ],
+    bRef:"Art. 14, 21 · Admin Law"
+  },
+  {
+    num:"05", tag:"Criminal Procedure Maxims", ref:"BNSS · CrPC",
+    q:"Identify these two criminal procedure maxims",
+    m1:{
+      latin:"Nemo debet bis vexari pro una et eadem causa",
+      meaning:"No person should be tried twice for the same cause",
+      use:"Double jeopardy rule — Art. 20(2) + Sec. 300 CrPC / Sec. 337 BNSS."
+    },
+    m2:{
+      latin:"In dubio pro reo",
+      meaning:"When in doubt, in favour of the accused",
+      use:"Benefit of doubt goes to the accused. Prosecution must prove beyond reasonable doubt."
+    },
+    bLabel:"Criminal Procedure Maxims Explained",
+    back:[
+      {latin:"Nemo debet bis vexari",detail:"<strong>Art. 20(2):</strong> No person shall be prosecuted and punished for the same offence more than once.<br><strong>Sec. 300 CrPC / Sec. 337 BNSS:</strong> Person acquitted/convicted cannot be tried again for same offence.<br><strong>Trap:</strong> Protection is against same <em>offence</em> — different offence from same facts = permissible. Also: Art. 20(2) protects against prosecution AND punishment, not mere investigation."},
+      {latin:"In dubio pro reo",detail:"<strong>Standard of proof:</strong> Criminal — 'Beyond reasonable doubt.' Civil — 'Balance of probabilities.'<br><strong>Woolmington v. DPP (1935):</strong> 'Golden thread' — prosecution must prove guilt; accused need not prove innocence.<br><strong>Applied in India:</strong> Kali Ram v. State of Himachal Pradesh (1973) — if two views possible, one pointing to innocence must be accepted.<br><strong>Trap:</strong> Benefit of doubt ≠ acquittal for weak evidence — must be reasonable doubt."}
+    ],
+    bRef:"Art. 20(2), BNSS Sec. 337"
+  },
+  {
+    num:"06", tag:"Property Law Maxims", ref:"Transfer of Property Act",
+    q:"Identify these two property law maxims",
+    m1:{
+      latin:"Nemo dat quod non habet",
+      meaning:"No one can give what they do not have",
+      use:"A person cannot transfer better title than they possess. Core of TPA and Sale of Goods Act."
+    },
+    m2:{
+      latin:"Quicquid plantatur solo, solo cedit",
+      meaning:"Whatever is attached to the soil becomes part of the soil",
+      use:"Doctrine of fixtures — things permanently attached to land become part of land."
+    },
+    bLabel:"Property Maxims Explained",
+    back:[
+      {latin:"Nemo dat quod non habet",detail:"<strong>Application:</strong> Sec. 27 Sale of Goods Act — seller cannot pass better title than he has. Sec. 6 TPA — transfer by person with no title = void.<br><strong>Exceptions (good title despite no title):</strong> Estoppel | Mercantile agent | Sale by co-owner | Sale under court order | Negotiable instruments (holder in due course).<br><strong>Trap:</strong> BFP (Bona Fide Purchaser) doctrine — in some cases buyer gets good title despite defect."},
+      {latin:"Quicquid plantatur solo",detail:"<strong>Sec. 8 TPA:</strong> Transfer of immovable property includes things attached to earth unless different intention shown.<br><strong>Test for fixture:</strong> (1) Degree of annexation (2) Object of annexation — if for permanent enjoyment of land, it's a fixture.<br><strong>Examples:</strong> Building = fixture (part of land). Furniture = chattel (not fixture). Garden plants = fixture.<br><strong>Trap:</strong> Parties can contract out of this rule — machinery may remain personal property by agreement."}
+    ],
+    bRef:"TPA 1882, Sale of Goods Act 1930"
+  },
+  {
+    num:"07", tag:"Constitutional Maxims", ref:"Constitution of India",
+    q:"Identify these two constitutional law maxims",
+    m1:{
+      latin:"Salus populi suprema lex",
+      meaning:"The welfare of the people is the supreme law",
+      use:"Foundation of DPSP, public interest legislation, eminent domain, police powers of state."
+    },
+    m2:{
+      latin:"Ubi jus ibi remedium",
+      meaning:"Where there is a right, there is a remedy",
+      use:"Basis of Art. 32 (SC) and Art. 226 (HC) — any violation of right must have judicial remedy."
+    },
+    bLabel:"Constitutional Maxims Explained",
+    back:[
+      {latin:"Salus populi suprema lex",detail:"<strong>Applied in:</strong> Eminent domain (Art. 300A — right to property), public health legislation, COVID restrictions.<br><strong>Part IV DPSP:</strong> Art. 39 — State shall direct policy towards securing adequate livelihood; Art. 47 — public health.<br><strong>Balance:</strong> Individual rights vs public welfare — courts balance using proportionality test post-Puttaswamy (2017).<br><strong>Trap:</strong> This maxim does NOT override FR — even public welfare cannot destroy Art. 21 (Right to Life)."},
+      {latin:"Ubi jus ibi remedium",detail:"<strong>Art. 32:</strong> Dr. Ambedkar called it 'soul of the Constitution' — cannot be abridged without constitutional amendment.<br><strong>Art. 226:</strong> HC writ jurisdiction — broader than SC. Can issue writs against private bodies too (unlike Art. 32 which is only against state).<br><strong>5 writs:</strong> Habeas Corpus | Mandamus | Prohibition | Certiorari | Quo Warranto.<br><strong>Trap:</strong> Art. 32 can be suspended during Emergency (Art. 359) but Art. 226 cannot be suspended."}
+    ],
+    bRef:"Art. 32, 226, 300A"
+  },
+  {
+    num:"08", tag:"Tort Law Maxims", ref:"Law of Torts",
+    q:"Identify these two tort law maxims",
+    m1:{
+      latin:"Damnum sine injuria",
+      meaning:"Damage without legal injury — no action lies",
+      use:"Mere loss/damage without violation of legal right is not actionable. Competitor underselling = no tort."
+    },
+    m2:{
+      latin:"Injuria sine damno",
+      meaning:"Legal injury without actual damage — action lies",
+      use:"Violation of legal right is actionable even without actual damage. Trespass = actionable per se."
+    },
+    bLabel:"Tort Maxims — Critical Distinction",
+    back:[
+      {latin:"Damnum sine injuria",detail:"<strong>Principle:</strong> Courts protect legal rights, not mere interests.<br><strong>Classic example:</strong> Gloucester Grammar School Case (1410) — rival school set up nearby causing financial loss. No tort — no legal right violated.<br><strong>Mogul SS Co v. McGregor (1892):</strong> Business competition causing loss = not actionable.<br><strong>Trap:</strong> If there is also a legal right violated, it becomes injuria — then actionable."},
+      {latin:"Injuria sine damno",detail:"<strong>Principle:</strong> Law protects rights not just interests — violation of right = cause of action even without proof of loss.<br><strong>Ashby v. White (1703):</strong> Plaintiff's right to vote denied — no actual damage but action succeeded.<br><strong>Examples:</strong> Trespass to person/land | Libel (defamation in permanent form) | Breach of constitutional right.<br><strong>Trap:</strong> This principle is basis of 'actionable per se' torts — no need to prove special damage."}
+    ],
+    bRef:"Law of Torts — Winfield"
+  },
+  {
+    num:"09", tag:"Equity & Trust Maxims", ref:"Equity Law",
+    q:"Identify these two equity maxims",
+    m1:{
+      latin:"Equity follows the law",
+      meaning:"Equity will not contradict common law — it supplements but does not override law",
+      use:"Equity courts intervene only where common law remedy is inadequate, not to contradict it."
+    },
+    m2:{
+      latin:"He who comes to equity must come with clean hands",
+      meaning:"A person seeking equitable relief must not have acted wrongfully themselves",
+      use:"Plaintiff seeking equity must not be guilty of misconduct relating to the subject matter."
+    },
+    bLabel:"Equity Maxims Explained",
+    back:[
+      {latin:"Equity follows the law",detail:"<strong>Principle:</strong> If law gives a clear answer, equity will not contradict it. Equity fills gaps — does not create new law against existing law.<br><strong>Application in India:</strong> Sec. 5 Specific Relief Act 2018 — equitable remedy of specific performance; courts follow statute.<br><strong>12 Maxims of Equity:</strong> These are guiding principles in equity — equity looks to intent not form; equity regards done what ought to be done; etc."},
+      {latin:"Clean hands doctrine",detail:"<strong>Application:</strong> Person who commits fraud cannot claim equitable remedy for that transaction. Parties to illegal agreements cannot get specific performance.<br><strong>Indian example:</strong> Sec. 23 ICA — agreements against public policy unenforceable. Courts will not enforce if plaintiff's hands are 'dirty'.<br><strong>Trap:</strong> The misconduct must relate to the <em>subject matter</em> of the suit — unrelated misconduct does not disqualify the claimant."}
+    ],
+    bRef:"Equity · Specific Relief Act 2018"
+  },
+  {
+    num:"10", tag:"Interpretation Maxims", ref:"General Clauses Act · Statutory Interpretation",
+    q:"Identify these two statutory interpretation maxims",
+    m1:{
+      latin:"Expressio unius est exclusio alterius",
+      meaning:"Expression of one thing is the exclusion of the other",
+      use:"When a statute lists specific items, anything not listed is excluded. Negative implication rule."
+    },
+    m2:{
+      latin:"Generalia specialibus non derogant",
+      meaning:"General things do not derogate from specific things",
+      use:"A special/specific law prevails over a general law on the same subject."
+    },
+    bLabel:"Interpretation Maxims Deep Dive",
+    back:[
+      {latin:"Expressio unius est exclusio alterius",detail:"<strong>Application:</strong> If a statute says 'a, b, c are exempted' — then 'd' is not exempted.<br><strong>Example:</strong> If a law lists specific grounds for bail, courts cannot add grounds not listed.<br><strong>Limitation:</strong> This rule applies only where the list is exhaustive — if it is illustrative (using 'such as' / 'including'), the rule does not apply.<br><strong>Trap:</strong> Cannot be applied rigidly — must see legislative intent."},
+      {latin:"Generalia specialibus non derogant",detail:"<strong>Rule:</strong> Special law = lex specialis. General law = lex generalis. Special law overrides.<br><strong>Example:</strong> IPC (general) vs NDPS Act (special) — NDPS provisions prevail for drug offences.<br><strong>Indian Evidence Act vs Prevention of Corruption Act:</strong> Special PCA provisions on burden of proof override general IEA rules.<br><strong>Trap:</strong> Later general law CAN override earlier special law if Parliament clearly intends it — express repeal."}
+    ],
+    bRef:"General Clauses Act 1897"
+  },
+  {
+    num:"11", tag:"Limitation & Time Maxims", ref:"Limitation Act 1963",
+    q:"Identify these two time and limitation maxims",
+    m1:{
+      latin:"Vigilantibus non dormientibus jura subveniunt",
+      meaning:"Laws help those who are vigilant, not those who sleep on their rights",
+      use:"Basis of limitation law — delayed claims barred by time. Sec. 3 Limitation Act."
+    },
+    m2:{
+      latin:"Actio personalis moritur cum persona",
+      meaning:"A personal action dies with the person",
+      use:"Personal tort actions (assault, defamation) extinguish on death of either party. Now modified by law."
+    },
+    bLabel:"Limitation Maxims Explained",
+    back:[
+      {latin:"Vigilantibus non dormientibus",detail:"<strong>Limitation Act 1963:</strong> Different periods for different suits. Civil suits — 3 years generally. Land — 12 years. Court decrees — 12 years.<br><strong>Art. 226 HC petitions:</strong> No fixed limitation but must be filed within reasonable time — laches doctrine applies.<br><strong>Condonation of delay (Sec. 5):</strong> Court can excuse delay if 'sufficient cause' shown — discretionary.<br><strong>Trap:</strong> Limitation is procedural — does not extinguish the right, only bars the remedy."},
+      {latin:"Actio personalis moritur cum persona",detail:"<strong>Modified in India by:</strong> Legal Representatives Suits Act 1855 — certain tort claims survive death.<br><strong>Survives death:</strong> Property damage claims, economic loss claims — pass to estate.<br><strong>Does NOT survive:</strong> Defamation (personal reputation), assault (personal to victim).<br><strong>Criminal:</strong> Criminal action dies with accused — cannot prosecute dead person. But pending trial continues against other accused."}
+    ],
+    bRef:"Limitation Act 1963"
+  },
+  {
+    num:"12", tag:"Constitutional — Federalism Maxims", ref:"Art. 245–254",
+    q:"Identify these two federalism-related maxims",
+    m1:{
+      latin:"Leges posteriores priores contrarias abrogant",
+      meaning:"Later laws abrogate earlier contrary laws",
+      use:"Later legislation repeals earlier inconsistent legislation. Art. 254 — later Parliamentary law prevails over State law."
+    },
+    m2:{
+      latin:"Ut res magis valeat quam pereat",
+      meaning:"It is better for a thing to have effect than to be made void",
+      use:"Principle of validity — courts prefer interpretation that upholds validity of statute over one that destroys it."
+    },
+    bLabel:"Federalism & Validity Maxims",
+    back:[
+      {latin:"Leges posteriores priores contrarias abrogant",detail:"<strong>Art. 254:</strong> If State law and Parliament law on Concurrent List conflict — Parliamentary law prevails. State law to extent of repugnancy is void.<br><strong>Exception Art. 254(2):</strong> State law gets Presidential assent — prevails in that state over earlier Parliamentary law.<br><strong>Implied repeal:</strong> Later law need not expressly repeal earlier law — if inconsistent, earlier is impliedly repealed.<br><strong>Trap:</strong> This only applies to repugnancy on Concurrent List — not Union or State List."},
+      {latin:"Ut res magis valeat quam pereat",detail:"<strong>Principle of reading down:</strong> Courts prefer to read down an offending provision to save the law rather than strike it down entirely.<br><strong>Severability doctrine (Art. 13):</strong> If part of law violates FR, only that part is struck down — rest remains valid (Sec. 24 ICA analogy).<br><strong>Landmark:</strong> R.M.D. Chamarbaugwala v. Union of India (1957) — severable and non-severable parts doctrine.<br><strong>Trap:</strong> Severability requires that remaining part can stand independently — if the whole scheme falls, entire law is struck down."}
+    ],
+    bRef:"Art. 13, 245, 254"
+  },
+  {
+    num:"13", tag:"Agency & Representation Maxims", ref:"ICA · Agency",
+    q:"Identify these two agency law maxims",
+    m1:{
+      latin:"Qui facit per alium facit per se",
+      meaning:"He who acts through another acts himself",
+      use:"Principal is liable for acts of agent done in course of authority. Vicarious liability."
+    },
+    m2:{
+      latin:"Delegatus non potest delegare",
+      meaning:"A delegate cannot further delegate",
+      use:"A person to whom power is delegated cannot sub-delegate unless expressly authorised."
+    },
+    bLabel:"Agency Maxims Explained",
+    back:[
+      {latin:"Qui facit per alium facit per se",detail:"<strong>Sec. 182–238 ICA:</strong> Principal bound by acts of agent within actual or apparent authority.<br><strong>Vicarious liability in tort:</strong> Employer liable for employee's acts done in course of employment (respondeat superior).<br><strong>Government liability:</strong> State liable for tortious acts of servants — Kasturilal v. State of UP (1965); now modified by State Liability legislation.<br><strong>Trap:</strong> Principal NOT liable for agent's acts outside scope of authority (frolic of own)."},
+      {latin:"Delegatus non potest delegare",detail:"<strong>Administrative Law:</strong> A statutory authority delegated power cannot sub-delegate unless statute permits.<br><strong>Exception:</strong> Ministerial acts (purely mechanical, no discretion) can be further delegated.<br><strong>Application:</strong> If Parliament delegates rule-making to govt — govt cannot further delegate to a subordinate body without express authority.<br><strong>Trap:</strong> Sub-delegation is NOT always unconstitutional — it depends on whether parent statute permits it. General Clauses Act Sec. 21 allows modification/cancellation of delegated acts."}
+    ],
+    bRef:"ICA Sec. 182–238 · Admin Law"
+  },
+  {
+    num:"14", tag:"Justice & Punishment Maxims", ref:"Criminal Law · Penology",
+    q:"Identify these two justice and punishment maxims",
+    m1:{
+      latin:"Nullum crimen sine lege, nulla poena sine lege",
+      meaning:"No crime without law, no punishment without law",
+      use:"Art. 20(1) — no ex-post-facto conviction. Punishment only as prescribed at time of offence."
+    },
+    m2:{
+      latin:"Fiat justitia ruat caelum",
+      meaning:"Let justice be done though the heavens fall",
+      use:"Justice must be done regardless of consequences. Reflects absolute commitment to rule of law."
+    },
+    bLabel:"Justice Maxims Explained",
+    back:[
+      {latin:"Nullum crimen sine lege",detail:"<strong>Art. 20(1):</strong> No person shall be convicted of any offence except for violation of a law in force at the time — and no greater penalty than prescribed at time of commission.<br><strong>International law:</strong> Nuremberg Principles violated this maxim — war criminals tried retrospectively. India's Constitution prohibits this for individuals.<br><strong>Trap:</strong> Art. 20(1) prevents conviction — but prosecution under retrospective law may be permissible (only conviction + greater punishment barred)."},
+      {latin:"Fiat justitia ruat caelum",detail:"<strong>Origin:</strong> Lord Mansfield (18th century English judge). Symbolises judicial independence.<br><strong>Indian context:</strong> Basis of contempt of court powers — courts protect administration of justice regardless of social/political pressure.<br><strong>Art. 129:</strong> SC as court of record — power to punish for contempt. Art. 215: HC same powers.<br><strong>Trap:</strong> 'Justice' here means legal justice — not popular justice. Courts follow law even when public sentiment differs."}
+    ],
+    bRef:"Art. 20(1), 129, 215"
+  },
+  {
+    num:"15", tag:"Land & Succession Maxims", ref:"Hindu Law · Succession",
+    q:"Identify these two succession and land maxims",
+    m1:{
+      latin:"Nemo plus juris ad alium transferre potest quam ipse haberet",
+      meaning:"No one can transfer more rights than they themselves possess",
+      use:"Identical principle to nemo dat — applied in succession and inheritance contexts."
+    },
+    m2:{
+      latin:"Spes successionis",
+      meaning:"A mere hope or expectancy of succession",
+      use:"A mere expectation of inheriting property has no legal value — cannot be sold or transferred."
+    },
+    bLabel:"Succession & Land Maxims",
+    back:[
+      {latin:"Nemo plus juris ad alium transferre",detail:"<strong>Applied in:</strong> Hindu Succession Act, Transfer of Property Act Sec. 7 — only absolute owner can make absolute transfer.<br><strong>Limited owner:</strong> Hindu widow (under old law) had limited estate — could not alienate beyond her interest. Abolished by HSA 1956 — now women have full ownership (Sec. 14 HSA).<br><strong>Trap:</strong> Under Sec. 6 HSA 2005 amendment — daughter has same coparcenary rights as son in ancestral property."},
+      {latin:"Spes successionis",detail:"<strong>Sec. 6 TPA:</strong> A mere spes successionis (chance of an heir apparent succeeding) cannot be transferred — such a transfer is void.<br><strong>Doctrine of factum valet:</strong> What cannot be done by agreement may be ratified by subsequent fact — e.g., minor's marriage invalid but ratified on majority.<br><strong>Expectancy vs vested right:</strong> Vested interest (present right) can be transferred. Contingent interest (on happening of event) can be transferred. Mere expectancy = cannot be transferred.<br><strong>Trap:</strong> Muslim personal law has different rules — gift (Hiba) of future property is void."}
+    ],
+    bRef:"TPA Sec. 6, HSA 1956"
+  },
+  {
+    num:"16", tag:"Public Law Maxims", ref:"Admin Law · Constitutional Law",
+    q:"Identify these two public law maxims",
+    m1:{
+      latin:"Dura lex sed lex",
+      meaning:"The law is harsh, but it is the law",
+      use:"Courts must apply the law as it is, even if harsh. Legislature's intent governs, not judicial sympathy."
+    },
+    m2:{
+      latin:"Rex non potest peccare",
+      meaning:"The King can do no wrong",
+      use:"Doctrine of sovereign immunity — government not liable in tort. Now significantly eroded in India."
+    },
+    bLabel:"Public Law Maxims Explained",
+    back:[
+      {latin:"Dura lex sed lex",detail:"<strong>Principle:</strong> Courts interpret law as written — cannot soften hard law through judicial creativity beyond permissible limits.<br><strong>Application:</strong> Mandatory vs Directory provisions — 'shall' = mandatory (dura lex applies). 'May' = directory.<br><strong>Limitation:</strong> Art. 21 (Maneka Gandhi 1978) — even harsh law must satisfy just, fair &amp; reasonable procedure. Courts now examine constitutionality of harsh laws.<br><strong>Trap:</strong> This maxim supports strict construction of penal statutes — ambiguity resolved in favour of accused."},
+      {latin:"Rex non potest peccare",detail:"<strong>Historical:</strong> Crown immunity — govt could not be sued. In India: P &amp; T v. Burmah Shell (1961) — distinction between sovereign and non-sovereign functions.<br><strong>Post-Kasturilal (1965):</strong> State immune for sovereign acts (policing, defence) — not for commercial/welfare acts.<br><strong>Present position:</strong> Steadily eroded. Nilabati Behera (1993) — SC awarded compensation for custodial death under Art. 32 directly.<br><strong>Trap:</strong> Doctrine largely abolished by judicial development — State regularly held liable for its officers' torts today."}
+    ],
+    bRef:"Art. 300 · Admin Law"
+  },
+  {
+    num:"17", tag:"Judicial Process Maxims", ref:"CPC · BNSS",
+    q:"Identify these two judicial process maxims",
+    m1:{
+      latin:"Res judicata pro veritate accipitur",
+      meaning:"A matter adjudged is taken as truth",
+      use:"Sec. 11 CPC — once a matter decided by competent court, same parties cannot relitigate it."
+    },
+    m2:{
+      latin:"Interest rei publicae ut sit finis litium",
+      meaning:"It is in the public interest that there be an end to litigation",
+      use:"Basis of res judicata, limitation, and estoppel — courts discourage endless litigation."
+    },
+    bLabel:"Res Judicata & Finality Maxims",
+    back:[
+      {latin:"Res judicata pro veritate accipitur",detail:"<strong>Sec. 11 CPC:</strong> 5 conditions: (1) Same matter in issue (2) Same parties (3) Same title (4) Previously heard and finally decided (5) By court of competent jurisdiction.<br><strong>Constructive res judicata (Explanation IV):</strong> Matters which ought to have been raised but were not — also barred.<br><strong>Application in Constitutional law:</strong> Daryao v. State of UP (1961) — res judicata applies to writ petitions under Art. 32 after HC dismissal under Art. 226.<br><strong>Trap:</strong> Does NOT apply if earlier court lacked jurisdiction."},
+      {latin:"Interest rei publicae ut sit finis litium",detail:"<strong>Principle:</strong> Allows courts to apply res judicata strictly, enforce limitation, and discourage abuse of process.<br><strong>Abuse of process:</strong> Vexatious litigation, frivolous PILs — courts impose costs under this principle.<br><strong>Art. 141:</strong> SC decisions are law of the land — ends legal uncertainty. All courts bound — promotes finality.<br><strong>Trap:</strong> This principle does NOT prevent legitimate appeals — it prevents relitigation of settled matters."}
+    ],
+    bRef:"CPC Sec. 11, Art. 141"
+  },
+  {
+    num:"18", tag:"Mens Rea & Presumption Maxims", ref:"BNS · Evidence",
+    q:"Identify these two mens rea and presumption maxims",
+    m1:{
+      latin:"Furiosi nulla voluntas est",
+      meaning:"A person of unsound mind has no will / intention",
+      use:"Insanity defence — no criminal liability if person cannot form intention. Sec. 22 BNS / Sec. 84 IPC."
+    },
+    m2:{
+      latin:"Omnia praesumuntur innocentia donec probetur contrarium",
+      meaning:"All things are presumed innocent until the contrary is proved",
+      use:"Presumption of innocence — accused innocent till proven guilty. Foundation of criminal justice."
+    },
+    bLabel:"Insanity & Innocence Maxims",
+    back:[
+      {latin:"Furiosi nulla voluntas est",detail:"<strong>Sec. 22 BNS (= Sec. 84 IPC):</strong> Nothing is an offence done by a person of unsound mind who, at the time, was incapable of knowing the nature of the act or that it was wrong/contrary to law.<br><strong>M'Naghten Rules (1843):</strong> Basis of insanity defence — did accused know nature of act? Did they know it was wrong?<br><strong>Burden:</strong> Accused must prove insanity on balance of probabilities (Sec. 105 IEA).<br><strong>Trap:</strong> Insanity at time of trial ≠ insanity at time of offence. Only latter is a defence."},
+      {latin:"Omnia praesumuntur innocentia",detail:"<strong>Presumption of innocence:</strong> Not explicitly in Indian Constitution but read into Art. 21 — fair procedure requires presumption of innocence.<br><strong>Woolmington Principle:</strong> 'Golden thread' — prosecution bears burden of proving guilt beyond reasonable doubt.<br><strong>Reversal under special laws:</strong> NDPS Act, PMLA, PC Act — reverse burden on accused to prove innocence. SC upheld these in Noor Aga v. State of Punjab (2008).<br><strong>Trap:</strong> Reverse burden ≠ guilt presumed — still need prima facie case by prosecution first."}
+    ],
+    bRef:"BNS Sec. 22, IEA Sec. 105"
+  },
+  {
+    num:"19", tag:"International & Human Rights Maxims", ref:"Int'l Law · HR Law",
+    q:"Identify these two international and human rights maxims",
+    m1:{
+      latin:"Pacta sunt servanda",
+      meaning:"Agreements must be kept — treaties must be honoured",
+      use:"Foundation of international law — states bound by treaties they sign. Art. 51 Directive Principle."
+    },
+    m2:{
+      latin:"Jus cogens",
+      meaning:"Compelling law — peremptory norms of international law",
+      use:"Norms from which no derogation is permitted — prohibition of genocide, slavery, torture."
+    },
+    bLabel:"International Law Maxims",
+    back:[
+      {latin:"Pacta sunt servanda",detail:"<strong>Art. 38, ICJ Statute:</strong> International conventions are primary source of international law.<br><strong>India and treaties:</strong> Parliament must pass legislation to give effect to treaties — Vishaka v. State of Rajasthan (1997) — CEDAW used to fill gap in domestic law.<br><strong>Art. 51 DPSP:</strong> India shall endeavour to foster respect for international law and treaty obligations.<br><strong>Trap:</strong> In India, treaties are NOT automatically part of domestic law — need legislative incorporation (unlike UK under some interpretations)."},
+      {latin:"Jus cogens",detail:"<strong>Vienna Convention on Law of Treaties (1969), Art. 53:</strong> Treaty conflicting with jus cogens is void.<br><strong>Examples of jus cogens:</strong> Prohibition of genocide | Slavery | Torture | Crimes against humanity | Right of self-determination.<br><strong>Erga omnes:</strong> Related concept — obligations owed to the whole international community, not just treaty parties.<br><strong>India:</strong> Protection of Human Rights Act 1993 implements international human rights norms domestically.<br><strong>Trap:</strong> Jus cogens is binding on ALL states — even non-signatories to treaties."}
+    ],
+    bRef:"Art. 51 DPSP · VCLT 1969"
+  },
+  {
+    num:"20", tag:"Master Maxims — Quick Recall", ref:"All Legal Subjects",
+    q:"PLA Master List — rapid fire: identify all key maxims",
+    m1:{
+      latin:"Lex loci contractus / Lex fori",
+      meaning:"Law of the place where contract made / Law of the forum (court hearing the case)",
+      use:"Private international law — which law governs? Generally lex fori for procedure, lex loci for substantive rights."
+    },
+    m2:{
+      latin:"De minimis non curat lex",
+      meaning:"The law does not concern itself with trifles",
+      use:"Courts do not adjudicate trivial matters. Minor/technical violations may be ignored."
+    },
+    bLabel:"40 Maxims — Quick Reference",
+    back:`<table class='c-table'>
+<tr><th>Maxim</th><th>Meaning (short)</th><th>Subject</th></tr>
+<tr><td><em>Actus non facit reum...</em></td><td>No guilty act without guilty mind</td><td>Criminal</td></tr>
+<tr><td><em>Ignorantia juris non excusat</em></td><td>Ignorance of law no excuse</td><td>Criminal</td></tr>
+<tr><td><em>Audi alteram partem</em></td><td>Hear the other side</td><td>Natural Justice</td></tr>
+<tr><td><em>Nemo judex in causa sua</em></td><td>No judge in own cause</td><td>Natural Justice</td></tr>
+<tr><td><em>Nemo dat quod non habet</em></td><td>Cannot give what you don't have</td><td>Property</td></tr>
+<tr><td><em>Res judicata</em></td><td>Matter already decided</td><td>Procedure</td></tr>
+<tr><td><em>Damnum sine injuria</em></td><td>Damage without legal injury</td><td>Tort</td></tr>
+<tr><td><em>Injuria sine damno</em></td><td>Legal injury without damage</td><td>Tort</td></tr>
+<tr><td><em>Nullum crimen sine lege</em></td><td>No crime without law</td><td>Criminal / Art. 20</td></tr>
+<tr><td><em>Ubi jus ibi remedium</em></td><td>Where right, there remedy</td><td>Constitutional</td></tr>
+<tr><td><em>Pacta sunt servanda</em></td><td>Agreements must be kept</td><td>Int'l Law</td></tr>
+<tr><td><em>De minimis non curat lex</em></td><td>Law ignores trifles</td><td>General</td></tr>
+</table>`,
+    bRef:"All Legal Subjects"
+  }
+];
+
+let cards=[...CARDS],idx=0,flipped=false,knownSet=new Set();
+
+function mBox(m,n){
+  return `<div class="maxim-box">
+    <div class="maxim-num">Maxim ${n}</div>
+    <div class="maxim-latin">${m.latin}</div>
+    <div class="maxim-meaning">"${m.meaning}"</div>
+    <div class="maxim-use">${m.use}</div>
+  </div>`;
+}
+
+function render(){
+  const c=cards[idx];
+  flipped=false;
+  document.getElementById('scene').classList.remove('flipped');
+  document.getElementById('scene').classList.toggle('known',knownSet.has(CARDS.indexOf(c)));
+  document.getElementById('fNum').textContent=c.num;
+  document.getElementById('fBody').innerHTML=
+    `<div class="topic-tag">${c.tag}</div>
+     <div class="card-q">Q. ${c.q}</div>
+     <div class="maxims-wrap">${mBox(c.m1,'01')}${mBox(c.m2,'02')}</div>
+     <div class="divider"></div>
+     <div class="card-detail">${c.detail||'<em style="color:#4a6080">Flip for in-depth explanation of both maxims</em>'}</div>`;
+  document.getElementById('fRef').textContent=c.ref;
+  document.getElementById('bLabel').textContent=c.bLabel;
+  document.getElementById('bNum').textContent=c.num;
+  if(Array.isArray(c.back)){
+    document.getElementById('bBody').innerHTML=c.back.map(b=>
+      `<div class="back-maxim-block">
+        <div class="bm-latin">${b.latin}</div>
+        <div class="bm-detail">${b.detail}</div>
+      </div>`
+    ).join('');
+  } else {
+    document.getElementById('bBody').innerHTML=c.back;
+  }
+  document.getElementById('bRef').textContent=c.bRef||c.ref;
+  document.getElementById('curN').textContent=idx+1;
+  document.getElementById('totN').textContent=cards.length;
+  document.getElementById('prevBtn').disabled=idx===0;
+  document.getElementById('nextBtn').disabled=idx===cards.length-1;
+  const known=knownSet.size,total=CARDS.length;
+  document.getElementById('progFill').style.width=(total?known/total*100:0)+'%';
+  document.getElementById('knownCt').textContent=known;
+  document.getElementById('totalCt').textContent=total;
+  const s=document.getElementById('scene');
+  s.style.animation='none';s.offsetHeight;s.style.animation='cardIn 0.35s ease both';
+}
+
+function flip(){flipped=!flipped;document.getElementById('scene').classList.toggle('flipped',flipped);}
+function nav(d){const n=idx+d;if(n<0||n>=cards.length)return;idx=n;render();}
+function markKnown(){const c=cards[idx],gi=CARDS.indexOf(c);knownSet.has(gi)?knownSet.delete(gi):knownSet.add(gi);render();}
+function shuffle(){for(let i=cards.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[cards[i],cards[j]]=[cards[j],cards[i]];}idx=0;render();}
+
+let tx=0,ty=0;
+document.getElementById('scene').addEventListener('touchstart',e=>{tx=e.touches[0].clientX;ty=e.touches[0].clientY;},{passive:true});
+document.getElementById('scene').addEventListener('touchend',e=>{
+  const dx=e.changedTouches[0].clientX-tx,dy=e.changedTouches[0].clientY-ty;
+  if(Math.abs(dx)>50&&Math.abs(dx)>Math.abs(dy)*1.5){dx<0?nav(1):nav(-1);}
+},{passive:true});
+document.addEventListener('keydown',e=>{
+  if(e.target.tagName==='INPUT')return;
+  if(e.key==='ArrowLeft')nav(-1);
+  else if(e.key==='ArrowRight')nav(1);
+  else if(e.key===' '){e.preventDefault();flip();}
+  else if(e.key==='k'||e.key==='K')markKnown();
+  else if(e.key==='s'||e.key==='S')shuffle();
+});
+render();
+</script>
+</body>
+</html>

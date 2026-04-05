@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Class Tests — Pacific Law Academy | PU BA.LLB 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,400&family=JetBrains+Mono:wght@400;700&display=swap');
+
+  :root {
+    --ink:        #1a1208;
+    --paper:      #f5f0e8;
+    --cream:      #ede8da;
+    --gold:       #b8860b;
+    --gold-light: #d4a017;
+    --forest:     #1e3d2f;
+    --indigo:     #2c3e7a;
+    --line:       rgba(26,18,8,0.15);
+    --shadow:     rgba(26,18,8,0.12);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Source Serif 4', Georgia, serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.7;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ── HEADER ── */
+  .header-band {
+    background: var(--ink);
+    color: var(--paper);
+    position: relative;
+    overflow: hidden;
+  }
+  .header-band::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      -45deg, transparent, transparent 14px,
+      rgba(255,255,255,0.018) 14px, rgba(255,255,255,0.018) 28px
+    );
+  }
+  .header-band::after {
+    content: 'PLA';
+    position: absolute;
+    right: 48px; top: 50%;
+    transform: translateY(-50%);
+    font-family: 'Playfair Display', serif;
+    font-size: 130px;
+    font-weight: 900;
+    color: rgba(255,255,255,0.03);
+    line-height: 1;
+    letter-spacing: -0.04em;
+    pointer-events: none;
+  }
+  .header-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 36px 48px 32px;
+    position: relative;
+    z-index: 1;
+  }
+  .academy-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    margin-bottom: 10px;
+  }
+  .header-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 38px;
+    font-weight: 900;
+    line-height: 1.05;
+    color: var(--paper);
+    margin-bottom: 6px;
+  }
+  .header-sub {
+    font-size: 15px;
+    font-style: italic;
+    color: rgba(245,240,232,0.65);
+    letter-spacing: 0.3px;
+  }
+
+  /* ── META STRIP ── */
+  .meta-strip {
+    background: var(--gold);
+    color: var(--ink);
+    padding: 10px 48px;
+    display: flex;
+    gap: 36px;
+    flex-wrap: wrap;
+    align-items: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+  .meta-item span { opacity: 0.62; font-weight: 400; }
+
+  /* ── MAIN ── */
+  main {
+    flex: 1;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 48px 48px 64px;
+    width: 100%;
+  }
+
+  /* ── INTRO ── */
+  .intro-block {
+    background: var(--cream);
+    border-left: 4px solid var(--ink);
+    padding: 18px 24px;
+    margin-bottom: 48px;
+    font-size: 14.5px;
+    line-height: 1.7;
+  }
+  .intro-block strong {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9.5px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 6px;
+    opacity: 0.5;
+  }
+
+  /* ── SECTION LABEL ── */
+  .section-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9.5px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 10px;
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .section-label::before {
+    content: '§';
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    color: var(--line);
+    line-height: 1;
+  }
+
+  /* ── TEST CARDS ── */
+  .test-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    margin-bottom: 56px;
+  }
+
+  .test-card {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: var(--ink);
+    border: 1px solid var(--line);
+    background: #fff;
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+    overflow: hidden;
+  }
+  .test-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px var(--shadow);
+  }
+
+  /* Card header */
+  .tc-header {
+    padding: 28px 28px 22px;
+    color: var(--paper);
+    position: relative;
+    overflow: hidden;
+  }
+  .tc-header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      -45deg, transparent, transparent 10px,
+      rgba(255,255,255,0.025) 10px, rgba(255,255,255,0.025) 20px
+    );
+  }
+  .ct4 .tc-header { background: var(--forest); }
+  .ct5 .tc-header { background: var(--indigo); }
+
+  .tc-ghost {
+    position: absolute;
+    right: 20px; top: 50%;
+    transform: translateY(-50%);
+    font-family: 'Playfair Display', serif;
+    font-size: 100px;
+    font-weight: 900;
+    color: rgba(255,255,255,0.05);
+    line-height: 1;
+    pointer-events: none;
+  }
+  .tc-header-inner { position: relative; z-index: 1; }
+
+  .tc-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    margin-bottom: 8px;
+  }
+  .tc-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-weight: 900;
+    line-height: 1.1;
+    color: var(--paper);
+    margin-bottom: 5px;
+  }
+  .tc-tagline {
+    font-size: 13px;
+    font-style: italic;
+    color: rgba(245,240,232,0.68);
+  }
+
+  /* Card meta row */
+  .tc-meta {
+    padding: 11px 28px;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid var(--line);
+  }
+  .ct4 .tc-meta { background: rgba(30,61,47,0.06); color: var(--forest); }
+  .ct5 .tc-meta { background: rgba(44,62,122,0.06); color: var(--indigo); }
+  .tc-meta .lbl { opacity: 0.52; font-weight: 400; }
+
+  /* Card body */
+  .tc-body {
+    padding: 22px 28px;
+    flex: 1;
+  }
+  .sec-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+  }
+  .sec-list li {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    font-size: 13.5px;
+    line-height: 1.4;
+  }
+  .sec-list li::before {
+    content: '';
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 5px;
+  }
+  .ct4 .sec-list li::before { background: var(--forest); }
+  .ct5 .sec-list li::before { background: var(--indigo); }
+
+  .sec-range {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9.5px;
+    opacity: 0.4;
+    flex-shrink: 0;
+    margin-left: auto;
+    padding-left: 8px;
+  }
+
+  /* CTA */
+  .tc-cta {
+    margin: 4px 28px 24px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 22px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border: 1.5px solid;
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+  .ct4 .tc-cta { color: var(--forest); border-color: var(--forest); }
+  .ct4:hover .tc-cta { background: var(--forest); color: var(--paper); }
+  .ct5 .tc-cta { color: var(--indigo); border-color: var(--indigo); }
+  .ct5:hover .tc-cta { background: var(--indigo); color: var(--paper); }
+  .tc-arrow { transition: transform 0.15s ease; }
+  .test-card:hover .tc-arrow { transform: translateX(4px); }
+
+  /* ── COMPARISON TABLE ── */
+  .ref-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.5px;
+    margin-bottom: 56px;
+  }
+  .ref-table th {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--paper);
+    background: var(--ink);
+    padding: 10px 16px;
+    text-align: left;
+    font-weight: 700;
+  }
+  .ref-table td {
+    padding: 11px 16px;
+    border-bottom: 1px solid var(--line);
+    vertical-align: middle;
+  }
+  .ref-table tr:nth-child(even) td { background: var(--cream); }
+  .ref-table tr:hover td { background: rgba(184,134,11,0.07); }
+
+  .badge {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    padding: 2px 9px;
+    text-transform: uppercase;
+    color: var(--paper);
+  }
+  .badge.ct4 { background: var(--forest); }
+  .badge.ct5 { background: var(--indigo); }
+
+  /* ── INSTRUCTIONS ── */
+  .instructions {
+    background: var(--cream);
+    border-left: 4px solid var(--gold);
+    padding: 20px 26px;
+    font-size: 14px;
+    line-height: 1.75;
+  }
+  .instructions strong {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9.5px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 10px;
+    opacity: 0.55;
+  }
+  .instructions ol { padding-left: 20px; }
+  .instructions li { margin-bottom: 5px; }
+  .instructions kbd {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    background: rgba(26,18,8,0.08);
+    border: 1px solid var(--line);
+    padding: 1px 5px;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 20px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .f-left {
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--gold-light);
+    letter-spacing: 0.5px;
+  }
+  .f-right {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9.5px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.28);
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 680px) {
+    .header-inner { padding: 28px 24px 24px; }
+    .header-title { font-size: 28px; }
+    .meta-strip { padding: 10px 24px; gap: 20px; }
+    main { padding: 32px 24px 48px; }
+    .test-cards { grid-template-columns: 1fr; }
+    footer { padding: 16px 24px; flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header-band">
+  <div class="header-inner">
+    <div class="academy-name">Pacific Law Academy · Sector 20, Panchkula</div>
+    <div class="header-title">Class Test Series</div>
+    <div class="header-sub">PU BA.LLB Entrance 2026 — MCQ Practice Papers</div>
+  </div>
+</div>
+
+<div class="meta-strip">
+  <div class="meta-item">SERIES: <span>PU BA.LLB 2026</span></div>
+  <div class="meta-item">TESTS IN THIS FOLDER: <span>CT 4 &amp; CT 5</span></div>
+  <div class="meta-item">COMBINED QUESTIONS: <span>250</span></div>
+  <div class="meta-item">NEGATIVE MARKING: <span>−0.25 per wrong answer</span></div>
+</div>
+
+<main>
+
+  <div class="intro-block">
+    <strong>About This Series</strong>
+    Pattern-analysed MCQ papers for the PU BA.LLB 2026 entrance examination. Each test mirrors the difficulty progression and subject weightage of the actual paper. Attempt under timed conditions for best results.
+  </div>
+
+  <div class="section-label">Available Tests</div>
+
+  <div class="test-cards">
+
+    <!-- CT4 -->
+    <a class="test-card ct4" href="Class_Test_4___BSA___Current_Affairs__Pacific_Law_Academy.html">
+      <div class="tc-header">
+        <div class="tc-ghost">4</div>
+        <div class="tc-header-inner">
+          <div class="tc-num">Class Test · 04</div>
+          <div class="tc-name">BSA &amp; Current Affairs</div>
+          <div class="tc-tagline">Bharatiya Sakshya Adhiniyam + PU Law Entrance 2026</div>
+        </div>
+      </div>
+      <div class="tc-meta">
+        <div>150 <span class="lbl">Questions</span></div>
+        <div>150 <span class="lbl">Marks</span></div>
+        <div>90 <span class="lbl">Minutes</span></div>
+      </div>
+      <div class="tc-body">
+        <ul class="sec-list">
+          <li>
+            Bharatiya Sakshya Adhiniyam &amp; Law of Evidence
+            <span class="sec-range">Q 1–80</span>
+          </li>
+          <li>
+            Current Affairs — PU Law Entrance 2026
+            <span class="sec-range">Q 81–150</span>
+          </li>
+        </ul>
+      </div>
+      <div class="tc-cta">Open Test <span class="tc-arrow">→</span></div>
+    </a>
+
+    <!-- CT5 -->
+    <a class="test-card ct5" href="Class_Test_5___Indian_Contract_Act__Pacific_Law_Academy.html">
+      <div class="tc-header">
+        <div class="tc-ghost">5</div>
+        <div class="tc-header-inner">
+          <div class="tc-num">Class Test · 05</div>
+          <div class="tc-name">Indian Contract Act</div>
+          <div class="tc-tagline">ICA 1872 — Basic through Advanced · 5 Sections</div>
+        </div>
+      </div>
+      <div class="tc-meta">
+        <div>100 <span class="lbl">Questions</span></div>
+        <div>100 <span class="lbl">Marks</span></div>
+        <div>75 <span class="lbl">Minutes</span></div>
+      </div>
+      <div class="tc-body">
+        <ul class="sec-list">
+          <li>Basics, Offer, Acceptance &amp; Consideration<span class="sec-range">Q 1–20</span></li>
+          <li>Capacity to Contract &amp; Free Consent<span class="sec-range">Q 21–40</span></li>
+          <li>Void, Voidable &amp; Unlawful Agreements<span class="sec-range">Q 41–55</span></li>
+          <li>Performance, Discharge &amp; Frustration<span class="sec-range">Q 56–70</span></li>
+          <li>Quasi-Contracts, Indemnity, Guarantee, Bailment &amp; Agency<span class="sec-range">Q 71–100</span></li>
+        </ul>
+      </div>
+      <div class="tc-cta">Open Test <span class="tc-arrow">→</span></div>
+    </a>
+
+  </div>
+
+  <!-- Comparison table -->
+  <div class="section-label">At a Glance</div>
+
+  <table class="ref-table">
+    <thead>
+      <tr>
+        <th>Test</th>
+        <th>Subject(s)</th>
+        <th>Questions</th>
+        <th>Marks</th>
+        <th>Time</th>
+        <th>Neg. Marking</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="badge ct4">CT 4</span></td>
+        <td>BSA &amp; Current Affairs</td>
+        <td>150</td>
+        <td>150</td>
+        <td>90 min</td>
+        <td>−0.25</td>
+      </tr>
+      <tr>
+        <td><span class="badge ct5">CT 5</span></td>
+        <td>Indian Contract Act 1872</td>
+        <td>100</td>
+        <td>100</td>
+        <td>75 min</td>
+        <td>−0.25</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Instructions -->
+  <div class="section-label">General Instructions</div>
+
+  <div class="instructions">
+    <strong>Before You Begin</strong>
+    <ol>
+      <li>Each question carries <strong>1 mark</strong>. <strong>0.25 marks</strong> are deducted per incorrect answer. Unattempted questions carry no penalty.</li>
+      <li>Attempt under timed conditions — set a timer before opening the paper.</li>
+      <li>Read each question carefully. The answer key appears at the end of each paper.</li>
+      <li>Both papers are optimised for screen reading and printing. Use <kbd>Ctrl+P</kbd> / <kbd>⌘P</kbd> to print.</li>
+    </ol>
+  </div>
+
+</main>
+
+<footer>
+  <div class="f-left">Pacific Law Academy · Panchkula</div>
+  <div class="f-right">PU BA.LLB 2026 · Class Test Series · Educational Use Only</div>
+</footer>
+
+</body>
+</html>

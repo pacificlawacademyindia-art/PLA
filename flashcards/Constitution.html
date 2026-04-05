@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PLA – Constitution 50 Cards</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#1B2A4A;--dark:#0a1628;--gold:#C8922A;--gl:#e8b84b;
+  --gp:rgba(200,146,42,0.13);--gb:rgba(200,146,42,0.35);
+  --txt:#fff;--sub:#a0b8cc;--bl:#8eb4d4;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--dark);font-family:'Source Sans 3',sans-serif;color:var(--txt);min-height:100vh;}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:radial-gradient(ellipse 80% 50% at 20% 20%,rgba(200,146,42,0.05) 0%,transparent 60%);}
+
+/* HEADER */
+.hdr{position:relative;z-index:10;padding:14px 30px 12px;
+  border-bottom:1px solid rgba(200,146,42,0.2);
+  background:rgba(10,22,40,0.97);backdrop-filter:blur(10px);
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+.logo{display:flex;align-items:center;gap:10px;}
+.lb{width:34px;height:34px;border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;
+  font-family:'Playfair Display',serif;font-size:14px;font-weight:900;color:var(--gold);position:relative;}
+.lb::before{content:'';position:absolute;inset:3px;border:1px solid rgba(200,146,42,0.3);}
+.ln{font-family:'Playfair Display',serif;font-size:14px;font-weight:900;color:var(--gold);letter-spacing:2px;}
+.ls{font-size:9px;color:var(--sub);letter-spacing:2px;text-transform:uppercase;margin-top:1px;}
+.hr{display:flex;flex-direction:column;align-items:flex-end;gap:4px;}
+.ht{font-size:10px;color:var(--gold);letter-spacing:1.5px;text-transform:uppercase;}
+.pb{width:160px;height:3px;background:rgba(255,255,255,0.08);}
+.pf{height:100%;background:linear-gradient(90deg,var(--gold),var(--gl));transition:width 0.4s;}
+.pt{font-size:9px;color:var(--sub);text-align:right;}
+
+/* FILTER BAR */
+.fbar{position:relative;z-index:9;padding:8px 30px;
+  background:rgba(10,22,40,0.95);border-bottom:1px solid rgba(200,146,42,0.1);
+  display:flex;gap:6px;flex-wrap:wrap;align-items:center;}
+.fl{font-size:9px;color:var(--sub);letter-spacing:1.5px;text-transform:uppercase;margin-right:4px;}
+.fb{background:transparent;border:1px solid rgba(200,146,42,0.2);color:var(--sub);
+  padding:3px 10px;font-size:10px;letter-spacing:1px;font-weight:700;cursor:pointer;
+  text-transform:uppercase;font-family:'Source Sans 3',sans-serif;transition:all 0.2s;}
+.fb:hover{border-color:var(--gold);color:var(--gold);}
+.fb.on{background:var(--gold);color:var(--dark);border-color:var(--gold);}
+
+/* STAGE */
+.stage{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;padding:22px 14px 100px;}
+
+/* CARD */
+.cs{width:880px;max-width:96vw;perspective:1200px;cursor:pointer;}
+.cf{width:100%;position:relative;transform-style:preserve-3d;
+  transition:transform 0.6s cubic-bezier(0.4,0.2,0.2,1);min-height:500px;}
+.cs.flipped .cf{transform:rotateY(180deg);}
+.face{backface-visibility:hidden;-webkit-backface-visibility:hidden;
+  border:2.5px solid var(--gold);box-shadow:0 16px 50px rgba(0,0,0,0.6);
+  display:flex;flex-direction:column;overflow:hidden;}
+@media(min-width:601px){.face{position:absolute;inset:0;}}
+@media(max-width:600px){
+  .cf{transform-style:flat;transition:none;min-height:unset;}
+  .cs.flipped .cf{transform:none;}
+  .front{display:flex;}.bk{display:none;}
+  .cs.flipped .front{display:none;}
+  .cs.flipped .bk{display:flex;}
+}
+.front{background:var(--navy);}
+.bk{transform:rotateY(180deg);background:#122038;}
+@media(max-width:600px){.bk{transform:none;}}
+.face::before{content:'';position:absolute;top:0;left:0;width:130px;height:130px;
+  border-bottom-right-radius:100%;background:rgba(200,146,42,0.09);}
+.face::after{content:'';position:absolute;bottom:0;right:0;width:110px;height:110px;
+  border-top-left-radius:100%;background:rgba(200,146,42,0.05);}
+.gl{position:absolute;bottom:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--gold),var(--gl),var(--gold));}
+
+/* FRONT LAYOUT */
+.fh{display:flex;justify-content:space-between;align-items:flex-start;
+  padding:16px 26px 0;position:relative;z-index:2;}
+.fbr{font-family:'Playfair Display',serif;font-size:10px;color:var(--gold);letter-spacing:3px;text-transform:uppercase;}
+.fn{font-family:'Playfair Display',serif;font-size:46px;font-weight:900;color:rgba(200,146,42,0.14);line-height:1;}
+.fb2{flex:1;display:flex;flex-direction:column;justify-content:center;padding:6px 26px 4px;position:relative;z-index:2;}
+.ff{display:flex;justify-content:space-between;align-items:center;padding:0 26px 12px;position:relative;z-index:2;}
+.tag{display:inline-block;background:var(--gp);border:1px solid var(--gb);
+  color:var(--gold);font-size:9.5px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+  padding:3px 11px;margin-bottom:11px;width:fit-content;}
+.cq{font-size:11.5px;font-weight:700;color:var(--bl);letter-spacing:0.5px;text-transform:uppercase;margin-bottom:11px;line-height:1.5;}
+.ca{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:#fff;line-height:1.4;}
+.ca .h{color:var(--gold);}
+.dv{width:44px;height:2px;background:var(--gold);margin:9px 0;}
+.dt{font-size:12px;color:var(--sub);line-height:1.72;}
+.dt strong{color:var(--gold);font-weight:700;}
+.fe{font-size:9px;letter-spacing:2px;color:#2a3d55;text-transform:uppercase;font-weight:700;}
+.fr{font-size:9px;color:#2a3d55;font-weight:600;letter-spacing:1px;}
+.fh2{font-size:9px;color:rgba(200,146,42,0.35);letter-spacing:2px;text-transform:uppercase;
+  position:absolute;bottom:14px;left:50%;transform:translateX(-50%);z-index:3;pointer-events:none;}
+
+/* BACK */
+.bh{display:flex;justify-content:space-between;align-items:center;padding:14px 26px 0;position:relative;z-index:2;}
+.bl{font-size:9.5px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-weight:700;}
+.bb{flex:1;display:flex;flex-direction:column;justify-content:center;
+  padding:6px 26px 10px;position:relative;z-index:2;overflow-y:auto;}
+
+/* TABLE */
+.ct{width:100%;border-collapse:collapse;font-size:11.5px;font-family:'Source Sans 3',sans-serif;}
+.ct th{background:rgba(200,146,42,0.18);color:var(--gold);font-weight:700;padding:5px 7px;
+  text-align:left;border:1px solid rgba(200,146,42,0.2);}
+.ct td{padding:5px 7px;color:#c0d4e4;border:1px solid rgba(255,255,255,0.05);vertical-align:top;line-height:1.4;}
+.ct tr:nth-child(even) td{background:rgba(255,255,255,0.025);}
+.ct .h{color:var(--gold);font-weight:700;}
+
+/* INFO GRID */
+.ig{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:9px;}
+.ib{background:var(--gp);border:1px solid var(--gb);padding:10px 12px;position:relative;}
+.ib::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--gold);}
+.il{font-size:9px;font-weight:700;color:var(--gold);letter-spacing:2px;text-transform:uppercase;margin-bottom:4px;}
+.iv{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:#fff;line-height:1.3;margin-bottom:3px;}
+.is{font-size:11px;color:var(--sub);line-height:1.45;}
+
+/* KNOWN */
+.kb2{position:absolute;top:10px;right:10px;background:rgba(40,167,69,0.2);
+  border:1px solid rgba(40,167,69,0.5);color:#5cb85c;font-size:9px;font-weight:700;
+  letter-spacing:1.5px;text-transform:uppercase;padding:2px 8px;z-index:5;display:none;}
+.cs.known .kb2{display:block;}
+.cs.known .face{border-color:rgba(92,184,92,0.4);}
+
+/* CONTROLS */
+.ctrl{display:flex;align-items:center;gap:14px;margin-top:18px;position:relative;z-index:1;}
+@media(max-width:600px){
+  .ctrl{position:fixed;bottom:0;left:0;right:0;margin-top:0;
+    background:rgba(8,18,32,0.98);border-top:1px solid rgba(200,146,42,0.15);
+    padding:8px 14px 14px;gap:8px;z-index:50;justify-content:space-between;}
+  .kbh{display:none;}
+  .ig{grid-template-columns:1fr;}
+  .fb2{padding:6px 14px 4px;}
+  .bb{padding:6px 14px 8px;}
+  .fh,.bh{padding:12px 14px 0;}
+  .ff{padding:0 14px 10px;}
+  .ca{font-size:17px;}
+  .dt{font-size:11px;}
+  .hdr{padding:12px 14px;}
+  .fbar{padding:8px 14px;}
+}
+.cb{background:transparent;border:1.5px solid var(--gb);color:var(--gold);
+  width:42px;height:42px;display:flex;align-items:center;justify-content:center;
+  cursor:pointer;transition:all 0.2s;font-size:17px;}
+.cb:hover:not(:disabled){background:var(--gold);color:var(--dark);}
+.cb:disabled{opacity:0.25;cursor:not-allowed;}
+.cc{display:flex;flex-direction:column;align-items:center;gap:6px;}
+.cn{font-family:'Playfair Display',serif;font-size:13px;color:var(--sub);}
+.cn strong{color:var(--gold);font-size:19px;}
+.ca2{display:flex;gap:6px;}
+.ab{border:1.5px solid;padding:4px 10px;font-size:10px;font-weight:700;
+  letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;font-family:'Source Sans 3',sans-serif;transition:all 0.2s;}
+.ak{border-color:rgba(92,184,92,0.5);color:#5cb85c;background:rgba(92,184,92,0.08);}
+.ak:hover{background:rgba(92,184,92,0.2);}
+.af{border-color:var(--gb);color:var(--bl);background:transparent;}
+.af:hover{background:rgba(142,180,212,0.1);}
+.as{border-color:var(--gb);color:var(--gold);background:transparent;}
+.as:hover{background:var(--gp);}
+.kbh{margin-top:10px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+.kk{display:flex;align-items:center;gap:4px;font-size:9px;color:#2a3d55;letter-spacing:1px;}
+.ky{border:1px solid #1a2d40;background:rgba(255,255,255,0.03);padding:1px 6px;font-size:9px;color:#3a5060;}
+@keyframes ci{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.cs{animation:ci 0.3s ease both;}
+</style>
+</head>
+<body>
+<div class="hdr">
+  <div class="logo">
+    <div class="lb">P</div>
+    <div><div class="ln">PACIFIC LAW ACADEMY</div><div class="ls">PU BA.LLB 2026 · Constitution of India — 50 Flash Cards</div></div>
+  </div>
+  <div class="hr">
+    <div class="ht">Constitution Master Deck · 50 Cards</div>
+    <div class="pb"><div class="pf" id="pf" style="width:0%"></div></div>
+    <div class="pt"><span id="kc">0</span> known / <span id="tc">50</span> total</div>
+  </div>
+</div>
+
+<div class="fbar">
+  <span class="fl">Topic:</span>
+  <button class="fb on" onclick="setT('all',this)">All</button>
+  <button class="fb" onclick="setT('Schedules',this)">Schedules</button>
+  <button class="fb" onclick="setT('Parts',this)">Parts</button>
+  <button class="fb" onclick="setT('History',this)">History</button>
+  <button class="fb" onclick="setT('Amendments',this)">Amendments</button>
+  <button class="fb" onclick="setT('Fundamental Rights',this)">FR</button>
+  <button class="fb" onclick="setT('DPSP',this)">DPSP/FD</button>
+  <button class="fb" onclick="setT('Key Articles',this)">Key Articles</button>
+  <button class="fb" onclick="setT('Emergency',this)">Emergency</button>
+</div>
+
+<div class="stage">
+  <div class="cs" id="cs" onclick="flip()">
+    <div class="kb2">✓ KNOWN</div>
+    <div class="cf" id="cf">
+      <div class="face front">
+        <div class="fh"><div class="fbr">Pacific Law Academy</div><div class="fn" id="fn"></div></div>
+        <div class="fb2" id="fb2"></div>
+        <div class="ff"><div class="fe">PU BA.LLB · CLAT · AILET</div><div class="fr" id="fr"></div></div>
+        <div class="gl"></div><div class="fh2">TAP TO FLIP ↻</div>
+      </div>
+      <div class="face bk">
+        <div class="bh"><div class="bl" id="blb"></div><div class="fn" id="bn" style="font-size:36px;"></div></div>
+        <div class="bb" id="bb"></div>
+        <div class="ff"><div class="fe">PU BA.LLB · CLAT · AILET</div><div class="fr" id="br"></div></div>
+        <div class="gl"></div><div class="fh2">TAP TO GO BACK ↻</div>
+      </div>
+    </div>
+  </div>
+  <div class="ctrl">
+    <button class="cb" id="pb" onclick="nav(-1)">&#8592;</button>
+    <div class="cc">
+      <div class="cn"><strong id="ci">1</strong> / <span id="ct2">50</span></div>
+      <div class="ca2">
+        <button class="ab af" onclick="flip()">↻ Flip</button>
+        <button class="ab ak" onclick="mk()">✓ Known</button>
+        <button class="ab as" onclick="sh()">⇌ Shuffle</button>
+      </div>
+    </div>
+    <button class="cb" id="nb" onclick="nav(1)">&#8594;</button>
+  </div>
+  <div class="kbh">
+    <div class="kk"><span class="ky">←→</span> Navigate</div>
+    <div class="kk"><span class="ky">Space</span> Flip</div>
+    <div class="kk"><span class="ky">K</span> Known</div>
+    <div class="kk"><span class="ky">S</span> Shuffle</div>
+  </div>
+</div>
+
+<script>
+const D=[
+// ══════════════════════════════════════════
+// HISTORY (1–8)
+// ══════════════════════════════════════════
+{n:"01",t:"History",tag:"History of Constitution — Making",ref:"CAC · Constituent Assembly",
+q:"When was the Constituent Assembly formed? Who drafted the Constitution?",
+a:`CA formed: <span class='h'>Dec 1946</span>. Drafting Committee headed by <span class='h'>Dr. B.R. Ambedkar</span>. Adopted: <span class='h'>26 Nov 1949</span>. In force: <span class='h'>26 Jan 1950</span>.`,
+dt:`<strong>CA members:</strong> 389 total (reduced to 299 after Partition). <strong>Sessions:</strong> 11 sessions over 2 yrs 11 months 18 days. <strong>Cost:</strong> ₹6.4 crore. <strong>Trap:</strong> Constitution was adopted on 26 Nov 1949 but came into force on 26 Jan 1950 — Republic Day. 26 Nov = Constitution Day (since 2015).`,
+bl:"Constituent Assembly Key Facts",
+bk:`<table class='ct'><tr><th>Fact</th><th>Detail</th></tr>
+<tr><td class='h'>Constituent Assembly formed</td><td>December 1946 (Cabinet Mission Plan)</td></tr>
+<tr><td class='h'>First session</td><td>9 December 1946 (President: Sachidananda Sinha — pro tem)</td></tr>
+<tr><td class='h'>Permanent President</td><td>Dr. Rajendra Prasad</td></tr>
+<tr><td class='h'>Drafting Committee Chairman</td><td>Dr. B.R. Ambedkar ("Father of Constitution")</td></tr>
+<tr><td class='h'>Total sessions</td><td>11 sessions over 2 yrs 11 months 18 days</td></tr>
+<tr><td class='h'>Adopted on</td><td>26 November 1949 (Constitution Day)</td></tr>
+<tr><td class='h'>Came into force</td><td>26 January 1950 (Republic Day)</td></tr>
+<tr><td class='h'>Original articles</td><td>395 Articles, 8 Schedules, 22 Parts</td></tr>
+<tr><td class='h'>Current articles</td><td>~470 Articles, 12 Schedules, 25 Parts</td></tr></table>`,
+br:"History of Constitution"},
+
+{n:"02",t:"History",tag:"Preamble of Constitution",ref:"Constitution — Preamble",
+q:"What does the Preamble declare India to be? Which Amendment added Secular & Socialist?",
+a:`India = <span class='h'>Sovereign Socialist Secular Democratic Republic</span>. "Socialist" & "Secular" added by <span class='h'>42nd Amendment 1976</span>.`,
+dt:`<strong>Preamble objectives:</strong> Justice (Social, Economic, Political) | Liberty (Thought, Expression, Belief, Faith, Worship) | Equality (Status, Opportunity) | Fraternity (Dignity, Unity & Integrity). <strong>Trap:</strong> Preamble is NOT enforceable in court (Berubari Union case 1960). But it is part of Constitution (Kesavananda Bharati 1973).`,
+bl:"Preamble Deep Dive",
+bk:`<div class='dt'><strong>Full Preamble key words:</strong><br>"WE, THE PEOPLE OF INDIA, having solemnly resolved to constitute India into a <strong>SOVEREIGN SOCIALIST SECULAR DEMOCRATIC REPUBLIC</strong> and to secure to all its citizens: JUSTICE, LIBERTY, EQUALITY, FRATERNITY..."<br><br><strong>Kesavananda Bharati (1973):</strong> Preamble IS part of Constitution — can be amended subject to basic structure.<br><strong>Berubari Union (1960):</strong> Preamble NOT enforceable as law by itself.<br><strong>42nd Amendment 1976:</strong> Added "Socialist," "Secular," and "Integrity."<br><br><strong>Trap:</strong> Preamble mentions "WE THE PEOPLE" — sovereign power rests with people, not Parliament or President.</div>`,
+br:"Preamble · Art. 13"},
+
+{n:"03",t:"History",tag:"Sources of Indian Constitution",ref:"Comparative Constitutional Law",
+q:"Name 5 key sources of the Indian Constitution and what was borrowed from each",
+a:`UK: Cabinet govt, PM, Parliament | USA: <span class='h'>FR, Judicial Review, Impeachment</span> | Ireland: <span class='h'>DPSP</span> | Canada: <span class='h'>Federation + residuary powers</span> | Germany: <span class='h'>Suspension of FR during Emergency</span>`,
+dt:`<strong>Australia:</strong> Concurrent List, freedom of trade. <strong>USSR (now Russia):</strong> Fundamental Duties (FD). <strong>South Africa:</strong> Procedure for Constitutional amendment. <strong>Japan:</strong> Procedure established by law (Art. 21). <strong>France:</strong> Republic, Liberty-Equality-Fraternity.`,
+bl:"Sources of Constitution — Full Table",
+bk:`<table class='ct'><tr><th>Country</th><th>Borrowed Provision</th></tr>
+<tr><td class='h'>UK (Britain)</td><td>Parliamentary govt, Cabinet system, PM, Rule of Law, Bicameralism, Writ system, Single citizenship</td></tr>
+<tr><td class='h'>USA</td><td>Fundamental Rights, Judicial Review, Impeachment, Removal of SC/HC judges, Preamble concept</td></tr>
+<tr><td class='h'>Ireland</td><td>Directive Principles of State Policy (DPSP), Method of election of President, Nomination of RS members</td></tr>
+<tr><td class='h'>Canada</td><td>Federal system with strong centre, Residuary powers with Centre, Advisory jurisdiction of SC</td></tr>
+<tr><td class='h'>Germany (Weimar)</td><td>Suspension of Fundamental Rights during Emergency</td></tr>
+<tr><td class='h'>Australia</td><td>Concurrent List, Freedom of inter-state trade, Joint sitting of Parliament</td></tr>
+<tr><td class='h'>USSR/Russia</td><td>Fundamental Duties (42nd Amendment)</td></tr>
+<tr><td class='h'>South Africa</td><td>Procedure for amendment of Constitution</td></tr>
+<tr><td class='h'>Japan</td><td>Procedure established by law</td></tr></table>`,
+br:"Comparative Constitutional Law"},
+
+{n:"04",t:"History",tag:"Basic Structure Doctrine",ref:"Kesavananda Bharati 1973",
+q:"What is the Basic Structure Doctrine? Which case established it?",
+a:`<span class='h'>Kesavananda Bharati v. State of Kerala (1973)</span> — Parliament cannot amend the BASIC STRUCTURE of the Constitution even under Art. 368.`,
+dt:`<strong>Basic Structure includes:</strong> Supremacy of Constitution | Republican & Democratic form | Secular character | Separation of powers | Federal character | Unity & Integrity | Judicial review | Rule of Law | Free & fair elections | Independence of judiciary | Art. 32 (right to constitutional remedy). <strong>Trap:</strong> 13-judge bench — largest in SC history. 7:6 majority.`,
+bl:"Basic Structure — Key Cases",
+bk:`<table class='ct'><tr><th>Case</th><th>Year</th><th>Held</th></tr>
+<tr><td class='h'>Shankari Prasad</td><td>1951</td><td>Parliament can amend FR — Art. 368 includes FR</td></tr>
+<tr><td class='h'>Sajjan Singh</td><td>1965</td><td>Reaffirmed Shankari Prasad</td></tr>
+<tr><td class='h'>Golak Nath</td><td>1967</td><td>Parliament CANNOT amend FR (overruled Shankari)</td></tr>
+<tr><td class='h'>Kesavananda Bharati</td><td>1973</td><td>Parliament can amend FR but NOT basic structure</td></tr>
+<tr><td class='h'>Minerva Mills</td><td>1980</td><td>Judicial review is basic structure; struck down 42nd Amend. clauses</td></tr>
+<tr><td class='h'>Indra Sawhney</td><td>1992</td><td>50% cap on reservations; creamy layer</td></tr>
+<tr><td class='h'>S.R. Bommai</td><td>1994</td><td>Federalism is basic structure; President's Rule subject to JR</td></tr></table>`,
+br:"Art. 368 · Constitutional Amendment"},
+
+{n:"05",t:"History",tag:"Constitutional History — Key Dates",ref:"History of Indian Constitution",
+q:"Timeline: Morley-Minto to Republic — key dates every student must know",
+a:`1909: <span class='h'>Morley-Minto Reforms</span> | 1919: <span class='h'>Montague-Chelmsford</span> | 1935: <span class='h'>Govt of India Act</span> | 1946: <span class='h'>Cabinet Mission</span> | 1950: <span class='h'>Republic</span>`,
+dt:`<strong>GOI Act 1935:</strong> Largest source of Indian Constitution — federal structure, emergency provisions, judiciary, public service commissions. <strong>Trap:</strong> Ambedkar called Indian Constitution a "bag borrowed from various sources." 250+ provisions directly from GOI Act 1935.`,
+bl:"Constitutional Timeline",
+bk:`<table class='ct'><tr><th>Year</th><th>Event</th><th>Significance</th></tr>
+<tr><td class='h'>1858</td><td>Govt of India Act</td><td>Crown takes over from East India Company</td></tr>
+<tr><td class='h'>1861</td><td>Indian Councils Act</td><td>First legislative councils established</td></tr>
+<tr><td class='h'>1909</td><td>Morley-Minto Reforms</td><td>Communal representation introduced</td></tr>
+<tr><td class='h'>1919</td><td>Montague-Chelmsford</td><td>Dyarchy; bicameral legislature</td></tr>
+<tr><td class='h'>1935</td><td>Govt of India Act</td><td>Federal structure; largest source of Indian Constitution</td></tr>
+<tr><td class='h'>1946</td><td>Cabinet Mission Plan</td><td>Constituent Assembly established</td></tr>
+<tr><td class='h'>26 Nov 1949</td><td>Constitution adopted</td><td>Constitution Day</td></tr>
+<tr><td class='h'>26 Jan 1950</td><td>Constitution in force</td><td>Republic Day; India becomes Republic</td></tr></table>`,
+br:"Constitutional History"},
+
+{n:"06",t:"History",tag:"Committees of Constituent Assembly",ref:"Constituent Assembly",
+q:"Name the key committees of the Constituent Assembly and their chairpersons",
+a:`Drafting Committee: <span class='h'>Dr. B.R. Ambedkar</span> | Union Powers: <span class='h'>Jawaharlal Nehru</span> | Union Constitution: <span class='h'>Nehru</span> | Provincial Constitution: <span class='h'>Sardar Patel</span> | Fundamental Rights: <span class='h'>Sardar Patel</span>`,
+dt:`<strong>Advisory Committee:</strong> Sardar Vallabhbhai Patel (FR, minorities, tribal areas). <strong>Steering Committee:</strong> Dr. Rajendra Prasad. <strong>Rules Committee:</strong> Dr. Rajendra Prasad. <strong>Trap:</strong> Jawaharlal Nehru moved the Objectives Resolution on 13 Dec 1946 — became basis of Preamble.`,
+bl:"CA Committees",
+bk:`<table class='ct'><tr><th>Committee</th><th>Chairman</th><th>Function</th></tr>
+<tr><td class='h'>Drafting Committee</td><td>Dr. B.R. Ambedkar</td><td>Drafted the Constitution</td></tr>
+<tr><td class='h'>Union Powers Committee</td><td>Jawaharlal Nehru</td><td>Centre's legislative powers</td></tr>
+<tr><td class='h'>Union Constitution Committee</td><td>Jawaharlal Nehru</td><td>Central executive + legislature</td></tr>
+<tr><td class='h'>Provincial Constitution Committee</td><td>Sardar Patel</td><td>State constitutions</td></tr>
+<tr><td class='h'>Advisory Committee (FR)</td><td>Sardar Patel</td><td>Fundamental Rights + minorities</td></tr>
+<tr><td class='h'>Steering Committee</td><td>Dr. Rajendra Prasad</td><td>Overall coordination</td></tr>
+<tr><td class='h'>Rules Committee</td><td>Dr. Rajendra Prasad</td><td>Rules of procedure</td></tr>
+<tr><td class='h'>Finance &amp; Staff Committee</td><td>Dr. Rajendra Prasad</td><td>Finance of CA</td></tr></table>`,
+br:"Constituent Assembly History"},
+
+{n:"07",t:"History",tag:"Nature of Indian Constitution",ref:"Constitutional Law",
+q:"Is India's Constitution federal or unitary? Key characteristics?",
+a:`India = <span class='h'>Quasi-Federal</span> (federal in structure, unitary in spirit). K.C. Wheare called it "Quasi-federal." Sir Ivor Jennings: "Federal Constitution with strong unitary features."`,
+dt:`<strong>Federal features:</strong> Dual govt | Bicameralism | Division of powers | Written Constitution | Rigid amendment | Independent judiciary | Supremacy of Constitution. <strong>Unitary features:</strong> Single citizenship | Integrated judiciary | All-India Services | Emergency provisions | Residuary powers with Centre | Appointment of Governors by President.`,
+bl:"Federal vs Unitary Features",
+bk:`<table class='ct'><tr><th>Federal Features</th><th>Unitary Features</th></tr>
+<tr><td>Dual govt (Centre + States)</td><td>Single Constitution</td></tr>
+<tr><td>Written Constitution</td><td>Single citizenship</td></tr>
+<tr><td>Division of powers (3 lists)</td><td>Integrated judiciary (SC apex)</td></tr>
+<tr><td>Independent judiciary</td><td>All-India Services (IAS, IPS)</td></tr>
+<tr><td>Supremacy of Constitution</td><td>Emergency provisions override federalism</td></tr>
+<tr><td>Rigidity of amendment</td><td>Residuary powers with Parliament</td></tr>
+<tr><td>Bicameralism (RS + LS)</td><td>Appointment of Governors by President</td></tr>
+<tr><td>Financial independence of states</td><td>Parliament can change state boundaries</td></tr></table>
+<div class='dt' style='margin-top:8px'><strong>Trap:</strong> India does NOT have dual citizenship unlike USA. <strong>Granville Austin</strong> called it "cooperative federalism."</div>`,
+br:"Federal Structure · Art. 1"},
+
+{n:"08",t:"History",tag:"Citizenship — Art. 5–11",ref:"Part II · Art. 5–11",
+q:"How does Indian Constitution deal with Citizenship? Key provisions?",
+a:`Part II (Art. 5–11): <span class='h'>Single citizenship</span>. Citizenship Act 1955 governs citizenship. India does NOT recognise <span class='h'>dual citizenship</span> (OCI card ≠ citizenship).`,
+dt:`<strong>Art. 5:</strong> Citizenship at commencement — born in India, or parent born in India, or ordinarily resident for 5 years. <strong>Art. 11:</strong> Parliament has power to regulate citizenship by law. <strong>Citizenship (Amendment) Act 2019:</strong> Fast-track citizenship for non-Muslim minorities from Pakistan, Bangladesh, Afghanistan. Controversial. <strong>Trap:</strong> OCI = Overseas Citizen of India — NOT dual citizenship. Cannot vote, hold constitutional office.`,
+bl:"Citizenship Key Facts",
+bk:`<table class='ct'><tr><th>Article</th><th>Subject</th></tr>
+<tr><td class='h'>Art. 5</td><td>Citizenship at commencement of Constitution</td></tr>
+<tr><td class='h'>Art. 6</td><td>Rights of citizenship of migrants from Pakistan</td></tr>
+<tr><td class='h'>Art. 7</td><td>Rights of citizenship of migrants to Pakistan (can regain)</td></tr>
+<tr><td class='h'>Art. 8</td><td>Rights of citizenship of persons of Indian origin outside India</td></tr>
+<tr><td class='h'>Art. 9</td><td>Persons voluntarily acquiring citizenship of foreign state are not citizens of India</td></tr>
+<tr><td class='h'>Art. 10</td><td>Continuance of rights of citizenship</td></tr>
+<tr><td class='h'>Art. 11</td><td>Parliament empowered to regulate citizenship by law</td></tr></table>
+<div class='dt' style='margin-top:8px'><strong>Citizenship Act 1955:</strong> By birth, descent, registration, naturalisation, or incorporation of territory. <strong>CAA 2019:</strong> Amended Citizenship Act — added special fast-track provision for Hindu, Sikh, Buddhist, Jain, Parsi, Christian minorities from 3 countries.</div>`,
+br:"Part II · Art. 5–11"},
+
+// ══════════════════════════════════════════
+// SCHEDULES (9–14)
+// ══════════════════════════════════════════
+{n:"09",t:"Schedules",tag:"Schedules 1–4",ref:"Constitution — Schedules",
+q:"What do Schedules 1, 2, 3, and 4 of the Constitution contain?",
+a:`Sch 1: <span class='h'>States & UTs</span> | Sch 2: <span class='h'>Salaries of key offices</span> | Sch 3: <span class='h'>Forms of Oaths</span> | Sch 4: <span class='h'>Allocation of Rajya Sabha seats</span>`,
+dt:`<strong>Schedule 1:</strong> 28 States + 8 UTs listed. <strong>Schedule 2:</strong> Salaries of President, VP, CJI, SC judges, CAG, Governors, etc. <strong>Schedule 3:</strong> Oaths for President, VP, Ministers, MPs, SC/HC judges. <strong>Schedule 4:</strong> Allocation of seats in Rajya Sabha for each state/UT.`,
+bl:"Schedules 1–4 Detail",
+bk:`<table class='ct'><tr><th>Schedule</th><th>Subject</th><th>Key Trap</th></tr>
+<tr><td class='h'>1st Schedule</td><td>Names of States and UTs + territories</td><td>28 States, 8 UTs as of 2020 (J&K split)</td></tr>
+<tr><td class='h'>2nd Schedule</td><td>Emoluments of Constitutional offices</td><td>President, VP, Speaker, CJI, Governors, CAG</td></tr>
+<tr><td class='h'>3rd Schedule</td><td>Forms of Oaths and Affirmations</td><td>Oath of office, oath of secrecy, oath of allegiance</td></tr>
+<tr><td class='h'>4th Schedule</td><td>Allocation of seats in Rajya Sabha to States &amp; UTs</td><td>Max RS strength = 250 (238 elected + 12 nominated)</td></tr></table>
+<div class='dt' style='margin-top:8px'><strong>Trap:</strong> Schedule 1 was amended when J&K was bifurcated into J&K (UT with legislature) + Ladakh (UT without legislature) in 2019 by J&K Reorganisation Act.<br><strong>Schedule 2 salaries charged to CFI</strong> — not voted upon in Parliament.</div>`,
+br:"Constitution Schedules"},
+
+{n:"10",t:"Schedules",tag:"Schedules 5–7",ref:"Constitution — Schedules",
+q:"What do Schedules 5, 6, and 7 contain? What are the 3 Lists?",
+a:`Sch 5: <span class='h'>Scheduled Areas & Tribes</span> | Sch 6: <span class='h'>Tribal areas (NE)</span> | Sch 7: <span class='h'>3 Lists (Union, State, Concurrent)</span>`,
+dt:`<strong>Schedule 7 — The 3 Lists:</strong> Union List = 97 subjects (defence, foreign affairs, currency, railways) | State List = 66 subjects (police, agriculture, public health) | Concurrent List = 47 subjects (education, marriage, forests, labour). <strong>Trap:</strong> Education moved to Concurrent List by 42nd Amendment 1976.`,
+bl:"Schedule 7 — 3 Lists Deep Dive",
+bk:`<table class='ct'><tr><th>List</th><th>Subjects</th><th>No. of Entries</th><th>Who legislates</th></tr>
+<tr><td class='h'>Union List (List I)</td><td>Defence, Foreign Affairs, Currency, Banking, Railways, Atomic Energy, Citizenship</td><td>97 entries</td><td>Parliament only</td></tr>
+<tr><td class='h'>State List (List II)</td><td>Police, Agriculture, Public Health, Land, Irrigation, Local Govt, Markets</td><td>66 entries</td><td>State Legislature only</td></tr>
+<tr><td class='h'>Concurrent List (List III)</td><td>Education, Marriage, Forests, Labour, Drugs, Criminal Law, Evidence</td><td>47 entries</td><td>Both — Centre prevails on repugnancy (Art. 254)</td></tr>
+</table>
+<div class='dt' style='margin-top:8px'><strong>Residuary powers:</strong> Not in any list → Parliament legislates (Art. 248 + Union List entry 97). <strong>Trap:</strong> Originally State List had 66 entries but some transferred to Concurrent List (e.g., Education — 42nd Amend.). Disputes between Centre and State on Concurrent List resolved in Parliament's favour.</div>`,
+br:"Schedule 7 · Art. 246"},
+
+{n:"11",t:"Schedules",tag:"Schedules 8–10",ref:"Constitution — Schedules",
+q:"What do Schedules 8, 9, and 10 deal with?",
+a:`Sch 8: <span class='h'>22 Official Languages</span> | Sch 9: <span class='h'>Laws beyond judicial review</span> (Kisan/land reform) | Sch 10: <span class='h'>Anti-Defection Law</span>`,
+dt:`<strong>Schedule 8:</strong> Originally 14 languages, now 22. Includes Hindi, Bengali, Marathi, Tamil, Telugu, Urdu, Sanskrit, etc. <strong>Schedule 9:</strong> Added by 1st Amendment 1951 — protects land reform laws from FR challenges. But post-I.R. Coelho (2007) SC can review even Sch. 9 laws if they violate basic structure. <strong>Schedule 10:</strong> Added by 52nd Amendment 1985 — anti-defection.`,
+bl:"Schedules 8–10 Deep Dive",
+bk:`<table class='ct'><tr><th>Schedule</th><th>Subject</th><th>Key Note</th></tr>
+<tr><td class='h'>8th Schedule</td><td>22 Official Languages</td><td>Hindi + 21 others. Latest additions: Bodo, Dogri, Maithili, Santhali (2003 by 92nd Amend.)</td></tr>
+<tr><td class='h'>9th Schedule</td><td>Laws protected from judicial review</td><td>Added by 1st Amend 1951. Currently 284 laws listed. Post-I.R. Coelho 2007 — SC can review if violates basic structure.</td></tr>
+<tr><td class='h'>10th Schedule</td><td>Anti-Defection provisions</td><td>Added by 52nd Amend 1985. Bars disqualification if 2/3 members merge. Speaker decides — but SC can review. Kihoto Hollohan case (1992) upheld it.</td></tr></table>
+<div class='dt' style='margin-top:8px'><strong>22 languages in 8th Schedule:</strong> Assamese, Bengali, Bodo, Dogri, Gujarati, Hindi, Kannada, Kashmiri, Konkani, Maithili, Malayalam, Manipuri, Marathi, Nepali, Odia, Punjabi, Sanskrit, Santhali, Sindhi, Tamil, Telugu, Urdu.</div>`,
+br:"Schedules 8–10 · Constitutional Law"},
+
+{n:"12",t:"Schedules",tag:"Schedules 11–12",ref:"Constitution — Panchayati Raj",
+q:"What do Schedules 11 and 12 deal with? Which Amendments added them?",
+a:`Sch 11: <span class='h'>29 subjects for Panchayats</span> (73rd Amendment 1992) | Sch 12: <span class='h'>18 subjects for Municipalities</span> (74th Amendment 1992)`,
+dt:`<strong>73rd Amendment:</strong> Added Art. 243A–243O + Schedule 11 — gave constitutional status to Panchayati Raj. 3-tier: Gram Panchayat → Panchayat Samiti → Zila Parishad. <strong>74th Amendment:</strong> Art. 243P–243ZG + Schedule 12 — urban local bodies. <strong>Trap:</strong> These amendments are not applicable to Scheduled Areas (5th Schedule) and tribal areas (6th Schedule) without extension.`,
+bl:"73rd & 74th Amendments — PRIs",
+bk:`<table class='ct'><tr><th>Feature</th><th>73rd Amendment (Panchayats)</th><th>74th Amendment (Municipalities)</th></tr>
+<tr><td class='h'>Schedule</td><td>11th Schedule (29 subjects)</td><td>12th Schedule (18 subjects)</td></tr>
+<tr><td class='h'>Articles added</td><td>Art. 243–243O</td><td>Art. 243P–243ZG</td></tr>
+<tr><td class='h'>Structure</td><td>3-tier: Village→Block→District</td><td>Nagar Panchayat, Municipal Council, Municipal Corp</td></tr>
+<tr><td class='h'>Reservation</td><td>1/3 seats for women (now 1/2 in many states)</td><td>1/3 seats for women</td></tr>
+<tr><td class='h'>Election authority</td><td>State Election Commission</td><td>State Election Commission</td></tr>
+<tr><td class='h'>Finance</td><td>State Finance Commission</td><td>State Finance Commission</td></tr></table>`,
+br:"73rd & 74th Amendments"},
+
+{n:"13",t:"Schedules",tag:"All 12 Schedules — Quick Reference",ref:"Constitution — All Schedules",
+q:"What are all 12 Schedules of the Constitution — one-line each?",
+a:`12 Schedules: <span class='h'>States/UTs · Salaries · Oaths · RS seats · Scheduled Areas · NE Tribal · 3 Lists · Languages · Sch-9 laws · Anti-Defection · Panchayat subjects · Municipal subjects</span>`,
+dt:`<strong>Original Schedules:</strong> 8 Schedules in 1950. <strong>Added later:</strong> 9th (1951, 1st Amend.) | 10th (1985, 52nd Amend.) | 11th (1992, 73rd Amend.) | 12th (1992, 74th Amend.). <strong>Trap:</strong> Only 12 Schedules exist — no 13th Schedule. Some students confuse this.`,
+bl:"All 12 Schedules",
+bk:`<table class='ct'><tr><th>Sch.</th><th>Content</th><th>Added By</th></tr>
+<tr><td class='h'>1</td><td>Names of 28 States + 8 UTs</td><td>Original</td></tr>
+<tr><td class='h'>2</td><td>Salaries of President, VP, Speaker, CJI, Governors, CAG</td><td>Original</td></tr>
+<tr><td class='h'>3</td><td>Forms of Oaths &amp; Affirmations</td><td>Original</td></tr>
+<tr><td class='h'>4</td><td>Allocation of Rajya Sabha seats</td><td>Original</td></tr>
+<tr><td class='h'>5</td><td>Scheduled Areas and Scheduled Tribes (Centre-controlled)</td><td>Original</td></tr>
+<tr><td class='h'>6</td><td>Tribal Areas of Assam, Meghalaya, Tripura, Mizoram</td><td>Original</td></tr>
+<tr><td class='h'>7</td><td>Three Legislative Lists (Union, State, Concurrent)</td><td>Original</td></tr>
+<tr><td class='h'>8</td><td>22 Official Languages</td><td>Original (14 → 22)</td></tr>
+<tr><td class='h'>9</td><td>Land reform + other laws protected from JR (284 laws)</td><td>1st Amend. 1951</td></tr>
+<tr><td class='h'>10</td><td>Anti-Defection Law</td><td>52nd Amend. 1985</td></tr>
+<tr><td class='h'>11</td><td>29 functions of Panchayats</td><td>73rd Amend. 1992</td></tr>
+<tr><td class='h'>12</td><td>18 functions of Municipalities</td><td>74th Amend. 1992</td></tr></table>`,
+br:"All 12 Schedules"},
+
+// ══════════════════════════════════════════
+// PARTS (14–18)
+// ══════════════════════════════════════════
+{n:"14",t:"Parts",tag:"Parts I–VI of Constitution",ref:"Constitution — Parts",
+q:"What do Parts I to VI of the Constitution cover?",
+a:`Part I: <span class='h'>Union & Territories</span> | Part II: <span class='h'>Citizenship</span> | Part III: <span class='h'>Fundamental Rights</span> | Part IV: <span class='h'>DPSP</span> | Part IVA: <span class='h'>Fundamental Duties</span> | Part V: <span class='h'>The Union</span> | Part VI: <span class='h'>The States</span>`,
+dt:`<strong>Part III (Art. 12–35):</strong> Most litigated part — 6 FRs. <strong>Part IV (Art. 36–51):</strong> DPSP — not enforceable but fundamental in governance. <strong>Part IVA (Art. 51A):</strong> Added by 42nd Amendment 1976 — 11 Fundamental Duties. <strong>Part V (Art. 52–151):</strong> President, VP, PM, Parliament, SC, CAG.`,
+bl:"Parts I–VI Detail",
+bk:`<table class='ct'><tr><th>Part</th><th>Articles</th><th>Subject</th></tr>
+<tr><td class='h'>Part I</td><td>Art. 1–4</td><td>The Union and its Territory</td></tr>
+<tr><td class='h'>Part II</td><td>Art. 5–11</td><td>Citizenship</td></tr>
+<tr><td class='h'>Part III</td><td>Art. 12–35</td><td>Fundamental Rights</td></tr>
+<tr><td class='h'>Part IV</td><td>Art. 36–51</td><td>Directive Principles of State Policy</td></tr>
+<tr><td class='h'>Part IVA</td><td>Art. 51A</td><td>Fundamental Duties (42nd Amend. 1976)</td></tr>
+<tr><td class='h'>Part V</td><td>Art. 52–151</td><td>The Union (President, VP, Parliament, SC, CAG)</td></tr>
+<tr><td class='h'>Part VI</td><td>Art. 152–237</td><td>The States (Governor, Legislature, HC)</td></tr>
+<tr><td class='h'>Part VII</td><td>Repealed</td><td>Formerly Part B States (7th Amendment 1956)</td></tr></table>`,
+br:"Parts of Constitution"},
+
+{n:"15",t:"Parts",tag:"Parts VII–XIV of Constitution",ref:"Constitution — Parts",
+q:"What do Parts VII to XIV of the Constitution deal with?",
+a:`Part VIII: <span class='h'>UTs</span> | Part IX: <span class='h'>Panchayats</span> | Part IXA: <span class='h'>Municipalities</span> | Part X: <span class='h'>Scheduled & Tribal Areas</span> | Part XI: <span class='h'>Centre–State Relations</span> | Part XII: <span class='h'>Finance</span> | Part XIII: <span class='h'>Trade & Commerce</span> | Part XIV: <span class='h'>Services</span>`,
+dt:`<strong>Part XI (Art. 245–263):</strong> Legislative, administrative, financial relations between Centre and State. <strong>Part XII (Art. 264–300A):</strong> Finance Commission, Consolidated Fund, Contingency Fund, property rights. <strong>Part XIV (Art. 308–323):</strong> UPSC, SPSCs — civil services.`,
+bl:"Parts VII–XIV",
+bk:`<table class='ct'><tr><th>Part</th><th>Articles</th><th>Subject</th></tr>
+<tr><td class='h'>Part VIII</td><td>Art. 239–242</td><td>Union Territories</td></tr>
+<tr><td class='h'>Part IX</td><td>Art. 243–243O</td><td>Panchayats (73rd Amend. 1992)</td></tr>
+<tr><td class='h'>Part IXA</td><td>Art. 243P–243ZG</td><td>Municipalities (74th Amend. 1992)</td></tr>
+<tr><td class='h'>Part X</td><td>Art. 244–244A</td><td>Scheduled and Tribal Areas</td></tr>
+<tr><td class='h'>Part XI</td><td>Art. 245–263</td><td>Relations between Union and States</td></tr>
+<tr><td class='h'>Part XII</td><td>Art. 264–300A</td><td>Finance, Property, Contracts, Suits</td></tr>
+<tr><td class='h'>Part XIII</td><td>Art. 301–307</td><td>Trade, Commerce and Intercourse</td></tr>
+<tr><td class='h'>Part XIV</td><td>Art. 308–323</td><td>Services under Union and States (UPSC)</td></tr></table>`,
+br:"Parts of Constitution"},
+
+{n:"16",t:"Parts",tag:"Parts XIV–XXII of Constitution",ref:"Constitution — Parts",
+q:"What do Parts XIVa to XXII (the later parts) deal with?",
+a:`Part XIVa: <span class='h'>Tribunals</span> (Art.323A–B) | Part XV: <span class='h'>Elections</span> | Part XVI: <span class='h'>Special provisions</span> (SC/ST/OBC) | Part XVII: <span class='h'>Official Language</span> | Part XVIII: <span class='h'>Emergency</span> | Part XIX: <span class='h'>Miscellaneous</span> | Part XX: <span class='h'>Amendment (Art.368)</span> | Part XXI: <span class='h'>Temporary provisions</span> | Part XXII: <span class='h'>Short title, commencement</span>`,
+dt:`<strong>Part XV (Art. 324–329):</strong> Election Commission. <strong>Part XVIII (Art. 352–360):</strong> National Emergency, President's Rule, Financial Emergency. <strong>Part XX (Art. 368):</strong> Constitutional amendment procedure. <strong>Trap:</strong> Art. 370 (special status J&K) was in Part XXI (temporary provisions) — abrogated in 2019.`,
+bl:"Parts XIVa–XXII",
+bk:`<table class='ct'><tr><th>Part</th><th>Articles</th><th>Subject</th></tr>
+<tr><td class='h'>Part XIVa</td><td>Art. 323A–323B</td><td>Tribunals (Administrative, other disputes)</td></tr>
+<tr><td class='h'>Part XV</td><td>Art. 324–329</td><td>Elections (ECI, delimitation)</td></tr>
+<tr><td class='h'>Part XVI</td><td>Art. 330–342A</td><td>Special provisions for SC, ST, OBC, Anglo-Indians</td></tr>
+<tr><td class='h'>Part XVII</td><td>Art. 343–351</td><td>Official Language (Hindi + English)</td></tr>
+<tr><td class='h'>Part XVIII</td><td>Art. 352–360</td><td>Emergency Provisions</td></tr>
+<tr><td class='h'>Part XIX</td><td>Art. 361–367</td><td>Miscellaneous (immunity, definitions)</td></tr>
+<tr><td class='h'>Part XX</td><td>Art. 368</td><td>Amendment of the Constitution</td></tr>
+<tr><td class='h'>Part XXI</td><td>Art. 369–392</td><td>Temporary &amp; Transitional provisions (Art. 370 was here)</td></tr>
+<tr><td class='h'>Part XXII</td><td>Art. 393–395</td><td>Short title, commencement, repeal of earlier acts</td></tr></table>`,
+br:"Parts of Constitution"},
+
+// ══════════════════════════════════════════
+// FUNDAMENTAL RIGHTS (17–24)
+// ══════════════════════════════════════════
+{n:"17",t:"Fundamental Rights",tag:"Art. 12–13 — Definition of State & Laws inconsistent with FR",ref:"Part III · Art. 12–13",
+q:"What is 'State' under Art. 12? What does Art. 13 say?",
+a:`Art. 12 defines <span class='h'>'State'</span> = Govt of India + Parliament + State Govts + Legislatures + all local/other authorities. Art. 13: Laws inconsistent with FR are <span class='h'>void to extent of inconsistency</span>.`,
+dt:`<strong>Art. 13(2):</strong> State shall not make any law that takes away or abridges FR — if it does, that law is void to the extent of inconsistency. <strong>'Other authorities':</strong> ONGC, BCCI (debated) — test = government funding, government control, public function. <strong>Trap:</strong> Judicial decisions are NOT included in 'law' under Art. 13.`,
+bl:"Art. 12–13 Deep Dive",
+bk:`<div class='dt'><strong>Art. 12 — 'State' includes:</strong><br>• Government of India + Parliament (Union executive + legislature)<br>• State Governments + Legislatures<br>• Local and other authorities within India or under control of GoI<br><br><strong>'Other authorities' test (Ajay Hasia v. Khalid Mujib 1981):</strong><br>If: (1) Entire share capital owned by govt (2) Govt has pervasive control (3) Functions of public importance → it is 'State'.<br><br><strong>Art. 13(3) 'Law' includes:</strong> Ordinances, orders, bye-laws, rules, regulations, notifications, customs having force of law.<br><strong>Does NOT include:</strong> Constitutional amendments (Art. 368) — hence Parliament can amend FR by 2/3 majority subject to basic structure.</div>`,
+br:"Art. 12–13"},
+
+{n:"18",t:"Fundamental Rights",tag:"Art. 14–18 — Right to Equality",ref:"Part III · Art. 14–18",
+q:"What are the 5 Articles under Right to Equality (Art. 14–18)?",
+a:`Art. 14: <span class='h'>Equality before law & equal protection</span> | 15: <span class='h'>No discrimination</span> | 16: <span class='h'>Equality in employment</span> | 17: <span class='h'>Abolition of untouchability</span> | 18: <span class='h'>Abolition of titles</span>`,
+dt:`<strong>Art. 14:</strong> Equality before law (UK concept) + Equal protection of law (US concept). <strong>Reasonable classification allowed</strong> if: intelligible differentia + rational nexus with object. <strong>Art. 15(3):</strong> Special provision for women & children allowed. <strong>Art. 17:</strong> Untouchability abolished — protected civil rights act 1955. <strong>Trap:</strong> Art. 18 — military/academic distinction allowed but no British-type hereditary titles.`,
+bl:"Art. 14–18 Deep Dive",
+bk:`<table class='ct'><tr><th>Article</th><th>Right</th><th>Key Trap</th></tr>
+<tr><td class='h'>Art. 14</td><td>Equality before law + Equal protection</td><td>Reasonable classification allowed; Wednesbury unreasonableness test</td></tr>
+<tr><td class='h'>Art. 15</td><td>No discrimination on grounds of religion, race, caste, sex, place of birth</td><td>Art. 15(3): Special provisions for women OK. Art. 15(4): Reservation for SC/ST/OBC. Art. 15(5): Reservation in private unaided colleges. Art. 15(6): EWS 10% reservation.</td></tr>
+<tr><td class='h'>Art. 16</td><td>Equal opportunity in public employment</td><td>Art. 16(4): Reservation in services for backward classes. Art. 16(4A): Reservation in promotion for SC/ST. Art. 16(6): EWS 10% in employment.</td></tr>
+<tr><td class='h'>Art. 17</td><td>Abolition of untouchability</td><td>Enforceable against private parties too — special among FRs</td></tr>
+<tr><td class='h'>Art. 18</td><td>Abolition of titles</td><td>Bharat Ratna, Padma awards: NOT titles — they are not hereditary and cannot be used as suffix/prefix</td></tr></table>`,
+br:"Art. 14–18 · Right to Equality"},
+
+{n:"19",t:"Fundamental Rights",tag:"Art. 19–22 — Right to Freedom",ref:"Part III · Art. 19–22",
+q:"What are the 6 freedoms under Art. 19? Other freedom articles?",
+a:`Art. 19: <span class='h'>6 freedoms</span> — Speech, Assembly, Association, Movement, Residence, Profession | Art. 20: <span class='h'>Protection in conviction</span> | Art. 21: <span class='h'>Right to Life</span> | Art. 22: <span class='h'>Protection against arrest</span>`,
+dt:`<strong>Art. 19(1):</strong> (a) Speech & expression (b) Peaceful assembly (c) Association (d) Movement throughout India (e) Reside anywhere in India (f) DELETED in 1978 (g) Profession. <strong>Art. 21:</strong> No person deprived of life/liberty except by procedure established by law — widened enormously by SC. <strong>Trap:</strong> Art. 19 suspended during war/external aggression (Art. 358) — NOT during armed rebellion.`,
+bl:"Art. 19–22 Deep Dive",
+bk:`<table class='ct'><tr><th>Article</th><th>Right</th><th>Key Extension / Trap</th></tr>
+<tr><td class='h'>Art. 19(1)(a)</td><td>Freedom of speech &amp; expression</td><td>Includes: Right to broadcast, film, internet (Faheema Shirin 2019), right to know, right to remain silent. Restriction: Art. 19(2) — sovereignty, security, public order, decency, contempt, defamation, incitement</td></tr>
+<tr><td class='h'>Art. 19(1)(b)</td><td>Peaceful assembly without arms</td><td>Restrictions under Art. 19(3)</td></tr>
+<tr><td class='h'>Art. 19(1)(c)</td><td>Form associations/unions</td><td>Includes political parties, trade unions; Art. 19(4) allows restrictions</td></tr>
+<tr><td class='h'>Art. 19(1)(d)&amp;(e)</td><td>Move freely + reside anywhere</td><td>Restrictions under Art. 19(5)</td></tr>
+<tr><td class='h'>Art. 19(1)(g)</td><td>Profession, occupation, trade, business</td><td>State can prescribe qualifications (Art. 19(6))</td></tr>
+<tr><td class='h'>Art. 21</td><td>Right to Life &amp; Personal Liberty</td><td>Widened to include: right to privacy (Puttaswamy 2017), right to livelihood, right to health, right to education, right to speedy trial, right to die with dignity</td></tr></table>`,
+br:"Art. 19–22 · Right to Freedom"},
+
+{n:"20",t:"Fundamental Rights",tag:"Art. 23–28 — Other Fundamental Rights",ref:"Part III · Art. 23–28",
+q:"Art. 23–28: Right against exploitation and Right to Religion",
+a:`Art. 23: <span class='h'>Prohibition of traffic in humans & forced labour</span> | 24: <span class='h'>Child labour banned under 14</span> | 25: <span class='h'>Freedom of religion</span> | 26: <span class='h'>Manage religious affairs</span> | 27: <span class='h'>No tax for religion</span> | 28: <span class='h'>No religious instruction in state-funded schools</span>`,
+dt:`<strong>Art. 23:</strong> Begar (forced labour) abolished. Applies to private persons too. <strong>Art. 24:</strong> No child below 14 in factories/mines/hazardous employment. <strong>Art. 25:</strong> Freedom of conscience & religion — subject to public order, morality, health. <strong>Trap:</strong> Art. 25 allows State to regulate secular activities of religion. Triple talaq (Shayara Bano 2017) struck down under Art. 14, not Art. 25.`,
+bl:"Art. 23–28 Deep Dive",
+bk:`<table class='ct'><tr><th>Article</th><th>Right</th><th>Key Case / Trap</th></tr>
+<tr><td class='h'>Art. 23</td><td>Traffic in humans + forced labour prohibited</td><td>Applies against private persons; bonded labour, manual scavenging violate Art. 23</td></tr>
+<tr><td class='h'>Art. 24</td><td>Child labour below 14 in factories/mines prohibited</td><td>Child Labour (Prohibition) Act 1986; Child &amp; Adolescent Labour (Amendment) Act 2016 — below 14 in hazardous, 14–18 in hazardous jobs also prohibited</td></tr>
+<tr><td class='h'>Art. 25</td><td>Freedom of conscience, profession, practice, propagation of religion</td><td>Sabarimala (2018) — women allowed entry. Wearing hijab (Karnataka HC 2022). Triple talaq struck down 2017.</td></tr>
+<tr><td class='h'>Art. 26</td><td>Every religious denomination — manage own religious affairs</td><td>Subject to public order, morality, health</td></tr>
+<tr><td class='h'>Art. 27</td><td>No tax proceeds used to promote any religion</td><td>Haj subsidy challenged under this</td></tr>
+<tr><td class='h'>Art. 28</td><td>No religious instruction in wholly state-funded educational institutions</td><td>State-aided minority institutions can give religious instruction</td></tr></table>`,
+br:"Art. 23–28"},
+
+{n:"21",t:"Fundamental Rights",tag:"Art. 29–35 — Cultural, Educational Rights & Writs",ref:"Part III · Art. 29–35",
+q:"Art. 29–35: Minority Rights, Right to Constitutional Remedies, 5 Writs",
+a:`Art. 29: <span class='h'>Protection of language/culture</span> | 30: <span class='h'>Minority right to establish institutions</span> | 32: <span class='h'>Right to constitutional remedies</span> (Soul of Constitution) | 5 Writs: <span class='h'>Habeas Corpus, Mandamus, Prohibition, Certiorari, Quo Warranto</span>`,
+dt:`<strong>Art. 32:</strong> Ambedkar — "the most important article — heart and soul of Constitution." Cannot be abridged without amendment. <strong>Art. 226:</strong> HC writ jurisdiction — broader than Art. 32, can issue writs against private bodies too. <strong>Trap:</strong> Art. 32 can be suspended during Emergency (Art. 359). Art. 226 CANNOT be suspended.`,
+bl:"Writs & Minority Rights",
+bk:`<table class='ct'><tr><th>Writ</th><th>Meaning</th><th>Purpose</th></tr>
+<tr><td class='h'>Habeas Corpus</td><td>"You may have the body"</td><td>Release from illegal detention — most important personal liberty writ</td></tr>
+<tr><td class='h'>Mandamus</td><td>"We command"</td><td>Command to perform a public duty — issued against public authority</td></tr>
+<tr><td class='h'>Prohibition</td><td>"To forbid"</td><td>Issued to lower court to stop exceeding jurisdiction — preventive</td></tr>
+<tr><td class='h'>Certiorari</td><td>"To be certified"</td><td>Quash order of lower court/tribunal — corrective (after decision)</td></tr>
+<tr><td class='h'>Quo Warranto</td><td>"By what authority"</td><td>Challenge to person holding public office without authority</td></tr>
+</table>
+<div class='dt' style='margin-top:8px'><strong>Art. 30:</strong> Minority = religious or linguistic minority. Can establish &amp; administer educational institutions. State cannot discriminate in granting aid.<br><strong>Art. 31C (added by 25th Amend.):</strong> Laws implementing Art. 39(b)(c) DPSP cannot be challenged under Art. 14 &amp; 19.</div>`,
+br:"Art. 29–35 · Writs"},
+
+// ══════════════════════════════════════════
+// DPSP & FUNDAMENTAL DUTIES (22–25)
+// ══════════════════════════════════════════
+{n:"22",t:"DPSP",tag:"Directive Principles of State Policy",ref:"Part IV · Art. 36–51",
+q:"What are DPSPs? Classification and key Articles?",
+a:`DPSPs = <span class='h'>Non-justiciable</span> guidelines for State policy. Borrowed from <span class='h'>Ireland</span>. Part IV (Art. 36–51). 3 categories: <span class='h'>Socialistic · Gandhian · Liberal-Intellectual</span>`,
+dt:`<strong>Socialistic:</strong> Art. 38 (social order), 39 (livelihood, equal pay), 41 (right to work), 42 (maternity relief), 43 (living wage), 47 (public health). <strong>Gandhian:</strong> Art. 40 (village panchayats), 43 (cottage industries), 46 (SC/ST education), 48 (cattle preservation). <strong>Liberal-Intellectual:</strong> Art. 44 (UCC), 45 (early childhood care), 48A (environment), 50 (separate judiciary).`,
+bl:"DPSPs Classified",
+bk:`<table class='ct'><tr><th>Category</th><th>Key Articles</th><th>Content</th></tr>
+<tr><td class='h'>Socialistic DPSPs</td><td>Art. 38, 39, 41, 42, 43, 43A, 47</td><td>Adequate livelihood, equal pay for equal work, right to work, maternity leave, living wage, workers in management, prohibition</td></tr>
+<tr><td class='h'>Gandhian DPSPs</td><td>Art. 40, 43, 43B, 46, 47, 48</td><td>Village panchayats, cottage industries, welfare of SC/ST, prohibition, cattle preservation, Cooperative societies</td></tr>
+<tr><td class='h'>Liberal DPSPs</td><td>Art. 44, 45, 48A, 49, 50, 51</td><td>Uniform Civil Code, early childhood care, environment protection, national monuments, separate judiciary, international peace</td></tr>
+</table>
+<div class='dt' style='margin-top:8px'><strong>FR vs DPSP conflict:</strong> Originally FR prevailed (State of Madras v. Champakam 1951). After 25th Amendment — Art. 39(b)(c) prevails over Art. 14 &amp; 19. Minerva Mills (1980) — DPSP and FR must be harmonised.<br><strong>Trap:</strong> DPSP = non-justiciable but fundamental in governance (Art. 37).</div>`,
+br:"DPSP · Art. 36–51"},
+
+{n:"23",t:"DPSP",tag:"Important DPSPs — Uniform Civil Code & Key Articles",ref:"Part IV · Key DPSPs",
+q:"Art. 44 (UCC), Art. 48A (Environment), Art. 51 (International Peace) — explain",
+a:`Art. 44: <span class='h'>Uniform Civil Code</span> (UCC) for all citizens | Art. 48A: <span class='h'>Protect and improve environment</span> + safeguard forests and wildlife | Art. 51: Foster <span class='h'>international peace and security</span>, respect treaties`,
+dt:`<strong>UCC (Art. 44):</strong> Common personal law for all citizens regardless of religion. Currently different laws for Hindu, Muslim, Christian on marriage, succession, adoption. Goa = only state with UCC (Portuguese Civil Code). Uttarakhand enacted UCC 2024. <strong>Art. 48A + Art. 51A(g):</strong> Environment protection — read with Art. 21 (right to clean environment).`,
+bl:"Key DPSP Articles",
+bk:`<table class='ct'><tr><th>Article</th><th>DPSP</th><th>Status / Debate</th></tr>
+<tr><td class='h'>Art. 39(b)</td><td>Material resources of community distributed to sub-serve common good</td><td>Property Owners case 2024 — SC 9-judge bench: not all private property = community resource</td></tr>
+<tr><td class='h'>Art. 44</td><td>Uniform Civil Code</td><td>Debated — Goa has UCC. Uttarakhand enacted 2024. SC repeatedly asked Parliament to enact.</td></tr>
+<tr><td class='h'>Art. 45</td><td>Early childhood care &amp; education for 0–6 years</td><td>Art. 21A (86th Amend.) gives FR to education for 6–14 yrs. Art. 45 covers 0–6 yrs.</td></tr>
+<tr><td class='h'>Art. 47</td><td>Raise level of nutrition; prohibition of intoxicants</td><td>Prohibition laws in states based on this</td></tr>
+<tr><td class='h'>Art. 48A</td><td>Protect environment + forests + wildlife</td><td>Read with Art. 51A(g) FD + Art. 21 right to clean environment</td></tr>
+<tr><td class='h'>Art. 50</td><td>Separate judiciary from executive</td><td>CrPC/BNSS — magistracy separated from police. Judicial independence flows from this.</td></tr>
+<tr><td class='h'>Art. 51</td><td>Promote international peace, respect international law</td><td>Vishaka case — CEDAW (UN treaty) used to fill gap in domestic law on sexual harassment</td></tr></table>`,
+br:"Key DPSP Articles"},
+
+{n:"24",t:"DPSP",tag:"Fundamental Duties — Art. 51A",ref:"Part IVA · Art. 51A",
+q:"How many Fundamental Duties? Which Amendment added them? Name all 11",
+a:`<span class='h'>11 Fundamental Duties</span>. Added by <span class='h'>42nd Amendment 1976</span> (10 duties). 11th added by <span class='h'>86th Amendment 2002</span> — duty to provide education to 6–14 yr children.`,
+dt:`<strong>Source:</strong> Soviet Constitution (USSR). <strong>Swaran Singh Committee (1976)</strong> recommended FDs. <strong>Not justiciable</strong> — but courts use them for interpretation. <strong>Trap:</strong> FDs are only for <em>citizens</em> — not for foreigners. FDs do NOT apply to State (that's for DPSPs). Original 42nd Amendment added 10 FDs; 86th Amendment 2002 added 11th.`,
+bl:"All 11 Fundamental Duties",
+bk:`<table class='ct'><tr><th>#</th><th>Fundamental Duty (Art. 51A)</th></tr>
+<tr><td class='h'>(a)</td><td>Abide by Constitution and respect national flag &amp; anthem</td></tr>
+<tr><td class='h'>(b)</td><td>Cherish and follow noble ideals of national struggle</td></tr>
+<tr><td class='h'>(c)</td><td>Uphold and protect sovereignty, unity and integrity of India</td></tr>
+<tr><td class='h'>(d)</td><td>Defend the country and render national service when called upon</td></tr>
+<tr><td class='h'>(e)</td><td>Promote harmony and the spirit of common brotherhood</td></tr>
+<tr><td class='h'>(f)</td><td>Value and preserve rich heritage of composite culture</td></tr>
+<tr><td class='h'>(g)</td><td>Protect and improve the natural environment</td></tr>
+<tr><td class='h'>(h)</td><td>Develop scientific temper, humanism and spirit of inquiry</td></tr>
+<tr><td class='h'>(i)</td><td>Safeguard public property; abjure violence</td></tr>
+<tr><td class='h'>(j)</td><td>Strive towards excellence in all spheres of individual and collective activity</td></tr>
+<tr><td class='h'>(k)</td><td>Parent/guardian to provide opportunities for education to child aged 6–14 yrs (86th Amend. 2002)</td></tr></table>`,
+br:"Art. 51A · 42nd & 86th Amendments"},
+
+// ══════════════════════════════════════════
+// KEY ARTICLES (25–37)
+// ══════════════════════════════════════════
+{n:"25",t:"Key Articles",tag:"Art. 1–4 — The Union and Its Territory",ref:"Part I · Art. 1–4",
+q:"Art. 1–4: What do they say about India's name and territory?",
+a:`Art. 1: India = <span class='h'>Bharat</span> = Union of States (NOT Federation). Art. 2: Parliament can <span class='h'>admit new states</span>. Art. 3: Parliament can <span class='h'>form/alter/merge states</span>. Art. 4: Such laws NOT constitutional amendments.`,
+dt:`<strong>Art. 1:</strong> 3 types of territory — States territory, Union Territories, territories acquired. <strong>Art. 3 procedure:</strong> Bill must be referred to concerned State Legislature (not consent required — only views). Parliament is supreme. <strong>Trap:</strong> Art. 3 laws passed by simple majority — NOT Art. 368 amendment. J&K bifurcation done via Art. 3 route.`,
+bl:"Art. 1–4 Deep Dive",
+bk:`<div class='dt'><strong>Art. 1 — India, that is Bharat:</strong><br>"India, that is Bharat, shall be a Union of States" — NOT a federation. The word 'Union' was deliberately chosen — Ambedkar said states cannot secede (unlike USA 'Federal' originally allowed).<br><br><strong>Art. 3 — Formation of new States:</strong><br>Parliament can by law: (a) form new state by separation/union (b) increase/diminish area (c) alter boundaries (d) alter name — Bill must be introduced in Parliament with President's recommendation. State Legislature opinion = not binding on Parliament.<br><br><strong>Recent use of Art. 3:</strong><br>• Telangana (2014) — carved out of Andhra Pradesh<br>• J&K bifurcation (2019) — J&K + Ladakh (both UTs)<br>• Andhra Pradesh (2014) — residual state after Telangana<br><br><strong>Trap:</strong> Art. 4 says laws under Art. 2 &amp; 3 are NOT amendments under Art. 368 — so simple majority sufficient.</div>`,
+br:"Part I · Art. 1–4"},
+
+{n:"26",t:"Key Articles",tag:"Art. 52–62 — President of India",ref:"Part V · Art. 52–62",
+q:"President — Election, Qualification, Tenure, Removal?",
+a:`Art. 52: President = head of state. Elected by <span class='h'>Electoral College</span>. Qualification: <span class='h'>35 yrs, citizen, qualified for LS</span>. Tenure: <span class='h'>5 years</span>. Removal: <span class='h'>Impeachment</span> (Art. 61).`,
+dt:`<strong>Electoral College (Art. 54):</strong> Elected MPs (both Houses) + Elected MLAs of States + UTs with legislature. Nominated members do NOT vote. <strong>Impeachment (Art. 61):</strong> By either House, 14 days notice, special majority (2/3 of total membership). Investigated by other House. <strong>Trap:</strong> President can be re-elected any number of times (no limit). Current = 2nd term possible.`,
+bl:"President — Full Profile",
+bk:`<table class='ct'><tr><th>Feature</th><th>Detail</th></tr>
+<tr><td class='h'>Election</td><td>Electoral College = Elected MPs (both Houses) + Elected MLAs + Delhi/Puducherry MLAs</td></tr>
+<tr><td class='h'>Vote value</td><td>Each MLA vote value varies by state population; MP vote value = sum of all MLA values ÷ total MPs</td></tr>
+<tr><td class='h'>Qualification</td><td>Indian citizen + 35 years + qualified for Lok Sabha election + no office of profit</td></tr>
+<tr><td class='h'>Tenure</td><td>5 years (can be re-elected)</td></tr>
+<tr><td class='h'>Oath by</td><td>CJI (or senior-most SC judge if CJI unavailable)</td></tr>
+<tr><td class='h'>Impeachment</td><td>Art. 61 — either House; 14 days notice; 2/3 majority of TOTAL membership of that House; investigated by other House</td></tr>
+<tr><td class='h'>Election dispute</td><td>Supreme Court only (Art. 71) — final</td></tr>
+<tr><td class='h'>Salary</td><td>₹5 lakh/month; charged to CFI</td></tr></table>`,
+br:"Art. 52–62 · President"},
+
+{n:"27",t:"Key Articles",tag:"Art. 74–75 — Council of Ministers, PM",ref:"Part V · Art. 74–75",
+q:"Art. 74 & 75 — PM and Council of Ministers: key rules",
+a:`Art. 74: Council of Ministers headed by <span class='h'>PM aids & advises President</span> — President acts on their advice (mandatory after 42nd & 44th Amendments). Art. 75: PM <span class='h'>appointed by President</span>; other ministers on PM's advice.`,
+dt:`<strong>42nd Amendment (1976):</strong> Made President BOUND by CoM advice. <strong>44th Amendment (1978):</strong> President can send back advice ONCE for reconsideration — but must then act on reconsidered advice. <strong>Art. 75(3):</strong> Council of Ministers collectively responsible to Lok Sabha. <strong>Trap:</strong> President appoints PM — in practice, leader of majority party. If no majority, President has discretion.`,
+bl:"Art. 74–75 Deep Dive",
+bk:`<div class='dt'><strong>Collective Responsibility (Art. 75(3)):</strong> Cabinet must resign if it loses confidence of Lok Sabha. Individual minister can be asked to resign by PM.<br><br><strong>Types of ministers:</strong><br>• Cabinet Ministers (senior; attend Cabinet meetings)<br>• Ministers of State (junior; may attend Cabinet with permission)<br>• Deputy Ministers (assist Cabinet/MoS)<br>• Parliamentary Secretaries (rare; assists senior ministers)<br><br><strong>Size of Cabinet (Art. 75(1A) — 91st Amendment 2003):</strong> Total ministers including PM shall NOT exceed 15% of total strength of Lok Sabha. Anti-defection also covered.<br><br><strong>Art. 77:</strong> All executive actions of GoI expressed in President's name. <strong>Art. 78:</strong> PM's duties to President — communicate all decisions of CoM, information on legislation, etc.<br><br><strong>Trap:</strong> PM can be a member of either LS or RS. Indira Gandhi was in RS briefly. H.D. Deve Gowda was not an MP when PM.</div>`,
+br:"Art. 74–75 · PM & Cabinet"},
+
+{n:"28",t:"Key Articles",tag:"Art. 79–123 — Parliament",ref:"Part V · Parliament",
+q:"Parliament — Structure, Sessions, Powers, Quorum, Money Bill",
+a:`Parliament = <span class='h'>President + Rajya Sabha + Lok Sabha</span>. LS: max <span class='h'>552</span> (543 elected + 2 nominated; 2 Anglo-Indian abolished by 104th Amend.). RS: max <span class='h'>250</span> (238 + 12 nominated).`,
+dt:`<strong>LS (Art. 81):</strong> 543 elected; tenure 5 years. <strong>RS (Art. 80):</strong> Permanent body; 1/3 retire every 2 years; 6-year term; 12 nominated by President (arts, science, literature, social service). <strong>Quorum:</strong> 1/10 of total membership of each House. <strong>Trap:</strong> Money Bill defined in Art. 110 — only in LS; RS can recommend, LS may reject; Speaker certifies.`,
+bl:"Parliament Structure",
+bk:`<table class='ct'><tr><th>Feature</th><th>Lok Sabha</th><th>Rajya Sabha</th></tr>
+<tr><td class='h'>Max strength</td><td>552 (543 elected + abolished 2 Anglo-Indian)</td><td>250 (238 elected + 12 nominated)</td></tr>
+<tr><td class='h'>Tenure</td><td>5 years (dissolvable)</td><td>Permanent (1/3 retire every 2 yrs)</td></tr>
+<tr><td class='h'>Presiding officer</td><td>Speaker</td><td>Vice President (ex-officio Chairman)</td></tr>
+<tr><td class='h'>Quorum</td><td>55 members (1/10)</td><td>25 members (1/10)</td></tr>
+<tr><td class='h'>Money Bills</td><td>LS only (Art. 110)</td><td>Only recommends; cannot amend/reject</td></tr>
+<tr><td class='h'>No-confidence motion</td><td>Only in LS</td><td>Not applicable</td></tr>
+<tr><td class='h'>Joint sitting (Art. 108)</td><td>Presided by LS Speaker</td><td>Called only for non-money bills deadlock</td></tr></table>`,
+br:"Art. 79–123 · Parliament"},
+
+{n:"29",t:"Key Articles",tag:"Art. 109–117 — Types of Bills in Parliament",ref:"Parliament · Legislative Procedure",
+q:"Types of Bills — Ordinary, Money Bill, Financial Bill, Constitution Amendment Bill",
+a:`Ordinary Bill: Both Houses → <span class='h'>simple majority</span> | Money Bill (Art. 110): Only LS → RS recommends within <span class='h'>14 days</span> | Financial Bill | Constitution Amendment Bill (Art. 368): <span class='h'>Special majority</span>`,
+dt:`<strong>Art. 110 — Money Bill:</strong> Only LS can introduce. RS has 14 days to return with recommendations — LS may accept or reject. No joint sitting for Money Bill. <strong>Art. 368:</strong> Amendment by: (a) Simple majority — some provisions. (b) Special majority (2/3 + majority of total membership). (c) Special majority + ratification by half the state legislatures. <strong>Trap:</strong> Joint sitting (Art. 108) — not for Money Bills or Constitution Amendment Bills.`,
+bl:"Types of Bills",
+bk:`<table class='ct'><tr><th>Bill Type</th><th>Introduction</th><th>Majority Needed</th><th>Special Rule</th></tr>
+<tr><td class='h'>Ordinary Bill</td><td>Either House</td><td>Simple majority</td><td>If deadlock — joint sitting (Art. 108)</td></tr>
+<tr><td class='h'>Money Bill (Art. 110)</td><td>Lok Sabha only</td><td>Simple majority in LS</td><td>RS has 14 days to recommend. No joint sitting.</td></tr>
+<tr><td class='h'>Financial Bill (Type I)</td><td>Lok Sabha only</td><td>Simple majority</td><td>Contains Art. 110 matters + other matters</td></tr>
+<tr><td class='h'>Financial Bill (Type II)</td><td>Either House</td><td>Simple majority</td><td>Involves expenditure from CFI</td></tr>
+<tr><td class='h'>Constitution Amendment (Art. 368)</td><td>Either House</td><td>Special majority (2/3 + 50% total)</td><td>Some require state ratification by 50% states</td></tr></table>
+<div class='dt' style='margin-top:8px'><strong>Provisions requiring state ratification (Art. 368):</strong> Art. 54, 55 (President election), Art. 73, 162 (extent of executive power), HC/SC, Legislative Lists, Representation in Parliament, Art. 368 itself.</div>`,
+br:"Art. 109–117 · Types of Bills"},
+
+{n:"30",t:"Key Articles",tag:"Art. 124–147 — Supreme Court",ref:"Part V · Supreme Court",
+q:"Supreme Court — Establishment, Jurisdiction, Powers",
+a:`Art. 124: SC established. Jurisdiction: <span class='h'>Original (Art. 131) · Appellate (Art. 132–136) · Advisory (Art. 143) · Writ (Art. 32)</span>. Retirement: <span class='h'>65 years</span>. Removal same as Art. 124(4).`,
+dt:`<strong>Original Jurisdiction (Art. 131):</strong> Centre-State disputes, inter-State disputes. <strong>Art. 136:</strong> SLP (Special Leave Petition) — can appeal from any court/tribunal. Most cases come via SLP. <strong>Art. 141:</strong> SC decisions are law of the land — binding on all courts. <strong>Trap:</strong> Art. 143 advisory opinion is NOT binding on President but has persuasive value. SC has no power to recall advisory opinion.`,
+bl:"Supreme Court Jurisdiction",
+bk:`<table class='ct'><tr><th>Jurisdiction</th><th>Article</th><th>Scope</th></tr>
+<tr><td class='h'>Original</td><td>Art. 131</td><td>Disputes between Centre &amp; States OR between States (exclusive)</td></tr>
+<tr><td class='h'>Original (writ)</td><td>Art. 32</td><td>FR enforcement — writ jurisdiction (concurrent with HC)</td></tr>
+<tr><td class='h'>Appellate (constitutional)</td><td>Art. 132</td><td>Appeals from HC involving substantial constitutional question</td></tr>
+<tr><td class='h'>Appellate (civil)</td><td>Art. 133</td><td>Civil appeals from HC with leave</td></tr>
+<tr><td class='h'>Appellate (criminal)</td><td>Art. 134</td><td>Criminal appeals from HC in certain cases</td></tr>
+<tr><td class='h'>SLP</td><td>Art. 136</td><td>Special Leave — discretionary; can appeal from any court</td></tr>
+<tr><td class='h'>Advisory</td><td>Art. 143</td><td>President refers question of law or fact — SC gives opinion</td></tr>
+<tr><td class='h'>Review</td><td>Art. 137</td><td>SC can review own judgments</td></tr></table>`,
+br:"Art. 124–147 · Supreme Court"},
+
+{n:"31",t:"Key Articles",tag:"Art. 153–167 — Governor & State Executive",ref:"Part VI · Art. 153–167",
+q:"Governor — Appointment, Qualification, Powers, Removal",
+a:`Art. 153: Each State shall have a Governor. Appointed by <span class='h'>President</span>. Qualification: <span class='h'>Indian citizen, 35 years</span>. Tenure: <span class='h'>5 years at pleasure of President</span> (no fixed tenure).`,
+dt:`<strong>Art. 155:</strong> Appointed by President. <strong>Art. 156:</strong> Holds at pleasure of President (not 5 years in practice). <strong>Governor's discretion:</strong> Appointment of CM if hung assembly, assent to Bills (Art. 200), dissolution of assembly, recommendation for President's Rule. <strong>Trap:</strong> Governor cannot be sued during office (Art. 361). BUT: SC has held that office of Governor is subject to judicial scrutiny (2025 ruling on Art. 200).`,
+bl:"Governor — Key Powers",
+bk:`<table class='ct'><tr><th>Power</th><th>Article</th><th>Key Point</th></tr>
+<tr><td class='h'>Executive powers</td><td>Art. 154</td><td>All executive powers of State vested in Governor</td></tr>
+<tr><td class='h'>Appointment of CM</td><td>Art. 164</td><td>Appoints CM; then other ministers on CM's advice</td></tr>
+<tr><td class='h'>Assent to Bills</td><td>Art. 200</td><td>3 options: Assent / Withhold+Return / Reserve for President</td></tr>
+<tr><td class='h'>Ordinance power</td><td>Art. 213</td><td>When legislature not in session; lapses 6 weeks after reassembly</td></tr>
+<tr><td class='h'>Report to President</td><td>Art. 356</td><td>Can recommend President's Rule on failure of constitutional machinery</td></tr>
+<tr><td class='h'>Discretionary powers</td><td>Art. 163</td><td>Limited — appointment of CM, dissolution, assent to Bills</td></tr>
+<tr><td class='h'>Immunity</td><td>Art. 361</td><td>No criminal proceedings; civil proceedings need 2 months notice</td></tr></table>`,
+br:"Art. 153–167 · Governor"},
+
+{n:"32",t:"Key Articles",tag:"Art. 214–231 — High Courts",ref:"Part VI · Art. 214–231",
+q:"High Courts — Establishment, Jurisdiction, Key Powers",
+a:`Art. 214: Each State shall have a HC. Art. 217: Judges appointed by <span class='h'>President + CJI + Governor</span>. Retirement: <span class='h'>62 years</span>. Jurisdiction: Original, Appellate, Writ (Art. 226).`,
+dt:`<strong>Art. 226:</strong> HC can issue writs — broader than Art. 32. Can issue writs against private bodies too (unlike Art. 32). Art. 226 cannot be suspended during Emergency. <strong>Trap:</strong> HC retirement = 62 years (SC = 65 years). HC can transfer cases to SC (Art. 228). HC has superintendence over all courts/tribunals within state (Art. 227).`,
+bl:"High Court Jurisdiction",
+bk:`<table class='ct'><tr><th>Jurisdiction</th><th>Article</th><th>Scope</th></tr>
+<tr><td class='h'>Original</td><td>Art. 225</td><td>Revenue, matrimonial cases (some HCs); company law</td></tr>
+<tr><td class='h'>Writ</td><td>Art. 226</td><td>All writs including against private bodies; cannot be suspended during emergency</td></tr>
+<tr><td class='h'>Appellate</td><td>Art. 225</td><td>Appeals from subordinate courts; district courts</td></tr>
+<tr><td class='h'>Superintendence</td><td>Art. 227</td><td>Superintendence over all courts &amp; tribunals in state</td></tr>
+<tr><td class='h'>Transfer of cases</td><td>Art. 228</td><td>Transfer case to itself if constitutional question arises</td></tr>
+</table>
+<div class='dt' style='margin-top:8px'><strong>Appointment of HC judges (Art. 217):</strong> President + CJI + Chief Justice of that HC + Governor of that state. <strong>Additional judges (Art. 224):</strong> President can appoint additional judges for up to 2 years.<br><strong>Trap:</strong> HC can quash executive orders, review administrative decisions, protect FR under Art. 226 — very broad jurisdiction.</div>`,
+br:"Art. 214–231 · High Courts"},
+
+{n:"33",t:"Key Articles",tag:"Art. 243–243O — Panchayati Raj",ref:"Part IX · 73rd Amendment",
+q:"Art. 243 — Panchayati Raj: Structure, Reservation, Elections, Finance",
+a:`73rd Amendment 1992 — gave <span class='h'>constitutional status</span> to Panchayati Raj. 3-tier system. <span class='h'>1/3 seats reserved</span> for women. <span class='h'>State Election Commission</span> conducts elections.`,
+dt:`<strong>Art. 243A:</strong> Gram Sabha = village assembly. <strong>Art. 243B:</strong> 3-tier structure in states with population > 20 lakh. <strong>Art. 243D:</strong> Reservation for SC, ST (proportionate) + 1/3 for women. <strong>Art. 243E:</strong> 5-year term. <strong>Art. 243G:</strong> Devolution of powers — 29 subjects in 11th Schedule. <strong>Trap:</strong> State can give more than 1/3 reservation to women (many states = 50%).`,
+bl:"Panchayati Raj — Key Articles",
+bk:`<table class='ct'><tr><th>Article</th><th>Subject</th></tr>
+<tr><td class='h'>Art. 243A</td><td>Gram Sabha — foundation of Panchayat system</td></tr>
+<tr><td class='h'>Art. 243B</td><td>Constitution of Panchayats — 3-tier structure</td></tr>
+<tr><td class='h'>Art. 243C</td><td>Composition of Panchayats</td></tr>
+<tr><td class='h'>Art. 243D</td><td>Reservation of seats for SC, ST, women (at least 1/3)</td></tr>
+<tr><td class='h'>Art. 243E</td><td>Duration — 5 years; fresh elections before expiry</td></tr>
+<tr><td class='h'>Art. 243F</td><td>Disqualification for membership</td></tr>
+<tr><td class='h'>Art. 243G</td><td>Powers — 29 subjects in 11th Schedule devolved to Panchayats</td></tr>
+<tr><td class='h'>Art. 243H</td><td>Powers to impose taxes, levy fees</td></tr>
+<tr><td class='h'>Art. 243I</td><td>State Finance Commission — every 5 years</td></tr>
+<tr><td class='h'>Art. 243K</td><td>State Election Commission — superintendence of Panchayat elections</td></tr></table>`,
+br:"Art. 243–243O · 73rd Amendment"},
+
+// ══════════════════════════════════════════
+// EMERGENCY (34–37)
+// ══════════════════════════════════════════
+{n:"34",t:"Emergency",tag:"Art. 352 — National Emergency",ref:"Part XVIII · Art. 352",
+q:"Art. 352 — National Emergency: Grounds, Approval, Duration, Effects",
+a:`Grounds: <span class='h'>War · External Aggression · Armed Rebellion</span>. Approval: <span class='h'>1 month</span> (special majority). Renewal: every <span class='h'>6 months</span>. Used <span class='h'>3 times</span>: 1962, 1971, 1975.`,
+dt:`<strong>44th Amendment 1978:</strong> Changed "internal disturbance" to "armed rebellion." Cabinet in writing must recommend. LS can revoke by simple majority. <strong>Effects:</strong> State List → Parliament can legislate. Art. 19 suspended (Art. 358 — war/external aggression only). Other FRs via Art. 359 Presidential Order (not Art. 20 & 21). <strong>Trap:</strong> RS cannot pass disapproval resolution — only LS.`,
+bl:"National Emergency Full Details",
+bk:`<table class='ct'><tr><th>Feature</th><th>Detail</th></tr>
+<tr><td class='h'>Proclaimed by</td><td>President on Cabinet's written recommendation</td></tr>
+<tr><td class='h'>Parliament approval</td><td>1 month; Special majority (2/3 + majority of total membership)</td></tr>
+<tr><td class='h'>Renewal</td><td>Every 6 months by special majority — no upper limit</td></tr>
+<tr><td class='h'>Revocation by LS</td><td>Simple majority — Rajya Sabha cannot pass disapproval resolution</td></tr>
+<tr><td class='h'>RS alone approval</td><td>If LS dissolved — RS approves; LS must ratify within 14 days of reconstitution</td></tr>
+<tr><td class='h'>FR suspension</td><td>Art. 19 auto-suspended (Art. 358) during war/ext. aggression ONLY. Other FRs via Art. 359 Presidential Order (not Art. 20 &amp; 21 ever)</td></tr>
+<tr><td class='h'>Times used</td><td>1962 (China war), 1971 (Pak war), 1975–77 (internal — controversial)</td></tr></table>`,
+br:"Art. 352 · National Emergency"},
+
+{n:"35",t:"Emergency",tag:"Art. 356 & 360 — President's Rule & Financial Emergency",ref:"Part XVIII · Art. 356, 360",
+q:"Art. 356 (President's Rule) and Art. 360 (Financial Emergency) — key facts",
+a:`Art. 356: <span class='h'>Failure of constitutional machinery</span> in state. Max <span class='h'>3 years</span>. Art. 360: Threat to <span class='h'>financial stability</span>. Indefinite. <span class='h'>Never used</span>.`,
+dt:`<strong>Art. 356 approval:</strong> 2 months, simple majority. Renewal every 6 months (simple majority). Max 1 year normally; up to 3 years if National Emergency in force OR EC certifies elections impossible. <strong>S.R. Bommai (1994):</strong> JR applicable; floor test mandatory. <strong>Art. 360:</strong> Simple majority; indefinite once approved; can reduce SC/HC judges' salaries.`,
+bl:"Art. 356 & 360",
+bk:`<table class='ct'><tr><th>Feature</th><th>Art. 356 (President's Rule)</th><th>Art. 360 (Financial Emergency)</th></tr>
+<tr><td class='h'>Grounds</td><td>Failure of constitutional machinery in state</td><td>Threat to financial stability or credit of India/state</td></tr>
+<tr><td class='h'>Proclaimed by</td><td>President (on Governor's report or suo motu)</td><td>President</td></tr>
+<tr><td class='h'>Parliament approval</td><td>2 months — simple majority</td><td>2 months — simple majority</td></tr>
+<tr><td class='h'>Duration</td><td>Max 3 years (6-month renewals)</td><td>Indefinite — no renewal required</td></tr>
+<tr><td class='h'>Times used</td><td>100+ times</td><td>NEVER — 0 times</td></tr>
+<tr><td class='h'>Key case</td><td>S.R. Bommai 1994 — JR applicable</td><td>No case — never used</td></tr>
+<tr><td class='h'>Effect</td><td>State legislature suspended; President governs</td><td>President can direct states; reduce govt/judge salaries</td></tr></table>`,
+br:"Art. 356 & 360"},
+
+{n:"36",t:"Emergency",tag:"Art. 358 & 359 — Suspension of Fundamental Rights",ref:"Part XVIII · Art. 358, 359",
+q:"Art. 358 vs Art. 359 — difference in suspension of Fundamental Rights during Emergency",
+a:`Art. 358: Art. 19 <span class='h'>auto-suspended</span> during <span class='h'>war/external aggression only</span>. Art. 359: President's Order can suspend <span class='h'>enforcement of any FR</span> (except Art. 20 & 21) during any National Emergency.`,
+dt:`<strong>Key distinction:</strong> Art. 358 = automatic, only Art. 19, only war/external aggression. Art. 359 = requires Presidential Order, can cover any FR except Art. 20 & 21, applies during any National Emergency (including armed rebellion). <strong>Trap:</strong> Art. 20 & 21 CANNOT be suspended under any emergency ever. Art. 32 can be suspended by Art. 359 order but Art. 226 (HC) cannot.`,
+bl:"Art. 358 vs 359",
+bk:`<table class='ct'><tr><th>Point</th><th>Art. 358</th><th>Art. 359</th></tr>
+<tr><td class='h'>Which FRs</td><td>Art. 19 only (6 freedoms)</td><td>Any FR specified in Presidential Order — except Art. 20 &amp; 21</td></tr>
+<tr><td class='h'>How suspended</td><td>Automatic — no order needed</td><td>Requires Presidential Order; laid before Parliament</td></tr>
+<tr><td class='h'>During which emergency</td><td>ONLY war or external aggression</td><td>Any National Emergency (Art. 352)</td></tr>
+<tr><td class='h'>Scope</td><td>Entire country</td><td>Can be for whole or part of India</td></tr>
+<tr><td class='h'>Art. 20 &amp; 21</td><td>Not suspended</td><td>Cannot be suspended — always available</td></tr>
+<tr><td class='h'>Art. 32</td><td>Not affected</td><td>CAN be suspended by Presidential Order</td></tr>
+<tr><td class='h'>Art. 226</td><td>Not affected</td><td>CANNOT be suspended (HC writ survives all emergencies)</td></tr></table>`,
+br:"Art. 358, 359 · Emergency FRs"},
+
+{n:"37",t:"Emergency",tag:"Art. 368 — Amendment of Constitution",ref:"Part XX · Art. 368",
+q:"Art. 368 — How is the Constitution amended? 3 types of procedures?",
+a:`3 procedures: (1) <span class='h'>Simple majority</span> (some provisions) (2) <span class='h'>Special majority</span> (2/3 + 50% total) (3) Special majority + <span class='h'>ratification by 50% state legislatures</span>`,
+dt:`<strong>Special majority = 2/3 of members present & voting AND majority of total membership of each House.</strong> <strong>State ratification required for:</strong> President election (Art. 54, 55), extent of executive power, SC/HC, Legislative Lists, RS representation, Art. 368 itself. <strong>Trap:</strong> Preamble can be amended (Kesavananda Bharati 1973) but basic structure cannot be destroyed.`,
+bl:"Art. 368 Amendment Procedure",
+bk:`<table class='ct'><tr><th>Category</th><th>Method</th><th>Examples</th></tr>
+<tr><td class='h'>Simple majority (Art. 368 not needed)</td><td>Ordinary legislative process</td><td>Formation/alteration of states (Art. 3), Abolition of LS seats (Art. 331), 2nd Schedule salaries, admission of new states (Art. 2)</td></tr>
+<tr><td class='h'>Special majority only (Art. 368)</td><td>2/3 of present &amp; voting + majority of total membership in BOTH Houses</td><td>FR, DPSP, President's powers, Parliament procedure, most amendments</td></tr>
+<tr><td class='h'>Special majority + State ratification</td><td>Special majority + at least 50% state legislatures must ratify</td><td>President's election (Art. 54), executive power (Art. 73, 162), SC/HC, Sch. 7 (3 Lists), RS representation, Art. 368 itself</td></tr></table>
+<div class='dt' style='margin-top:8px'><strong>No time limit:</strong> For state ratification — Parliament can set a time frame. <strong>Cannot pass by referendum.</strong><br><strong>Key trap:</strong> Simple majority laws (Art. 3, etc.) are NOT constitutional amendments under Art. 368 — they are ordinary laws.</div>`,
+br:"Art. 368 · Constitutional Amendment"},
+
+// ══════════════════════════════════════════
+// AMENDMENTS (38–50)
+// ══════════════════════════════════════════
+{n:"38",t:"Amendments",tag:"1st, 7th, 24th Amendments",ref:"Constitutional Amendments",
+q:"1st Amendment (1951), 7th Amendment (1956), 24th Amendment (1971) — what did they do?",
+a:`1st: Added <span class='h'>Sch. 9</span> (land reform laws beyond JR) | 7th: <span class='h'>Reorganised states on linguistic basis</span> | 24th: Parliament has <span class='h'>power to amend any part including FR</span>`,
+dt:`<strong>1st Amendment 1951:</strong> Added Sch. 9 to protect land reform laws from FR challenge. Also added Art. 15(4) — reservation for backward classes. <strong>7th Amendment 1956:</strong> States Reorganisation Act — abolished Part A, B, C, D states; created present structure. <strong>24th Amendment 1971:</strong> Overruled Golak Nath (1967) — Parliament CAN amend FR. Mandatory for President to give assent to constitution amendment bills.`,
+bl:"1st, 7th, 24th Amendments",
+bk:`<table class='ct'><tr><th>Amendment</th><th>Year</th><th>Key Change</th></tr>
+<tr><td class='h'>1st Amendment</td><td>1951</td><td>Added 9th Schedule. Added Art. 15(4) (SC/ST/OBC reservation). Protected land reform laws from FR challenge. Added reasonable restrictions on free speech.</td></tr>
+<tr><td class='h'>7th Amendment</td><td>1956</td><td>Abolished Part A/B/C/D states. Reorganised on linguistic basis. Allowed one HC for two or more states. Abolished 4th class (Part C) states.</td></tr>
+<tr><td class='h'>24th Amendment</td><td>1971</td><td>Overruled Golak Nath — Parliament can amend any part of Constitution including FR. President must give assent to constitutional amendment bills (cannot withhold).</td></tr></table>`,
+br:"Constitutional Amendments"},
+
+{n:"39",t:"Amendments",tag:"25th, 26th, 38th, 39th Amendments",ref:"Constitutional Amendments",
+q:"25th (1971), 26th (1971), 39th (1975) Amendments — what did they do?",
+a:`25th: Art. 31C — <span class='h'>DPSP Art. 39(b)(c) prevails over Art. 14 & 19</span> | 26th: <span class='h'>Abolished privy purses</span> of princes | 39th: <span class='h'>PM election dispute not justiciable</span> (later overruled)`,
+dt:`<strong>25th Amendment 1971:</strong> Added Art. 31C — laws giving effect to Art. 39(b)(c) DPSP cannot be challenged under Art. 14 & 19. Partly struck down by Minerva Mills (1980). <strong>26th Amendment 1971:</strong> Abolished privy purses paid to former rulers of princely states. <strong>39th Amendment 1975:</strong> Made election of PM, President, VP, Speaker non-justiciable — declared void by SC in Indira Gandhi case (1975) as violative of basic structure.`,
+bl:"25th, 26th, 39th Amendments",
+bk:`<table class='ct'><tr><th>Amendment</th><th>Year</th><th>Change &amp; Outcome</th></tr>
+<tr><td class='h'>25th Amendment</td><td>1971</td><td>Art. 31C added — DPSP Art. 39(b)(c) prevails over Art. 14 &amp; 19. Partly struck down by Minerva Mills (1980) — Courts can review whether law actually implements DPSP.</td></tr>
+<tr><td class='h'>26th Amendment</td><td>1971</td><td>Abolished privy purses and privileges of former rulers of princely states. Art. 291 and Art. 362 repealed.</td></tr>
+<tr><td class='h'>39th Amendment</td><td>1975</td><td>Made election disputes of PM, President, VP, LS Speaker non-justiciable. Struck down by SC (Indira Gandhi v. Raj Narain 1975) — free &amp; fair elections are basic structure.</td></tr></table>`,
+br:"Constitutional Amendments"},
+
+{n:"40",t:"Amendments",tag:"42nd Amendment 1976 — 'Mini Constitution'",ref:"Constitutional Amendments",
+q:"42nd Amendment 1976 — what major changes did it make? Why is it called 'Mini Constitution'?",
+a:`42nd Amendment = <span class='h'>"Mini Constitution"</span> — largest amendment. Added: <span class='h'>Socialist, Secular, Integrity</span> to Preamble | Fundamental Duties (Art. 51A) | Made President bound by Cabinet advice | Curtailed judicial review`,
+dt:`<strong>Other changes in 42nd Amendment:</strong> Added 10 Fundamental Duties | Art. 31C extended to all DPSPs (partly struck down by Minerva Mills) | Added Art. 323A (Administrative Tribunals) | Tribunals for service disputes | Parliament's legislative authority over state subjects in national interest extended | Added terms 'Socialist', 'Secular', 'Integrity' to Preamble | Extended LS/Vidhan Sabha tenure from 5 to 6 years (reversed by 44th Amendment). <strong>Trap:</strong> Also added Part IVA (Fundamental Duties).`,
+bl:"42nd Amendment — Full List",
+bk:`<table class='ct'><tr><th>Change</th><th>Detail</th></tr>
+<tr><td class='h'>Preamble</td><td>Added "Socialist," "Secular," "Integrity"</td></tr>
+<tr><td class='h'>Fundamental Duties</td><td>Added Art. 51A with 10 FDs (Part IVA)</td></tr>
+<tr><td class='h'>Cabinet advice binding</td><td>Art. 74 amended — President bound by CoM advice (partially reversed by 44th)</td></tr>
+<tr><td class='h'>Art. 31C extended</td><td>All DPSPs protected (partly reversed by Minerva Mills)</td></tr>
+<tr><td class='h'>Art. 323A added</td><td>Administrative tribunals for service disputes</td></tr>
+<tr><td class='h'>LS/assembly tenure</td><td>Extended from 5 to 6 years (reversed by 44th Amendment)</td></tr>
+<tr><td class='h'>Judicial review curtailed</td><td>HC review of Central laws curtailed — struck down by Minerva Mills</td></tr>
+<tr><td class='h'>Quorum</td><td>Quorum requirements changed (later reversed)</td></tr></table>`,
+br:"42nd Amendment 1976"},
+
+{n:"41",t:"Amendments",tag:"44th Amendment 1978",ref:"Constitutional Amendments",
+q:"44th Amendment 1978 — what did it undo from the Emergency-era changes?",
+a:`44th Amendment reversed many <span class='h'>Emergency excesses</span>: Restored LS tenure to <span class='h'>5 years</span> | Added <span class='h'>"Armed rebellion"</span> replacing "internal disturbance" | President can <span class='h'>return advice once</span> | Art. 20 & 21 <span class='h'>unsuspendable</span>`,
+dt:`<strong>44th Amendment 1978 (Janata govt post-Emergency):</strong> Restored many pre-Emergency provisions. Property right moved from FR to legal right (Art. 300A — "no person deprived of property except by authority of law"). Art. 20 & 21 cannot be suspended even during Emergency. LS tenure restored to 5 years. Cabinet recommendation must be in writing (for Emergency). <strong>Trap:</strong> Right to property was a FR under Art. 19(1)(f) and Art. 31 — both deleted by 44th Amendment.`,
+bl:"44th Amendment — Full Changes",
+bk:`<table class='ct'><tr><th>Change</th><th>Detail</th></tr>
+<tr><td class='h'>Property right</td><td>Removed Art. 19(1)(f) and Art. 31 from FRs. Added Art. 300A — property now a legal right only (ordinary law can regulate)</td></tr>
+<tr><td class='h'>National Emergency</td><td>'Internal disturbance' → 'Armed rebellion'. Written Cabinet recommendation mandatory. Lok Sabha can revoke by simple majority.</td></tr>
+<tr><td class='h'>Art. 20 &amp; 21</td><td>Cannot be suspended even by Art. 359 Presidential Order — codified what was practice</td></tr>
+<tr><td class='h'>President's discretion</td><td>Can return Cabinet advice once for reconsideration; must act on reconsidered advice</td></tr>
+<tr><td class='h'>LS/Assembly tenure</td><td>Restored to 5 years (reversed 42nd Amendment's 6-year extension)</td></tr>
+<tr><td class='h'>Freedom of press</td><td>Special protection to press — Art. 361A (no liability for true reporting of Parliament/Assembly proceedings)</td></tr></table>`,
+br:"44th Amendment 1978"},
+
+{n:"42",t:"Amendments",tag:"52nd, 61st, 73rd, 74th Amendments",ref:"Constitutional Amendments",
+q:"52nd (1985), 61st (1988), 73rd (1992), 74th (1992) Amendments",
+a:`52nd: <span class='h'>Anti-Defection Law</span> (10th Schedule) | 61st: <span class='h'>Voting age 21 → 18</span> | 73rd: <span class='h'>Panchayati Raj</span> (11th Schedule) | 74th: <span class='h'>Municipalities</span> (12th Schedule)`,
+dt:`<strong>52nd Amendment 1985:</strong> Added 10th Schedule — Anti-Defection. Speaker/Chairman decides. 2/3 members of party who merge not disqualified. <strong>61st Amendment 1988:</strong> Voting age reduced from 21 to 18 years (Art. 326). <strong>73rd & 74th Amendments 1992:</strong> Constitutional status to local bodies — landmark amendments. Rajiv Gandhi's contribution.`,
+bl:"Key Amendments 1985–1992",
+bk:`<table class='ct'><tr><th>Amendment</th><th>Year</th><th>Key Change</th></tr>
+<tr><td class='h'>52nd Amendment</td><td>1985</td><td>Anti-Defection Law — 10th Schedule. MP/MLA disqualified if voluntarily gives up party membership or votes against party whip. Kihoto Hollohan (1992) — upheld, Speaker's decision subject to JR after final order.</td></tr>
+<tr><td class='h'>61st Amendment</td><td>1988</td><td>Reduced voting age from 21 to 18 years (Art. 326). Made youth voice stronger in democracy.</td></tr>
+<tr><td class='h'>73rd Amendment</td><td>1992</td><td>Constitutional status to Panchayati Raj. Added Part IX (Art. 243–243O) and 11th Schedule (29 subjects). 3-tier structure, 1/3 reservation for women, SEC, SFC.</td></tr>
+<tr><td class='h'>74th Amendment</td><td>1992</td><td>Constitutional status to Urban Local Bodies. Added Part IXA (Art. 243P–243ZG) and 12th Schedule (18 subjects). Nagar Panchayat, Municipal Council, Municipal Corporation.</td></tr></table>`,
+br:"Amendments 1985–1992"},
+
+{n:"43",t:"Amendments",tag:"86th, 91st, 92nd Amendments",ref:"Constitutional Amendments",
+q:"86th (2002), 91st (2003), 92nd (2003) Amendments — what did they add?",
+a:`86th: <span class='h'>Right to Education (Art. 21A)</span> — free & compulsory education 6–14 years | 91st: <span class='h'>Anti-Defection + Cabinet size limit 15%</span> | 92nd: Added <span class='h'>4 languages</span> to 8th Schedule`,
+dt:`<strong>86th Amendment 2002:</strong> Art. 21A — FR right to free & compulsory education for 6–14 years. Added FD (k) for parents/guardians. Changed Art. 45 DPSP — now covers early childhood care 0–6 years. RTE Act 2009 enacted to implement Art. 21A. <strong>91st Amendment 2003:</strong> Cabinet size max 15% of LS strength including PM. No merger below 2/3 in anti-defection. <strong>92nd Amendment 2003:</strong> Added Bodo, Dogri, Maithili, Santhali to 8th Schedule (22 languages total).`,
+bl:"86th, 91st, 92nd Amendments",
+bk:`<table class='ct'><tr><th>Amendment</th><th>Year</th><th>Key Change</th></tr>
+<tr><td class='h'>86th Amendment</td><td>2002</td><td>Art. 21A — Right to Elementary Education (6–14 yrs) as FR. Added Art. 51A(k) FD. Changed Art. 45 DPSP. Implemented by RTE Act 2009.</td></tr>
+<tr><td class='h'>91st Amendment</td><td>2003</td><td>Cabinet size max 15% of LS total strength including PM (Art. 75(1A)). 10th Schedule — no exemption for merger of less than 2/3.</td></tr>
+<tr><td class='h'>92nd Amendment</td><td>2003</td><td>Added Bodo, Dogri, Maithili, Santhali to 8th Schedule — total 22 languages. Also rearranged some entries in Schedule.</td></tr></table>`,
+br:"86th–92nd Amendments"},
+
+{n:"44",t:"Amendments",tag:"97th, 99th, 100th, 101st Amendments",ref:"Constitutional Amendments",
+q:"97th (2011), 99th (2014), 100th (2015), 101st (2017) Amendments — what did they do?",
+a:`97th: <span class='h'>Right to form Cooperative Societies</span> (Art. 19(1)(c)) | 99th: <span class='h'>NJAC</span> (struck down 2015) | 100th: <span class='h'>Land boundary agreement</span> with Bangladesh | 101st: <span class='h'>GST</span>`,
+dt:`<strong>99th Amendment 2014:</strong> Created National Judicial Appointments Commission (NJAC) for judicial appointments. Struck down by SC (Supreme Court Advocates-on-Record Association v. Union of India 2015) as violative of judicial independence (basic structure). Collegium system restored. <strong>101st Amendment 2017:</strong> GST — Art. 246A, 269A, 279A. Subsumed multiple indirect taxes into one. GST Council formed.`,
+bl:"Recent Major Amendments",
+bk:`<table class='ct'><tr><th>Amendment</th><th>Year</th><th>Change &amp; Status</th></tr>
+<tr><td class='h'>97th Amendment</td><td>2011</td><td>Added right to form Cooperative Societies in Art. 19(1)(c). Added Art. 43B (DPSP for cooperatives). Added Part IXB (Art. 243ZH–243ZT) for cooperatives.</td></tr>
+<tr><td class='h'>99th Amendment</td><td>2014</td><td>Created NJAC (National Judicial Appointments Commission). Struck down by SC (2015) — judicial independence is basic structure. Collegium system reinstated.</td></tr>
+<tr><td class='h'>100th Amendment</td><td>2015</td><td>India-Bangladesh Land Boundary Agreement — India gave some enclaves to Bangladesh. Art. 1 &amp; Sch. 1 amended.</td></tr>
+<tr><td class='h'>101st Amendment</td><td>2017</td><td>GST — one nation one tax. Added Art. 246A (GST legislation powers for Centre &amp; States). Art. 269A (IGST). Art. 279A (GST Council). Came into effect 1 July 2017.</td></tr></table>`,
+br:"Amendments 2011–2017"},
+
+{n:"45",t:"Amendments",tag:"102nd, 103rd, 104th, 105th Amendments",ref:"Constitutional Amendments",
+q:"102nd (2018), 103rd (2019), 104th (2020), 105th (2021) — key changes",
+a:`102nd: <span class='h'>NCBC constitutional status</span> (Art. 338B) | 103rd: <span class='h'>EWS 10% reservation</span> (Art. 15(6), 16(6)) | 104th: <span class='h'>Abolished Anglo-Indian reservation</span> in LS/State assemblies | 105th: <span class='h'>State OBC lists power restored</span>`,
+dt:`<strong>102nd Amendment 2018:</strong> NCBC (National Commission for Backward Classes) given constitutional status — Art. 338B. President empowered to notify OBC lists for Central purposes. <strong>103rd Amendment 2019:</strong> EWS (Economically Weaker Sections) — 10% reservation in education and employment for non-SC/ST/OBC. Upheld by SC 3:2 (Janhit Abhiyan v. UOI 2022). <strong>104th Amendment 2020:</strong> Extended SC/ST reservation in LS and State Assemblies by 10 more years (till 2030). Abolished reserved seats for Anglo-Indians.`,
+bl:"102nd–105th Amendments",
+bk:`<table class='ct'><tr><th>Amendment</th><th>Year</th><th>Key Change</th></tr>
+<tr><td class='h'>102nd Amendment</td><td>2018</td><td>NCBC = constitutional body (Art. 338B). President notifies OBC lists for Central Govt purposes. States can separately notify for state purposes.</td></tr>
+<tr><td class='h'>103rd Amendment</td><td>2019</td><td>EWS 10% reservation — Art. 15(6) and Art. 16(6). Not limited to SC/ST/OBC. Based on economic criteria only. 50% cap does not apply to EWS (upheld by SC in Janhit Abhiyan 2022).</td></tr>
+<tr><td class='h'>104th Amendment</td><td>2020</td><td>Extended SC/ST reservation in Parliament and State Assemblies for 10 more years (to 2030). Abolished 2 nominated Anglo-Indian seats in LS and state assemblies. Art. 334 amended.</td></tr>
+<tr><td class='h'>105th Amendment</td><td>2021</td><td>Restored power of State governments to identify OBC for State purposes — reversed 102nd Amendment's interpretation that only President notifies OBCs.</td></tr></table>`,
+br:"Recent Constitutional Amendments"},
+
+{n:"46",t:"Key Articles",tag:"Art. 324–329 — Election Commission",ref:"Part XV · Elections",
+q:"Art. 324 — Election Commission: Composition, Powers, Independence",
+a:`Art. 324: EC = <span class='h'>CEC + Election Commissioners</span> appointed by President. CEC removed same as <span class='h'>SC judge</span>. New law (2023): selected by <span class='h'>PM + Home Minister + LoP committee</span>.`,
+dt:`<strong>CEC protection:</strong> Cannot be removed except by address by both Houses of Parliament — same as SC judge. Salary charged to CFI. <strong>Election Commissioners:</strong> Can be removed by President on CEC's recommendation. <strong>New CEC Act 2023:</strong> First CEC = Gyanesh Kumar (Feb 2025). <strong>Trap:</strong> Only CEC has security of tenure like SC judge — Election Commissioners do not have same protection.`,
+bl:"Election Commission Deep Dive",
+bk:`<table class='ct'><tr><th>Feature</th><th>Detail</th></tr>
+<tr><td class='h'>Establishment</td><td>Art. 324 — permanent body; multi-member since 1989 (T.N. Seshan era)</td></tr>
+<tr><td class='h'>Appointment</td><td>President on advice of Committee (since CEC Act 2023): PM + Home Minister + Leader of Opposition (LS)</td></tr>
+<tr><td class='h'>CEC removal</td><td>Like SC judge — address by both Houses + Presidential order; cannot be removed by President alone</td></tr>
+<tr><td class='h'>EC removal</td><td>By President on CEC's recommendation — weaker protection</td></tr>
+<tr><td class='h'>Jurisdiction</td><td>Elections to Parliament, State Legislatures, President, VP. NOT Panchayat/Municipal elections (those under State Election Commission)</td></tr>
+<tr><td class='h'>Model Code of Conduct</td><td>Constitutional convention — not statutory; but EC enforces through Art. 324 powers</td></tr>
+<tr><td class='h'>Art. 329</td><td>Bar on courts to interfere in electoral process once underway — only Election Tribunal (HC) after election</td></tr></table>`,
+br:"Art. 324–329 · Election Commission"},
+
+{n:"47",t:"Key Articles",tag:"Art. 280 — Finance Commission & Finance",ref:"Part XII · Finance",
+q:"Art. 264–300A: Finance Commission, CFI, Contingency Fund, Property Right",
+a:`Art. 266: <span class='h'>Consolidated Fund of India</span> (CFI) | Art. 267: <span class='h'>Contingency Fund</span> (₹500 cr) | Art. 280: <span class='h'>Finance Commission</span> every 5 years | Art. 300A: <span class='h'>Right to property</span> = legal right (not FR)`,
+dt:`<strong>Consolidated Fund of India (Art. 266):</strong> All revenues + borrowings. No money withdrawn except by appropriation law. <strong>Finance Commission (Art. 280):</strong> Appointed by President every 5 years. Recommends Centre-State tax sharing. 16th FC = Dr. Arvind Panagariya (2026–31). <strong>Art. 300A:</strong> Added by 44th Amendment — property is a legal right — ordinary law can regulate.`,
+bl:"Finance Articles Deep Dive",
+bk:`<table class='ct'><tr><th>Article</th><th>Subject</th><th>Key Point</th></tr>
+<tr><td class='h'>Art. 264</td><td>Interpretation of finance provisions</td><td>Definitions of CFI, Contingency Fund, Public Account</td></tr>
+<tr><td class='h'>Art. 265</td><td>No tax levied without authority of law</td><td>Tax must have legislative sanction</td></tr>
+<tr><td class='h'>Art. 266</td><td>Consolidated Fund of India</td><td>All revenues; Parliament appropriates; charged expenditures (President salary etc.)</td></tr>
+<tr><td class='h'>Art. 267</td><td>Contingency Fund</td><td>At disposal of President; ₹500 crore; used for unforeseen emergencies</td></tr>
+<tr><td class='h'>Art. 268</td><td>Duties levied by Union but collected &amp; appropriated by States</td><td>Stamp duties, excise on certain goods</td></tr>
+<tr><td class='h'>Art. 280</td><td>Finance Commission</td><td>Every 5 years; recommends: (1) Devolution of taxes (2) Grants-in-aid (3) Other finance matters</td></tr>
+<tr><td class='h'>Art. 300A</td><td>Right to property (legal right only)</td><td>No person deprived of property except by authority of law. Not a FR — cannot petition SC under Art. 32.</td></tr></table>`,
+br:"Art. 264–300A · Finance"},
+
+{n:"48",t:"Key Articles",tag:"Art. 340–342 — Commissions for Backward Classes",ref:"Part XVI · Art. 340–342",
+q:"Art. 340–342A: Backward Classes Commission, SC/ST lists, OBC",
+a:`Art. 340: <span class='h'>Commission for backward classes</span> appointed by President | Art. 341: <span class='h'>President notifies Scheduled Castes</span> | Art. 342: <span class='h'>President notifies Scheduled Tribes</span> | Art. 342A: <span class='h'>President notifies OBC</span> (102nd Amend.)`,
+dt:`<strong>Art. 340:</strong> President appoints commission to investigate conditions of socially/educationally backward classes. Mandal Commission (1979) = 2nd Backward Classes Commission. <strong>Art. 341:</strong> President in consultation with Governor specifies SC list by order. Parliament can add/remove. <strong>Art. 342A (102nd Amendment 2018):</strong> OBC list notified by President for Central purposes. States now notify separately for state purposes (105th Amendment 2021).`,
+bl:"Backward Classes Provisions",
+bk:`<table class='ct'><tr><th>Article</th><th>Subject</th><th>Key Note</th></tr>
+<tr><td class='h'>Art. 340</td><td>Backward Classes Commission</td><td>Mandal Commission = 2nd such commission (1979); report 1980; implemented 1990 (VP Singh); 27% OBC reservation in central services</td></tr>
+<tr><td class='h'>Art. 341</td><td>Scheduled Castes</td><td>Presidential Order 1950 specifies SC list; religion-based (originally only Hindu; later Sikh 1956, Buddhist 1990)</td></tr>
+<tr><td class='h'>Art. 342</td><td>Scheduled Tribes</td><td>Presidential Order specifies ST list; no religion-based restriction unlike SC</td></tr>
+<tr><td class='h'>Art. 342A</td><td>OBC (Central list)</td><td>Added by 102nd Amend. 2018; NCBC recommends; President notifies</td></tr>
+<tr><td class='h'>50% cap</td><td>Indra Sawhney 1992</td><td>Total reservation cannot exceed 50% (creamy layer excluded from OBC); EWS 10% is outside this cap (Janhit Abhiyan 2022)</td></tr></table>`,
+br:"Art. 340–342A · Reservations"},
+
+{n:"49",t:"Key Articles",tag:"Art. 343–351 — Official Language",ref:"Part XVII · Language",
+q:"Art. 343–351: Official Language provisions — Hindi, English, 8th Schedule",
+a:`Art. 343: <span class='h'>Hindi in Devanagari script</span> = official language of Union. English continues for <span class='h'>15 years</span> (but still continues by Official Languages Act). Art. 351: <span class='h'>Promote and spread Hindi</span>.`,
+dt:`<strong>Art. 343:</strong> Hindi in Devanagari script — official language. International form of numerals (1, 2, 3) — not Devanagari numerals. <strong>English continues</strong> under Official Languages Act 1963 (indefinitely). <strong>Art. 345:</strong> State can adopt any language in 8th Schedule or Hindi as its official language. <strong>Art. 348:</strong> Proceedings in SC and HCs shall be in English (unless Parliament provides otherwise). <strong>Trap:</strong> No 'national language' declared in Constitution — Hindi is 'official language' of Union.`,
+bl:"Official Language Provisions",
+bk:`<table class='ct'><tr><th>Article</th><th>Subject</th><th>Key Point</th></tr>
+<tr><td class='h'>Art. 343</td><td>Official language of Union</td><td>Hindi in Devanagari script; English for 15 years (extended indefinitely by law)</td></tr>
+<tr><td class='h'>Art. 344</td><td>Commission &amp; committee on official language</td><td>Rajbhasha Commission set up to recommend</td></tr>
+<tr><td class='h'>Art. 345</td><td>State official language</td><td>State can adopt Hindi or any 8th Schedule language as its official language</td></tr>
+<tr><td class='h'>Art. 346</td><td>Official language for inter-state communication</td><td>Hindi/English to be used; states can agree on different language</td></tr>
+<tr><td class='h'>Art. 347</td><td>Language of minority in a state</td><td>President can direct official recognition of minority language if substantial proportion request it</td></tr>
+<tr><td class='h'>Art. 348</td><td>Language in SC, HCs, bills</td><td>SC/HC proceedings in English; Parliament Bills in English + Hindi; State bills in state language or English</td></tr>
+<tr><td class='h'>Art. 351</td><td>Directive for Hindi development</td><td>Union duty to promote and spread Hindi to be a medium of expression for composite culture</td></tr></table>`,
+br:"Art. 343–351 · Official Language"},
+
+{n:"50",t:"History",tag:"Master Reference — All 50 Cards Quick Recall",ref:"Complete Constitution",
+q:"PLA Constitution Master — rapid recall: numbers, parts, schedules, amendments",
+a:`Constitution: <span class='h'>395 original articles, 8 schedules, 22 parts</span>. Now: ~470 articles, 12 schedules, 25 parts. Adopted: <span class='h'>26 Nov 1949</span>. In force: <span class='h'>26 Jan 1950</span>.`,
+dt:"<strong>This is your night-before exam card.</strong> Flip for complete master table of all key numbers to memorise.",
+bl:"Constitution Master Numbers",
+bk:`<table class='ct'>
+<tr><th>Item</th><th>Number/Detail</th></tr>
+<tr><td class='h'>Original Articles</td><td>395 Articles, 8 Schedules, 22 Parts</td></tr>
+<tr><td class='h'>Current Articles</td><td>~470 Articles, 12 Schedules, 25 Parts</td></tr>
+<tr><td class='h'>Schedules added later</td><td>9th (1951), 10th (1985), 11th (1992), 12th (1992)</td></tr>
+<tr><td class='h'>Amendments so far</td><td>105 Constitutional Amendments (as of 2021)</td></tr>
+<tr><td class='h'>Drafting period</td><td>2 years, 11 months, 18 days</td></tr>
+<tr><td class='h'>CA sessions</td><td>11 sessions; 389 members (reduced to 299 after Partition)</td></tr>
+<tr><td class='h'>Cost of Constitution</td><td>₹6.4 crore</td></tr>
+<tr><td class='h'>Official languages</td><td>22 (in 8th Schedule)</td></tr>
+<tr><td class='h'>Fundamental Rights</td><td>6 FRs (Part III, Art. 12–35)</td></tr>
+<tr><td class='h'>Fundamental Duties</td><td>11 FDs (Part IVA, Art. 51A)</td></tr>
+<tr><td class='h'>DPSPs</td><td>Part IV, Art. 36–51</td></tr>
+<tr><td class='h'>LS max strength</td><td>552 (543 elected; 2 Anglo-Indian abolished by 104th Amend.)</td></tr>
+<tr><td class='h'>RS max strength</td><td>250 (238 elected + 12 nominated)</td></tr>
+<tr><td class='h'>SC judges</td><td>CJI + 33 other judges (total 34); retirement 65 yrs</td></tr>
+<tr><td class='h'>HC judges retirement</td><td>62 years</td></tr>
+<tr><td class='h'>President retirement</td><td>No age limit; 5-year term; re-electable</td></tr>
+<tr><td class='h'>VP tenure</td><td>5 years; elected by all MPs (elected + nominated)</td></tr>
+<tr><td class='h'>National Emergency times</td><td>3 (1962, 1971, 1975)</td></tr>
+<tr><td class='h'>President's Rule times</td><td>100+ times</td></tr>
+<tr><td class='h'>Financial Emergency</td><td>0 times — never used</td></tr>
+</table>`,
+br:"Complete Constitution Reference"}
+];
+
+let allD=[...D],cards=[...D],idx=0,flipped=false,knownSet=new Set(),activeTopic='all';
+
+function setT(t,btn){
+  activeTopic=t;
+  document.querySelectorAll('.fb').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  cards=t==='all'?[...allD]:allD.filter(c=>c.t===t);
+  idx=0;render();
+}
+
+function mBox(c){
+  const hasGrid=c.boxes;
+  if(hasGrid){
+    return `<div class='ig'>${c.boxes.map(b=>`<div class='ib'><div class='il'>${b.label}</div><div class='iv'>${b.val}</div><div class='is'>${b.sub}</div></div>`).join('')}</div>`;
+  }
+  return `<div class='ca'>${c.a}</div><div class='dv'></div><div class='dt'>${c.dt}</div>`;
+}
+
+function render(){
+  const c=cards[idx];
+  flipped=false;
+  document.getElementById('cs').classList.remove('flipped');
+  document.getElementById('cs').classList.toggle('known',knownSet.has(D.indexOf(c)));
+  document.getElementById('fn').textContent=c.n;
+  document.getElementById('fr').textContent=c.ref;
+  document.getElementById('fb2').innerHTML=
+    `<div class='tag'>${c.tag}</div>
+     <div class='cq'>Q. ${c.q}</div>
+     <div class='ca'>${c.a}</div>
+     <div class='dv'></div>
+     <div class='dt'>${c.dt}</div>`;
+  document.getElementById('blb').textContent=c.bl;
+  document.getElementById('bn').textContent=c.n;
+  document.getElementById('bb').innerHTML=c.bk;
+  document.getElementById('br').textContent=c.br||c.ref;
+  document.getElementById('ci').textContent=idx+1;
+  document.getElementById('ct2').textContent=cards.length;
+  document.getElementById('pb').disabled=idx===0;
+  document.getElementById('nb').disabled=idx===cards.length-1;
+  const k=knownSet.size,t=D.length;
+  document.getElementById('pf').style.width=(t?k/t*100:0)+'%';
+  document.getElementById('kc').textContent=k;
+  document.getElementById('tc').textContent=t;
+  const s=document.getElementById('cs');
+  s.style.animation='none';s.offsetHeight;s.style.animation='ci 0.3s ease both';
+}
+function flip(){flipped=!flipped;document.getElementById('cs').classList.toggle('flipped',flipped);}
+function nav(d){const n=idx+d;if(n<0||n>=cards.length)return;idx=n;render();}
+function mk(){const c=cards[idx],gi=D.indexOf(c);knownSet.has(gi)?knownSet.delete(gi):knownSet.add(gi);render();}
+function sh(){for(let i=cards.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[cards[i],cards[j]]=[cards[j],cards[i]];}idx=0;render();}
+let tx=0,ty=0;
+document.getElementById('cs').addEventListener('touchstart',e=>{tx=e.touches[0].clientX;ty=e.touches[0].clientY;},{passive:true});
+document.getElementById('cs').addEventListener('touchend',e=>{
+  const dx=e.changedTouches[0].clientX-tx,dy=e.changedTouches[0].clientY-ty;
+  if(Math.abs(dx)>50&&Math.abs(dx)>Math.abs(dy)*1.5){dx<0?nav(1):nav(-1);}
+},{passive:true});
+document.addEventListener('keydown',e=>{
+  if(e.target.tagName==='INPUT')return;
+  if(e.key==='ArrowLeft')nav(-1);
+  else if(e.key==='ArrowRight')nav(1);
+  else if(e.key===' '){e.preventDefault();flip();}
+  else if(e.key==='k'||e.key==='K')mk();
+  else if(e.key==='s'||e.key==='S')sh();
+});
+render();
+</script>
+</body>
+</html>

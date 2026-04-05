@@ -1,0 +1,2207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Class Test 4 — BSA & Current Affairs | Pacific Law Academy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,400&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+    --ink: #1a1208;
+    --paper: #f5f0e8;
+    --cream: #ede8da;
+    --gold: #b8860b;
+    --gold-light: #d4a017;
+    --rust: #8b3a0f;
+    --forest: #1e3d2f;
+    --accent: #c0392b;
+    --line: rgba(26,18,8,0.15);
+    --shadow: rgba(26,18,8,0.12);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Source Serif 4', Georgia, serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.7;
+  }
+
+  /* Print styles */
+  @media print {
+    body { background: white; color: black; font-size: 11pt; }
+    .no-print { display: none !important; }
+    .page-break { page-break-before: always; }
+    .header-band { background: black !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .section-title { color: black !important; border-color: black !important; }
+    .answer-key { page-break-before: always; }
+    .q-number { color: black !important; }
+    a { text-decoration: none; color: black; }
+  }
+
+  /* ── HEADER ── */
+  .header-band {
+    background: var(--forest);
+    color: var(--paper);
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .header-band::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: repeating-linear-gradient(
+      -45deg, transparent, transparent 10px,
+      rgba(255,255,255,0.02) 10px, rgba(255,255,255,0.02) 20px
+    );
+  }
+  .header-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 32px 40px 28px;
+    position: relative;
+    z-index: 1;
+  }
+  .academy-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    margin-bottom: 8px;
+  }
+  .test-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 34px;
+    font-weight: 900;
+    line-height: 1.15;
+    color: var(--paper);
+    margin-bottom: 6px;
+  }
+  .test-subtitle {
+    font-size: 15px;
+    color: rgba(245,240,232,0.75);
+    letter-spacing: 0.5px;
+    font-style: italic;
+  }
+
+  .meta-strip {
+    background: var(--gold);
+    color: var(--ink);
+    padding: 10px 40px;
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    max-width: 100%;
+  }
+  .meta-item span { opacity: 0.65; font-weight: 400; }
+
+  /* ── INSTRUCTIONS ── */
+  .instructions {
+    max-width: 900px;
+    margin: 28px auto 0;
+    padding: 0 40px;
+    background: var(--cream);
+    border-left: 4px solid var(--forest);
+    margin-left: auto; margin-right: auto;
+  }
+  .instructions {
+    max-width: 900px;
+    margin: 24px auto;
+    padding: 18px 28px;
+    background: var(--cream);
+    border-left: 4px solid var(--forest);
+    border-radius: 0 4px 4px 0;
+  }
+  .instructions h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--forest);
+    margin-bottom: 8px;
+  }
+  .instructions ul {
+    list-style: none;
+    display: flex; flex-wrap: wrap; gap: 8px 28px;
+    font-size: 13px;
+  }
+  .instructions ul li::before { content: '◆ '; color: var(--gold); font-size: 10px; }
+
+  /* ── MAIN CONTENT ── */
+  .main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 40px 60px;
+  }
+
+  /* ── SECTION TITLE ── */
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--forest);
+    border-bottom: 2px solid var(--forest);
+    padding-bottom: 6px;
+    margin: 36px 0 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-title::before {
+    content: '';
+    display: inline-block;
+    width: 18px; height: 18px;
+    background: var(--gold);
+    flex-shrink: 0;
+  }
+  .section-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--gold);
+    margin-left: auto;
+    font-weight: 700;
+  }
+
+  /* ── QUESTION ── */
+  .question-block {
+    margin-bottom: 22px;
+    padding: 16px 20px;
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    position: relative;
+    transition: box-shadow 0.2s;
+  }
+  .question-block:hover { box-shadow: 0 3px 12px var(--shadow); }
+
+  .q-row {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    margin-bottom: 12px;
+  }
+  .q-number {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--gold);
+    min-width: 36px;
+    padding-top: 2px;
+    flex-shrink: 0;
+  }
+  .q-text {
+    font-size: 14.5px;
+    font-weight: 600;
+    line-height: 1.55;
+    color: var(--ink);
+  }
+
+  .options-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px 16px;
+    padding-left: 48px;
+  }
+  .option {
+    font-size: 13.5px;
+    padding: 4px 0;
+    color: #2a2010;
+    display: flex;
+    gap: 6px;
+  }
+  .opt-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--rust);
+    flex-shrink: 0;
+    min-width: 20px;
+  }
+
+  /* ── ANSWER SECTION ── */
+  .answer-key {
+    margin-top: 48px;
+    padding-top: 32px;
+    border-top: 3px double var(--forest);
+  }
+  .answer-key-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 900;
+    color: var(--forest);
+    margin-bottom: 6px;
+  }
+  .answer-key-sub {
+    font-size: 13px;
+    color: var(--rust);
+    font-style: italic;
+    margin-bottom: 28px;
+  }
+
+  .ans-section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--forest);
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 4px;
+    margin: 24px 0 12px;
+  }
+
+  .ans-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 6px 10px;
+  }
+  .ans-item {
+    font-size: 12.5px;
+    display: flex;
+    gap: 5px;
+    align-items: baseline;
+    padding: 4px 6px;
+    background: var(--cream);
+    border-radius: 3px;
+    border-left: 3px solid var(--gold);
+  }
+  .ans-qnum {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--rust);
+    flex-shrink: 0;
+    min-width: 28px;
+  }
+  .ans-val {
+    font-weight: 600;
+    color: var(--forest);
+    font-size: 12.5px;
+  }
+
+  .footer {
+    background: var(--forest);
+    color: rgba(245,240,232,0.7);
+    text-align: center;
+    padding: 18px;
+    font-size: 12px;
+    letter-spacing: 1px;
+    margin-top: 40px;
+  }
+  .footer strong { color: var(--gold-light); }
+
+  /* print button */
+  .print-btn {
+    position: fixed;
+    bottom: 28px; right: 28px;
+    background: var(--forest);
+    color: var(--paper);
+    border: none;
+    padding: 12px 22px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 4px 16px var(--shadow);
+    z-index: 999;
+  }
+  .print-btn:hover { background: var(--gold); color: var(--ink); }
+
+  @media (max-width: 640px) {
+    .header-inner { padding: 24px 20px; }
+    .test-title { font-size: 24px; }
+    .main { padding: 0 16px 40px; }
+    .options-grid { grid-template-columns: 1fr; }
+    .ans-grid { grid-template-columns: repeat(3, 1fr); }
+    .meta-strip { padding: 10px 20px; gap: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<button class="print-btn no-print" id="print-btn">⎙ Print / PDF</button>
+
+<!-- HEADER -->
+<div class="header-band">
+  <div class="header-inner">
+    <div class="academy-name">Pacific Law Academy · Panchkula</div>
+    <div class="test-title">Class Test 4</div>
+    <div class="test-subtitle">BSA · Law of Evidence · Current Affairs — PU Law Entrance 2026</div>
+  </div>
+</div>
+<div class="meta-strip">
+  <div class="meta-item">TOTAL QUESTIONS: <span>150</span></div>
+  <div class="meta-item">MARKS: <span>150 × 1 = 150</span></div>
+  <div class="meta-item">TIME: <span>90 Minutes</span></div>
+  <div class="meta-item">NEGATIVE MARKING: <span>0.25 per wrong answer</span></div>
+</div>
+
+<!-- INSTRUCTIONS -->
+<div class="instructions">
+  <h3>Instructions</h3>
+  <ul>
+    <li>All questions carry 1 mark each</li>
+    <li>0.25 marks deducted for each wrong answer</li>
+    <li>Do not leave questions unanswered unless unsure</li>
+    <li>Answers are given at the end of this booklet</li>
+    <li>Topics: BSA, Burden of Proof, Dying Declaration, Confession, Res Gestae, Privilege, Evidence Types, Current Affairs</li>
+  </ul>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!-- SECTION A: BSA & LAW OF EVIDENCE -->
+<!-- ══════════════════════════════════════════════════════ -->
+
+<div class="section-title">Section A — Bharatiya Sakshya Adhiniyam (BSA) & Law of Evidence <span class="section-num">Q 1–80</span></div>
+
+<!-- Q1 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.1</div><div class="q-text">The Bharatiya Sakshya Adhiniyam (BSA), 2023 received Presidential assent on which date?</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> 11 August 2023</div>
+    <div class="option"><span class="opt-label">(B)</span> 25 December 2023</div>
+    <div class="option"><span class="opt-label">(C)</span> 1 July 2024</div>
+    <div class="option"><span class="opt-label">(D)</span> 15 August 2024</div>
+  </div>
+</div>
+
+<!-- Q2 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.2</div><div class="q-text">The Bharatiya Sakshya Adhiniyam (BSA), 2023 came into force (enforcement date) on:</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> 11 August 2023</div>
+    <div class="option"><span class="opt-label">(B)</span> 1 January 2024</div>
+    <div class="option"><span class="opt-label">(C)</span> 1 July 2024</div>
+    <div class="option"><span class="opt-label">(D)</span> 26 January 2024</div>
+  </div>
+</div>
+
+<!-- Q3 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.3</div><div class="q-text">The Bharatiya Nagarik Suraksha Sanhita (BNSS), 2023 came into force on:</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> 1 July 2024</div>
+    <div class="option"><span class="opt-label">(B)</span> 1 January 2024</div>
+    <div class="option"><span class="opt-label">(C)</span> 11 August 2023</div>
+    <div class="option"><span class="opt-label">(D)</span> 15 August 2024</div>
+  </div>
+</div>
+
+<!-- Q4 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.4</div><div class="q-text">The Bharatiya Nyaya Sanhita (BNS), 2023 received Presidential assent on which date?</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> 11 August 2023</div>
+    <div class="option"><span class="opt-label">(B)</span> 25 December 2023</div>
+    <div class="option"><span class="opt-label">(C)</span> 1 July 2024</div>
+    <div class="option"><span class="opt-label">(D)</span> 26 January 2024</div>
+  </div>
+</div>
+
+<!-- Q5 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.5</div><div class="q-text">The Bharatiya Sakshya Adhiniyam (BSA) replaced which earlier legislation?</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Code of Criminal Procedure, 1973</div>
+    <div class="option"><span class="opt-label">(B)</span> Indian Evidence Act, 1872</div>
+    <div class="option"><span class="opt-label">(C)</span> Indian Penal Code, 1860</div>
+    <div class="option"><span class="opt-label">(D)</span> Oaths Act, 1969</div>
+  </div>
+</div>
+
+<!-- Q6 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.6</div><div class="q-text">Law of Evidence is classified as:</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Substantive law</div>
+    <div class="option"><span class="opt-label">(B)</span> Adjective law (procedural law)</div>
+    <div class="option"><span class="opt-label">(C)</span> Criminal law</div>
+    <div class="option"><span class="opt-label">(D)</span> Both substantive and adjective</div>
+  </div>
+</div>
+
+<!-- Q7 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.7</div><div class="q-text">"Facts in issue" under BSA means:</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Any fact which a court may take judicial notice of</div>
+    <div class="option"><span class="opt-label">(B)</span> Facts which are alleged by one party and denied by the other</div>
+    <div class="option"><span class="opt-label">(C)</span> Facts mentioned in the FIR only</div>
+    <div class="option"><span class="opt-label">(D)</span> Facts admitted by both parties</div>
+  </div>
+</div>
+
+<!-- Q8 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.8</div><div class="q-text">Under BSA, "relevant facts" are:</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Facts which are facts in issue</div>
+    <div class="option"><span class="opt-label">(B)</span> Facts declared relevant by the BSA whether or not they are facts in issue</div>
+    <div class="option"><span class="opt-label">(C)</span> Only facts proven beyond reasonable doubt</div>
+    <div class="option"><span class="opt-label">(D)</span> Facts admitted before trial</div>
+  </div>
+</div>
+
+<!-- Q9 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.9</div><div class="q-text">The general rule under BSA regarding admissibility of evidence is:</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> All evidence is admissible if it tends to prove any fact</div>
+    <div class="option"><span class="opt-label">(B)</span> Only relevant facts are admissible as evidence</div>
+    <div class="option"><span class="opt-label">(C)</span> All facts must be proved by direct evidence</div>
+    <div class="option"><span class="opt-label">(D)</span> Hearsay evidence is always admissible</div>
+  </div>
+</div>
+
+<!-- Q10 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.10</div><div class="q-text">"Doctrine of Res Gestae" under BSA refers to:</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Hearsay statements made after the event</div>
+    <div class="option"><span class="opt-label">(B)</span> Facts forming part of the same transaction as the fact in issue</div>
+    <div class="option"><span class="opt-label">(C)</span> Expert evidence relating to foreign law</div>
+    <div class="option"><span class="opt-label">(D)</span> Confession made to a police officer</div>
+  </div>
+</div>
+
+<!-- Q11 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.11</div><div class="q-text">The general rule of burden of proof is — the burden lies on:</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> The accused in all cases</div>
+    <div class="option"><span class="opt-label">(B)</span> The party who would fail if no evidence were given on either side</div>
+    <div class="option"><span class="opt-label">(C)</span> The prosecution in civil cases</div>
+    <div class="option"><span class="opt-label">(D)</span> The judge to determine</div>
+  </div>
+</div>
+
+<!-- Q12 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.12</div><div class="q-text">In criminal cases, the standard of proof required of the prosecution is:</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Preponderance of probabilities</div>
+    <div class="option"><span class="opt-label">(B)</span> Prima facie evidence</div>
+    <div class="option"><span class="opt-label">(C)</span> Beyond reasonable doubt</div>
+    <div class="option"><span class="opt-label">(D)</span> Conclusive proof</div>
+  </div>
+</div>
+
+<!-- Q13 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.13</div><div class="q-text">In civil cases, the standard of proof is:</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Beyond reasonable doubt</div>
+    <div class="option"><span class="opt-label">(B)</span> Preponderance of probabilities</div>
+    <div class="option"><span class="opt-label">(C)</span> Conclusive proof</div>
+    <div class="option"><span class="opt-label">(D)</span> No proof required</div>
+  </div>
+</div>
+
+<!-- Q14 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.14</div><div class="q-text">"Conclusive proof" under BSA means:</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Proof that may be rebutted by other evidence</div>
+    <div class="option"><span class="opt-label">(B)</span> Proof which the court shall accept as final without allowing any evidence to contradict it</div>
+    <div class="option"><span class="opt-label">(C)</span> Proof accepted only in civil courts</div>
+    <div class="option"><span class="opt-label">(D)</span> Proof by way of documentary evidence only</div>
+  </div>
+</div>
+
+<!-- Q15 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.15</div><div class="q-text">Which of the following is an example of "conclusive proof" under BSA?</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Dying declaration</div>
+    <div class="option"><span class="opt-label">(B)</span> A child born during a valid marriage is conclusive proof of legitimacy (Section 112, IEA / BSA equivalent)</div>
+    <div class="option"><span class="opt-label">(C)</span> Confession to a magistrate</div>
+    <div class="option"><span class="opt-label">(D)</span> Electronic records</div>
+  </div>
+</div>
+
+<!-- Q16 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.16</div><div class="q-text">"Dying declaration" is admissible under BSA on what basis?</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> It is direct evidence of the crime</div>
+    <div class="option"><span class="opt-label">(B)</span> A person on the verge of death is unlikely to lie (nemo moriturus praesumitur mentiri)</div>
+    <div class="option"><span class="opt-label">(C)</span> It is a confession made voluntarily</div>
+    <div class="option"><span class="opt-label">(D)</span> It is corroborated by police testimony</div>
+  </div>
+</div>
+
+<!-- Q17 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.17</div><div class="q-text">For a dying declaration to be admissible, it is NOT necessary that:</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> The declarant must have died</div>
+    <div class="option"><span class="opt-label">(B)</span> It must relate to the cause of death</div>
+    <div class="option"><span class="opt-label">(C)</span> It must be made in a fit mental state</div>
+    <div class="option"><span class="opt-label">(D)</span> It must be recorded by a Magistrate (corroboration is desirable, not mandatory)</div>
+  </div>
+</div>
+
+<!-- Q18 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.18</div><div class="q-text">Under the "dowry death" presumption (7-year rule) under the law, if a woman dies within how many years of marriage under suspicious circumstances, it is presumed to be dowry death?</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> 3 years</div>
+    <div class="option"><span class="opt-label">(B)</span> 5 years</div>
+    <div class="option"><span class="opt-label">(C)</span> 7 years</div>
+    <div class="option"><span class="opt-label">(D)</span> 10 years</div>
+  </div>
+</div>
+
+<!-- Q19 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.19</div><div class="q-text">Under the dowry death presumption, once established, the burden shifts to:</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> The prosecution to prove beyond reasonable doubt</div>
+    <div class="option"><span class="opt-label">(B)</span> The accused to rebut the presumption</div>
+    <div class="option"><span class="opt-label">(C)</span> The court to independently investigate</div>
+    <div class="option"><span class="opt-label">(D)</span> The family of the deceased</div>
+  </div>
+</div>
+
+<!-- Q20 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.20</div><div class="q-text">A "confession" under BSA is:</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Any statement made by an accused person</div>
+    <div class="option"><span class="opt-label">(B)</span> An admission of guilt of the offence charged, made by the accused</div>
+    <div class="option"><span class="opt-label">(C)</span> A statement made to any police officer</div>
+    <div class="option"><span class="opt-label">(D)</span> A statement made under oath</div>
+  </div>
+</div>
+
+<!-- Q21 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.21</div><div class="q-text">A confession made to a police officer is generally:</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Always admissible</div>
+    <div class="option"><span class="opt-label">(B)</span> Inadmissible except in specific circumstances (e.g., leads to discovery of fact)</div>
+    <div class="option"><span class="opt-label">(C)</span> Admissible only in civil cases</div>
+    <div class="option"><span class="opt-label">(D)</span> Admissible if witnessed by two persons</div>
+  </div>
+</div>
+
+<!-- Q22 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.22</div><div class="q-text">A confession made by an accused while in police custody is admissible if:</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Made before two witnesses</div>
+    <div class="option"><span class="opt-label">(B)</span> Recorded by a Magistrate and is voluntary</div>
+    <div class="option"><span class="opt-label">(C)</span> Made in writing</div>
+    <div class="option"><span class="opt-label">(D)</span> Made in presence of a lawyer</div>
+  </div>
+</div>
+
+<!-- Q23 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.23</div><div class="q-text">"Primary evidence" under BSA means:</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Best available evidence from witness testimony</div>
+    <div class="option"><span class="opt-label">(B)</span> The document itself produced before the court</div>
+    <div class="option"><span class="opt-label">(C)</span> A certified copy of the original document</div>
+    <div class="option"><span class="opt-label">(D)</span> Any oral evidence about the document</div>
+  </div>
+</div>
+
+<!-- Q24 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.24</div><div class="q-text">"Secondary evidence" may be given when:</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> The original is in existence and available</div>
+    <div class="option"><span class="opt-label">(B)</span> The original is lost, destroyed, or in possession of the opposite party</div>
+    <div class="option"><span class="opt-label">(C)</span> The original is a public document</div>
+    <div class="option"><span class="opt-label">(D)</span> The court specifically orders it</div>
+  </div>
+</div>
+
+<!-- Q25 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.25</div><div class="q-text">Hearsay evidence is generally:</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Admissible in all cases</div>
+    <div class="option"><span class="opt-label">(B)</span> Inadmissible as evidence of the truth of the matter stated</div>
+    <div class="option"><span class="opt-label">(C)</span> Admissible only in civil cases</div>
+    <div class="option"><span class="opt-label">(D)</span> The most reliable form of evidence</div>
+  </div>
+</div>
+
+<!-- Q26 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.26</div><div class="q-text">The "golden rule" of evidence (Hearsay rule) states:</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Best evidence must always be produced</div>
+    <div class="option"><span class="opt-label">(B)</span> A witness can only testify to what they personally perceived, not what they were told</div>
+    <div class="option"><span class="opt-label">(C)</span> All confessions are admissible</div>
+    <div class="option"><span class="opt-label">(D)</span> Written evidence is superior to oral evidence</div>
+  </div>
+</div>
+
+<!-- Q27 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.27</div><div class="q-text">Under BSA, "direct evidence" is evidence that:</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Proves a fact in issue without inference</div>
+    <div class="option"><span class="opt-label">(B)</span> Requires drawing of inferences from a chain of facts</div>
+    <div class="option"><span class="opt-label">(C)</span> Is always documentary</div>
+    <div class="option"><span class="opt-label">(D)</span> Is given only by expert witnesses</div>
+  </div>
+</div>
+
+<!-- Q28 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.28</div><div class="q-text">"Circumstantial evidence" differs from direct evidence in that it:</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Is always inadmissible</div>
+    <div class="option"><span class="opt-label">(B)</span> Requires inference from a series of proven facts to establish the fact in issue</div>
+    <div class="option"><span class="opt-label">(C)</span> Is testimony of eye witnesses</div>
+    <div class="option"><span class="opt-label">(D)</span> Must be corroborated by documentary evidence</div>
+  </div>
+</div>
+
+<!-- Q29 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.29</div><div class="q-text">For circumstantial evidence to sustain a conviction, the chain of circumstances must:</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Point to any one possible hypothesis</div>
+    <div class="option"><span class="opt-label">(B)</span> Be consistent only with the guilt of the accused and inconsistent with innocence</div>
+    <div class="option"><span class="opt-label">(C)</span> Be corroborated by eye-witness testimony</div>
+    <div class="option"><span class="opt-label">(D)</span> Be established by preponderance of probability only</div>
+  </div>
+</div>
+
+<!-- Q30 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.30</div><div class="q-text">"Alibi" as a defence means:</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> The accused was of unsound mind at the time</div>
+    <div class="option"><span class="opt-label">(B)</span> The accused was elsewhere when the crime was committed</div>
+    <div class="option"><span class="opt-label">(C)</span> The act was done in self-defence</div>
+    <div class="option"><span class="opt-label">(D)</span> Consent of the victim was obtained</div>
+  </div>
+</div>
+
+<!-- Q31 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.31</div><div class="q-text">Under BSA, the burden of proving "alibi" lies on:</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> The prosecution</div>
+    <div class="option"><span class="opt-label">(B)</span> The accused to prove it on preponderance of probability</div>
+    <div class="option"><span class="opt-label">(C)</span> The court</div>
+    <div class="option"><span class="opt-label">(D)</span> The witness for the defence</div>
+  </div>
+</div>
+
+<!-- Q32 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.32</div><div class="q-text">"Privileged communication" means:</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Evidence that is always admissible as it is from an expert</div>
+    <div class="option"><span class="opt-label">(B)</span> Communications protected from disclosure in court by reason of public policy or professional relationships</div>
+    <div class="option"><span class="opt-label">(C)</span> Communication between accused and police</div>
+    <div class="option"><span class="opt-label">(D)</span> Statements recorded under oath</div>
+  </div>
+</div>
+
+<!-- Q33 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.33</div><div class="q-text">Which of the following is an example of privileged communication under BSA/IEA?</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Communication between friends</div>
+    <div class="option"><span class="opt-label">(B)</span> Communication between a husband and wife during marriage</div>
+    <div class="option"><span class="opt-label">(C)</span> Statement of an accused before police</div>
+    <div class="option"><span class="opt-label">(D)</span> Testimony of an eye witness</div>
+  </div>
+</div>
+
+<!-- Q34 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.34</div><div class="q-text">"Examination-in-Chief" means:</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Examination of a witness by the opposite party</div>
+    <div class="option"><span class="opt-label">(B)</span> Examination of a witness by the party who called them</div>
+    <div class="option"><span class="opt-label">(C)</span> Examination of the accused by the judge</div>
+    <div class="option"><span class="opt-label">(D)</span> Re-examination after cross-examination</div>
+  </div>
+</div>
+
+<!-- Q35 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.35</div><div class="q-text">"Leading questions" in examination-in-chief are:</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Always permitted</div>
+    <div class="option"><span class="opt-label">(B)</span> Generally not permitted except with court's permission</div>
+    <div class="option"><span class="opt-label">(C)</span> Only permitted in cross-examination</div>
+    <div class="option"><span class="opt-label">(D)</span> Permitted only in civil cases</div>
+  </div>
+</div>
+
+<!-- Q36 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.36</div><div class="q-text">Leading questions are generally permitted during:</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Examination-in-chief</div>
+    <div class="option"><span class="opt-label">(B)</span> Cross-examination</div>
+    <div class="option"><span class="opt-label">(C)</span> Re-examination</div>
+    <div class="option"><span class="opt-label">(D)</span> Only in criminal proceedings</div>
+  </div>
+</div>
+
+<!-- Q37 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.37</div><div class="q-text">"Cross-examination" is conducted by:</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> The same party who called the witness</div>
+    <div class="option"><span class="opt-label">(B)</span> The adverse or opposite party</div>
+    <div class="option"><span class="opt-label">(C)</span> The judge only</div>
+    <div class="option"><span class="opt-label">(D)</span> The accused personally</div>
+  </div>
+</div>
+
+<!-- Q38 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.38</div><div class="q-text">"Corroboration" in evidence law means:</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Only documentary proof</div>
+    <div class="option"><span class="opt-label">(B)</span> Independent evidence that confirms or supports other evidence already given</div>
+    <div class="option"><span class="opt-label">(C)</span> A confession recorded by police</div>
+    <div class="option"><span class="opt-label">(D)</span> Evidence given by an expert witness</div>
+  </div>
+</div>
+
+<!-- Q39 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.39</div><div class="q-text">"Contradiction" in evidence law (when a witness's earlier statement is used against them) is called:</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Corroboration</div>
+    <div class="option"><span class="opt-label">(B)</span> Impeachment of credit</div>
+    <div class="option"><span class="opt-label">(C)</span> Re-examination</div>
+    <div class="option"><span class="opt-label">(D)</span> Hostile witness procedure</div>
+  </div>
+</div>
+
+<!-- Q40 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.40</div><div class="q-text">"Estoppel" under BSA means:</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> A right to remain silent during examination</div>
+    <div class="option"><span class="opt-label">(B)</span> A rule that prevents a person from denying a fact they previously asserted if another party has acted on it</div>
+    <div class="option"><span class="opt-label">(C)</span> A privilege given to the accused</div>
+    <div class="option"><span class="opt-label">(D)</span> A doctrine restricting use of electronic evidence</div>
+  </div>
+</div>
+
+<!-- Q41 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.41</div><div class="q-text">The right to "remain silent" of an accused is protected under the Indian Constitution by:</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Article 14</div>
+    <div class="option"><span class="opt-label">(B)</span> Article 20(3) — no person accused of an offence shall be compelled to be a witness against themselves</div>
+    <div class="option"><span class="opt-label">(C)</span> Article 21</div>
+    <div class="option"><span class="opt-label">(D)</span> Article 19(1)(a)</div>
+  </div>
+</div>
+
+<!-- Q42 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.42</div><div class="q-text">A "child witness" under BSA may be examined if the court is satisfied that:</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> The child is above 12 years of age</div>
+    <div class="option"><span class="opt-label">(B)</span> The child understands the questions put and can give rational answers</div>
+    <div class="option"><span class="opt-label">(C)</span> The child has taken an oath</div>
+    <div class="option"><span class="opt-label">(D)</span> A guardian is present</div>
+  </div>
+</div>
+
+<!-- Q43 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.43</div><div class="q-text">"Lucid interval" in the context of evidence law is relevant because:</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> It allows children to testify</div>
+    <div class="option"><span class="opt-label">(B)</span> A person of unsound mind may be a competent witness during periods when they regain mental clarity</div>
+    <div class="option"><span class="opt-label">(C)</span> It is required for dying declarations</div>
+    <div class="option"><span class="opt-label">(D)</span> It relates only to criminal cases</div>
+  </div>
+</div>
+
+<!-- Q44 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.44</div><div class="q-text">"Electronic evidence" under BSA 2023:</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Is not admissible as evidence</div>
+    <div class="option"><span class="opt-label">(B)</span> Is expressly recognized and admissible subject to authenticity requirements</div>
+    <div class="option"><span class="opt-label">(C)</span> Is admissible only in civil courts</div>
+    <div class="option"><span class="opt-label">(D)</span> Requires confirmation by a handwriting expert</div>
+  </div>
+</div>
+
+<!-- Q45 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.45</div><div class="q-text">Under BSA, "rebuttable presumption" means:</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> A presumption that cannot be disproved under any circumstance</div>
+    <div class="option"><span class="opt-label">(B)</span> A presumption that holds until it is disproved by contrary evidence</div>
+    <div class="option"><span class="opt-label">(C)</span> A legal fiction that is always final</div>
+    <div class="option"><span class="opt-label">(D)</span> A presumption applicable only in civil cases</div>
+  </div>
+</div>
+
+<!-- Q46 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.46</div><div class="q-text">"Non-rebuttable presumption" (irrebuttable/conclusive presumption) means:</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> A presumption that may be rebutted with sufficient evidence</div>
+    <div class="option"><span class="opt-label">(B)</span> A presumption that is absolute and cannot be challenged by any evidence</div>
+    <div class="option"><span class="opt-label">(C)</span> A presumption only applicable in family law</div>
+    <div class="option"><span class="opt-label">(D)</span> A presumption drawn from hearsay evidence</div>
+  </div>
+</div>
+
+<!-- Q47 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.47</div><div class="q-text">"Narco-analysis test" (truth serum/sodium pentothal) in India:</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Is admissible evidence as per the Supreme Court</div>
+    <div class="option"><span class="opt-label">(B)</span> Has been held to violate Article 20(3) and 21 if conducted without the person's consent — Selvi v. State of Karnataka (2010)</div>
+    <div class="option"><span class="opt-label">(C)</span> Is mandatory in terror cases</div>
+    <div class="option"><span class="opt-label">(D)</span> Is only applicable in civil cases</div>
+  </div>
+</div>
+
+<!-- Q48 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.48</div><div class="q-text">"Polygraph test" (lie detector test) results in India:</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Are admissible as direct evidence</div>
+    <div class="option"><span class="opt-label">(B)</span> Are not admissible as evidence in court; cannot be used without consent (Selvi case)</div>
+    <div class="option"><span class="opt-label">(C)</span> Are admissible only in criminal cases</div>
+    <div class="option"><span class="opt-label">(D)</span> Must be conducted by a magistrate</div>
+  </div>
+</div>
+
+<!-- Q49 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.49</div><div class="q-text">"Indigent person" in the context of legal proceedings refers to:</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> A person of unsound mind</div>
+    <div class="option"><span class="opt-label">(B)</span> A person too poor to pay court fees, entitled to sue in forma pauperis</div>
+    <div class="option"><span class="opt-label">(C)</span> A foreign national appearing in court</div>
+    <div class="option"><span class="opt-label">(D)</span> A minor appearing through guardian</div>
+  </div>
+</div>
+
+<!-- Q50 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.50</div><div class="q-text">"Discovery statement" under BSA refers to:</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> A confession made to a magistrate</div>
+    <div class="option"><span class="opt-label">(B)</span> A statement made by an accused that leads to the discovery of a fact — the discovery portion is admissible even if the confession part is not</div>
+    <div class="option"><span class="opt-label">(C)</span> Expert testimony regarding forensic evidence</div>
+    <div class="option"><span class="opt-label">(D)</span> Statement of a dying person</div>
+  </div>
+</div>
+
+<!-- Q51 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.51</div><div class="q-text">Evidence is used in which types of proceedings?</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Only criminal proceedings</div>
+    <div class="option"><span class="opt-label">(B)</span> Only civil proceedings</div>
+    <div class="option"><span class="opt-label">(C)</span> Both civil and criminal proceedings</div>
+    <div class="option"><span class="opt-label">(D)</span> Only constitutional proceedings</div>
+  </div>
+</div>
+
+<!-- Q52 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.52</div><div class="q-text">Under BSA, "desertion" (as a matrimonial cause) requires:</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Physical separation alone</div>
+    <div class="option"><span class="opt-label">(B)</span> Both physical separation and animus deserendi (intention to desert) for a continuous period (typically 2 years)</div>
+    <div class="option"><span class="opt-label">(C)</span> A court order declaring desertion</div>
+    <div class="option"><span class="opt-label">(D)</span> Mutual consent of the parties</div>
+  </div>
+</div>
+
+<!-- Q53 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.53</div><div class="q-text">A "confession" is different from an "admission" in that:</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Admissions are made only by accused persons</div>
+    <div class="option"><span class="opt-label">(B)</span> A confession is a direct acknowledgement of guilt, while an admission is an acknowledgement of facts that may infer guilt</div>
+    <div class="option"><span class="opt-label">(C)</span> Confessions are only used in civil cases</div>
+    <div class="option"><span class="opt-label">(D)</span> Admissions are always inadmissible</div>
+  </div>
+</div>
+
+<!-- Q54 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.54</div><div class="q-text">"Preponderance of probabilities" means the court decides on the basis of:</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Absolute certainty of guilt</div>
+    <div class="option"><span class="opt-label">(B)</span> The more probable version of two competing possibilities</div>
+    <div class="option"><span class="opt-label">(C)</span> The absence of any reasonable doubt</div>
+    <div class="option"><span class="opt-label">(D)</span> The confession of the accused</div>
+  </div>
+</div>
+
+<!-- Q55 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.55</div><div class="q-text">"Beyond reasonable doubt" standard means:</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> No doubt of any kind is permissible</div>
+    <div class="option"><span class="opt-label">(B)</span> The proof must exclude every rational possibility of innocence</div>
+    <div class="option"><span class="opt-label">(C)</span> At least 51% certainty</div>
+    <div class="option"><span class="opt-label">(D)</span> Corroborated by documentary evidence</div>
+  </div>
+</div>
+
+<!-- Q56 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.56</div><div class="q-text">"Relevant" vs "Admissible" evidence: Which statement is correct?</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> All relevant evidence is admissible</div>
+    <div class="option"><span class="opt-label">(B)</span> All admissible evidence is relevant, but not all relevant evidence is admissible</div>
+    <div class="option"><span class="opt-label">(C)</span> Relevance and admissibility are the same concept</div>
+    <div class="option"><span class="opt-label">(D)</span> Admissible evidence need not be relevant</div>
+  </div>
+</div>
+
+<!-- Q57 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.57</div><div class="q-text">Which of the following is NOT admissible evidence under BSA?</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Dying declaration</div>
+    <div class="option"><span class="opt-label">(B)</span> Confession made to a magistrate voluntarily</div>
+    <div class="option"><span class="opt-label">(C)</span> Confession made to police officer while in custody (without discovery)</div>
+    <div class="option"><span class="opt-label">(D)</span> Electronic records with certificate of authenticity</div>
+  </div>
+</div>
+
+<!-- Q58 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.58</div><div class="q-text">The principle of "Nemo debet esse judex in propria causa" relates to which evidentiary principle?</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Hearsay rule</div>
+    <div class="option"><span class="opt-label">(B)</span> Natural justice — no person should be a judge in their own cause</div>
+    <div class="option"><span class="opt-label">(C)</span> Dying declaration</div>
+    <div class="option"><span class="opt-label">(D)</span> Best evidence rule</div>
+  </div>
+</div>
+
+<!-- Q59 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.59</div><div class="q-text">Under BSA, "judicial notice" means:</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Notice given by one party to another in court</div>
+    <div class="option"><span class="opt-label">(B)</span> The court accepting well-known facts without formal proof (e.g., that water is wet, or a law of the land)</div>
+    <div class="option"><span class="opt-label">(C)</span> A warrant issued by a magistrate</div>
+    <div class="option"><span class="opt-label">(D)</span> Notice of appeal filed by a party</div>
+  </div>
+</div>
+
+<!-- Q60 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.60</div><div class="q-text">Under BSA, who bears the burden of proving that a contract was obtained by fraud?</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> The party who benefits from the contract</div>
+    <div class="option"><span class="opt-label">(B)</span> The party alleging fraud</div>
+    <div class="option"><span class="opt-label">(C)</span> The court acts on its own</div>
+    <div class="option"><span class="opt-label">(D)</span> No one — fraud is presumed</div>
+  </div>
+</div>
+
+<!-- Q61 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.61</div><div class="q-text">A dying declaration can be made in which form?</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Only in writing before a magistrate</div>
+    <div class="option"><span class="opt-label">(B)</span> Orally, in writing, by gesture — any form that conveys the dying person's statement</div>
+    <div class="option"><span class="opt-label">(C)</span> Only in the mother tongue of the declarant</div>
+    <div class="option"><span class="opt-label">(D)</span> Only if witnessed by two independent persons</div>
+  </div>
+</div>
+
+<!-- Q62 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.62</div><div class="q-text">Under BSA, who can examine a witness?</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Only the judge</div>
+    <div class="option"><span class="opt-label">(B)</span> The parties (or their advocates) and the court</div>
+    <div class="option"><span class="opt-label">(C)</span> Only the prosecution in criminal cases</div>
+    <div class="option"><span class="opt-label">(D)</span> Only the accused in criminal cases</div>
+  </div>
+</div>
+
+<!-- Q63 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.63</div><div class="q-text">"Public documents" under BSA include:</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Private contracts between individuals</div>
+    <div class="option"><span class="opt-label">(B)</span> Documents forming the acts or records of sovereign authority, official bodies, public officers, courts and tribunals</div>
+    <div class="option"><span class="opt-label">(C)</span> Newspaper articles</div>
+    <div class="option"><span class="opt-label">(D)</span> Company balance sheets</div>
+  </div>
+</div>
+
+<!-- Q64 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.64</div><div class="q-text">Under BSA, "opinion of experts" is relevant when the question involves:</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Matters within common knowledge of an ordinary person</div>
+    <div class="option"><span class="opt-label">(B)</span> Points of science, art, handwriting, foreign law requiring special skill or knowledge</div>
+    <div class="option"><span class="opt-label">(C)</span> Facts already admitted by both parties</div>
+    <div class="option"><span class="opt-label">(D)</span> Legal interpretations of statutes</div>
+  </div>
+</div>
+
+<!-- Q65 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.65</div><div class="q-text">Under BSA, "hostile witness" refers to:</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> A witness who is declared hostile by the opponent</div>
+    <div class="option"><span class="opt-label">(B)</span> A witness whose evidence is adverse to the party who called them, allowing that party to cross-examine them with court's permission</div>
+    <div class="option"><span class="opt-label">(C)</span> A witness who refuses to appear in court</div>
+    <div class="option"><span class="opt-label">(D)</span> A prosecution witness in a murder case</div>
+  </div>
+</div>
+
+<!-- Q66 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.66</div><div class="q-text">When was the Bharatiya Nyaya Sanhita (BNS), Bharatiya Nagarik Suraksha Sanhita (BNSS), and BSA notified to come into force?</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> 26 January 2024</div>
+    <div class="option"><span class="opt-label">(B)</span> 1 April 2024</div>
+    <div class="option"><span class="opt-label">(C)</span> 1 July 2024</div>
+    <div class="option"><span class="opt-label">(D)</span> 15 August 2024</div>
+  </div>
+</div>
+
+<!-- Q67 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.67</div><div class="q-text">Under BSA, what is a "fact"?</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Only a physical thing that can be seen</div>
+    <div class="option"><span class="opt-label">(B)</span> Anything, state of things, or relation of things, capable of being perceived by the senses; including mental conditions</div>
+    <div class="option"><span class="opt-label">(C)</span> Only documented information</div>
+    <div class="option"><span class="opt-label">(D)</span> Only facts admitted by both parties</div>
+  </div>
+</div>
+
+<!-- Q68 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.68</div><div class="q-text">"Proof" under BSA means:</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Mathematical certainty</div>
+    <div class="option"><span class="opt-label">(B)</span> Producing such a high degree of probability in the mind of the court as to be sufficient to act upon</div>
+    <div class="option"><span class="opt-label">(C)</span> Documentary confirmation only</div>
+    <div class="option"><span class="opt-label">(D)</span> Absolute certainty beyond any doubt</div>
+  </div>
+</div>
+
+<!-- Q69 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.69</div><div class="q-text">Under BSA, privileged communication between a legal advisor and client means:</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> The lawyer may always reveal the communication</div>
+    <div class="option"><span class="opt-label">(B)</span> No advocate shall be permitted to disclose any communication made to them by their client in professional capacity without client's consent</div>
+    <div class="option"><span class="opt-label">(C)</span> Only written communications are protected</div>
+    <div class="option"><span class="opt-label">(D)</span> The communication is privileged only after conviction</div>
+  </div>
+</div>
+
+<!-- Q70 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.70</div><div class="q-text">"Retracted confession" means:</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> A confession that was never recorded</div>
+    <div class="option"><span class="opt-label">(B)</span> A confession that an accused withdraws or goes back on at a later stage — the court may still rely on it if satisfied it was voluntary and true</div>
+    <div class="option"><span class="opt-label">(C)</span> A confession obtained by coercion</div>
+    <div class="option"><span class="opt-label">(D)</span> Confession made to a police officer</div>
+  </div>
+</div>
+
+<!-- Q71 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.71</div><div class="q-text">Under the BSA, electronic records are:</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Treated as secondary evidence only</div>
+    <div class="option"><span class="opt-label">(B)</span> Treated as documentary evidence and a printout with a proper certificate under Section 63 BSA is primary evidence</div>
+    <div class="option"><span class="opt-label">(C)</span> Not admissible at all</div>
+    <div class="option"><span class="opt-label">(D)</span> Admissible only if produced by government authorities</div>
+  </div>
+</div>
+
+<!-- Q72 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.72</div><div class="q-text">Which rule in evidence law requires a party to produce the best available evidence?</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Hearsay rule</div>
+    <div class="option"><span class="opt-label">(B)</span> Best evidence rule</div>
+    <div class="option"><span class="opt-label">(C)</span> Res gestae rule</div>
+    <div class="option"><span class="opt-label">(D)</span> Estoppel</div>
+  </div>
+</div>
+
+<!-- Q73 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.73</div><div class="q-text">Under res gestae, spontaneous statements made during or immediately after a startling event are admissible because:</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> They are made under oath</div>
+    <div class="option"><span class="opt-label">(B)</span> There is no opportunity to fabricate; the utterance forms part of the transaction itself</div>
+    <div class="option"><span class="opt-label">(C)</span> They are recorded by a magistrate</div>
+    <div class="option"><span class="opt-label">(D)</span> They are direct evidence of guilt</div>
+  </div>
+</div>
+
+<!-- Q74 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.74</div><div class="q-text">Who is an "accomplice" and how is their evidence treated under BSA?</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> A person who was present at the crime; their evidence is conclusive</div>
+    <div class="option"><span class="opt-label">(B)</span> A person who participated in the crime; their evidence is competent but requires corroboration as a rule of prudence</div>
+    <div class="option"><span class="opt-label">(C)</span> A person who witnessed the crime; their evidence is primary</div>
+    <div class="option"><span class="opt-label">(D)</span> A person whose evidence is never admissible</div>
+  </div>
+</div>
+
+<!-- Q75 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.75</div><div class="q-text">The "Panchsheel" (five-point test) for circumstantial evidence from Sharad Birdhichand Sarda case states all circumstances must:</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Be proved to the satisfaction of the defence</div>
+    <div class="option"><span class="opt-label">(B)</span> Be fully established; be consistent only with guilt; exclude all hypotheses except guilt; be conclusive on the whole; be complete with no gap</div>
+    <div class="option"><span class="opt-label">(C)</span> Be witnessed by two independent witnesses</div>
+    <div class="option"><span class="opt-label">(D)</span> Include a confession from the accused</div>
+  </div>
+</div>
+
+<!-- Q76 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.76</div><div class="q-text">BSA Section 113B (corresponding IEA section) provides a presumption as to dowry death. This presumption is:</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Conclusive and irrebuttable</div>
+    <div class="option"><span class="opt-label">(B)</span> Rebuttable — the accused may adduce evidence to rebut it</div>
+    <div class="option"><span class="opt-label">(C)</span> Only applicable in matrimonial civil suits</div>
+    <div class="option"><span class="opt-label">(D)</span> Not recognized in BSA 2023</div>
+  </div>
+</div>
+
+<!-- Q77 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.77</div><div class="q-text">Which of the following is an exception to the Hearsay rule (admissible hearsay)?</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> A statement of an eye witness recounting what happened yesterday</div>
+    <div class="option"><span class="opt-label">(B)</span> Dying declaration, res gestae statements, admissions, confessions</div>
+    <div class="option"><span class="opt-label">(C)</span> A witness recounting what another witness told them</div>
+    <div class="option"><span class="opt-label">(D)</span> Newspaper reports of the incident</div>
+  </div>
+</div>
+
+<!-- Q78 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.78</div><div class="q-text">A confession made by one accused implicating a co-accused:</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Is conclusive proof against the co-accused</div>
+    <div class="option"><span class="opt-label">(B)</span> May be considered as supporting evidence against the co-accused but cannot be sole basis for conviction</div>
+    <div class="option"><span class="opt-label">(C)</span> Is not admissible against the co-accused at all</div>
+    <div class="option"><span class="opt-label">(D)</span> Is treated as direct evidence of co-accused's guilt</div>
+  </div>
+</div>
+
+<!-- Q79 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.79</div><div class="q-text">Under BSA, the rule about "similar facts" evidence (character evidence) is that it is generally:</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Always admissible to show the accused's bad character</div>
+    <div class="option"><span class="opt-label">(B)</span> Inadmissible unless it is directly relevant (e.g., to prove identity, plan, or absence of accident)</div>
+    <div class="option"><span class="opt-label">(C)</span> Admissible only in civil proceedings</div>
+    <div class="option"><span class="opt-label">(D)</span> Admissible if the accused raises good character as a defence</div>
+  </div>
+</div>
+
+<!-- Q80 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.80</div><div class="q-text">Which Latin maxim means "the thing speaks for itself" — relevant where negligence is inferred from circumstances?</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Volenti non fit injuria</div>
+    <div class="option"><span class="opt-label">(B)</span> Res ipsa loquitur</div>
+    <div class="option"><span class="opt-label">(C)</span> Nemo debet esse judex</div>
+    <div class="option"><span class="opt-label">(D)</span> Ex turpi causa</div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!-- SECTION B: CURRENT AFFAIRS (from PDF) -->
+<!-- ══════════════════════════════════════════════════════ -->
+
+<div class="section-title">Section B — Current Affairs (PU Law Entrance 2026) <span class="section-num">Q 81–150</span></div>
+
+<!-- Q81 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.81</div><div class="q-text">Who is the 47th President of the United States of America?</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Joe Biden</div>
+    <div class="option"><span class="opt-label">(B)</span> Kamala Harris</div>
+    <div class="option"><span class="opt-label">(C)</span> Donald Trump</div>
+    <div class="option"><span class="opt-label">(D)</span> Ron DeSantis</div>
+  </div>
+</div>
+
+<!-- Q82 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.82</div><div class="q-text">Who is the Vice President of the United States under Donald Trump's second term?</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Mike Pence</div>
+    <div class="option"><span class="opt-label">(B)</span> Ron DeSantis</div>
+    <div class="option"><span class="opt-label">(C)</span> JD Vance</div>
+    <div class="option"><span class="opt-label">(D)</span> Marco Rubio</div>
+  </div>
+</div>
+
+<!-- Q83 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.83</div><div class="q-text">Who heads the newly created Department of Government Efficiency (DOGE) under Trump?</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Elon Musk</div>
+    <div class="option"><span class="opt-label">(B)</span> Jeff Bezos</div>
+    <div class="option"><span class="opt-label">(C)</span> Mark Zuckerberg</div>
+    <div class="option"><span class="opt-label">(D)</span> Peter Thiel</div>
+  </div>
+</div>
+
+<!-- Q84 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.84</div><div class="q-text">Which US military operation was launched against Iran on 28 February 2026?</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Operation Desert Storm</div>
+    <div class="option"><span class="opt-label">(B)</span> Operation Epic Fury</div>
+    <div class="option"><span class="opt-label">(C)</span> Operation Iron Dome</div>
+    <div class="option"><span class="opt-label">(D)</span> Operation Roar of the Lion</div>
+  </div>
+</div>
+
+<!-- Q85 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.85</div><div class="q-text">Which Iranian Supreme Leader was killed in US-Israeli strikes on 28 February 2026?</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Mahmoud Ahmadinejad</div>
+    <div class="option"><span class="opt-label">(B)</span> Hassan Rouhani</div>
+    <div class="option"><span class="opt-label">(C)</span> Ali Khamenei</div>
+    <div class="option"><span class="opt-label">(D)</span> Masoud Pezeshkian</div>
+  </div>
+</div>
+
+<!-- Q86 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.86</div><div class="q-text">Who succeeded Ali Khamenei as Iran's new Supreme Leader?</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Ali Larijani</div>
+    <div class="option"><span class="opt-label">(B)</span> Masoud Pezeshkian</div>
+    <div class="option"><span class="opt-label">(C)</span> Mojtaba Khamenei</div>
+    <div class="option"><span class="opt-label">(D)</span> Ebrahim Raisi</div>
+  </div>
+</div>
+
+<!-- Q87 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.87</div><div class="q-text">Which strait did Iran threaten to close in response to the 2026 US-Israeli strikes?</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Strait of Malacca</div>
+    <div class="option"><span class="opt-label">(B)</span> Strait of Gibraltar</div>
+    <div class="option"><span class="opt-label">(C)</span> Strait of Hormuz</div>
+    <div class="option"><span class="opt-label">(D)</span> Bab-el-Mandeb Strait</div>
+  </div>
+</div>
+
+<!-- Q88 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.88</div><div class="q-text">Who became the Chief Justice of India as the 53rd CJI?</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> D.Y. Chandrachud</div>
+    <div class="option"><span class="opt-label">(B)</span> Sanjiv Khanna</div>
+    <div class="option"><span class="opt-label">(C)</span> Surya Kant Sharma</div>
+    <div class="option"><span class="opt-label">(D)</span> B.R. Gavai</div>
+  </div>
+</div>
+
+<!-- Q89 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.89</div><div class="q-text">Who is the current Governor of the Reserve Bank of India?</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Urjit Patel</div>
+    <div class="option"><span class="opt-label">(B)</span> Shaktikanta Das</div>
+    <div class="option"><span class="opt-label">(C)</span> Raghuram Rajan</div>
+    <div class="option"><span class="opt-label">(D)</span> Sanjay Malhotra</div>
+  </div>
+</div>
+
+<!-- Q90 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.90</div><div class="q-text">Prime Minister Modi inaugurated Phase-I of which new airport on March 28, 2026?</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Navi Mumbai International Airport</div>
+    <div class="option"><span class="opt-label">(B)</span> Noida International Airport (Jewar)</div>
+    <div class="option"><span class="opt-label">(C)</span> Goa International Airport</div>
+    <div class="option"><span class="opt-label">(D)</span> Ayodhya Airport</div>
+  </div>
+</div>
+
+<!-- Q91 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.91</div><div class="q-text">Which Indian state became the second to pass the Uniform Civil Code (UCC) Bill?</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Madhya Pradesh</div>
+    <div class="option"><span class="opt-label">(B)</span> Rajasthan</div>
+    <div class="option"><span class="opt-label">(C)</span> Gujarat</div>
+    <div class="option"><span class="opt-label">(D)</span> Himachal Pradesh</div>
+  </div>
+</div>
+
+<!-- Q92 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.92</div><div class="q-text">The 2025 Nobel Prize in Physics was awarded to whom?</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Albert Fert, Peter Grunberg</div>
+    <div class="option"><span class="opt-label">(B)</span> John Hopfield, Geoffrey Hinton</div>
+    <div class="option"><span class="opt-label">(C)</span> Peter Higgs, Francois Englert</div>
+    <div class="option"><span class="opt-label">(D)</span> Roger Penrose, Reinhard Genzel</div>
+  </div>
+</div>
+
+<!-- Q93 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.93</div><div class="q-text">Who won the 2025 Nobel Prize in Literature?</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Haruki Murakami</div>
+    <div class="option"><span class="opt-label">(B)</span> Salman Rushdie</div>
+    <div class="option"><span class="opt-label">(C)</span> Han Kang</div>
+    <div class="option"><span class="opt-label">(D)</span> Chimamanda Ngozi Adichie</div>
+  </div>
+</div>
+
+<!-- Q94 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.94</div><div class="q-text">Which organization won the 2025 Nobel Peace Prize for efforts towards a nuclear-free world?</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> ICAN</div>
+    <div class="option"><span class="opt-label">(B)</span> Nihon Hidankyo</div>
+    <div class="option"><span class="opt-label">(C)</span> ICRC</div>
+    <div class="option"><span class="opt-label">(D)</span> Doctors Without Borders</div>
+  </div>
+</div>
+
+<!-- Q95 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.95</div><div class="q-text">Who is the current President of India?</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Ram Nath Kovind</div>
+    <div class="option"><span class="opt-label">(B)</span> Pranab Mukherjee</div>
+    <div class="option"><span class="opt-label">(C)</span> Draupadi Murmu</div>
+    <div class="option"><span class="opt-label">(D)</span> A.P.J. Abdul Kalam</div>
+  </div>
+</div>
+
+<!-- Q96 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.96</div><div class="q-text">Who is the current Chief Election Commissioner of India?</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> S.Y. Quraishi</div>
+    <div class="option"><span class="opt-label">(B)</span> Nasim Zaidi</div>
+    <div class="option"><span class="opt-label">(C)</span> Gyanesh Kumar</div>
+    <div class="option"><span class="opt-label">(D)</span> Rajiv Kumar</div>
+  </div>
+</div>
+
+<!-- Q97 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.97</div><div class="q-text">Who was appointed as the Chief Information Commissioner (CIC) of India in 2026?</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Y.K. Sinha</div>
+    <div class="option"><span class="opt-label">(B)</span> Raj Kumar Goel</div>
+    <div class="option"><span class="opt-label">(C)</span> Heeralal Samariya</div>
+    <div class="option"><span class="opt-label">(D)</span> Uday Mahurkar</div>
+  </div>
+</div>
+
+<!-- Q98 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.98</div><div class="q-text">Who is the Chairman of ISRO as of 2026?</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> K. Sivan</div>
+    <div class="option"><span class="opt-label">(B)</span> S. Somnath</div>
+    <div class="option"><span class="opt-label">(C)</span> V. Narayanan</div>
+    <div class="option"><span class="opt-label">(D)</span> Mylswamy Annadurai</div>
+  </div>
+</div>
+
+<!-- Q99 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.99</div><div class="q-text">How many Padma Awards were conferred in 2025?</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> 120</div>
+    <div class="option"><span class="opt-label">(B)</span> 130</div>
+    <div class="option"><span class="opt-label">(C)</span> 139</div>
+    <div class="option"><span class="opt-label">(D)</span> 150</div>
+  </div>
+</div>
+
+<!-- Q100 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.100</div><div class="q-text">Which cricketer received the Padma Bhushan in 2025?</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Virat Kohli</div>
+    <div class="option"><span class="opt-label">(B)</span> MS Dhoni</div>
+    <div class="option"><span class="opt-label">(C)</span> Ravichandran Ashwin</div>
+    <div class="option"><span class="opt-label">(D)</span> PR Sreejesh</div>
+  </div>
+</div>
+
+<!-- Q101 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.101</div><div class="q-text">Which legendary Malayalam writer received the Padma Vibhushan posthumously in 2025?</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> O.V. Vijayan</div>
+    <div class="option"><span class="opt-label">(B)</span> M.T. Vasudevan Nair</div>
+    <div class="option"><span class="opt-label">(C)</span> Kamala Das</div>
+    <div class="option"><span class="opt-label">(D)</span> P. Kesavadev</div>
+  </div>
+</div>
+
+<!-- Q102 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.102</div><div class="q-text">Who won the Best Picture at the 97th Academy Awards (Oscars 2025)?</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Emilia Perez</div>
+    <div class="option"><span class="opt-label">(B)</span> The Brutalist</div>
+    <div class="option"><span class="opt-label">(C)</span> Conclave</div>
+    <div class="option"><span class="opt-label">(D)</span> Anora</div>
+  </div>
+</div>
+
+<!-- Q103 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.103</div><div class="q-text">Who won the Best Actor at the 97th Academy Awards (Oscars 2025)?</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Timothee Chalamet</div>
+    <div class="option"><span class="opt-label">(B)</span> Cillian Murphy</div>
+    <div class="option"><span class="opt-label">(C)</span> Adrien Brody</div>
+    <div class="option"><span class="opt-label">(D)</span> Austin Butler</div>
+  </div>
+</div>
+
+<!-- Q104 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.104</div><div class="q-text">Who won the Ballon d'Or 2024 (Men)?</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Vinicius Junior</div>
+    <div class="option"><span class="opt-label">(B)</span> Kylian Mbappe</div>
+    <div class="option"><span class="opt-label">(C)</span> Erling Haaland</div>
+    <div class="option"><span class="opt-label">(D)</span> Rodri</div>
+  </div>
+</div>
+
+<!-- Q105 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.105</div><div class="q-text">Who is the Prime Minister of the United Kingdom in 2026?</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Rishi Sunak</div>
+    <div class="option"><span class="opt-label">(B)</span> Boris Johnson</div>
+    <div class="option"><span class="opt-label">(C)</span> Keir Starmer</div>
+    <div class="option"><span class="opt-label">(D)</span> Liz Truss</div>
+  </div>
+</div>
+
+<!-- Q106 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.106</div><div class="q-text">Who is the Chancellor of Germany in 2026?</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Angela Merkel</div>
+    <div class="option"><span class="opt-label">(B)</span> Olaf Scholz</div>
+    <div class="option"><span class="opt-label">(C)</span> Friedrich Merz</div>
+    <div class="option"><span class="opt-label">(D)</span> Armin Laschet</div>
+  </div>
+</div>
+
+<!-- Q107 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.107</div><div class="q-text">Who is the current Secretary-General of the United Nations?</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Ban Ki-moon</div>
+    <div class="option"><span class="opt-label">(B)</span> Kofi Annan</div>
+    <div class="option"><span class="opt-label">(C)</span> Antonio Guterres</div>
+    <div class="option"><span class="opt-label">(D)</span> Amina Mohammed</div>
+  </div>
+</div>
+
+<!-- Q108 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.108</div><div class="q-text">Who is the current National Security Advisor (NSA) of India?</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Shiv Shankar Menon</div>
+    <div class="option"><span class="opt-label">(B)</span> M.K. Narayanan</div>
+    <div class="option"><span class="opt-label">(C)</span> Ajit Doval</div>
+    <div class="option"><span class="opt-label">(D)</span> Vikram Misri</div>
+  </div>
+</div>
+
+<!-- Q109 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.109</div><div class="q-text">India conducted a joint military exercise 'LAMITIYE' with which country in March 2026?</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Maldives</div>
+    <div class="option"><span class="opt-label">(B)</span> Sri Lanka</div>
+    <div class="option"><span class="opt-label">(C)</span> Seychelles</div>
+    <div class="option"><span class="opt-label">(D)</span> Mauritius</div>
+  </div>
+</div>
+
+<!-- Q110 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.110</div><div class="q-text">Who is the current Prime Minister of Canada?</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Justin Trudeau</div>
+    <div class="option"><span class="opt-label">(B)</span> Mark Carney</div>
+    <div class="option"><span class="opt-label">(C)</span> Jagmeet Singh</div>
+    <div class="option"><span class="opt-label">(D)</span> Chrystia Freeland</div>
+  </div>
+</div>
+
+<!-- Q111 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.111</div><div class="q-text">Who is the Secretary-General of NATO in 2026?</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Jens Stoltenberg</div>
+    <div class="option"><span class="opt-label">(B)</span> Mark Rutte</div>
+    <div class="option"><span class="opt-label">(C)</span> Rasmussen</div>
+    <div class="option"><span class="opt-label">(D)</span> Jaap de Hoop Scheffer</div>
+  </div>
+</div>
+
+<!-- Q112 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.112</div><div class="q-text">Who is the Prime Minister of Japan in 2026?</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Fumio Kishida</div>
+    <div class="option"><span class="opt-label">(B)</span> Shinzo Abe</div>
+    <div class="option"><span class="opt-label">(C)</span> Yoshihide Suga</div>
+    <div class="option"><span class="opt-label">(D)</span> Sanae Takaichi</div>
+  </div>
+</div>
+
+<!-- Q113 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.113</div><div class="q-text">Who is the current Chief of Indian Army Staff?</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Bipin Rawat</div>
+    <div class="option"><span class="opt-label">(B)</span> M.M. Naravane</div>
+    <div class="option"><span class="opt-label">(C)</span> Upendra Dwivedi</div>
+    <div class="option"><span class="opt-label">(D)</span> Anil Chauhan</div>
+  </div>
+</div>
+
+<!-- Q114 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.114</div><div class="q-text">Which Indian state launched India's first fully solar-powered ATM van in 2026?</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Gujarat</div>
+    <div class="option"><span class="opt-label">(B)</span> Maharashtra</div>
+    <div class="option"><span class="opt-label">(C)</span> Rajasthan</div>
+    <div class="option"><span class="opt-label">(D)</span> Tamil Nadu</div>
+  </div>
+</div>
+
+<!-- Q115 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.115</div><div class="q-text">Who is the current President of the World Bank?</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Jim Yong Kim</div>
+    <div class="option"><span class="opt-label">(B)</span> David Malpass</div>
+    <div class="option"><span class="opt-label">(C)</span> Ajay Banga</div>
+    <div class="option"><span class="opt-label">(D)</span> Kristalina Georgieva</div>
+  </div>
+</div>
+
+<!-- Q116 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.116</div><div class="q-text">Who was appointed as CIA Director in Trump's second term?</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Gina Haspel</div>
+    <div class="option"><span class="opt-label">(B)</span> William Burns</div>
+    <div class="option"><span class="opt-label">(C)</span> John Ratcliffe</div>
+    <div class="option"><span class="opt-label">(D)</span> Mike Pompeo</div>
+  </div>
+</div>
+
+<!-- Q117 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.117</div><div class="q-text">Which Bhojpuri and Maithili folk singer received the Padma Vibhushan posthumously in 2025?</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Bhikhari Thakur</div>
+    <div class="option"><span class="opt-label">(B)</span> Sharda Sinha</div>
+    <div class="option"><span class="opt-label">(C)</span> Bidesia</div>
+    <div class="option"><span class="opt-label">(D)</span> Manoj Tiwari</div>
+  </div>
+</div>
+
+<!-- Q118 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.118</div><div class="q-text">Which is the first state to pass the Uniform Civil Code (UCC) Bill in India?</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Goa</div>
+    <div class="option"><span class="opt-label">(B)</span> Gujarat</div>
+    <div class="option"><span class="opt-label">(C)</span> Uttarakhand</div>
+    <div class="option"><span class="opt-label">(D)</span> Himachal Pradesh</div>
+  </div>
+</div>
+
+<!-- Q119 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.119</div><div class="q-text">Who is the Director-General of the World Trade Organization (WTO)?</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Pascal Lamy</div>
+    <div class="option"><span class="opt-label">(B)</span> Roberto Azevedo</div>
+    <div class="option"><span class="opt-label">(C)</span> Ngozi Okonjo-Iweala</div>
+    <div class="option"><span class="opt-label">(D)</span> Renato Ruggiero</div>
+  </div>
+</div>
+
+<!-- Q120 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.120</div><div class="q-text">Who is the Director-General of the WHO in 2026?</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Margaret Chan</div>
+    <div class="option"><span class="opt-label">(B)</span> Tedros Adhanom Ghebreyesus</div>
+    <div class="option"><span class="opt-label">(C)</span> Gro Harlem Brundtland</div>
+    <div class="option"><span class="opt-label">(D)</span> Bruce Aylward</div>
+  </div>
+</div>
+
+<!-- Q121 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.121</div><div class="q-text">World Theatre Day is observed on which date?</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> March 25</div>
+    <div class="option"><span class="opt-label">(B)</span> March 26</div>
+    <div class="option"><span class="opt-label">(C)</span> March 27</div>
+    <div class="option"><span class="opt-label">(D)</span> March 28</div>
+  </div>
+</div>
+
+<!-- Q122 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.122</div><div class="q-text">Which Indian para athlete won gold in High Jump and received Padma Shri in 2026?</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Devendra Jhajharia</div>
+    <div class="option"><span class="opt-label">(B)</span> Praveen Kumar</div>
+    <div class="option"><span class="opt-label">(C)</span> Sumit Antil</div>
+    <div class="option"><span class="opt-label">(D)</span> Mariyappan Thangavelu</div>
+  </div>
+</div>
+
+<!-- Q123 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.123</div><div class="q-text">Who was appointed as Member (Finance) of the Railway Board in 2026?</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Sangita Barua</div>
+    <div class="option"><span class="opt-label">(B)</span> Aparna Garg</div>
+    <div class="option"><span class="opt-label">(C)</span> Manali Kshirsagar</div>
+    <div class="option"><span class="opt-label">(D)</span> Nitish Kumar</div>
+  </div>
+</div>
+
+<!-- Q124 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.124</div><div class="q-text">The Supreme Court held that Bharat Ratna and Padma Awards are NOT titles under Article 18 in which case?</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Kesavananda Bharati v. State</div>
+    <div class="option"><span class="opt-label">(B)</span> Balaji Raghavan v. Union of India</div>
+    <div class="option"><span class="opt-label">(C)</span> Maneka Gandhi v. Union of India</div>
+    <div class="option"><span class="opt-label">(D)</span> Minerva Mills v. Union of India</div>
+  </div>
+</div>
+
+<!-- Q125 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.125</div><div class="q-text">Which article of the Indian Constitution deals with Abolition of Titles?</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Article 14</div>
+    <div class="option"><span class="opt-label">(B)</span> Article 16</div>
+    <div class="option"><span class="opt-label">(C)</span> Article 18</div>
+    <div class="option"><span class="opt-label">(D)</span> Article 19</div>
+  </div>
+</div>
+
+<!-- Q126 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.126</div><div class="q-text">The Right to Information (RTI) Act was enacted in which year?</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> 2003</div>
+    <div class="option"><span class="opt-label">(B)</span> 2004</div>
+    <div class="option"><span class="opt-label">(C)</span> 2005</div>
+    <div class="option"><span class="opt-label">(D)</span> 2006</div>
+  </div>
+</div>
+
+<!-- Q127 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.127</div><div class="q-text">Under the Indian Constitution, the Right to Information is derived from which fundamental right?</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Article 19(1)(a) — Freedom of Speech</div>
+    <div class="option"><span class="opt-label">(B)</span> Article 21 — Right to Life</div>
+    <div class="option"><span class="opt-label">(C)</span> Article 14 — Equality</div>
+    <div class="option"><span class="opt-label">(D)</span> Article 32 — Right to Constitutional Remedies</div>
+  </div>
+</div>
+
+<!-- Q128 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.128</div><div class="q-text">The Sexual Harassment of Women at Workplace (POSH) Act was passed in which year?</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> 2010</div>
+    <div class="option"><span class="opt-label">(B)</span> 2011</div>
+    <div class="option"><span class="opt-label">(C)</span> 2012</div>
+    <div class="option"><span class="opt-label">(D)</span> 2013</div>
+  </div>
+</div>
+
+<!-- Q129 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.129</div><div class="q-text">Which Article provides for the Right to Constitutional Remedies?</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Article 19</div>
+    <div class="option"><span class="opt-label">(B)</span> Article 21</div>
+    <div class="option"><span class="opt-label">(C)</span> Article 32</div>
+    <div class="option"><span class="opt-label">(D)</span> Article 226</div>
+  </div>
+</div>
+
+<!-- Q130 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.130</div><div class="q-text">The Lok Sabha passed the Transgender Persons (Protection of Rights) Amendment Bill in which year?</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> 2024</div>
+    <div class="option"><span class="opt-label">(B)</span> 2025</div>
+    <div class="option"><span class="opt-label">(C)</span> 2026</div>
+    <div class="option"><span class="opt-label">(D)</span> 2023</div>
+  </div>
+</div>
+
+<!-- Q131 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.131</div><div class="q-text">India's Femina Miss India 2024 was won by whom?</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Dhruvi Patel</div>
+    <div class="option"><span class="opt-label">(B)</span> Nikita Porwal</div>
+    <div class="option"><span class="opt-label">(C)</span> Sini Shetty</div>
+    <div class="option"><span class="opt-label">(D)</span> Divita Rai</div>
+  </div>
+</div>
+
+<!-- Q132 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.132</div><div class="q-text">India's Rohit Sharma received which Padma Award in 2026?</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Padma Vibhushan</div>
+    <div class="option"><span class="opt-label">(B)</span> Padma Bhushan</div>
+    <div class="option"><span class="opt-label">(C)</span> Padma Shri</div>
+    <div class="option"><span class="opt-label">(D)</span> Bharat Ratna</div>
+  </div>
+</div>
+
+<!-- Q133 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.133</div><div class="q-text">Who took oath again as Chief Minister of Bihar in 2026?</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Tejashwi Yadav</div>
+    <div class="option"><span class="opt-label">(B)</span> Chirag Paswan</div>
+    <div class="option"><span class="opt-label">(C)</span> Nitish Kumar</div>
+    <div class="option"><span class="opt-label">(D)</span> Ram Vilas Paswan</div>
+  </div>
+</div>
+
+<!-- Q134 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.134</div><div class="q-text">Who is the current Finance Minister of India?</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Arun Jaitley</div>
+    <div class="option"><span class="opt-label">(B)</span> P. Chidambaram</div>
+    <div class="option"><span class="opt-label">(C)</span> Nirmala Sitharaman</div>
+    <div class="option"><span class="opt-label">(D)</span> Piyush Goyal</div>
+  </div>
+</div>
+
+<!-- Q135 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.135</div><div class="q-text">The Directive Principles of State Policy are contained in which Part of the Indian Constitution?</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Part III</div>
+    <div class="option"><span class="opt-label">(B)</span> Part IV</div>
+    <div class="option"><span class="opt-label">(C)</span> Part IVA</div>
+    <div class="option"><span class="opt-label">(D)</span> Part V</div>
+  </div>
+</div>
+
+<!-- Q136 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.136</div><div class="q-text">Which country's parliament banned Hezbollah's military activities during the 2026 Iran-Israel war?</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Jordan</div>
+    <div class="option"><span class="opt-label">(B)</span> Syria</div>
+    <div class="option"><span class="opt-label">(C)</span> Lebanon</div>
+    <div class="option"><span class="opt-label">(D)</span> Iraq</div>
+  </div>
+</div>
+
+<!-- Q137 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.137</div><div class="q-text">Which Kuwaiti refinery was struck by Iranian drone attacks during the 2026 war?</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Shuaiba Refinery</div>
+    <div class="option"><span class="opt-label">(B)</span> Mina Al-Ahmadi Refinery</div>
+    <div class="option"><span class="opt-label">(C)</span> Mina Abdullah Refinery</div>
+    <div class="option"><span class="opt-label">(D)</span> Ahmadi Refinery</div>
+  </div>
+</div>
+
+<!-- Q138 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.138</div><div class="q-text">The Jnanpith Award is India's highest award in which field?</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Science</div>
+    <div class="option"><span class="opt-label">(B)</span> Literature</div>
+    <div class="option"><span class="opt-label">(C)</span> Arts</div>
+    <div class="option"><span class="opt-label">(D)</span> Sports</div>
+  </div>
+</div>
+
+<!-- Q139 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.139</div><div class="q-text">India's first Hydrogen Train trial was completed marking the beginning of which revolution?</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Blue hydrogen</div>
+    <div class="option"><span class="opt-label">(B)</span> Green Rail Revolution</div>
+    <div class="option"><span class="opt-label">(C)</span> Clean Energy</div>
+    <div class="option"><span class="opt-label">(D)</span> Zero Carbon</div>
+  </div>
+</div>
+
+<!-- Q140 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.140</div><div class="q-text">Who is the current Solicitor General of India?</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Mukul Rohatgi</div>
+    <div class="option"><span class="opt-label">(B)</span> Tushar Mehta</div>
+    <div class="option"><span class="opt-label">(C)</span> Ranjit Kumar</div>
+    <div class="option"><span class="opt-label">(D)</span> K.K. Venugopal</div>
+  </div>
+</div>
+
+<!-- Q141 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.141</div><div class="q-text">The 2025 Nobel Prize in Economics was awarded for studies on?</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Climate economics</div>
+    <div class="option"><span class="opt-label">(B)</span> Behavioral economics</div>
+    <div class="option"><span class="opt-label">(C)</span> Institutions and prosperity</div>
+    <div class="option"><span class="opt-label">(D)</span> Labour markets</div>
+  </div>
+</div>
+
+<!-- Q142 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.142</div><div class="q-text">Who is the current Prime Minister of Pakistan in 2026?</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Imran Khan</div>
+    <div class="option"><span class="opt-label">(B)</span> Shehbaz Sharif</div>
+    <div class="option"><span class="opt-label">(C)</span> Nawaz Sharif</div>
+    <div class="option"><span class="opt-label">(D)</span> Asif Ali Zardari</div>
+  </div>
+</div>
+
+<!-- Q143 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.143</div><div class="q-text">Miss World 2024 was won by Krystyna Pyszkova from which country?</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Poland</div>
+    <div class="option"><span class="opt-label">(B)</span> Czech Republic</div>
+    <div class="option"><span class="opt-label">(C)</span> Slovakia</div>
+    <div class="option"><span class="opt-label">(D)</span> Hungary</div>
+  </div>
+</div>
+
+<!-- Q144 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.144</div><div class="q-text">India's UDAN scheme was modified with an outlay of how much?</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> ₹15,000 crore</div>
+    <div class="option"><span class="opt-label">(B)</span> ₹20,000 crore</div>
+    <div class="option"><span class="opt-label">(C)</span> ₹28,840 crore</div>
+    <div class="option"><span class="opt-label">(D)</span> ₹35,000 crore</div>
+  </div>
+</div>
+
+<!-- Q145 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.145</div><div class="q-text">Which Indian hockey player bid farewell to international hockey in March 2026?</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> PR Sreejesh</div>
+    <div class="option"><span class="opt-label">(B)</span> Mandeep Singh</div>
+    <div class="option"><span class="opt-label">(C)</span> Gurjant Singh</div>
+    <div class="option"><span class="opt-label">(D)</span> Harmanpreet Singh</div>
+  </div>
+</div>
+
+<!-- Q146 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.146</div><div class="q-text">Who is the current Attorney General of India?</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> K.K. Venugopal</div>
+    <div class="option"><span class="opt-label">(B)</span> Mukul Rohatgi</div>
+    <div class="option"><span class="opt-label">(C)</span> R. Venkataramani</div>
+    <div class="option"><span class="opt-label">(D)</span> Goolam Vahanvati</div>
+  </div>
+</div>
+
+<!-- Q147 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.147</div><div class="q-text">In which state will the world's largest data centre be built?</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Maharashtra</div>
+    <div class="option"><span class="opt-label">(B)</span> Uttar Pradesh</div>
+    <div class="option"><span class="opt-label">(C)</span> Karnataka</div>
+    <div class="option"><span class="opt-label">(D)</span> Gujarat</div>
+  </div>
+</div>
+
+<!-- Q148 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.148</div><div class="q-text">The 8th Central Pay Commission is expected to be effective from when?</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> January 2025</div>
+    <div class="option"><span class="opt-label">(B)</span> January 2026</div>
+    <div class="option"><span class="opt-label">(C)</span> January 2027</div>
+    <div class="option"><span class="opt-label">(D)</span> April 2027</div>
+  </div>
+</div>
+
+<!-- Q149 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.149</div><div class="q-text">Kaori Sakamoto of Japan won gold in which sport in her last performance before retiring in 2026?</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Gymnastics</div>
+    <div class="option"><span class="opt-label">(B)</span> Ice Skating</div>
+    <div class="option"><span class="opt-label">(C)</span> Speed Skating</div>
+    <div class="option"><span class="opt-label">(D)</span> Figure Skating</div>
+  </div>
+</div>
+
+<!-- Q150 -->
+<div class="question-block">
+  <div class="q-row"><div class="q-number">Q.150</div><div class="q-text">Which company operationalized India's first Port of Refuge for maritime safety?</div></div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> JNPT</div>
+    <div class="option"><span class="opt-label">(B)</span> Adani Ports (APSEZ)</div>
+    <div class="option"><span class="opt-label">(C)</span> Mundra Port</div>
+    <div class="option"><span class="opt-label">(D)</span> Chennai Port</div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!-- ANSWER KEY -->
+<!-- ══════════════════════════════════════════════════════ -->
+
+<div class="answer-key">
+  <div class="answer-key-title">Answer Key</div>
+  <div class="answer-key-sub">Class Test 4 — BSA & Current Affairs | 150 Questions</div>
+
+  <div class="ans-section-title">Section A — BSA & Law of Evidence (Q.1 – Q.80)</div>
+  <div class="ans-grid">
+    <div class="ans-item"><span class="ans-qnum">Q.1</span><span class="ans-val">(A) 11 August 2023</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.2</span><span class="ans-val">(C) 1 July 2024</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.3</span><span class="ans-val">(A) 1 July 2024</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.4</span><span class="ans-val">(A) 11 August 2023</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.5</span><span class="ans-val">(B) Indian Evidence Act, 1872</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.6</span><span class="ans-val">(B) Adjective law</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.7</span><span class="ans-val">(B) Alleged by one, denied by other</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.8</span><span class="ans-val">(B) Declared relevant by BSA</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.9</span><span class="ans-val">(B) Only relevant facts admissible</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.10</span><span class="ans-val">(B) Facts of same transaction</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.11</span><span class="ans-val">(B) Party who would fail if no evidence given</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.12</span><span class="ans-val">(C) Beyond reasonable doubt</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.13</span><span class="ans-val">(B) Preponderance of probabilities</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.14</span><span class="ans-val">(B) Court shall accept as final</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.15</span><span class="ans-val">(B) Child born during valid marriage</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.16</span><span class="ans-val">(B) Nemo moriturus praesumitur mentiri</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.17</span><span class="ans-val">(D) Not necessary to be recorded by Magistrate</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.18</span><span class="ans-val">(C) 7 years</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.19</span><span class="ans-val">(B) Accused to rebut</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.20</span><span class="ans-val">(B) Admission of guilt</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.21</span><span class="ans-val">(B) Generally inadmissible</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.22</span><span class="ans-val">(B) Recorded by Magistrate, voluntary</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.23</span><span class="ans-val">(B) Document itself produced before court</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.24</span><span class="ans-val">(B) Original lost/destroyed/in other party's possession</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.25</span><span class="ans-val">(B) Generally inadmissible</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.26</span><span class="ans-val">(B) Witness testifies only to personal perception</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.27</span><span class="ans-val">(A) Proves fact in issue without inference</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.28</span><span class="ans-val">(B) Requires inference from proven facts</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.29</span><span class="ans-val">(B) Consistent only with guilt</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.30</span><span class="ans-val">(B) Accused was elsewhere</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.31</span><span class="ans-val">(B) Accused — preponderance of probability</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.32</span><span class="ans-val">(B) Protected by public policy/professional relationship</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.33</span><span class="ans-val">(B) Husband and wife during marriage</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.34</span><span class="ans-val">(B) By the party who called them</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.35</span><span class="ans-val">(B) Not permitted (except with court permission)</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.36</span><span class="ans-val">(B) Cross-examination</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.37</span><span class="ans-val">(B) Adverse/opposite party</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.38</span><span class="ans-val">(B) Independent confirming evidence</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.39</span><span class="ans-val">(B) Impeachment of credit</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.40</span><span class="ans-val">(B) Prevents denial of previously asserted fact</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.41</span><span class="ans-val">(B) Article 20(3)</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.42</span><span class="ans-val">(B) Understands questions, gives rational answers</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.43</span><span class="ans-val">(B) Competent witness during period of mental clarity</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.44</span><span class="ans-val">(B) Recognized and admissible with authenticity</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.45</span><span class="ans-val">(B) Holds until disproved</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.46</span><span class="ans-val">(B) Absolute — cannot be challenged</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.47</span><span class="ans-val">(B) Violates Art. 20(3) &amp; 21 without consent (Selvi case)</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.48</span><span class="ans-val">(B) Not admissible; cannot use without consent</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.49</span><span class="ans-val">(B) Too poor to pay court fees — in forma pauperis</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.50</span><span class="ans-val">(B) Leads to discovery of fact; discovery portion admissible</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.51</span><span class="ans-val">(C) Both civil and criminal</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.52</span><span class="ans-val">(B) Physical separation + animus deserendi</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.53</span><span class="ans-val">(B) Confession = direct guilt; admission = facts inferring guilt</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.54</span><span class="ans-val">(B) More probable of two possibilities</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.55</span><span class="ans-val">(B) Excludes every rational possibility of innocence</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.56</span><span class="ans-val">(B) All admissible is relevant; not all relevant is admissible</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.57</span><span class="ans-val">(C) Confession to police in custody (without discovery)</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.58</span><span class="ans-val">(B) No one should be judge in own cause</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.59</span><span class="ans-val">(B) Court accepts well-known facts without proof</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.60</span><span class="ans-val">(B) Party alleging fraud</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.61</span><span class="ans-val">(B) Orally, in writing, by gesture — any form</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.62</span><span class="ans-val">(B) Parties/advocates and the court</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.63</span><span class="ans-val">(B) Acts of sovereign authority, public officers, courts</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.64</span><span class="ans-val">(B) Science, art, handwriting, foreign law</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.65</span><span class="ans-val">(B) Adverse witness; party may cross-examine with court permission</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.66</span><span class="ans-val">(C) 1 July 2024</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.67</span><span class="ans-val">(B) Anything capable of being perceived by the senses</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.68</span><span class="ans-val">(B) High degree of probability sufficient to act upon</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.69</span><span class="ans-val">(B) No advocate may disclose without client's consent</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.70</span><span class="ans-val">(B) Withdrawn confession — court may still rely if voluntary</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.71</span><span class="ans-val">(B) Printout with certificate = primary evidence</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.72</span><span class="ans-val">(B) Best evidence rule</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.73</span><span class="ans-val">(B) No opportunity to fabricate; part of transaction</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.74</span><span class="ans-val">(B) Participated in crime; competent but needs corroboration</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.75</span><span class="ans-val">(B) Five-point test from Sharad case</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.76</span><span class="ans-val">(B) Rebuttable — accused may adduce contrary evidence</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.77</span><span class="ans-val">(B) Dying declaration, res gestae, admissions, confessions</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.78</span><span class="ans-val">(B) Supporting evidence; cannot be sole basis for co-accused's conviction</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.79</span><span class="ans-val">(B) Inadmissible unless directly relevant to identity/plan etc.</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.80</span><span class="ans-val">(B) Res ipsa loquitur</span></div>
+  </div>
+
+  <div class="ans-section-title">Section B — Current Affairs (Q.81 – Q.150)</div>
+  <div class="ans-grid">
+    <div class="ans-item"><span class="ans-qnum">Q.81</span><span class="ans-val">(C) Donald Trump</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.82</span><span class="ans-val">(C) JD Vance</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.83</span><span class="ans-val">(A) Elon Musk</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.84</span><span class="ans-val">(B) Operation Epic Fury</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.85</span><span class="ans-val">(C) Ali Khamenei</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.86</span><span class="ans-val">(C) Mojtaba Khamenei</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.87</span><span class="ans-val">(C) Strait of Hormuz</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.88</span><span class="ans-val">(C) Surya Kant Sharma</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.89</span><span class="ans-val">(D) Sanjay Malhotra</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.90</span><span class="ans-val">(B) Noida International Airport (Jewar)</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.91</span><span class="ans-val">(C) Gujarat</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.92</span><span class="ans-val">(B) John Hopfield, Geoffrey Hinton</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.93</span><span class="ans-val">(C) Han Kang</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.94</span><span class="ans-val">(B) Nihon Hidankyo</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.95</span><span class="ans-val">(C) Draupadi Murmu</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.96</span><span class="ans-val">(C) Gyanesh Kumar</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.97</span><span class="ans-val">(B) Raj Kumar Goel</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.98</span><span class="ans-val">(C) V. Narayanan</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.99</span><span class="ans-val">(C) 139</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.100</span><span class="ans-val">(D) PR Sreejesh</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.101</span><span class="ans-val">(B) M.T. Vasudevan Nair</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.102</span><span class="ans-val">(D) Anora</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.103</span><span class="ans-val">(C) Adrien Brody</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.104</span><span class="ans-val">(D) Rodri</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.105</span><span class="ans-val">(C) Keir Starmer</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.106</span><span class="ans-val">(C) Friedrich Merz</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.107</span><span class="ans-val">(C) Antonio Guterres</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.108</span><span class="ans-val">(C) Ajit Doval</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.109</span><span class="ans-val">(C) Seychelles</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.110</span><span class="ans-val">(B) Mark Carney</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.111</span><span class="ans-val">(B) Mark Rutte</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.112</span><span class="ans-val">(D) Sanae Takaichi</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.113</span><span class="ans-val">(C) Upendra Dwivedi</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.114</span><span class="ans-val">(A) Gujarat</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.115</span><span class="ans-val">(C) Ajay Banga</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.116</span><span class="ans-val">(C) John Ratcliffe</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.117</span><span class="ans-val">(B) Sharda Sinha</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.118</span><span class="ans-val">(C) Uttarakhand</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.119</span><span class="ans-val">(C) Ngozi Okonjo-Iweala</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.120</span><span class="ans-val">(B) Tedros Adhanom Ghebreyesus</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.121</span><span class="ans-val">(C) March 27</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.122</span><span class="ans-val">(B) Praveen Kumar</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.123</span><span class="ans-val">(B) Aparna Garg</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.124</span><span class="ans-val">(B) Balaji Raghavan v. Union of India</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.125</span><span class="ans-val">(C) Article 18</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.126</span><span class="ans-val">(C) 2005</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.127</span><span class="ans-val">(A) Article 19(1)(a)</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.128</span><span class="ans-val">(D) 2013</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.129</span><span class="ans-val">(C) Article 32</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.130</span><span class="ans-val">(C) 2026</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.131</span><span class="ans-val">(B) Nikita Porwal</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.132</span><span class="ans-val">(C) Padma Shri</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.133</span><span class="ans-val">(C) Nitish Kumar</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.134</span><span class="ans-val">(C) Nirmala Sitharaman</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.135</span><span class="ans-val">(B) Part IV</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.136</span><span class="ans-val">(C) Lebanon</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.137</span><span class="ans-val">(B) Mina Al-Ahmadi Refinery</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.138</span><span class="ans-val">(B) Literature</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.139</span><span class="ans-val">(B) Green Rail Revolution</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.140</span><span class="ans-val">(B) Tushar Mehta</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.141</span><span class="ans-val">(C) Institutions and prosperity</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.142</span><span class="ans-val">(B) Shehbaz Sharif</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.143</span><span class="ans-val">(B) Czech Republic</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.144</span><span class="ans-val">(C) ₹28,840 crore</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.145</span><span class="ans-val">(C) Gurjant Singh</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.146</span><span class="ans-val">(C) R. Venkataramani</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.147</span><span class="ans-val">(D) Gujarat</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.148</span><span class="ans-val">(B) January 2026</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.149</span><span class="ans-val">(D) Figure Skating</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.150</span><span class="ans-val">(B) Adani Ports (APSEZ)</span></div>
+  </div>
+
+</div><!-- end answer-key -->
+
+</div><!-- end main -->
+
+<div class="footer">
+  <strong>Pacific Law Academy</strong> · DSS 264/1, Sector 20, Panchkula · 📞 7087157073 · @Pacificlawacademyindia<br>
+  <span style="font-size:11px; opacity:0.6; margin-top:4px; display:block;">Class Test 4 | BSA + Current Affairs | 150 Questions | PU Law Entrance 2026</span>
+</div>
+
+<script>
+document.getElementById("print-btn").addEventListener("click", function() { window.print(); });
+</script>
+</body>
+</html>

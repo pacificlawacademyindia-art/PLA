@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Constitution – Articles &amp; Clauses | Pacific Law Academy, Sector 20 Panchkula</title>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;700&family=Barlow+Condensed:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#f5f0e8; --surface:#ede7d9; --card:#fffdf7;
+  --ink:#1a1408; --ink2:#3d3420; --muted:#8a7d65;
+  --border:#d4c9b0; --border2:#c4b898;
+  --saffron:#bf5a0a; --saffron-l:#e07030;
+  --gold:#9a7c1a; --gold-d:#7a5e0a;
+  --green:#2d6e45; --blue:#1a4a7a; --red:#8a1a1a;
+  --fr:#7a1a1a; --dpsp:#1a4a2a; --emg:#4a1a6a;
+  --fin:#1a3a5a; --exec:#5a3a00; --jud:#003a4a;
+  --ele:#1a4a4a; --lang:#3a1a4a; --misc:#3a3a3a;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--ink);font-family:'Crimson Pro',Georgia,serif;font-size:15px;line-height:1.55;}
+/* ── HEADER ── */
+header{background:var(--ink);position:sticky;top:0;z-index:200;box-shadow:0 2px 16px rgba(0,0,0,.35);}
+.hdr-top{display:flex;align-items:center;gap:18px;padding:12px 32px 10px;}
+.hdr-left h1{font-family:'Barlow Condensed',sans-serif;font-size:21px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:#f5e8c0;line-height:1;}
+.hdr-left p{font-family:'JetBrains Mono',monospace;font-size:9px;color:#6a6050;letter-spacing:.12em;text-transform:uppercase;margin-top:3px;}
+.hdr-stats{margin-left:auto;text-align:right;font-family:'JetBrains Mono',monospace;font-size:9px;color:#6a6050;line-height:1.8;}
+.hdr-stats b{color:#c9a84c;font-size:17px;display:block;line-height:1;}
+.tri{height:3px;background:linear-gradient(90deg,#e07030 33.3%,#f5f0e8 33.3% 66.6%,#2d7a4a 66.6%);}
+/* ── CONTROLS ── */
+.controls{background:var(--surface);border-bottom:1px solid var(--border2);padding:10px 32px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;position:sticky;top:120px;z-index:100;}
+.controls input{background:var(--card);border:1px solid var(--border2);color:var(--ink);padding:6px 13px;font-family:'JetBrains Mono',monospace;font-size:11px;width:240px;outline:none;transition:border-color .2s;}
+.controls input:focus{border-color:var(--gold);}
+.controls input::placeholder{color:var(--muted);}
+.filter-btns{display:flex;flex-wrap:wrap;gap:5px;}
+.fb{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border:1px solid currentColor;cursor:pointer;background:transparent;transition:all .15s;}
+.fb:hover,.fb.active{color:#fff;border-color:transparent;}
+.fb[data-cat="ALL"]{color:var(--ink2);}.fb[data-cat="ALL"].active,.fb[data-cat="ALL"]:hover{background:var(--ink2);}
+.fb[data-cat="FR"]{color:var(--fr);}.fb[data-cat="FR"].active,.fb[data-cat="FR"]:hover{background:var(--fr);}
+.fb[data-cat="DPSP"]{color:var(--dpsp);}.fb[data-cat="DPSP"].active,.fb[data-cat="DPSP"]:hover{background:var(--dpsp);}
+.fb[data-cat="EXEC"]{color:var(--exec);}.fb[data-cat="EXEC"].active,.fb[data-cat="EXEC"]:hover{background:var(--exec);}
+.fb[data-cat="JUD"]{color:var(--jud);}.fb[data-cat="JUD"].active,.fb[data-cat="JUD"]:hover{background:var(--jud);}
+.fb[data-cat="FIN"]{color:var(--fin);}.fb[data-cat="FIN"].active,.fb[data-cat="FIN"]:hover{background:var(--fin);}
+.fb[data-cat="EMG"]{color:var(--emg);}.fb[data-cat="EMG"].active,.fb[data-cat="EMG"]:hover{background:var(--emg);}
+.fb[data-cat="ELE"]{color:var(--ele);}.fb[data-cat="ELE"].active,.fb[data-cat="ELE"]:hover{background:var(--ele);}
+.fb[data-cat="MISC"]{color:var(--misc);}.fb[data-cat="MISC"].active,.fb[data-cat="MISC"]:hover{background:var(--misc);}
+.res-count{margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted);}
+/* ── GRID ── */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:0;padding:0;}
+/* ── ARTICLE CARD ── */
+.ac{background:var(--card);border-right:1px solid var(--border);border-bottom:1px solid var(--border);padding:16px 18px 14px;transition:background .15s;}
+.ac:hover{background:#fff;}
+.ac-head{display:flex;align-items:flex-start;gap:10px;margin-bottom:8px;}
+.art-no{font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:800;line-height:1;color:var(--saffron);min-width:52px;}
+.art-info{flex:1;}
+.art-title{font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:700;letter-spacing:.02em;color:var(--ink);line-height:1.2;}
+.art-part{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-top:2px;}
+.cat-tag{font-family:'Barlow Condensed',sans-serif;font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:2px 7px;color:#fff;white-space:nowrap;align-self:flex-start;}
+.cat-FR{background:var(--fr);}
+.cat-DPSP{background:var(--dpsp);}
+.cat-EXEC{background:var(--exec);}
+.cat-JUD{background:var(--jud);}
+.cat-FIN{background:var(--fin);}
+.cat-EMG{background:var(--emg);}
+.cat-ELE{background:var(--ele);}
+.cat-MISC{background:var(--misc);}
+/* ── CLAUSES ── */
+.clauses{list-style:none;}
+.clause{display:flex;gap:8px;padding:3px 0;border-top:1px dashed var(--border);font-size:13.5px;}
+.clause:first-child{border-top:none;}
+.cl-num{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;color:var(--gold-d);min-width:32px;padding-top:2px;flex-shrink:0;}
+.cl-text{color:var(--ink2);line-height:1.45;}
+.cl-note{font-style:italic;color:var(--muted);font-size:12px;display:block;margin-top:1px;}
+.exam-tip{display:inline-block;margin-top:6px;font-family:'JetBrains Mono',monospace;font-size:9px;background:#fff3cd;color:#7a5a00;border-left:2px solid #c9a84c;padding:3px 8px;letter-spacing:.04em;width:100%;}
+mark{background:rgba(154,124,26,.25);color:var(--ink);padding:0 1px;}
+.hidden{display:none!important;}
+/* ── FOOTER ── */
+footer{text-align:center;padding:18px;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--muted);border-top:1px solid var(--border);letter-spacing:.1em;background:var(--surface);}
+
+/* ── PLA BRANDING ── */
+/* banner */
+.pla-banner{background:linear-gradient(100deg,#0c0800 0%,#201400 40%,#2a1c00 60%,#0c0800 100%);border-bottom:3px solid #c9a84c;border-top:3px solid var(--saffron);padding:12px 32px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;box-shadow:0 4px 20px rgba(0,0,0,.4);}
+.pla-logo-area{display:flex;align-items:center;gap:16px;}
+.pla-crest{width:60px;height:60px;background:linear-gradient(145deg,#c9a84c 0%,#a07820 50%,#c9a84c 100%);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 0 22px rgba(201,168,76,.55),0 0 44px rgba(201,168,76,.2),inset 0 1px 0 rgba(255,255,255,.25);flex-shrink:0;border:2px solid #e8c97a;}
+.pla-name{font-family:'Barlow Condensed',sans-serif;font-size:26px;font-weight:800;color:#f0d878;letter-spacing:.06em;text-transform:uppercase;line-height:1;text-shadow:0 0 30px rgba(201,168,76,.6),0 2px 4px rgba(0,0,0,.5);}
+.pla-tagline{font-family:'JetBrains Mono',monospace;font-size:9.5px;color:#8a7a54;letter-spacing:.1em;margin-top:5px;}
+.pla-right{display:flex;flex-direction:column;align-items:flex-end;gap:6px;}
+.pla-courses{display:flex;gap:5px;flex-wrap:wrap;justify-content:flex-end;}
+.pla-pill{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:rgba(201,168,76,.15);border:1px solid rgba(201,168,76,.45);color:#d4b860;padding:4px 11px;transition:background .2s;}
+.pla-pill:hover{background:rgba(201,168,76,.3);}
+.pla-contact{font-family:'JetBrains Mono',monospace;font-size:11px;color:#9a8a64;letter-spacing:.06em;text-align:right;}
+.pla-contact b{color:#f0d878;font-size:15px;letter-spacing:.12em;text-shadow:0 0 10px rgba(201,168,76,.4);}
+/* footer */
+.pla-foot{background:linear-gradient(100deg,#0c0800,#201400,#2a1c00,#0c0800);border-top:3px solid #c9a84c;padding:20px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+.pla-foot-left{display:flex;align-items:center;gap:12px;}
+.pla-foot-crest{width:44px;height:44px;background:linear-gradient(145deg,#c9a84c,#7a5e0a);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;border:2px solid #c9a84c;flex-shrink:0;box-shadow:0 0 12px rgba(201,168,76,.4);}
+.pla-foot-name{font-family:'Barlow Condensed',sans-serif;font-size:17px;font-weight:800;color:#c9a84c;letter-spacing:.06em;text-transform:uppercase;line-height:1;}
+.pla-foot-addr{font-family:'JetBrains Mono',monospace;font-size:9.5px;color:#7a6a48;letter-spacing:.08em;margin-top:4px;}
+.pla-foot-right{font-family:'JetBrains Mono',monospace;font-size:9.5px;color:#6a5a38;text-align:right;letter-spacing:.05em;line-height:2;}
+.pla-foot-right b{color:#a09070;font-size:10.5px;}
+/* ── PLA RICH FOOTER (legacy class alias) ── */
+.pla-footer-left,.pla-footer-logo,.pla-footer-name,.pla-footer-addr,.pla-footer-right{display:none;}
+@media(max-width:600px){
+  .grid{grid-template-columns:1fr;}
+  .hdr-top{padding:10px 16px;}
+  .controls{padding:8px 12px;top:50px;}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="pla-banner">
+    <div class="pla-logo-area">
+      <div class="pla-crest">⚖</div>
+      <div>
+        <div class="pla-name">Pacific Law Academy</div>
+        <div class="pla-tagline">📍 DSS 264/1, Sector 20, Panchkula &nbsp;|&nbsp; Panchkula's Premier Law Entrance Institute</div>
+      </div>
+    </div>
+    <div class="pla-right">
+      <div class="pla-courses">
+        <span class="pla-pill">CLAT</span>
+        <span class="pla-pill">AILET</span>
+        <span class="pla-pill">PU BA.LLB 5-Year</span>
+        <span class="pla-pill">BA.LLB</span>
+        <span class="pla-pill">BCOM.LLB</span>
+      </div>
+      <div class="pla-contact">📞 <b>7087157073</b></div>
+    </div>
+  </div>
+  <div class="hdr-top">
+    <div class="hdr-left">
+      <h1>⚖ Constitution of India — Articles &amp; Clauses</h1>
+      <p>Important Articles with All Clauses · CLAT / AILET / PU BA.LLB 2026</p>
+    </div>
+    <div class="hdr-stats">
+      <b id="artCount">—</b> articles
+      <br><b id="clCount">—</b> clauses
+    </div>
+  </div>
+  <div class="tri"></div>
+</header>
+
+<div class="controls">
+  <input type="text" id="srch" placeholder="Search article, clause or keyword…" oninput="filter()">
+  <div class="filter-btns">
+    <button class="fb active" data-cat="ALL" onclick="setCat('ALL')">All</button>
+    <button class="fb" data-cat="FR" onclick="setCat('FR')">Fundamental Rights</button>
+    <button class="fb" data-cat="DPSP" onclick="setCat('DPSP')">DPSP</button>
+    <button class="fb" data-cat="EXEC" onclick="setCat('EXEC')">Executive</button>
+    <button class="fb" data-cat="JUD" onclick="setCat('JUD')">Judiciary</button>
+    <button class="fb" data-cat="FIN" onclick="setCat('FIN')">Finance</button>
+    <button class="fb" data-cat="EMG" onclick="setCat('EMG')">Emergency</button>
+    <button class="fb" data-cat="ELE" onclick="setCat('ELE')">Elections</button>
+    <button class="fb" data-cat="MISC" onclick="setCat('MISC')">Misc</button>
+  </div>
+  <span class="res-count" id="resCount"></span>
+</div>
+
+<div class="grid" id="grid"></div>
+<div class="pla-foot">
+  <div class="pla-foot-left">
+    <div class="pla-foot-crest">⚖</div>
+    <div>
+      <div class="pla-foot-name">Pacific Law Academy</div>
+      <div class="pla-foot-addr">📍 DSS 264/1, Sector 20, Panchkula &nbsp;·&nbsp; 📞 <span style="color:var(--saffron);font-weight:700;">7087157073</span></div>
+    </div>
+  </div>
+  <div class="pla-foot-right">
+    <b>CLAT &nbsp;·&nbsp; AILET &nbsp;·&nbsp; PU BA.LLB 5-Year &nbsp;·&nbsp; BA.LLB &nbsp;·&nbsp; BCOM.LLB</b><br>
+    For Educational Use Only &nbsp;·&nbsp; Not for Commercial Distribution &nbsp;·&nbsp; © 2026 Pacific Law Academy
+  </div>
+</div>
+
+<script>
+const data = [
+  // ── FUNDAMENTAL RIGHTS ──
+  {n:"12", cat:"FR", part:"Part III", title:"Definition of 'State'",
+   clauses:[
+    {c:"—", t:"'State' includes Government & Parliament of India, Government & Legislature of each State, and all local or other authorities within India or under control of Govt. of India."},
+   ], tip:"Expansive interpretation: statutory bodies, corporations funded by govt. can be 'State' (R.D. Shetty case)."},
+
+  {n:"13", cat:"FR", part:"Part III", title:"Laws Inconsistent with Fundamental Rights",
+   clauses:[
+    {c:"(1)", t:"Pre-constitutional laws inconsistent with FR are void to the extent of inconsistency."},
+    {c:"(2)", t:"State shall NOT make any law taking away or abridging FR; such law void to extent of contravention."},
+    {c:"(3)(a)", t:"'Law' includes Ordinance, Order, Bye-law, Rule, Regulation, Notification, Custom or Usage."},
+    {c:"(3)(b)", t:"'Laws in force' includes laws passed by Legislature/authority before commencement of Constitution."},
+    {c:"(4)", t:"Nothing in this article shall apply to any amendment of this Constitution under Art. 368."},
+   ], tip:"Doctrine of Eclipse (pre-const. laws) & Doctrine of Severability apply under Art. 13."},
+
+  {n:"14", cat:"FR", part:"Part III", title:"Right to Equality",
+   clauses:[
+    {c:"—", t:"State shall not deny to any person equality before law or equal protection of the laws within the territory of India."},
+   ], tip:"'Equality before law' (British concept – no man above law) ≠ 'Equal protection of laws' (American concept – equals treated equally). Rule of reasonable classification: Intelligible differentia + rational nexus."},
+
+  {n:"15", cat:"FR", part:"Part III", title:"Prohibition of Discrimination",
+   clauses:[
+    {c:"(1)", t:"State shall not discriminate against any citizen on grounds only of religion, race, caste, sex, place of birth or any of them."},
+    {c:"(2)", t:"No citizen shall be subjected to disability/restriction/condition in access to shops, public restaurants, hotels, places of public entertainment, or use of wells, tanks, roads, etc. on above grounds."},
+    {c:"(3)", t:"Nothing prevents State from making special provisions for women and children."},
+    {c:"(4)", t:"Nothing prevents State from making special provisions for advancement of socially & educationally backward classes or SC/ST."},
+    {c:"(5)", t:"Special provisions for backward classes / SC/ST re: admission in educational institutions (incl. private unaided). [93rd Amendment]"},
+    {c:"(6)", t:"Special provision for economically weaker sections (EWS) – up to 10% reservation. [103rd Amendment 2019]"},
+   ], tip:"Art. 15(3): women & children – protective discrimination. Art. 15(4)/(5): backward classes. Art. 15(6): EWS (not just caste-based)."},
+
+  {n:"16", cat:"FR", part:"Part III", title:"Equality of Opportunity in Public Employment",
+   clauses:[
+    {c:"(1)", t:"Equality of opportunity for all citizens in matters of employment or appointment to any office under the State."},
+    {c:"(2)", t:"No citizen shall be ineligible for / discriminated against in respect of any employment only on grounds of religion, race, caste, sex, descent, place of birth, residence."},
+    {c:"(3)", t:"Parliament may prescribe residence requirement for certain State/UT employments."},
+    {c:"(4)", t:"State may make provision for reservation of appointments/posts in favour of any backward class of citizens not adequately represented."},
+    {c:"(4A)", t:"State may make provision for reservation in matters of promotion for SC/ST employees."},
+    {c:"(4B)", t:"Unfilled reserved vacancies treated as separate class – not subject to 50% ceiling."},
+    {c:"(5)", t:"Law providing that incumbent of religious/denominational office must be of particular religion/denomination shall not be void."},
+   ], tip:"Indra Sawhney (Mandal) case: 50% ceiling on total reservations. Art. 16(4A) inserted by 77th Amendment; 16(4B) by 81st Amendment."},
+
+  {n:"17", cat:"FR", part:"Part III", title:"Abolition of Untouchability",
+   clauses:[
+    {c:"—", t:"'Untouchability' is abolished and its practice in any form is forbidden. The enforcement of any disability arising out of Untouchability shall be an offence punishable in accordance with law."},
+   ], tip:"Available against private individuals too (not just State). Protection of Civil Rights Act 1955 enacted under Art. 35."},
+
+  {n:"18", cat:"FR", part:"Part III", title:"Abolition of Titles",
+   clauses:[
+    {c:"(1)", t:"No title, not being a military or academic distinction, shall be conferred by the State."},
+    {c:"(2)", t:"No citizen of India shall accept any title from any foreign State."},
+    {c:"(3)", t:"No person who is not a citizen of India shall, while holding office of profit under State, accept any title from any foreign State without President's consent."},
+    {c:"(4)", t:"No person holding office of profit under State shall accept any present, emolument, or office from or under any foreign State without President's consent."},
+   ], tip:"Bharat Ratna, Padma awards are NOT titles; cannot be used as suffixes/prefixes (SC, 1996)."},
+
+  {n:"19", cat:"FR", part:"Part III", title:"Protection of Six Freedoms",
+   clauses:[
+    {c:"(1)(a)", t:"Freedom of Speech and Expression."},
+    {c:"(1)(b)", t:"Freedom to assemble peaceably and without arms."},
+    {c:"(1)(c)", t:"Freedom to form associations or unions or co-operative societies."},
+    {c:"(1)(d)", t:"Freedom to move freely throughout India."},
+    {c:"(1)(e)", t:"Freedom to reside and settle in any part of India."},
+    {c:"(1)(g)", t:"Freedom to practise any profession, or to carry on any occupation, trade or business."},
+    {c:"(2)", t:"Reasonable restrictions on 19(1)(a): sovereignty/integrity, security of State, friendly relations with foreign States, public order, decency/morality, contempt of court, defamation, incitement to offence."},
+    {c:"(3)", t:"Reasonable restrictions on 19(1)(b): sovereignty/integrity, public order."},
+    {c:"(4)", t:"Reasonable restrictions on 19(1)(c): sovereignty/integrity, public order, morality."},
+    {c:"(5)", t:"Reasonable restrictions on 19(1)(d)&(e): interests of general public or protection of SC/ST."},
+    {c:"(6)", t:"Reasonable restrictions on 19(1)(g): professional/technical qualification; State monopoly."},
+   ], tip:"Art. 19(1)(f) – right to property – repealed by 44th Amendment 1978. Only citizens enjoy Art. 19 rights."},
+
+  {n:"20", cat:"FR", part:"Part III", title:"Protection in Respect of Conviction for Offences",
+   clauses:[
+    {c:"(1)", t:"No person shall be convicted of any offence except for violation of law in force at time of commission (Ex post facto law prohibited)."},
+    {c:"(2)", t:"No person shall be prosecuted and punished for the same offence more than once (Double Jeopardy)."},
+    {c:"(3)", t:"No person accused of any offence shall be compelled to be a witness against himself (Self-incrimination)."},
+   ], tip:"Art. 20 cannot be suspended even during Emergency (Art. 359). Applies only to criminal proceedings."},
+
+  {n:"21", cat:"FR", part:"Part III", title:"Right to Life and Personal Liberty",
+   clauses:[
+    {c:"—", t:"No person shall be deprived of his life or personal liberty except according to procedure established by law."},
+   ], tip:"Maneka Gandhi case (1978): 'procedure' must be fair, just & reasonable. Expanded to include right to livelihood, health, privacy, education, clean environment, legal aid, speedy trial, dignity, etc."},
+
+  {n:"21A", cat:"FR", part:"Part III", title:"Right to Education",
+   clauses:[
+    {c:"—", t:"State shall provide free and compulsory education to all children of the age of 6 to 14 years in such manner as State may determine by law."},
+   ], tip:"86th Amendment 2002. RTE Act 2009 enacted under this. Art. 45 (DPSP) amended simultaneously."},
+
+  {n:"22", cat:"FR", part:"Part III", title:"Protection Against Arrest and Detention",
+   clauses:[
+    {c:"(1)", t:"Person arrested must be informed of grounds of arrest as soon as may be."},
+    {c:"(2)", t:"Arrested person has right to consult and be defended by a legal practitioner of choice."},
+    {c:"(3)", t:"Clauses (1) and (2) do NOT apply to enemy alien or person arrested under preventive detention law."},
+    {c:"(4)", t:"No law for preventive detention shall authorise detention beyond 3 months unless Advisory Board reports sufficient cause."},
+    {c:"(5)", t:"Person detained under preventive detention law must be informed of grounds (as soon as may be); cannot disclose facts contrary to public interest."},
+    {c:"(6)", t:"Nothing in clause (5) requires authority to disclose facts it considers against public interest."},
+    {c:"(7)", t:"Parliament may by law prescribe circumstances, classes of cases, maximum period for preventive detention."},
+   ], tip:"Must be produced before Magistrate within 24 hrs (Art. 22(2) + Cr.PC). Preventive detention ≠ punitive detention."},
+
+  {n:"23", cat:"FR", part:"Part III", title:"Prohibition of Traffic in Human Beings",
+   clauses:[
+    {c:"(1)", t:"Traffic in human beings and begar and other similar forms of forced labour are prohibited and any contravention shall be an offence punishable by law."},
+    {c:"(2)", t:"Nothing prevents State from imposing compulsory service for public purposes (without discrimination on grounds of religion, race, caste, class)."},
+   ], tip:"Applies against private individuals too. Bonded Labour System (Abolition) Act 1976 enacted under Art. 35."},
+
+  {n:"24", cat:"FR", part:"Part III", title:"Prohibition of Child Labour",
+   clauses:[
+    {c:"—", t:"No child below the age of fourteen years shall be employed to work in any factory or mine or engaged in any other hazardous employment."},
+   ], tip:"Child Labour (Prohibition & Regulation) Amendment Act 2016 prohibits children below 14 in all occupations."},
+
+  {n:"25", cat:"FR", part:"Part III", title:"Freedom of Conscience and Religion",
+   clauses:[
+    {c:"(1)", t:"Subject to public order, morality, health and other FR provisions, all persons are equally entitled to freedom of conscience and the right to freely profess, practise and propagate religion."},
+    {c:"(2)(a)", t:"Nothing in Art. 25 affects operation of any existing law or prevents State from making law regulating or restricting any economic, financial, political or secular activity associated with religious practice."},
+    {c:"(2)(b)", t:"Nothing prevents State from providing social welfare and reform or throwing open Hindu religious institutions of public character to all classes of Hindus."},
+   ], tip:"'Propagate' does not include right to convert by force/fraud (Rev. Stanislaus v State of MP)."},
+
+  {n:"26", cat:"FR", part:"Part III", title:"Freedom to Manage Religious Affairs",
+   clauses:[
+    {c:"—", t:"Subject to public order, morality, health, every religious denomination has right to: (a) establish & maintain institutions for religious/charitable purposes; (b) manage its own affairs in matters of religion; (c) own & acquire movable/immovable property; (d) administer such property in accordance with law."},
+   ], tip:"Art. 26 is available to 'religious denominations' (groups); Art. 25 is individual right."},
+
+  {n:"29", cat:"FR", part:"Part III", title:"Protection of Interests of Minorities",
+   clauses:[
+    {c:"(1)", t:"Any section of citizens having a distinct language, script or culture of its own has the right to conserve the same."},
+    {c:"(2)", t:"No citizen shall be denied admission to any educational institution maintained by State or receiving aid from State funds on grounds only of religion, race, caste, language."},
+   ], tip:"Art. 29(2) applies to ALL citizens, not just minorities."},
+
+  {n:"30", cat:"FR", part:"Part III", title:"Right of Minorities to Establish Educational Institutions",
+   clauses:[
+    {c:"(1)", t:"All minorities, whether based on religion or language, have the right to establish and administer educational institutions of their choice."},
+    {c:"(1A)", t:"In making law providing for compulsory acquisition of property of educational institution, State must ensure amount fixed is such that the right guaranteed under clause (1) is not restricted or abrogated. [44th Amendment]"},
+    {c:"(2)", t:"State shall not, in granting aid to educational institutions, discriminate against any educational institution on the ground that it is under the management of a minority."},
+   ], tip:"TMA Pai Foundation (2002): Minority status determined state-wise. Unaided minority institutions have maximum autonomy."},
+
+  {n:"32", cat:"FR", part:"Part III", title:"Right to Constitutional Remedies",
+   clauses:[
+    {c:"(1)", t:"Right to move Supreme Court for enforcement of FR is guaranteed."},
+    {c:"(2)", t:"SC has power to issue directions, orders, writs — Habeas Corpus, Mandamus, Prohibition, Quo Warranto, Certiorari — for enforcement of FR."},
+    {c:"(3)", t:"Parliament may by law empower any other court to exercise within local limits all or any of the powers exercisable by SC under clause (2)."},
+    {c:"(4)", t:"The right guaranteed by this article shall not be suspended except as provided by this Constitution."},
+   ], tip:"Dr. Ambedkar: Art. 32 is the 'Heart and Soul' of the Constitution. Art. 226 (HC writs) broader – for any legal right, not just FR."},
+
+  {n:"33", cat:"FR", part:"Part III", title:"Modification of FR for Armed Forces",
+   clauses:[
+    {c:"—", t:"Parliament may by law determine to what extent any FR shall, in their application to: (a) members of Armed Forces; (b) members of Forces charged with maintenance of public order; (c) persons employed in intelligence/counter-intelligence organisations; (d) persons employed in or in connection with telecommunications – be restricted or abrogated."},
+   ]},
+
+  {n:"35", cat:"FR", part:"Part III", title:"Legislation to Give Effect to FR",
+   clauses:[
+    {c:"(a)", t:"Parliament alone has power to make laws prescribing punishment for offences under Arts. 17 (untouchability) & 23 (forced labour), and to prescribe punishment for acts declared offences under Part III."},
+    {c:"(b)", t:"Any law in force immediately before commencement of Constitution prescribing punishment shall continue in force until altered or repealed by Parliament."},
+   ], tip:"Even if a FR is violated by a State subject, Parliament has exclusive power to provide the penalty."},
+
+  // ── DPSP ──
+  {n:"36", cat:"DPSP", part:"Part IV", title:"Definition of State for DPSP",
+   clauses:[
+    {c:"—", t:"'State' in Part IV has the same meaning as in Part III."},
+   ]},
+
+  {n:"38", cat:"DPSP", part:"Part IV", title:"State to Secure Social Order",
+   clauses:[
+    {c:"(1)", t:"State shall strive to promote welfare of the people by securing and protecting a social order in which justice — social, economic, political — shall inform all institutions of national life."},
+    {c:"(2)", t:"State shall strive to minimise inequalities in income, status, facilities, and opportunities among individuals and groups. [Added by 44th Amendment]"},
+   ]},
+
+  {n:"39", cat:"DPSP", part:"Part IV", title:"Certain Principles of Policy to be Followed",
+   clauses:[
+    {c:"(a)", t:"Citizens (men & women) have an adequate means to livelihood."},
+    {c:"(b)", t:"Ownership and control of material resources of community are distributed to sub-serve the common good."},
+    {c:"(c)", t:"Operation of the economic system does not result in concentration of wealth to common detriment."},
+    {c:"(d)", t:"Equal pay for equal work for both men and women."},
+    {c:"(e)", t:"Health and strength of workers (men, women, children) not abused; citizens not forced by economic necessity into vocations unsuited to age/strength."},
+    {c:"(f)", t:"Children given opportunities to develop in healthy manner, in conditions of freedom and dignity; childhood and youth protected against exploitation and moral/material abandonment."},
+   ], tip:"Art. 39(b)&(c) prevail over Arts. 14 & 19 by virtue of Art. 31C (42nd Amendment)."},
+
+  {n:"39A", cat:"DPSP", part:"Part IV", title:"Equal Justice and Free Legal Aid",
+   clauses:[
+    {c:"—", t:"State shall secure that operation of legal system promotes justice on basis of equal opportunity; shall provide free legal aid by suitable legislation or scheme to ensure opportunities for securing justice are not denied to any citizen by reason of economic or other disability."},
+   ], tip:"Legal Services Authorities Act 1987 enacted. Also flows from Art. 21 (SC in Hussainara Khatoon)."},
+
+  {n:"44", cat:"DPSP", part:"Part IV", title:"Uniform Civil Code",
+   clauses:[
+    {c:"—", t:"State shall endeavour to secure for citizens a Uniform Civil Code throughout the territory of India."},
+   ], tip:"Most debated DPSP. Relates to personal laws (marriage, divorce, inheritance). SC has repeatedly asked Parliament to implement it."},
+
+  {n:"48A", cat:"DPSP", part:"Part IV", title:"Protection of Environment",
+   clauses:[
+    {c:"—", t:"State shall endeavour to protect and improve the environment and to safeguard the forests and wild life of the country."},
+   ], tip:"Added by 42nd Amendment 1976. Art. 51A(g) is the corresponding Fundamental Duty."},
+
+  {n:"50", cat:"DPSP", part:"Part IV", title:"Separation of Judiciary from Executive",
+   clauses:[
+    {c:"—", t:"State shall take steps to separate the judiciary from the executive in the public services of the State."},
+   ]},
+
+  {n:"51A", cat:"MISC", part:"Part IVA", title:"Fundamental Duties",
+   clauses:[
+    {c:"(a)", t:"Abide by the Constitution and respect its ideals, the National Flag and National Anthem."},
+    {c:"(b)", t:"Cherish and follow the noble ideals of the national struggle for freedom."},
+    {c:"(c)", t:"Uphold and protect the sovereignty, unity and integrity of India."},
+    {c:"(d)", t:"Defend the country and render national service when called upon."},
+    {c:"(e)", t:"Promote harmony and spirit of common brotherhood; renounce practices derogatory to women."},
+    {c:"(f)", t:"Value and preserve rich heritage of our composite culture."},
+    {c:"(g)", t:"Protect and improve natural environment including forests, lakes, rivers, wild life."},
+    {c:"(h)", t:"Develop scientific temper, humanism and spirit of inquiry and reform."},
+    {c:"(i)", t:"Safeguard public property and abjure violence."},
+    {c:"(j)", t:"Strive towards excellence in all spheres of individual and collective activity."},
+    {c:"(k)", t:"Every parent/guardian to provide opportunities for education of child between 6–14 years. [86th Amendment 2002]"},
+   ], tip:"Added by 42nd Amendment 1976 (a–j); 11th duty (k) by 86th Amendment 2002. Non-justiciable but legally significant."},
+
+  // ── EXECUTIVE ──
+  {n:"52", cat:"EXEC", part:"Part V", title:"The President of India",
+   clauses:[
+    {c:"—", t:"There shall be a President of India."},
+   ]},
+
+  {n:"54", cat:"EXEC", part:"Part V", title:"Election of President",
+   clauses:[
+    {c:"—", t:"President elected by Electoral College consisting of: (a) elected members of both Houses of Parliament; (b) elected members of Legislative Assemblies of States; (c) elected members of LA of Union Territories of Delhi and Puducherry."},
+   ], tip:"Single transferable vote with proportional representation. Value of vote: different for MPs and MLAs (based on state population)."},
+
+  {n:"61", cat:"EXEC", part:"Part V", title:"Impeachment of President",
+   clauses:[
+    {c:"(1)", t:"President may be removed for violation of the Constitution by impeachment."},
+    {c:"(2)", t:"Impeachment charge may be preferred by either House of Parliament."},
+    {c:"(3)", t:"No charge shall be preferred unless: (a) 14 days' notice signed by not less than ¼ of total members of House; (b) resolution passed by majority of not less than 2/3 of total membership."},
+    {c:"(4)", t:"When charges are investigated by other House: (a) President has right to appear and be represented; (b) if resolution passed by 2/3 of total membership, President stands removed from the date of such resolution."},
+   ], tip:"Quasi-judicial process. No President has been impeached so far in India."},
+
+  {n:"72", cat:"EXEC", part:"Part V", title:"Pardoning Power of President",
+   clauses:[
+    {c:"(1)", t:"President has power to grant: (a) pardons, reprieves, respites or remissions of punishment; or (b) suspend, remit or commute sentence — in all cases where punishment is by court martial; offence against Union law; or sentence of death."},
+    {c:"(2)", t:"Nothing in clause (1)(a) affects power of court martial under law relating to Armed Forces."},
+   ], tip:"Pardon: completely absolves. Reprieve: temporary stay. Respite: reduced sentence due to special circumstances. Remission: reduces quantum without changing character. Commutation: substitutes lesser penalty."},
+
+  {n:"74", cat:"EXEC", part:"Part V", title:"Council of Ministers",
+   clauses:[
+    {c:"(1)", t:"There shall be a Council of Ministers with the Prime Minister at the head to aid and advise the President, who shall, in exercise of his functions, act in accordance with such advice. Provided that President may require CoM to reconsider advice, and shall act in accordance with advice tendered after such reconsideration."},
+    {c:"(2)", t:"The question whether any, and if so what, advice was tendered by Ministers to the President shall not be inquired into in any court."},
+   ], tip:"44th Amendment (1978) added proviso: President can send advice back once for reconsideration. CoM advice is binding on President."},
+
+  {n:"75", cat:"EXEC", part:"Part V", title:"Appointment and Responsibility of Ministers",
+   clauses:[
+    {c:"(1)", t:"PM appointed by President; other Ministers appointed by President on advice of PM."},
+    {c:"(2)", t:"Ministers hold office during pleasure of President."},
+    {c:"(3)", t:"Council of Ministers is collectively responsible to Lok Sabha."},
+    {c:"(4)", t:"Before a Minister enters office, President administers oaths of office and of secrecy."},
+    {c:"(5)", t:"A Minister who is not a member of Parliament for 6 consecutive months shall cease to be a Minister."},
+    {c:"(6)", t:"Salaries & allowances of Ministers determined by Parliament."},
+   ], tip:"Collective responsibility (Art. 75(3)) = cabinet solidarity. Individual responsibility = each minister responsible for their ministry."},
+
+  {n:"76", cat:"EXEC", part:"Part V", title:"Attorney General of India",
+   clauses:[
+    {c:"(1)", t:"President shall appoint a person qualified to be a SC Judge as Attorney General."},
+    {c:"(2)", t:"AG's duty: give advice on legal matters referred by President; perform other legal duties assigned."},
+    {c:"(3)", t:"AG has right of audience in all courts in India."},
+    {c:"(4)", t:"AG holds office during pleasure of President; receives remuneration determined by President."},
+   ], tip:"AG is highest law officer of India. Not a govt. servant; can take private cases (not against Govt. of India)."},
+
+  {n:"78", cat:"EXEC", part:"Part V", title:"Duties of PM to President",
+   clauses:[
+    {c:"(a)", t:"PM shall communicate to President all decisions of CoM relating to administration of Union and proposals for legislation."},
+    {c:"(b)", t:"PM shall furnish such information relating to administration and proposals as President may call for."},
+    {c:"(c)", t:"If President requires, PM shall submit for consideration of CoM any matter on which a decision has been taken by a Minister but not considered by CoM."},
+   ]},
+
+  {n:"108", cat:"EXEC", part:"Part V", title:"Joint Sitting of Parliament",
+   clauses:[
+    {c:"(1)", t:"If after a Bill passed by one House — other House rejects it / passes with amendments not agreed to / does not pass within 6 months — President may notify joint sitting."},
+    {c:"(2)", t:"Nothing in clause (1) applies to Money Bills."},
+    {c:"(3)", t:"President may address joint sitting."},
+    {c:"(4)", t:"Joint sitting presided by Speaker; Deputy Speaker if Speaker absent."},
+    {c:"(5)", t:"Bill deemed passed if agreed to by majority of total members of both Houses present and voting."},
+   ], tip:"Joint sitting held only 3 times: Dowry Prohibition Act 1961, Banking Service Commission (Repeal) Act 1978, Prevention of Terrorism Act 2002."},
+
+  {n:"110", cat:"EXEC", part:"Part V", title:"Definition of Money Bill",
+   clauses:[
+    {c:"(1)", t:"A Bill is a Money Bill if it contains ONLY provisions dealing with: (a) imposition/abolition/remission/alteration of tax; (b) regulation of borrowing by Govt. of India; (c) Consolidated Fund or Contingency Fund; (d) appropriation of money from Consolidated Fund; (e) declaring expenditure charged on Consolidated Fund; (f) receipt of money on account of CF or public account; (g) any matter incidental to above."},
+    {c:"(2)", t:"A Bill is not a Money Bill merely because it provides for imposition of fines or other pecuniary penalties or for demand/payment of fees."},
+    {c:"(3)", t:"If question arises whether a Bill is a Money Bill, decision of Speaker shall be final."},
+   ], tip:"Money Bill originates only in Lok Sabha. Rajya Sabha can only suggest amendments (within 14 days). Speaker certifies Money Bill."},
+
+  {n:"112", cat:"FIN", part:"Part V", title:"Annual Financial Statement (Budget)",
+   clauses:[
+    {c:"(1)", t:"President shall in respect of every financial year cause to be laid before both Houses a statement of estimated receipts and expenditure (Annual Financial Statement)."},
+    {c:"(2)", t:"AFS must distinguish: (a) charged on Consolidated Fund of India; (b) sums required to meet other expenditure."},
+    {c:"(3)", t:"Expenditure charged on CF of India includes: debt charges, salary/allowances of President, Speaker, Deputy Speaker, Chairman & Deputy Chairman RS, SC Judges, CAG, etc."},
+   ], tip:"'Vote on Account' allows govt. to withdraw money from CF before budget is passed. Charged expenditure is not voted."},
+
+  {n:"123", cat:"EXEC", part:"Part V", title:"Ordinance-Making Power of President",
+   clauses:[
+    {c:"(1)", t:"If either House of Parliament is not in session and President is satisfied that circumstances require immediate action, President may promulgate Ordinances."},
+    {c:"(2)", t:"Ordinance has same force and effect as an Act of Parliament."},
+    {c:"(3)", t:"Ordinance ceases to operate at expiration of 6 weeks from reassembly of Parliament. May be withdrawn by President at any time."},
+    {c:"(4)", t:"If Ordinance contains provision that would not be valid in an Act of Parliament — the Ordinance shall be void."},
+   ], tip:"President must act on advice of CoM. DC Wadhwa case (1987): Ordinance raj is unconstitutional; cannot re-promulgate Ordinances repeatedly."},
+
+  // ── JUDICIARY ──
+  {n:"124", cat:"JUD", part:"Part V", title:"Establishment of Supreme Court",
+   clauses:[
+    {c:"(1)", t:"There shall be a SC of India consisting of CJI and until Parliament prescribes larger number, not more than 33 other judges."},
+    {c:"(2)", t:"SC Judge appointed by President after consultation with such Judges of SC and HCs as deemed necessary; CJI shall always be consulted."},
+    {c:"(3)", t:"Qualifications: citizen of India + HC Judge for 5 yrs; or Advocate of HC for 10 yrs; or distinguished jurist in opinion of President."},
+    {c:"(4)", t:"SC Judge shall not be removed except by order of President passed after an address by each House of Parliament supported by special majority (2/3 members present & voting + majority of total membership)."},
+    {c:"(5)", t:"Parliament may regulate presentation of address and procedure for investigation and proof of misbehaviour/incapacity."},
+   ], tip:"Collegium system evolved through three judges cases (SP Gupta 1982, SC Advocates-on-Record 1993, Re Presidential Reference 1998)."},
+
+  {n:"129", cat:"JUD", part:"Part V", title:"SC as Court of Record",
+   clauses:[
+    {c:"—", t:"Supreme Court shall be a Court of Record and shall have all powers of such a Court including the power to punish for contempt of itself."},
+   ]},
+
+  {n:"131", cat:"JUD", part:"Part V", title:"Original Jurisdiction of SC",
+   clauses:[
+    {c:"—", t:"SC has original jurisdiction (to the exclusion of other courts) in any dispute: (a) between Govt. of India and one or more States; (b) between Govt. of India + one/more States vs. one or more States; (c) between two or more States — involving a question of law or fact on which existence or extent of a legal right depends."},
+   ], tip:"Does NOT cover disputes arising from treaty/agreement pre-Constitution (Art. 363)."},
+
+  {n:"136", cat:"JUD", part:"Part V", title:"Special Leave to Appeal (SLP)",
+   clauses:[
+    {c:"(1)", t:"Notwithstanding anything in this Chapter, SC may in its discretion grant special leave to appeal from any judgment, decree, determination, sentence or order in any cause or matter passed by any court or tribunal in India."},
+    {c:"(2)", t:"SLP shall not apply to: (a) judgment of any court constituted by law related to Armed Forces."},
+   ], tip:"Art. 136 is residual/extraordinary jurisdiction. Not an appeal as of right; SC has discretion to grant or refuse."},
+
+  {n:"137", cat:"JUD", part:"Part V", title:"Review of Judgments by SC",
+   clauses:[
+    {c:"—", t:"Subject to provisions of any law made by Parliament or any rules made under Art. 145, SC shall have power to review any judgment pronounced or order made by it."},
+   ], tip:"Review petition to be filed within 30 days. Grounds: discovery of new evidence, error apparent on face of record, or any other sufficient reason."},
+
+  {n:"141", cat:"JUD", part:"Part V", title:"Law Declared by SC Binding",
+   clauses:[
+    {c:"—", t:"The law declared by the Supreme Court shall be binding on all courts within the territory of India."},
+   ], tip:"SC itself not bound by its own decisions (can overrule). HC decisions not binding on other HCs but have persuasive value."},
+
+  {n:"142", cat:"JUD", part:"Part V", title:"Enforcement of Decrees and Complete Justice",
+   clauses:[
+    {c:"(1)", t:"SC may in exercise of its jurisdiction pass such decree or make such order as is necessary for doing complete justice in any cause or matter pending before it, and such decree/order shall be enforceable throughout India."},
+    {c:"(2)", t:"SC has full power to make any order for securing attendance of any person, discovery/production of documents, investigation/punishment of contempts."},
+   ], tip:"Extraordinary and wide power — SC can even override statutes to do complete justice. Used extensively in PIL matters."},
+
+  {n:"143", cat:"JUD", part:"Part V", title:"Advisory Jurisdiction of SC",
+   clauses:[
+    {c:"(1)", t:"If President is of opinion that a question of law or fact of public importance has arisen or is likely to arise, President may refer it to SC for opinion."},
+    {c:"(2)", t:"President may refer question of law arising out of pre-constitutional treaties/agreements. SC is not obliged to give opinion."},
+   ], tip:"SC's opinion under Art. 143 is advisory, not binding. Has given opinions on Kerala Education Bill, Delhi Laws Act, Cauvery Water Disputes, etc."},
+
+  {n:"148", cat:"JUD", part:"Part V", title:"Comptroller and Auditor General",
+   clauses:[
+    {c:"(1)", t:"There shall be a CAG of India appointed by President by warrant under hand and seal."},
+    {c:"(2)", t:"CAG shall not be removed except in like manner and on like grounds as SC Judge."},
+    {c:"(3)", t:"Salary and service conditions determined by Parliament."},
+    {c:"(4)", t:"CAG is not eligible for further office under Govt. of India or State after cessation."},
+    {c:"(5)", t:"Subject to provisions of this Constitution and law by Parliament, conditions of service of persons in IA&AS determined by CAG."},
+    {c:"(6)", t:"Administrative expenses of CAG's office, salaries of persons in IA&AS — charged on CF of India."},
+   ], tip:"CAG is guardian of public purse. Reports go to President/Governor who lays them before Parliament/Legislature."},
+
+  {n:"163", cat:"EXEC", part:"Part VI", title:"Council of Ministers in States",
+   clauses:[
+    {c:"(1)", t:"There shall be a Council of Ministers with Chief Minister at head to aid and advise Governor in exercise of his functions, except in so far as Governor is required to exercise functions in his discretion."},
+    {c:"(2)", t:"If any question arises whether any matter is or is not a matter for Governor to act in discretion, decision of Governor shall be final."},
+    {c:"(3)", t:"Advice tendered by Ministers to Governor shall not be inquired into in any court."},
+   ], tip:"Governor has more discretionary powers than President. Key discretions: inviting CM after hung assembly, dismissal of govt., reservation of Bills for President."},
+
+  {n:"167", cat:"EXEC", part:"Part VI", title:"Duties of CM to Governor",
+   clauses:[
+    {c:"(a)", t:"CM shall communicate to Governor all decisions of CoM relating to administration of State and proposals for legislation."},
+    {c:"(b)", t:"CM shall furnish such information relating to administration and proposals as Governor may call for."},
+    {c:"(c)", t:"If Governor so requires, CM shall submit for CoM consideration any matter decided by a Minister without CoM consideration."},
+   ]},
+
+  {n:"200", cat:"EXEC", part:"Part VI", title:"Assent to Bills — State",
+   clauses:[
+    {c:"—", t:"When Bill passed by State Legislature, Governor may: (a) give assent; (b) withhold assent; (c) return (non-Money) Bill for reconsideration; (d) reserve Bill for consideration of President. If Legislature passes Bill again (with/without amendment), Governor shall not withhold assent."},
+   ], tip:"Governor cannot withhold assent indefinitely from a Bill re-presented after reconsideration (Nabam Rebia, 2016)."},
+
+  {n:"213", cat:"EXEC", part:"Part VI", title:"Ordinance-Making Power of Governor",
+   clauses:[
+    {c:"(1)", t:"If State Legislature not in session and Governor satisfied that circumstances require immediate action, Governor may promulgate Ordinance — but NOT without instructions from President if Bill would need President's assent or reservation."},
+    {c:"(2)", t:"Same force as State Legislature Act; ceases to operate 6 weeks from reassembly. Can be withdrawn."},
+    {c:"(3)", t:"Governor cannot promulgate Ordinance when Legislature in session."},
+   ]},
+
+  {n:"214", cat:"JUD", part:"Part VI", title:"High Courts for States",
+   clauses:[
+    {c:"—", t:"There shall be a High Court for each State."},
+   ]},
+
+  {n:"217", cat:"JUD", part:"Part VI", title:"Appointment of HC Judges",
+   clauses:[
+    {c:"(1)", t:"HC Judge appointed by President after consultation with CJI, Governor of State, and CJ of that HC."},
+    {c:"(2)", t:"Qualification: citizen of India + 10 years as HC Advocate; or 10 yrs in judicial office in India."},
+    {c:"(3)", t:"If question arises whether judge has the required qualification, opinion of CJI shall be final."},
+   ], tip:"HC Judge holds office till age 62. SC Judge holds office till age 65."},
+
+  {n:"226", cat:"JUD", part:"Part VI", title:"Power of HCs to Issue Writs",
+   clauses:[
+    {c:"(1)", t:"HC shall have power to issue to any person or authority within jurisdiction — directions, orders, writs including writs in the nature of Habeas Corpus, Mandamus, Prohibition, Quo Warranto, Certiorari, or any other writ."},
+    {c:"(2)", t:"Power extends to any government/authority/person even if located outside the State's territorial limits, provided cause of action wholly or partly arises within State."},
+    {c:"(3)", t:"If interim order made ex parte, HC shall dispose application within 2 weeks."},
+   ], tip:"HC jurisdiction under Art. 226 is WIDER than SC under Art. 32 — HC can issue writs for ANY legal right, not just FR."},
+
+  {n:"227", cat:"JUD", part:"Part VI", title:"Superintendence of HCs",
+   clauses:[
+    {c:"(1)", t:"Every HC has superintendence over all courts and tribunals within its jurisdiction except those constituted under any law relating to Armed Forces."},
+    {c:"(2)", t:"HC may call for returns from subordinate courts; make rules; prescribe forms; settle tables of fees."},
+    {c:"(3)", t:"HC may settle fees payable to sheriff/clerk of court and to attorneys/pleaders practising in subordinate courts."},
+   ]},
+
+  // ── FINANCE ──
+  {n:"265", cat:"FIN", part:"Part XII", title:"No Tax without Authority of Law",
+   clauses:[
+    {c:"—", t:"No tax shall be levied or collected except by authority of law."},
+   ], tip:"Key principle — any tax not backed by statute is unconstitutional. Relates to Art. 300A (property)."},
+
+  {n:"266", cat:"FIN", part:"Part XII", title:"Consolidated Fund and Public Account",
+   clauses:[
+    {c:"(1)", t:"All revenues received by Govt. of India, loans raised, and moneys received in repayment of loans form the Consolidated Fund of India."},
+    {c:"(2)", t:"All other public moneys received by or on behalf of Govt. of India shall be credited to the Public Account of India."},
+    {c:"(3)", t:"No moneys out of CF shall be appropriated except in accordance with law and for purposes/amounts voted by Parliament."},
+   ], tip:"Consolidated Fund of India (Art. 266) needs Parliamentary approval for withdrawal. Contingency Fund (Art. 267) is at disposal of President for emergencies."},
+
+  {n:"280", cat:"FIN", part:"Part XII", title:"Finance Commission",
+   clauses:[
+    {c:"(1)", t:"President shall, within 2 years from commencement of Constitution and thereafter at expiration of every 5th year (or earlier), constitute a Finance Commission."},
+    {c:"(2)", t:"FC consists of Chairman and 4 other members appointed by President."},
+    {c:"(3)", t:"FC makes recommendations to President on: (a) distribution of net proceeds of taxes between Union and States; (b) principles governing grants-in-aid; (c) measures to augment Consolidated Fund of a State to supplement resources of Panchayats/Municipalities; (d) any other matter referred."},
+   ], tip:"16th Finance Commission (2024–29) headed by Dr. Arvind Panagariya."},
+
+  {n:"300A", cat:"MISC", part:"Part XII", title:"Right to Property",
+   clauses:[
+    {c:"—", t:"No person shall be deprived of his property save by authority of law."},
+   ], tip:"44th Amendment (1978) removed right to property from Part III (FR). Now a constitutional right (not FR) under Part XII. Violation redressable under Art. 226 (HC), not Art. 32 (SC)."},
+
+  // ── EMERGENCY ──
+  {n:"352", cat:"EMG", part:"Part XVIII", title:"Proclamation of National Emergency",
+   clauses:[
+    {c:"(1)", t:"President may proclaim Emergency if satisfied that security of India or part thereof is threatened by war, external aggression, or armed rebellion."},
+    {c:"(2)", t:"Proclamation may be issued even before actual occurrence of war/aggression/rebellion."},
+    {c:"(3)", t:"President shall not issue Proclamation unless decision of Union Cabinet communicated to him in writing."},
+    {c:"(4)", t:"Proclamation must be approved by both Houses within 1 month by special majority (2/3 members present + voting AND majority of total membership)."},
+    {c:"(5)", t:"Proclamation ceases after 6 months unless continued by Parliament's resolution every 6 months."},
+    {c:"(6)", t:"Revocation: President may revoke; or if Lok Sabha passes resolution by simple majority disapproving it, President must revoke. Special session of LS can be called by 1/10th members."},
+   ], tip:"44th Amendment changed 'internal disturbance' to 'armed rebellion'. Proclaimed 3 times: 1962 (China war), 1971 (Pakistan war), 1975 (internal – Indira Gandhi era)."},
+
+  {n:"353", cat:"EMG", part:"Part XVIII", title:"Effect of National Emergency",
+   clauses:[
+    {c:"(a)", t:"Executive power of Union extends to giving directions to any State."},
+    {c:"(b)", t:"Parliament acquires power to make laws on State List subjects for whole or any part of India."},
+   ]},
+
+  {n:"356", cat:"EMG", part:"Part XVIII", title:"State Emergency / President's Rule",
+   clauses:[
+    {c:"(1)", t:"If President, on receipt of report of Governor or otherwise, is satisfied that government of State cannot be carried on in accordance with Constitution, President may assume all/any of functions of State Govt., declare Legislature powers exercisable by Parliament, make provisions for carrying out the Proclamation."},
+    {c:"(2)", t:"Proclamation approved by both Houses within 2 months (simple majority). If LS dissolved — within 30 days of reconstitution."},
+    {c:"(3)", t:"Proclamation ceases after 6 months unless continued by Parliament by absolute majority each time; maximum 3 years."},
+    {c:"(5)", t:"No Proclamation for more than 1 year except during National Emergency OR when ECI certifies difficulty in holding State elections."},
+   ], tip:"S.R. Bommai case (1994): misuse of Art. 356 is justiciable; floor test must be held; dissolution of Assembly is unconstitutional before Parliament approves Proclamation."},
+
+  {n:"360", cat:"EMG", part:"Part XVIII", title:"Financial Emergency",
+   clauses:[
+    {c:"(1)", t:"If President is satisfied that financial stability or credit of India or any part thereof is threatened, President may proclaim Financial Emergency."},
+    {c:"(2)", t:"Proclamation must be approved by both Houses within 2 months (simple majority)."},
+    {c:"(3)", t:"During Financial Emergency, executive authority of Union extends to giving directions to States regarding financial propriety. President may direct reduction of salaries including HC Judges. Money Bills of State reserved for President."},
+   ], tip:"Never proclaimed so far in India. President can reduce salaries of Union employees including SC/HC Judges during Financial Emergency."},
+
+  {n:"358", cat:"EMG", part:"Part XVIII", title:"Suspension of Art. 19 during Emergency",
+   clauses:[
+    {c:"(1)", t:"While Proclamation of Emergency (for war/external aggression only) is in operation, nothing in Art. 19 restricts State from making any law or taking any executive action."},
+    {c:"(2)", t:"Any law made or action taken during Emergency ceases to have effect after Proclamation ceases."},
+   ], tip:"Art. 358 (automatic suspension of Art. 19) vs Art. 359 (Presidential order suspending enforcement of other FRs). Arts. 20 & 21 can NEVER be suspended."},
+
+  {n:"359", cat:"EMG", part:"Part XVIII", title:"Suspension of Enforcement of FR during Emergency",
+   clauses:[
+    {c:"(1)", t:"President may by order suspend right to move any court for enforcement of FRs (except Arts. 20 & 21) during period of Emergency."},
+    {c:"(1A)", t:"Any law made or action taken by State shall not be void on ground of inconsistency with FRs mentioned in the order."},
+    {c:"(2)", t:"Order under clause (1) shall be laid before each House of Parliament."},
+   ]},
+
+  // ── ELECTIONS ──
+  {n:"324", cat:"ELE", part:"Part XV", title:"Election Commission of India",
+   clauses:[
+    {c:"(1)", t:"Superintendence, direction and control of preparation of electoral rolls and conduct of all elections to Parliament, State Legislatures, offices of President and VP shall be vested in ECI."},
+    {c:"(2)", t:"ECI consists of CEC and such number of other Election Commissioners as President may fix. Appointment by President."},
+    {c:"(3)", t:"President may appoint Regional Commissioners to assist ECI."},
+    {c:"(4)", t:"Conditions of service & tenure of Election Commissioners determined by President."},
+    {c:"(5)", t:"CEC shall not be removed from office except like manner as SC Judge; other ECs shall not be removed except on recommendation of CEC."},
+   ], tip:"ECI is constitutional body — independent of legislature/executive. Chief Election Commissioner cannot be removed except by impeachment-like process."},
+
+  {n:"325", cat:"ELE", part:"Part XV", title:"Universal Adult Franchise — Electoral Roll",
+   clauses:[
+    {c:"—", t:"There shall be one general electoral roll for every territorial constituency; no person shall be ineligible for inclusion or claim to be included in special electoral roll on grounds only of religion, race, caste or sex."},
+   ]},
+
+  {n:"326", cat:"ELE", part:"Part XV", title:"Elections to LS and State Assemblies",
+   clauses:[
+    {c:"—", t:"Elections to LS and every State Legislative Assembly on basis of adult suffrage — every person who is citizen of India and is not less than 18 years of age and is not disqualified under any law."},
+   ], tip:"61st Amendment 1988 reduced voting age from 21 to 18."},
+
+  // ── FEDERALISM / CENTRE-STATE ──
+  {n:"245", cat:"MISC", part:"Part XI", title:"Extent of Laws — Parliament and State",
+   clauses:[
+    {c:"(1)", t:"Parliament may make laws for whole or any part of India; State Legislature may make laws for whole or any part of State."},
+    {c:"(2)", t:"No law made by Parliament is invalid on ground that it has extra-territorial operation."},
+   ]},
+
+  {n:"246", cat:"MISC", part:"Part XI", title:"Subject Matter of Laws — Three Lists",
+   clauses:[
+    {c:"(1)", t:"Parliament has exclusive power to make laws re: matters in List I (Union List) — 7th Schedule."},
+    {c:"(2)", t:"Parliament and State Legislature both have power re: matters in List III (Concurrent List)."},
+    {c:"(3)", t:"State Legislature has exclusive power re: matters in List II (State List)."},
+    {c:"(4)", t:"Parliament has power to make laws for any territory not included in a State."},
+   ], tip:"Union List: 97 entries (originally 100). State List: 61 entries (originally 66). Concurrent List: 52 entries (originally 47). Residuary power: Parliament (Entry 97 of Union List + Art. 248)."},
+
+  {n:"248", cat:"MISC", part:"Part XI", title:"Residuary Powers of Parliament",
+   clauses:[
+    {c:"(1)", t:"Parliament has exclusive power to make any law with respect to any matter not enumerated in the Concurrent List or State List."},
+    {c:"(2)", t:"Such power includes power of making any law imposing a tax not mentioned in either of those lists."},
+   ]},
+
+  {n:"254", cat:"MISC", part:"Part XI", title:"Inconsistency Between Union and State Laws",
+   clauses:[
+    {c:"(1)", t:"If any provision of State law re: Concurrent List is repugnant to Union law / existing law: Union law prevails; State law void to extent of repugnancy."},
+    {c:"(2)", t:"If State law has received President's assent — that law prevails in that State (provided Parliament has not legislated to the contrary)."},
+   ], tip:"Doctrine of repugnancy: Union law prevails on Concurrent List. State law can be 'saved' with President's assent."},
+
+  {n:"262", cat:"MISC", part:"Part XI", title:"Adjudication of Water Disputes",
+   clauses:[
+    {c:"(1)", t:"Parliament may by law provide for adjudication of disputes relating to waters of inter-State rivers/river valleys."},
+    {c:"(2)", t:"Parliament may by law provide that neither SC nor any other court shall exercise jurisdiction re: such disputes."},
+   ], tip:"Inter-State River Water Disputes Act 1956 enacted. Tribunals: Cauvery, Krishna, Narmada, etc."},
+
+  {n:"263", cat:"MISC", part:"Part XI", title:"Inter-State Council",
+   clauses:[
+    {c:"—", t:"If President deems it expedient to establish an Inter-State Council for: (a) inquiring into and advising upon disputes between States; (b) investigating and discussing subjects of common interest; (c) making recommendations re: such subjects — President may establish such a Council."},
+   ], tip:"ISC established 1990 by Presidential Order. Headed by PM. Different from Zonal Councils (statutory bodies)."},
+
+  // ── AMENDMENT ──
+  {n:"368", cat:"MISC", part:"Part XX", title:"Amendment of the Constitution",
+   clauses:[
+    {c:"(1)", t:"Notwithstanding anything in this Constitution, Parliament may in exercise of its constituent power amend by way of addition, variation or repeal any provision of this Constitution in accordance with procedure in this article."},
+    {c:"(2)", t:"Bill must be passed in each House by: (a) majority of total membership of that House; and (b) majority of not less than 2/3 members of House present and voting. Then sent to President for assent."},
+    {c:"(3)", t:"Nothing in Art. 13 applies to any amendment under this article."},
+   ], tip:"Three types: (1) Simple majority (Arts. 5, 169, etc.); (2) Special majority — Art. 368(2); (3) Special majority + ratification by ½ states (affecting federal provisions). Basic Structure doctrine (Kesavananda Bharati, 1973) limits Parliament's amending power."},
+
+  // ── OFFICIAL LANGUAGE ──
+  {n:"343", cat:"MISC", part:"Part XVII", title:"Official Language of Union",
+   clauses:[
+    {c:"(1)", t:"Official language of the Union shall be Hindi in Devanagari script. International form of Indian numerals shall be used."},
+    {c:"(2)", t:"Notwithstanding clause (1), English shall continue to be used for all official purposes of Union for 15 years from commencement. President may authorise use of Hindi in addition to English."},
+    {c:"(3)", t:"Parliament may by law provide for use, after 15 years, of English language and Devanagari numerals for purposes of Parliament."},
+   ], tip:"English continues by Official Languages Act 1963 (amended 1967) — till Hindi-speaking & non-Hindi-speaking states agree."},
+
+  {n:"344", cat:"MISC", part:"Part XVII", title:"Official Language Commission",
+   clauses:[
+    {c:"(1)", t:"President shall at expiration of 5 years and 10 years from commencement constitute an Official Language Commission."},
+    {c:"(2)", t:"Commission shall make recommendations to President on progressive use of Hindi, restrictions on English, script for numerals."},
+    {c:"(3)", t:"President shall consider Commission report; cause to be laid before each House."},
+   ]},
+
+  // ── MISCELLANEOUS ──
+  {n:"361", cat:"MISC", part:"Part XIX", title:"Protection of President and Governors",
+   clauses:[
+    {c:"(1)", t:"President or Governor shall not be answerable to any court for exercise and performance of powers and duties of office, or for any act done in exercise of those powers and duties."},
+    {c:"(2)", t:"No criminal proceedings shall be instituted or continued against President or Governor in any court during term of office."},
+    {c:"(3)", t:"No process for arrest or imprisonment of President or Governor shall issue from any court during term of office."},
+    {c:"(4)", t:"No civil proceedings in which relief is claimed against President or Governor shall be instituted during term of office without 2 months' prior notice."},
+   ]},
+
+  {n:"370", cat:"MISC", part:"Part XXI", title:"Special Status of J&K [Abrogated]",
+   clauses:[
+    {c:"—", t:"Provided special provisions for the State of Jammu & Kashmir including limited applicability of Constitution. Abrogated by Presidential Order on 5 August 2019 under Art. 370(3), with J&K reorganised into two Union Territories: J&K (with Legislature) and Ladakh (without Legislature)."},
+   ], tip:"SC upheld abrogation in December 2023 (Dr. Farooq Abdullah v Union of India). Statehood promised to be restored."},
+
+  {n:"393", cat:"MISC", part:"Part XXII", title:"Short Title",
+   clauses:[
+    {c:"—", t:"This Constitution may be cited as the Constitution of India."},
+   ]},
+
+  {n:"394", cat:"MISC", part:"Part XXII", title:"Commencement",
+   clauses:[
+    {c:"—", t:"Certain provisions came into force on 26 November 1949 (Constituent Assembly adoption); remainder came into force on 26 January 1950 — celebrated as Republic Day."},
+   ]},
+
+  // ── MORE FR ──
+  {n:"31A", cat:"FR", part:"Part III", title:"Saving of Laws re: Acquisition of Estates",
+   clauses:[
+    {c:"(1)", t:"No law providing for acquisition by State of estate or taking over management of property shall be void on ground it is inconsistent with Arts. 14, 19. [Covers zamindari abolition]"},
+    {c:"(2)", t:"'Estate' means any land held under existing law for purposes of agriculture or for auxiliary purposes."},
+   ]},
+
+  {n:"31C", cat:"FR", part:"Part III", title:"Saving of Laws for DPSP",
+   clauses:[
+    {c:"—", t:"Notwithstanding anything in Art. 13, no law giving effect to DPSP in Art. 39(b) or (c) shall be void on ground of inconsistency with Arts. 14 or 19. [Amended by 42nd & 44th Amendments]"},
+   ], tip:"Strikes balance between FR and DPSP. Original Art. 31C covered all DPSPs; after Minerva Mills (1980), limited to Art. 39(b)&(c) only."},
+
+  // ── PRESIDENT ELECTION ──
+  {n:"55", cat:"EXEC", part:"Part V", title:"Manner of Election of President",
+   clauses:[
+    {c:"(1)", t:"So far as practicable, uniformity in scale of representation of different States shall be secured."},
+    {c:"(2)", t:"For this purpose, number of votes each elected member of Parliament & State LA is entitled to cast shall be determined by formula: State population ÷ (elected MLAs × 1000); MP votes = total value of all MLA votes ÷ total elected MPs."},
+    {c:"(3)", t:"Election by system of proportional representation by means of single transferable vote and voting by secret ballot."},
+   ]},
+
+  {n:"66", cat:"EXEC", part:"Part V", title:"Election of Vice-President",
+   clauses:[
+    {c:"(1)", t:"VP shall be elected by members of an electoral college consisting of members of both Houses of Parliament, in accordance with system of proportional representation by single transferable vote, voting by secret ballot."},
+    {c:"(2)", t:"VP shall not be a member of Parliament/State Legislature; shall hold no other office of profit."},
+    {c:"(3)", t:"Qualifications: citizen of India; 35 years of age; qualified for election as member of Rajya Sabha."},
+    {c:"(4)", t:"VP elected by joint sitting of Parliament (unlike President who is elected by Electoral College including MLAs)."},
+   ], tip:"Key difference from Presidential election: VP elected only by Parliament members. No MLAs in VP electoral college."},
+
+  {n:"80", cat:"EXEC", part:"Part V", title:"Composition of Rajya Sabha",
+   clauses:[
+    {c:"(1)", t:"Rajya Sabha consists of: (a) 12 members nominated by President (eminent persons in art, literature, science, social service); (b) not more than 238 elected representatives of States and UTs."},
+    {c:"(2)", t:"Allocation of seats to States in RS in Fourth Schedule."},
+    {c:"(3)", t:"Representatives of States elected by elected members of State Legislative Assembly by single transferable vote."},
+    {c:"(4)", t:"Representatives of UTs in RS chosen in manner prescribed by Parliament."},
+   ], tip:"Maximum strength: 250 (238 elected + 12 nominated). Present strength: 245. RS is permanent House — 1/3 members retire every 2 years."},
+
+  {n:"81", cat:"EXEC", part:"Part V", title:"Composition of Lok Sabha",
+   clauses:[
+    {c:"(1)", t:"LS consists of: (a) not more than 530 members directly elected from States; (b) not more than 20 members to represent UTs; (c) [formerly] not more than 2 Anglo-Indians nominated."},
+    {c:"(2)", t:"Seats distributed among States so that ratio of seats to population is same for all States (as far as practicable)."},
+   ], tip:"104th Amendment (2020) ended Anglo-Indian nomination. Total seats: 543. Delimitation frozen till 2026 census; 106th Amendment provides for women's reservation of 1/3 seats."},
+
+  {n:"100", cat:"EXEC", part:"Part V", title:"Voting in Parliament / Quorum",
+   clauses:[
+    {c:"(1)", t:"All questions at any sitting of either House or joint sitting shall be determined by majority of votes of members present and voting (other than Speaker/Chairman who has casting vote)."},
+    {c:"(2)", t:"Speaker/Chairman shall not vote in first instance but shall have a casting vote in case of equality."},
+    {c:"(3)", t:"Neither House shall transact business if quorum not present. Quorum = 1/10 of total members."},
+    {c:"(4)", t:"If quorum not present, Speaker/Chairman shall either adjourn or suspend till quorum is present."},
+   ]},
+
+  {n:"105", cat:"EXEC", part:"Part V", title:"Powers and Privileges of Parliament",
+   clauses:[
+    {c:"(1)", t:"Subject to rules and orders for regulation of procedure of Parliament and to provisions of Art. 118 — there is freedom of speech in Parliament."},
+    {c:"(2)", t:"No member shall be liable to any proceedings in any court re: anything said or vote given by him in Parliament or committee thereof."},
+    {c:"(3)", t:"Other powers, privileges and immunities of each House and members/committees: as Parliament may define by law; until so defined — as existed before Constitution came into force."},
+   ], tip:"Parliamentary privileges: non-arrest (civil matters), freedom of speech, exclusion of strangers, right to publish debates. Cannot be questioned in court."},
+
+  {n:"249", cat:"MISC", part:"Part XI", title:"Parliament's Power on State List in National Interest",
+   clauses:[
+    {c:"(1)", t:"If Rajya Sabha declares by resolution supported by 2/3 members present and voting that it is necessary in national interest that Parliament should make laws re: any matter enumerated in State List — Parliament may make laws for whole or any part of India on that matter."},
+    {c:"(2)", t:"Law made under clause (1) ceases to have effect 6 months after resolution ceases to be in force."},
+   ]},
+
+  {n:"312", cat:"MISC", part:"Part XIV", title:"All India Services",
+   clauses:[
+    {c:"(1)", t:"If Rajya Sabha declares by resolution supported by 2/3 members present that it is necessary in national interest, Parliament may create one or more All India Services (including AIS) common to Union and States."},
+    {c:"(2)", t:"IAS and IPS shall be deemed to be services created by Parliament under this article."},
+   ], tip:"Three AIS: IAS (Indian Administrative Service), IPS (Indian Police Service), IFoS (Indian Forest Service, created 1966)."},
+];
+
+// Build UI
+const grid = document.getElementById('grid');
+let activeCat = 'ALL';
+
+function renderCards(q) {
+  q = (q||'').trim().toLowerCase();
+  grid.innerHTML = '';
+  let visible = 0, totalClauses = 0;
+
+  data.forEach(art => {
+    const catMatch = activeCat === 'ALL' || art.cat === activeCat;
+    const searchText = ('art' + art.n + ' article' + art.n + ' ' + art.title + ' ' + art.clauses.map(c=>c.t+' '+c.c).join(' ') + ' ' + (art.tip||'')).toLowerCase();
+    const qMatch = !q || searchText.includes(q);
+    if (!catMatch || !qMatch) return;
+    visible++;
+    totalClauses += art.clauses.length;
+
+    const card = document.createElement('div');
+    card.className = 'ac';
+
+    const hl = s => q ? s.replace(new RegExp(`(${q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')})`, 'gi'), '<mark>$1</mark>') : s;
+
+    card.innerHTML = `
+      <div class="ac-head">
+        <div class="art-no">Art.${art.n}</div>
+        <div class="art-info">
+          <div class="art-title">${hl(art.title)}</div>
+          <div class="art-part">${art.part}</div>
+        </div>
+        <span class="cat-tag cat-${art.cat}">${art.cat}</span>
+      </div>
+      <ul class="clauses">
+        ${art.clauses.map(cl=>`
+          <li class="clause">
+            <span class="cl-num">${cl.c}</span>
+            <span class="cl-text">${hl(cl.t)}</span>
+          </li>`).join('')}
+      </ul>
+      ${art.tip ? `<div class="exam-tip">★ EXAM TIP: ${hl(art.tip)}</div>` : ''}
+    `;
+    grid.appendChild(card);
+  });
+
+  document.getElementById('resCount').textContent = `${visible} articles · ${totalClauses} clauses shown`;
+  document.getElementById('artCount').textContent = visible;
+  document.getElementById('clCount').textContent = totalClauses;
+}
+
+function setCat(cat) {
+  activeCat = cat;
+  document.querySelectorAll('.fb').forEach(b => b.classList.toggle('active', b.dataset.cat === cat));
+  renderCards(document.getElementById('srch').value);
+}
+
+function filter() {
+  renderCards(document.getElementById('srch').value);
+}
+
+renderCards();
+</script>
+</body>
+</html>

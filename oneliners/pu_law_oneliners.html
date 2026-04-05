@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PU Law Entrance 2026 — 50 Power One-Liners</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --red: #C8102E;
+    --red-light: #fff0f2;
+    --red-mid: #f8d0d6;
+    --ink: #1a1008;
+    --ink2: #3d2b1f;
+    --paper: #faf8f4;
+    --cream: #f2ede3;
+    --gold: #b8922a;
+    --gold-light: #f7f0de;
+    --border: #e0d8cc;
+    --legal: #1a3a5c;
+    --legal-bg: #e8f0f8;
+    --const: #1a4d2e;
+    --const-bg: #e8f5ec;
+    --gk: #4a2060;
+    --gk-bg: #f3eafa;
+    --current: #7a3500;
+    --current-bg: #fff3e8;
+  }
+
+  body {
+    background: var(--paper);
+    font-family: 'DM Sans', sans-serif;
+    color: var(--ink);
+    min-height: 100vh;
+  }
+
+  /* ── Header ── */
+  .hero {
+    background: var(--ink);
+    color: #fff;
+    padding: 3.5rem 2rem 2.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 18px,
+      rgba(200,16,46,0.06) 18px,
+      rgba(200,16,46,0.06) 19px
+    );
+    pointer-events: none;
+  }
+  .hero-badge {
+    display: inline-block;
+    background: var(--red);
+    color: #fff;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    padding: 4px 14px;
+    border-radius: 2px;
+    margin-bottom: 1.1rem;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 6vw, 3.8rem);
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: #fff;
+    margin-bottom: 0.6rem;
+  }
+  .hero h1 span { color: var(--red); }
+  .hero p {
+    color: rgba(255,255,255,0.55);
+    font-size: 14px;
+    font-weight: 300;
+    letter-spacing: 0.04em;
+  }
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+  }
+  .hs { text-align: center; }
+  .hs-n { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: var(--red); }
+  .hs-l { font-size: 11px; color: rgba(255,255,255,0.5); letter-spacing: 0.08em; text-transform: uppercase; }
+
+  /* ── Filter bar ── */
+  .filters {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    padding: 1.4rem 2rem;
+    background: var(--cream);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .fb {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 2px;
+    border: 1px solid var(--border);
+    background: #fff;
+    cursor: pointer;
+    color: var(--ink2);
+    transition: all 0.15s;
+  }
+  .fb:hover { border-color: var(--red); color: var(--red); }
+  .fb.active { background: var(--red); border-color: var(--red); color: #fff; }
+
+  /* ── Main content ── */
+  .main { max-width: 860px; margin: 0 auto; padding: 2.5rem 1.5rem 5rem; }
+
+  .section-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 2.5rem 0 1rem;
+  }
+  .section-label::before {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+  .section-label span {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink2);
+    opacity: 0.6;
+    white-space: nowrap;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* ── Card ── */
+  .card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1rem 1.2rem;
+    margin-bottom: 10px;
+    display: grid;
+    grid-template-columns: 42px 1fr auto;
+    align-items: start;
+    gap: 12px;
+    transition: box-shadow 0.18s, border-color 0.18s, transform 0.18s;
+    animation: fadeUp 0.3s ease both;
+  }
+  .card:hover {
+    box-shadow: 0 3px 18px rgba(200,16,46,0.1);
+    border-color: var(--red-mid);
+    transform: translateY(-1px);
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .card-num {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 14px; font-weight: 700;
+  }
+  .card-num.legal  { background: var(--legal-bg);   color: var(--legal); }
+  .card-num.const  { background: var(--const-bg);   color: var(--const); }
+  .card-num.gk     { background: var(--gk-bg);      color: var(--gk); }
+  .card-num.current{ background: var(--current-bg); color: var(--current); }
+
+  .card-text {
+    font-size: 14.5px;
+    line-height: 1.65;
+    color: var(--ink);
+    font-weight: 400;
+  }
+  .card-text .k {
+    color: var(--red);
+    font-weight: 500;
+    border-bottom: 1.5px solid var(--red-mid);
+    padding-bottom: 1px;
+  }
+
+  .card-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    border-radius: 2px;
+    white-space: nowrap;
+    align-self: start;
+  }
+  .card-tag.legal  { background: var(--legal-bg);   color: var(--legal); }
+  .card-tag.const  { background: var(--const-bg);   color: var(--const); }
+  .card-tag.gk     { background: var(--gk-bg);      color: var(--gk); }
+  .card-tag.current{ background: var(--current-bg); color: var(--current); }
+
+  /* ── Footer ── */
+  .foot {
+    text-align: center;
+    padding: 2rem;
+    font-size: 12px;
+    color: rgba(26,16,8,0.35);
+    letter-spacing: 0.06em;
+    border-top: 1px solid var(--border);
+    background: var(--cream);
+  }
+  .foot strong { color: var(--red); }
+
+  .hidden { display: none !important; }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-badge">PU Law Entrance 2026</div>
+  <h1>50 Power <span>One-Liners</span></h1>
+  <p>Pattern-analysed from 3 years of previous papers · Focus on highlighted keywords</p>
+  <div class="hero-stats">
+    <div class="hs"><div class="hs-n">20</div><div class="hs-l">Legal aptitude</div></div>
+    <div class="hs"><div class="hs-n">10</div><div class="hs-l">Constitution</div></div>
+    <div class="hs"><div class="hs-n">15</div><div class="hs-l">Static GK</div></div>
+    <div class="hs"><div class="hs-n">5</div><div class="hs-l">Current affairs</div></div>
+  </div>
+</header>
+
+<nav class="filters">
+  <button class="fb active" onclick="filter('all',this)">All 50</button>
+  <button class="fb" onclick="filter('legal',this)">Legal aptitude</button>
+  <button class="fb" onclick="filter('const',this)">Constitution</button>
+  <button class="fb" onclick="filter('gk',this)">Static GK</button>
+  <button class="fb" onclick="filter('current',this)">Current affairs</button>
+</nav>
+
+<main class="main" id="main"></main>
+
+<footer class="foot">
+  Revised for <strong>PU Law Entrance 2026</strong> · Panjab University, Chandigarh · Read highlighted words first
+</footer>
+
+<script>
+const items = [
+  {n:1,  cat:'legal',   text:'<span class="k">Tort</span> is a <span class="k">civil wrong</span> for which the remedy is a common law action for <span class="k">unliquidated damages</span>.'},
+  {n:2,  cat:'legal',   text:'The maxim <span class="k">"Ubi jus ibi remedium"</span> means — where there is a right, there is a remedy.'},
+  {n:3,  cat:'legal',   text:'A valid contract requires <span class="k">offer, acceptance, consideration, capacity, free consent</span>, and a <span class="k">lawful object</span>.'},
+  {n:4,  cat:'legal',   text:'Consideration must be <span class="k">lawful</span> and <span class="k">real</span>; it need not be adequate — only <span class="k">sufficient in the eyes of law</span>.'},
+  {n:5,  cat:'legal',   text:'A <span class="k">void contract</span> is no contract at all; a <span class="k">voidable contract</span> is valid until rescinded by the aggrieved party.'},
+  {n:6,  cat:'legal',   text:'The <span class="k">Indian Penal Code, 1860</span> was drafted by the First Law Commission headed by <span class="k">Lord Macaulay</span>.'},
+  {n:7,  cat:'legal',   text:'<span class="k">"Actus non facit reum nisi mens sit rea"</span> — an act alone does not make a person guilty without a <span class="k">guilty mind (mens rea)</span>.'},
+  {n:8,  cat:'legal',   text:'<span class="k">Abetment</span> under IPC requires <span class="k">instigation</span>, <span class="k">conspiracy</span>, or intentional <span class="k">aiding</span> of the offence.'},
+  {n:9,  cat:'legal',   text:'<span class="k">Right of Private Defence</span> (IPC) — the right to protect <span class="k">body and property</span> against unlawful aggression.'},
+  {n:10, cat:'legal',   text:'<span class="k">Damnum sine injuria</span> — damage <span class="k">without legal injury</span> is NOT actionable in law.'},
+  {n:11, cat:'legal',   text:'<span class="k">Injuria sine damno</span> — legal injury <span class="k">without actual damage IS actionable</span> (e.g., trespass to land).'},
+  {n:12, cat:'legal',   text:'<span class="k">Strict liability</span> rule from <span class="k">Rylands v Fletcher</span>: one who brings a dangerous thing onto land is liable if it <span class="k">escapes</span>.'},
+  {n:13, cat:'legal',   text:'<span class="k">Absolute liability</span> (no exceptions) was laid down in <span class="k">M.C. Mehta v Union of India (1987)</span> — the Oleum Gas leak case.'},
+  {n:14, cat:'legal',   text:'The <span class="k">Consumer Protection Act, 2019</span> replaced the 1986 Act; introduced <span class="k">mediation</span> and coverage of <span class="k">e-commerce</span>.'},
+  {n:15, cat:'legal',   text:'The <span class="k">Bar Council of India</span> regulates the legal profession under the <span class="k">Advocates Act, 1961</span>.'},
+  {n:16, cat:'legal',   text:'Under CrPC, a <span class="k">First Information Report (FIR)</span> is registered only for <span class="k">cognizable offences</span>.'},
+  {n:17, cat:'legal',   text:'<span class="k">Lok Adalats</span> have statutory status under the <span class="k">Legal Services Authorities Act, 1987</span>; their awards are <span class="k">final and binding</span>.'},
+  {n:18, cat:'legal',   text:'The <span class="k">Domestic Violence Act, 2005</span> provides civil remedies to women in <span class="k">domestic relationships</span>.'},
+  {n:19, cat:'legal',   text:'<span class="k">Public Interest Litigation (PIL)</span> in India was pioneered by Justice <span class="k">P.N. Bhagwati</span>.'},
+  {n:20, cat:'legal',   text:'The <span class="k">POCSO Act, 2012</span> protects children from <span class="k">sexual offences</span> and mandates <span class="k">child-friendly trials</span>.'},
+
+  {n:21, cat:'const',   text:'The <span class="k">Preamble</span> declares India a <span class="k">Sovereign, Socialist, Secular, Democratic Republic</span>; "Socialist" &amp; "Secular" added by the <span class="k">42nd Amendment, 1976</span>.'},
+  {n:22, cat:'const',   text:'<span class="k">Article 21A</span> makes <span class="k">free and compulsory education</span> a Fundamental Right for children aged <span class="k">6–14 years</span>.'},
+  {n:23, cat:'const',   text:'<span class="k">Article 32</span> — right to move the <span class="k">Supreme Court</span> for FRs enforcement — called the <span class="k">"heart and soul"</span> of the Constitution by <span class="k">Dr. Ambedkar</span>.'},
+  {n:24, cat:'const',   text:'<span class="k">Directive Principles (Part IV)</span> are <span class="k">non-justiciable</span> but fundamental in the governance of the country.'},
+  {n:25, cat:'const',   text:'<span class="k">National Emergency (Art. 352)</span> can be proclaimed only on <span class="k">written advice of the Cabinet</span> — safeguard added by the <span class="k">44th Amendment, 1978</span>.'},
+  {n:26, cat:'const',   text:'The doctrine of <span class="k">Basic Structure</span> was established in <span class="k">Kesavananda Bharati v State of Kerala (1973)</span> — Parliament cannot destroy it.'},
+  {n:27, cat:'const',   text:'<span class="k">Article 370</span> (special status of J&amp;K) was <span class="k">abrogated in August 2019</span>; J&amp;K bifurcated into two <span class="k">Union Territories</span>.'},
+  {n:28, cat:'const',   text:'<span class="k">73rd &amp; 74th Amendments (1992)</span> gave constitutional status to <span class="k">Panchayati Raj</span> and <span class="k">Urban Local Bodies</span>.'},
+  {n:29, cat:'const',   text:'<span class="k">Habeas Corpus</span> literally means <span class="k">"you shall have the body"</span> — protects against <span class="k">illegal detention</span>.'},
+  {n:30, cat:'const',   text:'<span class="k">Article 21</span> (Right to Life &amp; Liberty) now includes <span class="k">Right to Privacy</span>, upheld in <span class="k">K.S. Puttaswamy v Union of India (2017)</span>.'},
+
+  {n:31, cat:'gk',      text:'<span class="k">Panjab University</span> was established in <span class="k">1882</span> in undivided India; relocated to <span class="k">Chandigarh</span> after Partition.'},
+  {n:32, cat:'gk',      text:'The <span class="k">National Human Rights Commission (NHRC)</span> was established in <span class="k">1993</span> under the <span class="k">Protection of Human Rights Act</span>.'},
+  {n:33, cat:'gk',      text:'India has a <span class="k">bicameral Parliament</span> — <span class="k">Lok Sabha</span> (lower house) and <span class="k">Rajya Sabha</span> (upper house).'},
+  {n:34, cat:'gk',      text:'The <span class="k">Supreme Court of India</span> was established on <span class="k">28 January 1950</span>; headed by the <span class="k">Chief Justice of India</span>.'},
+  {n:35, cat:'gk',      text:'India has <span class="k">42 UNESCO World Heritage Sites</span> (as of 2023); <span class="k">Hoysala temples</span> were the latest addition.'},
+  {n:36, cat:'gk',      text:'India\'s first woman <span class="k">Chief Justice of a High Court</span> was <span class="k">Leila Seth</span> — Himachal Pradesh High Court, <span class="k">1991</span>.'},
+  {n:37, cat:'gk',      text:'<span class="k">Bharat Ratna 2024</span>: awarded to <span class="k">M.S. Swaminathan</span> and <span class="k">Chaudhary Charan Singh</span> among others.'},
+  {n:38, cat:'gk',      text:'<span class="k">Operation Sindoor (2025)</span> — India\'s cross-border <span class="k">precision military strikes</span> on terrorist infrastructure after the <span class="k">Pahalgam attack</span>.'},
+  {n:39, cat:'gk',      text:'India\'s <span class="k">G20 Presidency 2023</span> theme: <span class="k">"Vasudhaiva Kutumbakam"</span> — One Earth, One Family, One Future.'},
+  {n:40, cat:'gk',      text:'The <span class="k">National Judicial Appointments Commission (NJAC)</span> was struck down in <span class="k">2015</span>; the <span class="k">collegium system</span> was retained.'},
+  {n:41, cat:'gk',      text:'India\'s first <span class="k">Chief Election Commissioner</span> was <span class="k">Sukumar Sen</span>; Election Commission is an autonomous <span class="k">constitutional body</span>.'},
+  {n:42, cat:'gk',      text:'<span class="k">NITI Aayog</span> replaced the <span class="k">Planning Commission</span> in <span class="k">2015</span>; it functions as a <span class="k">policy think-tank</span>.'},
+  {n:43, cat:'gk',      text:'The <span class="k">Right to Information Act, 2005</span> empowers citizens to access information from public authorities within <span class="k">30 days</span>.'},
+  {n:44, cat:'gk',      text:'India became the <span class="k">first country to land near the Moon\'s south pole</span> with <span class="k">Chandrayaan-3\'s Vikram lander</span> in <span class="k">August 2023</span>.'},
+  {n:45, cat:'gk',      text:'The <span class="k">Prevention of Money Laundering Act (PMLA), 2002</span> is enforced by the <span class="k">Enforcement Directorate (ED)</span>.'},
+
+  {n:46, cat:'current', text:'<span class="k">Bharatiya Nyaya Sanhita (BNS), 2023</span> replaced the <span class="k">Indian Penal Code 1860</span>; came into force on <span class="k">1 July 2024</span>.'},
+  {n:47, cat:'current', text:'<span class="k">Bharatiya Nagarik Suraksha Sanhita (BNSS)</span> replaced <span class="k">CrPC</span>; <span class="k">Bharatiya Sakshya Adhiniyam (BSA)</span> replaced the <span class="k">Indian Evidence Act</span>.'},
+  {n:48, cat:'current', text:'Union Budget <span class="k">2025–26</span> focused on <span class="k">infrastructure, tax reform</span>, and the vision of <span class="k">Viksit Bharat by 2047</span>.'},
+  {n:49, cat:'current', text:'<span class="k">ICC Champions Trophy 2025</span> hosted by Pakistan (India\'s matches in <span class="k">Dubai</span>); <span class="k">India won</span> the tournament.'},
+  {n:50, cat:'current', text:'<span class="k">COP29 (2024, Baku, Azerbaijan)</span>: developed nations pledged <span class="k">$300 billion/year</span> in climate finance to developing nations by <span class="k">2035</span>.'},
+];
+
+const labels = {
+  legal:   'Legal Aptitude',
+  const:   'Constitution',
+  gk:      'Static GK',
+  current: 'Current Affairs'
+};
+
+let active = 'all';
+
+function filter(cat, btn) {
+  active = cat;
+  document.querySelectorAll('.fb').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  render();
+}
+
+function render() {
+  const container = document.getElementById('main');
+  const filtered = active === 'all' ? items : items.filter(i => i.cat === active);
+  const groups = {};
+  filtered.forEach(i => { if (!groups[i.cat]) groups[i.cat] = []; groups[i.cat].push(i); });
+
+  container.innerHTML = Object.entries(groups).map(([cat, list]) => `
+    <div class="section-label"><span>${labels[cat]}</span></div>
+    ${list.map((item, idx) => `
+      <div class="card" style="animation-delay:${idx * 0.04}s">
+        <div class="card-num ${cat}">${item.n}</div>
+        <div class="card-text">${item.text}</div>
+        <div class="card-tag ${cat}">${cat === 'const' ? 'Const.' : labels[cat].split(' ')[0]}</div>
+      </div>
+    `).join('')}
+  `).join('');
+}
+
+render();
+</script>
+</body>
+</html>

@@ -1,0 +1,1452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PLA Flash Cards — PU BA.LLB 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #1B2A4A;
+  --navy-dark: #0d1b2e;
+  --navy-mid: #152238;
+  --gold: #C8922A;
+  --gold-light: #e8b84b;
+  --gold-pale: rgba(200,146,42,0.15);
+  --gold-border: rgba(200,146,42,0.35);
+  --text-primary: #ffffff;
+  --text-secondary: #a0b8cc;
+  --text-blue: #8eb4d4;
+  --card-w: 860px;
+  --card-h: 520px;
+}
+@media (max-width: 600px) {
+  :root { --card-w: 100%; --card-h: auto; }
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--navy-dark);
+  font-family: 'Source Sans 3', sans-serif;
+  color: var(--text-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* BACKGROUND TEXTURE */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 50% at 20% 20%, rgba(200,146,42,0.04) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 80% 80%, rgba(27,42,74,0.8) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ─── HEADER ─── */
+.header {
+  position: relative; z-index: 10;
+  padding: 28px 40px 20px;
+  border-bottom: 1px solid rgba(200,146,42,0.2);
+  background: rgba(13,27,46,0.9);
+  backdrop-filter: blur(10px);
+}
+@media (max-width: 600px) {
+  .header { padding: 14px 16px 12px 60px; }
+  .header-top { margin-bottom: 10px; }
+  .logo-text .name { font-size: 13px; letter-spacing: 1px; }
+  .logo-text .tagline { font-size: 9px; letter-spacing: 1px; }
+  .logo-badge { width: 32px; height: 32px; font-size: 14px; }
+  .progress-bar-outer { width: 130px; }
+  .progress-nums { font-size: 16px; }
+  .filter-btn { font-size: 10px; padding: 4px 10px; }
+  .filter-label { display: none; }
+}
+
+.header-top {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.logo {
+  display: flex; align-items: center; gap: 14px;
+}
+
+.logo-badge {
+  width: 42px; height: 42px;
+  border: 2px solid var(--gold);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 18px; font-weight: 900;
+  color: var(--gold);
+  position: relative;
+}
+.logo-badge::before {
+  content: '';
+  position: absolute; inset: 3px;
+  border: 1px solid rgba(200,146,42,0.3);
+}
+
+.logo-text .name {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px; font-weight: 900;
+  color: var(--gold); letter-spacing: 2px;
+}
+.logo-text .tagline {
+  font-size: 11px; color: var(--text-secondary);
+  letter-spacing: 2px; text-transform: uppercase; margin-top: 1px;
+}
+
+/* progress */
+.progress-wrap { text-align: right; }
+.progress-label {
+  font-size: 11px; color: var(--text-secondary);
+  letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 6px;
+}
+.progress-bar-outer {
+  width: 220px; height: 4px;
+  background: rgba(255,255,255,0.08);
+  margin-left: auto;
+}
+.progress-bar-inner {
+  height: 100%; background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  transition: width 0.4s ease;
+}
+.progress-nums {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px; font-weight: 900;
+  color: var(--gold); margin-top: 4px;
+}
+.progress-nums span { font-size: 13px; color: var(--text-secondary); font-family: 'Source Sans 3', sans-serif; }
+
+/* ─── FILTERS ─── */
+.filters {
+  display: flex; gap: 8px; flex-wrap: wrap; align-items: center;
+}
+.filter-label {
+  font-size: 11px; color: var(--text-secondary);
+  letter-spacing: 1.5px; text-transform: uppercase;
+  margin-right: 4px;
+}
+.filter-btn {
+  background: transparent;
+  border: 1px solid rgba(200,146,42,0.25);
+  color: var(--text-secondary);
+  padding: 5px 14px; font-size: 11px;
+  letter-spacing: 1px; font-weight: 700;
+  cursor: pointer; text-transform: uppercase;
+  font-family: 'Source Sans 3', sans-serif;
+  transition: all 0.2s;
+}
+.filter-btn:hover { border-color: var(--gold); color: var(--gold); }
+.filter-btn.active { background: var(--gold); color: var(--navy-dark); border-color: var(--gold); }
+
+/* ─── MAIN STAGE ─── */
+.stage {
+  position: relative; z-index: 1;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: flex-start;
+  padding: 20px 16px 100px;
+  min-height: calc(100vh - 160px);
+}
+@media (min-width: 601px) {
+  .stage {
+    justify-content: center;
+    padding: 40px 20px 20px;
+  }
+}
+
+/* ─── CARD 3D FLIP ─── */
+.card-scene {
+  width: var(--card-w);
+  max-width: 96vw;
+  perspective: 1200px;
+  cursor: pointer;
+  /* height driven by content on mobile */
+}
+
+/* The trick: flipper has no fixed height — it takes height from whichever face is visible */
+.card-flipper {
+  width: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.65s cubic-bezier(0.4, 0.2, 0.2, 1);
+  /* min height for desktop */
+  min-height: var(--card-h);
+}
+
+.card-scene.flipped .card-flipper {
+  transform: rotateY(180deg);
+}
+
+/* Both faces: absolute on desktop (fixed height), relative flow on mobile */
+.card-face {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border: 2.5px solid var(--gold);
+  background: var(--navy);
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(200,146,42,0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Desktop: overlap both faces */
+@media (min-width: 601px) {
+  .card-face {
+    position: absolute;
+    inset: 0;
+  }
+  .card-flipper { min-height: var(--card-h); }
+}
+
+/* Mobile: stack faces, hide the inactive one via opacity+pointer-events */
+@media (max-width: 600px) {
+  .card-flipper {
+    min-height: unset;
+    transform-style: flat; /* disable 3d on mobile — use fade instead */
+    transition: none;
+  }
+  .card-scene.flipped .card-flipper {
+    transform: none;
+  }
+  .card-face {
+    position: relative;
+    width: 100%;
+    transition: opacity 0.3s ease;
+  }
+  .card-front { display: flex; }
+  .card-back  { display: none; }
+  .card-scene.flipped .card-front { display: none; }
+  .card-scene.flipped .card-back  { display: flex; }
+}
+
+.card-back {
+  transform: rotateY(180deg);
+  background: #162035;
+}
+@media (max-width: 600px) {
+  .card-back { transform: none; }
+}
+
+/* card decorations */
+.card-face::before {
+  content: '';
+  position: absolute; top: 0; left: 0;
+  width: 150px; height: 150px;
+  border-bottom-right-radius: 100%;
+  background: rgba(200,146,42,0.08);
+}
+.card-face::after {
+  content: '';
+  position: absolute; bottom: 0; right: 0;
+  width: 150px; height: 150px;
+  border-top-left-radius: 100%;
+  background: rgba(200,146,42,0.05);
+}
+
+.gold-bottom {
+  position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light), var(--gold));
+}
+
+/* FRONT face layout */
+.face-header {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  padding: 22px 32px 0;
+  position: relative; z-index: 2;
+}
+
+.face-brand {
+  font-family: 'Playfair Display', serif;
+  font-size: 12px; color: var(--gold);
+  letter-spacing: 3px; text-transform: uppercase;
+}
+
+.face-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 58px; font-weight: 900;
+  color: rgba(200,146,42,0.14); line-height: 1;
+}
+
+.face-body {
+  flex: 1; display: flex; flex-direction: column;
+  justify-content: center;
+  padding: 10px 40px 10px;
+  position: relative; z-index: 2;
+  overflow-y: auto;
+}
+@media (max-width: 600px) {
+  .face-body {
+    padding: 10px 16px 10px;
+    justify-content: flex-start;
+    overflow-y: visible;
+  }
+}
+
+.topic-tag {
+  display: inline-block;
+  background: var(--gold-pale);
+  border: 1px solid var(--gold-border);
+  color: var(--gold);
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase;
+  padding: 3px 12px; margin-bottom: 16px; width: fit-content;
+}
+
+.card-q {
+  font-size: 13px; font-weight: 700;
+  color: var(--text-blue); letter-spacing: 0.5px;
+  text-transform: uppercase; margin-bottom: 12px;
+  line-height: 1.5;
+}
+
+.card-a {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px; font-weight: 700;
+  color: #fff; line-height: 1.4;
+}
+.card-a .hl { color: var(--gold); }
+
+.divider {
+  width: 50px; height: 2px;
+  background: var(--gold); margin: 12px 0;
+}
+
+.card-detail {
+  font-size: 13px; color: var(--text-secondary);
+  line-height: 1.72; font-family: 'Source Sans 3', sans-serif;
+}
+.card-detail strong { color: var(--gold); font-weight: 700; }
+
+.face-footer {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 0 32px 18px;
+  position: relative; z-index: 2;
+}
+.foot-exam { font-size: 10px; letter-spacing: 2px; color: #3d5570; text-transform: uppercase; font-weight: 700; }
+.foot-ref { font-size: 11px; color: #3d5570; font-weight: 600; letter-spacing: 1px; }
+
+/* flip hint */
+.flip-hint {
+  position: absolute; bottom: 20px; left: 50%;
+  transform: translateX(-50%);
+  font-size: 10px; color: rgba(200,146,42,0.45);
+  letter-spacing: 2px; text-transform: uppercase;
+  z-index: 3; pointer-events: none;
+  transition: opacity 0.3s;
+}
+
+/* BACK face */
+.back-header {
+  padding: 20px 32px 0;
+  display: flex; justify-content: space-between; align-items: center;
+  position: relative; z-index: 2;
+}
+.back-label {
+  font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--gold); font-weight: 700;
+}
+
+.back-body {
+  flex: 1; display: flex; flex-direction: column; justify-content: center;
+  padding: 8px 40px 12px; position: relative; z-index: 2;
+  overflow-y: auto;
+}
+@media (max-width: 600px) {
+  .back-body {
+    padding: 8px 16px 14px;
+    justify-content: flex-start;
+    overflow-y: visible;
+  }
+  .back-header { padding: 14px 16px 0; }
+  .face-header { padding: 14px 16px 0; }
+  .face-footer { padding: 0 16px 14px; }
+  .face-num { font-size: 36px; }
+  .face-brand { font-size: 10px; }
+  .card-q { font-size: 11px; }
+  .card-a { font-size: 17px; }
+  .card-detail { font-size: 12px; line-height: 1.65; }
+  .topic-tag { font-size: 9px; padding: 3px 10px; margin-bottom: 10px; }
+  .divider { margin: 8px 0; }
+  .flip-hint { font-size: 9px; bottom: 10px; }
+  .known-badge { font-size: 9px; top: 8px; right: 8px; }
+  .foot-exam { font-size: 9px; }
+  .foot-ref { font-size: 9px; }
+}
+
+/* TABLE inside card */
+.c-table {
+  width: 100%; border-collapse: collapse;
+  margin-top: 8px; font-size: 12px;
+  font-family: 'Source Sans 3', sans-serif;
+}
+.c-table th {
+  background: rgba(200,146,42,0.18); color: var(--gold);
+  font-weight: 700; padding: 5px 8px;
+  text-align: left; border: 1px solid rgba(200,146,42,0.2);
+}
+.c-table td {
+  padding: 5px 8px; color: #c0d4e4;
+  border: 1px solid rgba(255,255,255,0.05);
+  vertical-align: top; line-height: 1.4;
+}
+.c-table tr:nth-child(even) td { background: rgba(255,255,255,0.025); }
+@media (max-width: 600px) {
+  .c-table { font-size: 10.5px; }
+  .c-table th, .c-table td { padding: 4px 6px; }
+  .tl-num { font-size: 16px; }
+  .tl-lbl { font-size: 10px; }
+  .tl-box { min-width: 80px; padding: 6px 8px; }
+}
+
+/* TIMELINE boxes */
+.tl-row { display: flex; gap: 6px; margin-top: 10px; flex-wrap: wrap; }
+.tl-box {
+  flex: 1; min-width: 100px;
+  background: rgba(200,146,42,0.08);
+  border: 1px solid var(--gold-border);
+  padding: 8px 10px; text-align: center;
+}
+.tl-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px; font-weight: 900; color: var(--gold);
+}
+.tl-lbl {
+  font-size: 10.5px; color: var(--text-blue);
+  margin-top: 3px; line-height: 1.4;
+}
+
+/* known badge */
+.known-badge {
+  position: absolute; top: 14px; right: 14px;
+  background: rgba(40,167,69,0.2); border: 1px solid rgba(40,167,69,0.5);
+  color: #5cb85c; font-size: 10px; font-weight: 700;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  padding: 3px 10px; z-index: 5;
+  display: none;
+}
+.card-scene.known .known-badge { display: block; }
+.card-scene.known .card-face { border-color: rgba(92,184,92,0.5); }
+
+/* ─── CONTROLS ─── */
+.controls {
+  display: flex; align-items: center; gap: 16px;
+  margin-top: 24px; position: relative; z-index: 1;
+}
+@media (max-width: 600px) {
+  .controls {
+    position: fixed; bottom: 0; left: 0; right: 0;
+    margin-top: 0;
+    background: rgba(10,20,35,0.97);
+    border-top: 1px solid rgba(200,146,42,0.2);
+    padding: 10px 16px 16px;
+    gap: 10px;
+    z-index: 50;
+    justify-content: space-between;
+  }
+  .ctrl-btn { width: 42px; height: 42px; font-size: 16px; }
+  .ctrl-counter { font-size: 13px; }
+  .ctrl-counter strong { font-size: 17px; }
+  .action-btn { padding: 5px 10px; font-size: 10px; letter-spacing: 1px; }
+  .ctrl-actions { gap: 5px; }
+}
+/* hide keyboard hint on mobile */
+@media (max-width: 600px) {
+  .kb-hint { display: none; }
+}
+
+.ctrl-btn {
+  background: transparent;
+  border: 1.5px solid var(--gold-border);
+  color: var(--gold); width: 46px; height: 46px;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; transition: all 0.2s;
+  font-size: 18px;
+}
+.ctrl-btn:hover:not(:disabled) {
+  background: var(--gold); color: var(--navy-dark);
+  border-color: var(--gold);
+}
+.ctrl-btn:disabled { opacity: 0.25; cursor: not-allowed; }
+
+.ctrl-center {
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+}
+
+.ctrl-counter {
+  font-family: 'Playfair Display', serif;
+  font-size: 15px; color: var(--text-secondary);
+}
+.ctrl-counter strong { color: var(--gold); font-size: 20px; }
+
+.ctrl-actions { display: flex; gap: 8px; }
+
+.action-btn {
+  border: 1.5px solid;
+  padding: 6px 16px; font-size: 11px;
+  font-weight: 700; letter-spacing: 1.5px;
+  text-transform: uppercase; cursor: pointer;
+  font-family: 'Source Sans 3', sans-serif;
+  transition: all 0.2s;
+}
+.btn-known {
+  border-color: rgba(92,184,92,0.5); color: #5cb85c;
+  background: rgba(92,184,92,0.08);
+}
+.btn-known:hover { background: rgba(92,184,92,0.2); }
+.btn-shuffle {
+  border-color: var(--gold-border); color: var(--gold);
+  background: transparent;
+}
+.btn-shuffle:hover { background: var(--gold-pale); }
+.btn-flip {
+  border-color: var(--gold-border); color: var(--text-blue);
+  background: transparent;
+}
+.btn-flip:hover { background: rgba(142,180,212,0.1); }
+
+/* keyboard hint */
+.kb-hint {
+  margin-top: 14px; display: flex; gap: 16px;
+  justify-content: center; flex-wrap: wrap;
+  position: relative; z-index: 1;
+}
+.kb-key {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 10px; color: #3d5570; letter-spacing: 1px;
+}
+.key {
+  border: 1px solid #2a3d55; background: rgba(255,255,255,0.03);
+  padding: 2px 7px; font-size: 10px; color: #4a6080;
+  border-radius: 2px;
+}
+
+/* ─── TOPIC PANEL ─── */
+.topic-panel {
+  position: fixed; left: 0; top: 0; bottom: 0;
+  width: 260px;
+  background: rgba(10,20,35,0.97);
+  border-right: 1px solid rgba(200,146,42,0.15);
+  z-index: 100;
+  transform: translateX(-100%);
+  transition: transform 0.35s ease;
+  display: flex; flex-direction: column;
+  overflow: hidden;
+}
+.topic-panel.open { transform: translateX(0); }
+
+.panel-header {
+  padding: 20px; border-bottom: 1px solid rgba(200,146,42,0.15);
+  display: flex; justify-content: space-between; align-items: center;
+}
+.panel-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 14px; color: var(--gold); letter-spacing: 2px;
+}
+.panel-close {
+  background: transparent; border: none;
+  color: var(--text-secondary); font-size: 18px; cursor: pointer;
+}
+
+.panel-scroll { overflow-y: auto; flex: 1; padding: 12px 0; }
+
+.topic-item {
+  padding: 10px 20px; cursor: pointer;
+  display: flex; align-items: center; justify-content: space-between;
+  transition: background 0.15s;
+  border-left: 2px solid transparent;
+}
+.topic-item:hover { background: rgba(200,146,42,0.06); }
+.topic-item.active {
+  background: rgba(200,146,42,0.1);
+  border-left-color: var(--gold);
+}
+.topic-item-name {
+  font-size: 12px; font-weight: 600; color: var(--text-secondary);
+  letter-spacing: 0.5px;
+}
+.topic-item.active .topic-item-name { color: var(--gold); }
+.topic-count {
+  font-size: 10px; background: var(--gold-pale);
+  border: 1px solid var(--gold-border);
+  color: var(--gold); padding: 1px 7px;
+  font-weight: 700;
+}
+
+/* hamburger */
+.hamburger {
+  position: fixed; top: 20px; left: 20px; z-index: 200;
+  background: var(--navy);
+  border: 1px solid var(--gold-border);
+  width: 40px; height: 40px;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 5px;
+  cursor: pointer;
+}
+.hamburger span {
+  width: 18px; height: 1.5px; background: var(--gold);
+  transition: all 0.3s;
+}
+
+/* overlay */
+.overlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.5);
+  z-index: 99; display: none;
+}
+.overlay.show { display: block; }
+
+/* done screen */
+.done-screen {
+  display: none; flex-direction: column; align-items: center;
+  justify-content: center; text-align: center;
+  padding: 40px;
+}
+.done-screen.show { display: flex; }
+.done-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 42px; font-weight: 900;
+  color: var(--gold); margin-bottom: 12px;
+}
+.done-sub { font-size: 16px; color: var(--text-secondary); margin-bottom: 30px; }
+.done-stats {
+  display: flex; gap: 30px; margin-bottom: 30px;
+}
+.done-stat { text-align: center; }
+.done-stat .n {
+  font-family: 'Playfair Display', serif;
+  font-size: 48px; font-weight: 900; color: var(--gold);
+}
+.done-stat .l { font-size: 12px; color: var(--text-secondary); letter-spacing: 1.5px; text-transform: uppercase; }
+.done-btn {
+  background: var(--gold); color: var(--navy-dark);
+  border: none; padding: 12px 32px;
+  font-weight: 700; font-size: 14px;
+  letter-spacing: 2px; text-transform: uppercase;
+  cursor: pointer; font-family: 'Source Sans 3', sans-serif;
+}
+
+/* card entrance animation */
+@keyframes cardIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.card-scene { animation: cardIn 0.4s ease both; }
+
+/* responsive */
+@media (max-width: 900px) {
+  :root { --card-w: 96vw; --card-h: 480px; }
+  .card-a { font-size: 19px; }
+  .header { padding: 20px 70px 16px 70px; }
+}
+</style>
+</head>
+<body>
+
+<!-- Hamburger -->
+<button class="hamburger" onclick="togglePanel()" aria-label="Topics">
+  <span></span><span></span><span></span>
+</button>
+
+<!-- Sidebar overlay -->
+<div class="overlay" id="overlay" onclick="togglePanel()"></div>
+
+<!-- Topic panel -->
+<div class="topic-panel" id="topicPanel">
+  <div class="panel-header">
+    <div class="panel-title">TOPICS</div>
+    <button class="panel-close" onclick="togglePanel()">✕</button>
+  </div>
+  <div class="panel-scroll" id="topicList"></div>
+</div>
+
+<!-- Header -->
+<div class="header">
+  <div class="header-top">
+    <div class="logo">
+      <div style="width:36px"></div><!-- spacer for hamburger -->
+      <div class="logo-badge">P</div>
+      <div class="logo-text">
+        <div class="name">PACIFIC LAW ACADEMY</div>
+        <div class="tagline">PU BA.LLB 2026 · Legal Flash Cards</div>
+      </div>
+    </div>
+    <div class="progress-wrap">
+      <div class="progress-label">Your Progress</div>
+      <div class="progress-bar-outer">
+        <div class="progress-bar-inner" id="progressBar" style="width:0%"></div>
+      </div>
+      <div class="progress-nums"><span id="knownCount">0</span> known &nbsp;/&nbsp; <span id="totalCount">0</span> <span>total</span></div>
+    </div>
+  </div>
+  <div class="filters" id="filterBar">
+    <span class="filter-label">Filter:</span>
+    <button class="filter-btn active" onclick="setFilter('all', this)">All Cards</button>
+    <button class="filter-btn" onclick="setFilter('unknown', this)">Not Yet Known</button>
+    <button class="filter-btn" onclick="setFilter('known', this)">Marked Known</button>
+  </div>
+</div>
+
+<!-- Stage -->
+<div class="stage" id="stage">
+
+  <!-- Card -->
+  <div class="card-scene" id="cardScene" onclick="flipCard()">
+    <div class="known-badge">✓ KNOWN</div>
+    <div class="card-flipper" id="cardFlipper">
+
+      <!-- FRONT -->
+      <div class="card-face card-front" id="cardFront">
+        <div class="face-header">
+          <div class="face-brand">Pacific Law Academy</div>
+          <div class="face-num" id="frontNum"></div>
+        </div>
+        <div class="face-body" id="frontBody"></div>
+        <div class="face-footer">
+          <div class="foot-exam" id="frontExam"></div>
+          <div class="foot-ref" id="frontRef"></div>
+        </div>
+        <div class="gold-bottom"></div>
+        <div class="flip-hint" id="flipHint">CLICK TO REVEAL FULL ANSWER ↻</div>
+      </div>
+
+      <!-- BACK -->
+      <div class="card-face card-back" id="cardBack">
+        <div class="back-header">
+          <div class="back-label" id="backLabel"></div>
+          <div class="face-num" id="backNum" style="font-size:44px;"></div>
+        </div>
+        <div class="back-body" id="backBody"></div>
+        <div class="face-footer">
+          <div class="foot-exam" id="backExam"></div>
+          <div class="foot-ref" id="backRef"></div>
+        </div>
+        <div class="gold-bottom"></div>
+        <div class="flip-hint">CLICK TO GO BACK ↻</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Controls -->
+  <div class="controls">
+    <button class="ctrl-btn" id="prevBtn" onclick="navigate(-1)" title="Previous">&#8592;</button>
+
+    <div class="ctrl-center">
+      <div class="ctrl-counter">
+        <strong id="curIdx">1</strong> / <span id="filterTotal">0</span>
+      </div>
+      <div class="ctrl-actions">
+        <button class="action-btn btn-flip" onclick="flipCard()">↻ Flip</button>
+        <button class="action-btn btn-known" onclick="markKnown()">✓ Known</button>
+        <button class="action-btn btn-shuffle" onclick="shuffleCards()">⇌ Shuffle</button>
+      </div>
+    </div>
+
+    <button class="ctrl-btn" id="nextBtn" onclick="navigate(1)" title="Next">&#8594;</button>
+  </div>
+
+  <!-- Keyboard hint -->
+  <div class="kb-hint">
+    <div class="kb-key"><span class="key">←</span> Prev</div>
+    <div class="kb-key"><span class="key">→</span> Next</div>
+    <div class="kb-key"><span class="key">Space</span> Flip</div>
+    <div class="kb-key"><span class="key">K</span> Mark Known</div>
+    <div class="kb-key"><span class="key">S</span> Shuffle</div>
+  </div>
+
+  <!-- Done screen -->
+  <div class="done-screen" id="doneScreen">
+    <div class="done-title">🏛 Session Complete!</div>
+    <div class="done-sub">You've reviewed all cards in this set.</div>
+    <div class="done-stats">
+      <div class="done-stat">
+        <div class="n" id="doneKnown">0</div>
+        <div class="l">Known</div>
+      </div>
+      <div class="done-stat">
+        <div class="n" id="doneLeft">0</div>
+        <div class="l">To Review</div>
+      </div>
+    </div>
+    <button class="done-btn" onclick="restartSession()">Review Again</button>
+  </div>
+
+</div>
+
+<script>
+// ═══════════════════════════════════════════
+// ALL FLASH CARDS DATA
+// ═══════════════════════════════════════════
+const ALL_CARDS = [
+
+  // ── STAGES OF CRIME ──
+  {
+    topic: "Stages of Crime",
+    num: "01",
+    tag: "Stages of Crime",
+    q: "Q. How many stages does a crime pass through?",
+    a: `A crime has <span class='hl'>4 stages</span>:<br>Intention → Preparation → Attempt → Commission`,
+    detail: `<strong>Key trap:</strong> Only <strong>Attempt</strong> &amp; <strong>Commission</strong> are punishable.<br>Intention &amp; Preparation alone are <strong>not punishable</strong> (exceptions: dacoity, waging war).`,
+    exam: "PU BA.LLB · CLAT · AILET",
+    ref: "BNS 2023 · IPC 1860",
+    back: {
+      label: "Key Rule",
+      content: `<div class='card-detail'><strong>Memory trick:</strong> I-P-A-C (Intention → Preparation → Attempt → Commission)<br><br><strong>Punishable stages:</strong> Attempt (Sec. 61 BNS) and Commission only.<br><br><strong>Exceptions where Preparation is punishable:</strong><br>• Preparation to wage war against the State (Sec. 147 BNS)<br>• Preparation for dacoity (Sec. 311 BNS)<br>• Preparation to commit certain offences under special laws<br><br><strong>Landmark:</strong> <em>Queen v. Collins (1864)</em> — distinguished attempt from preparation.</div>`
+    }
+  },
+
+  // ── ELEMENTS OF CRIME ──
+  {
+    topic: "Elements of Crime",
+    num: "02",
+    tag: "Elements of Crime",
+    q: "Q. What are the essential elements of a crime?",
+    a: `4 elements: <span class='hl'>Actus Reus + Mens Rea<br>+ Human Being + Law</span>`,
+    detail: `<strong>Actus Reus</strong> = Guilty Act &nbsp;|&nbsp; <strong>Mens Rea</strong> = Guilty Mind<br><strong>Key maxim:</strong> "Actus non facit reum nisi mens sit rea"<br><strong>Exception:</strong> Strict liability offences — no mens rea needed.`,
+    exam: "PU BA.LLB · CLAT · AILET",
+    ref: "BNS 2023 · IPC 1860",
+    back: {
+      label: "Full Detail",
+      content: `<div class='card-detail'><strong>Mens Rea degrees:</strong> Intention → Knowledge → Recklessness → Negligence<br><br><strong>Strict liability examples:</strong> Adulteration offences, Motor Vehicles Act, FSSAI violations — mens rea not required.<br><br><strong>Vicarious liability in criminal law:</strong> Exception, not rule — applies to master-servant in certain statutory offences.<br><br><strong>Maxim translation:</strong> "An act does not make a person guilty unless the mind is also guilty."<br><br><strong>Trap:</strong> A corporation can commit crimes (Mens Rea attributed through directing mind doctrine).</div>`
+    }
+  },
+
+  // ── PARTIES IN CRIMINAL TRIAL ──
+  {
+    topic: "Criminal Trial",
+    num: "03",
+    tag: "Parties in Criminal Trial",
+    q: "Q. Who are the parties in a criminal trial?",
+    a: `<span class='hl'>State vs. Accused</span><br>(not Victim vs. Accused)`,
+    detail: `<strong>Key trap:</strong> Crime is an offence against <strong>society</strong> — State prosecutes.<br><strong>Public Prosecutor</strong> (Sec. 24 BNSS) represents the State.<br>Victim may be a <strong>witness</strong>, not a party to the case.`,
+    exam: "PU BA.LLB · CLAT · AILET",
+    ref: "BNSS 2023 · CrPC 1973",
+    back: {
+      label: "Key Parties",
+      content: `<div class='card-detail'><strong>Public Prosecutor:</strong> Appointed by State govt for Sessions Court (Sec. 24 BNSS). Cannot act for accused.<br><br><strong>Special Public Prosecutor:</strong> Appointed for specific cases by Central/State govt.<br><br><strong>Private Complaint cases:</strong> Complainant drives prosecution (Sec. 223 BNSS) — but State still party.<br><br><strong>Victim's rights (BNSS 2023):</strong> Victim can appoint an advocate to assist prosecution — new provision under BNSS strengthening victim's role.<br><br><strong>Trap:</strong> Even if victim withdraws complaint, State can continue prosecution in cognizable offences.</div>`
+    }
+  },
+
+  // ── SUBSTANTIVE VS PROCEDURAL ──
+  {
+    topic: "Substantive & Procedural Law",
+    num: "04",
+    tag: "Substantive vs Procedural Law",
+    q: "Q. BNS / IPC is ______ law. BNSS / CrPC is ______ law.",
+    a: `<span class='hl'>Substantive</span> law defines crimes.<br><span class='hl'>Procedural</span> law governs trials.`,
+    detail: `<strong>Substantive:</strong> BNS 2023, BSA 2023 — defines rights &amp; offences.<br><strong>Procedural:</strong> BNSS 2023 — governs how trials are conducted.<br><strong>Memory trick:</strong> <strong>S</strong>ubstantive = <strong>S</strong>in | <strong>P</strong>rocedural = <strong>P</strong>rocess`,
+    exam: "PU BA.LLB · CLAT · AILET",
+    ref: "BNS · BNSS · BSA 2023",
+    back: {
+      label: "Classification",
+      content: `<table class='c-table'><tr><th>Law</th><th>Type</th><th>Replaced</th></tr><tr><td>BNS 2023</td><td>Substantive</td><td>IPC 1860</td></tr><tr><td>BNSS 2023</td><td>Procedural</td><td>CrPC 1973</td></tr><tr><td>BSA 2023</td><td>Substantive (Evidence)</td><td>Indian Evidence Act 1872</td></tr></table><div class='card-detail' style='margin-top:10px'><strong>All 3 in force from:</strong> 1 July 2024<br><strong>Trap:</strong> Evidence Act is substantive but only applies to procedural context — a hybrid law. Courts often classify it as "adjective law."</div>`
+    }
+  },
+
+  // ── ARTICLE 20 ──
+  {
+    topic: "Fundamental Rights",
+    num: "05",
+    tag: "Article 20 · Constitution",
+    q: "Q. Article 20 protects against — (3 points)?",
+    a: `Art. 20: <span class='hl'>Ex-post-facto law · Double Jeopardy · Self-Incrimination</span>`,
+    detail: `<strong>Art. 20(1):</strong> No conviction for act not an offence when committed.<br><strong>Art. 20(2):</strong> No prosecution &amp; punishment for same offence twice.<br><strong>Art. 20(3):</strong> No accused compelled to be witness against himself.<br><strong>Trap:</strong> Art. 20 cannot be suspended even during Emergency (Art. 359).`,
+    exam: "PU BA.LLB · CLAT · AILET",
+    ref: "Constitution of India · Art. 20",
+    back: {
+      label: "Deep Dive",
+      content: `<div class='card-detail'><strong>Ex-post-facto law:</strong> Only protects against <em>conviction &amp; sentence</em> — prosecution under retrospective law is allowed.<br><br><strong>Double Jeopardy:</strong> Protection only against second prosecution for the <em>same offence</em> — different offence from same facts is allowed.<br><br><strong>Self-Incrimination:</strong> Applies only to <em>accused persons</em> — witnesses not protected. Compelled production of documents ≠ testimonial compulsion (Slim Shah v. State).<br><br><strong>Cannot be suspended:</strong> Art. 20 &amp; Art. 21 — the only FRs immune from Art. 359 Presidential Order.<br><br><strong>Landmark:</strong> <em>Selvi v. State of Karnataka (2010)</em> — narcoanalysis, brain mapping, polygraph without consent violates Art. 20(3).</div>`
+    }
+  },
+
+  // ── ARTICLE 22 ──
+  {
+    topic: "Fundamental Rights",
+    num: "06",
+    tag: "Article 22 · Constitution",
+    q: "Q. What rights does Article 22 guarantee on arrest?",
+    a: `Art. 22: <span class='hl'>Inform grounds · Consult lawyer · Magistrate within 24 hrs</span>`,
+    detail: `<strong>Art. 22(1):</strong> Informed of grounds + consult advocate of choice.<br><strong>Art. 22(2):</strong> Produced before nearest Magistrate within <strong>24 hours</strong>.<br><strong>Trap:</strong> Art. 22(3) — does NOT apply to enemy aliens or preventive detention.`,
+    exam: "PU BA.LLB · CLAT · AILET",
+    ref: "Constitution of India · Art. 22",
+    back: {
+      label: "Preventive Detention",
+      content: `<div class='card-detail'><strong>Art. 22(4)–(7) — Preventive Detention special rules:</strong><br><br><strong>Max detention without Advisory Board:</strong> 3 months (extended to 12 months by Parliament for certain cases).<br><br><strong>Advisory Board:</strong> Composed of persons qualified to be HC judges — reviews detention beyond 3 months.<br><strong>Grounds must be communicated</strong> — but can withhold grounds that are "against public interest."<br><br><strong>Landmark:</strong> <em>A.K. Gopalan v. State of Madras (1950)</em> — first major challenge to preventive detention.<br><em>Maneka Gandhi v. Union of India (1978)</em> — Art. 21 procedure must be just, fair &amp; reasonable — widened protection.</div>`
+    }
+  },
+
+  // ── BNS vs IPC ──
+  {
+    topic: "New Criminal Laws",
+    num: "07",
+    tag: "BNS 2023 vs IPC 1860",
+    q: "Q. BNS 2023 replaced IPC 1860 — key changes?",
+    a: `IPC had <span class='hl'>511 sections</span>.<br>BNS has <span class='hl'>358 sections</span>. In force from <span class='hl'>1 July 2024</span>.`,
+    detail: `<strong>New in BNS:</strong> "Terrorism" defined for first time (Sec. 113) | Community service as punishment.<br><strong>Removed:</strong> Sec. 377 (unnatural offences) &amp; Sec. 124A (sedition) dropped.<br><strong>Trap:</strong> Full name = Bharatiya Nyaya <strong>Sanhita</strong> — not "Code."`,
+    exam: "PU BA.LLB · CLAT · AILET",
+    ref: "BNS 2023 · IPC 1860",
+    back: {
+      label: "Key Section Mapping",
+      content: `<table class='c-table'><tr><th>Topic</th><th>IPC Section</th><th>BNS Section</th></tr><tr><td>Murder</td><td>302</td><td>103</td></tr><tr><td>Culpable Homicide</td><td>304</td><td>105</td></tr><tr><td>Theft</td><td>378</td><td>303</td></tr><tr><td>Robbery</td><td>390</td><td>309</td></tr><tr><td>Rape</td><td>375/376</td><td>63/64</td></tr><tr><td>Abetment</td><td>107</td><td>45</td></tr><tr><td>Criminal Conspiracy</td><td>120-A</td><td>61</td></tr></table>`
+    }
+  },
+
+  // ── BSA vs Evidence Act ──
+  {
+    topic: "New Criminal Laws",
+    num: "08",
+    tag: "BSA 2023 vs Evidence Act 1872",
+    q: "Q. BSA 2023 replaced Evidence Act 1872 — key fact?",
+    a: `IEA had <span class='hl'>167 sections</span>.<br>BSA has <span class='hl'>170 sections</span>. In force <span class='hl'>1 July 2024</span>.`,
+    detail: `<strong>Key addition in BSA:</strong> Electronic &amp; digital records given <strong>primary evidence</strong> status (Sec. 57–58).<br><strong>Paradigm shift:</strong> Electronic records no longer secondary evidence.<br><strong>Trap:</strong> BSA = Bharatiya <strong>Sakshya</strong> Adhiniyam — "Sakshya" = evidence.`,
+    exam: "PU BA.LLB · CLAT · AILET",
+    ref: "BSA 2023 · Evidence Act 1872",
+    back: {
+      label: "Major Changes",
+      content: `<div class='card-detail'><strong>Secondary evidence (Sec. 58 BSA):</strong> Certified copies, counterparts, oral accounts — list updated for digital age.<br><br><strong>Joint trial documents (Sec. 24 BSA):</strong> Confession of one accused as evidence against co-accused — retained with modification.<br><br><strong>Relevancy of electronic records:</strong> Sec. 22A BSA — oral admissions about electronic records admissible.<br><br><strong>Certificate for electronic records (Sec. 63 BSA):</strong> Replaces Sec. 65B IEA — made more practical after <em>Arjun Panditrao Khotkar v. Kailash Kushanrao Gorantyal (2020)</em> controversy.<br><br><strong>Burden of proof:</strong> Basic rules retained — he who asserts must prove (Sec. 104 BSA = Sec. 101 IEA).</div>`
+    }
+  },
+
+  // ── BAIL ──
+  {
+    topic: "Criminal Procedure",
+    num: "09",
+    tag: "Bail · BNSS 2023",
+    q: "Q. Types of bail under BNSS 2023?",
+    a: `<span class='hl'>Regular · Anticipatory · Interim · Default</span> bail — 4 types.`,
+    detail: `<strong>Regular bail:</strong> After arrest — Sec. 479–480 BNSS.<br><strong>Anticipatory bail:</strong> Before arrest — Sec. 482 BNSS.<br><strong>Default bail (Sec. 187 BNSS):</strong> If chargesheet not filed within <strong>60/90 days</strong>.<br><strong>Trap:</strong> Default bail is a <strong>right</strong>, not court's discretion.`,
+    exam: "PU BA.LLB · CLAT · AILET",
+    ref: "BNSS 2023 · CrPC 1973",
+    back: {
+      label: "Bail Timelines",
+      content: `<div class='tl-row'><div class='tl-box'><div class='tl-num'>60 days</div><div class='tl-lbl'>Default bail if chargesheet not filed — offences punishable up to 10 yrs</div></div><div class='tl-box'><div class='tl-num'>90 days</div><div class='tl-lbl'>Default bail — offences punishable with death/life/10+ yrs</div></div></div><div class='card-detail' style='margin-top:10px'><strong>Bail vs Bail Bond:</strong> Bail = release on security; Bail Bond = the written undertaking.<br><br><strong>Bailable vs Non-Bailable:</strong> Bailable = bail as a right (Sec. 479 BNSS). Non-bailable = bail at court's discretion.<br><br><strong>New in BNSS:</strong> First-time offenders serving half sentence entitled to bail — Sec. 479 BNSS proviso.<br><br><strong>Landmark:</strong> <em>Satendra Kumar Antil v. CBI (2022)</em> — SC guidelines on default bail compliance.</div>`
+    }
+  },
+
+  // ── FIR ──
+  {
+    topic: "Criminal Procedure",
+    num: "10",
+    tag: "FIR · BNSS 2023",
+    q: "Q. Key FIR rules under BNSS 2023 — what changed?",
+    a: `FIR can now be filed <span class='hl'>electronically</span>.<br>Zero FIR valid at <span class='hl'>any police station</span>.`,
+    detail: `<strong>Sec. 173 BNSS:</strong> Police cannot refuse to register FIR for cognizable offence.<br><strong>Zero FIR:</strong> Now <strong>statutory</strong> under BNSS — filed at any station, transferred later.<br><strong>New:</strong> Audio-video recording of statement mandatory (Sec. 176 BNSS).<br><strong>Trap:</strong> Not filing FIR = offence under Sec. 173(5) BNSS.`,
+    exam: "PU BA.LLB · CLAT · AILET",
+    ref: "BNSS 2023 · CrPC 1973",
+    back: {
+      label: "FIR Key Facts",
+      content: `<div class='card-detail'><strong>FIR is NOT evidence:</strong> It can be used to corroborate/contradict the maker — not substantive evidence of facts stated.<br><br><strong>Cognizable offence:</strong> Police can arrest without warrant + register FIR directly.<br><strong>Non-cognizable offence:</strong> Police need Magistrate's order to investigate — FIR not mandatory (NCR filed).<br><br><strong>E-FIR (Sec. 173 BNSS):</strong> Can be submitted electronically; physical signature within 3 days.<br><br><strong>Landmark:</strong> <em>Lalita Kumari v. Govt. of UP (2014)</em> — SC made FIR registration mandatory for cognizable offences — now codified in BNSS.<br><br><strong>Trap:</strong> Delay in FIR not fatal to prosecution but must be explained.</div>`
+    }
+  },
+
+  // ── ARTICLE 200 ──
+  {
+    topic: "Constitutional Law",
+    num: "200",
+    tag: "Article 200 · Governor's Assent",
+    q: "Q. What are the Governor's options under Article 200?",
+    a: `Governor has <span class='hl'>3 options only</span>:<br>Assent · Withhold &amp; Return · Reserve for President`,
+    detail: `<strong>No 4th option:</strong> Cannot withhold indefinitely (no "pocket veto").<br><strong>Withhold = must return</strong> with comments — composite act.<br><strong>Money Bills:</strong> Cannot return — only assent or reserve.<br><strong>Trap:</strong> Governor acts in personal discretion under Art. 200.`,
+    exam: "PU BA.LLB · CLAT · AILET",
+    ref: "Constitution · Art. 200",
+    back: {
+      label: "2025 SC Ruling",
+      content: `<div class='card-detail'><strong>In Re: Assent, Withholding or Reservation of Bills — 2025 INSC 1333</strong><br>Decided: 20 Nov 2025 | 5-Judge Bench: CJI B.R. Gavai + 4 JJ.<br><br><strong>Held:</strong><br>• Governor has only 3 options — Union's "4th option" (indefinite withholding) rejected.<br>• "Withhold &amp; Return" is one composite act — not two separate powers.<br>• SC overruled its own April 8, 2025 judgment (State of TN v. Governor of TN).<br>• No "deemed assent" — courts cannot invoke Art. 142 to deem a Bill assented.<br>• Decisions under Arts. 200 &amp; 201 are not justiciable before Bill becomes law.<br><br><strong>Reference by:</strong> President Droupadi Murmu on 13 May 2025 under Art. 143(1) — 14 questions referred.</div>`
+    }
+  },
+
+  // ── ARTICLE 201 ──
+  {
+    topic: "Constitutional Law",
+    num: "201",
+    tag: "Article 201 · President's Assent to State Bills",
+    q: "Q. Article 201 — President's role when Bill is reserved by Governor?",
+    a: `President may <span class='hl'>assent, withhold, or return</span> to Legislature.<br><span class='hl'>No judicial timelines</span> can be imposed.`,
+    detail: `<strong>When returned:</strong> Legislature must reconsider within <strong>6 months</strong> of receipt.<br><strong>Non-justiciable:</strong> President's decision under Art. 201 cannot be challenged before Bill becomes law.<br><strong>No deemed assent:</strong> Court cannot substitute President's role under Art. 142.`,
+    exam: "PU BA.LLB · CLAT · AILET",
+    ref: "Constitution · Art. 200, 201, 143",
+    back: {
+      label: "Art. 200 vs 201",
+      content: `<table class='c-table'><tr><th>Point</th><th>Art. 200 (Governor)</th><th>Art. 201 (President)</th></tr><tr><td>Options</td><td>Assent / Withhold+Return / Reserve</td><td>Assent / Withhold / Return with message</td></tr><tr><td>Money Bills</td><td>Cannot return — assent or reserve only</td><td>Can return Money Bill with message</td></tr><tr><td>Timeline given in Constitution</td><td>"As soon as possible"</td><td>None specified</td></tr><tr><td>Legislature reconsideration</td><td>Must re-pass if returned</td><td>Must reconsider within 6 months</td></tr><tr><td>Judicial review</td><td>Limited — only post-enactment</td><td>Not justiciable before enactment</td></tr></table>`
+    }
+  },
+
+  // ── ABETMENT ──
+  {
+    topic: "Criminal Law",
+    num: "§45",
+    tag: "Abetment · BNS Sec. 45",
+    q: "Q. What is Abetment? How many modes?",
+    a: `Abetment = <span class='hl'>Instigate · Conspire · Intentionally Aid</span><br>(3 modes — any one sufficient)`,
+    detail: `<strong>Mode 1 — Instigation:</strong> Provoking, inciting, or encouraging.<br><strong>Mode 2 — Conspiracy:</strong> Engaging in conspiracy + act/omission follows.<br><strong>Mode 3 — Aid:</strong> Intentionally helping by act or illegal omission.<br><strong>Trap:</strong> Abettor need not be present at scene. Abetment complete at instigation.`,
+    exam: "PU BA.LLB · CLAT · AILET",
+    ref: "BNS Sec. 45–60 · IPC Sec. 107",
+    back: {
+      label: "Abetment Rules",
+      content: `<div class='card-detail'><strong>Abetment when offence not committed:</strong> Still punishable under Sec. 48 BNS (= Sec. 115 IPC) — if hurt caused in consequence.<br><br><strong>Abetment of suicide:</strong> Sec. 108 BNS — specific provision. Punishment: up to 10 years + fine.<br><br><strong>Abettor's liability:</strong> If the act abetted is different from act done — abettor liable for act done if it was probable consequence and done knowingly.<br><br><strong>Instigation can be by:</strong> Words, gestures, conduct, hints, or even silence in some circumstances.<br><br><strong>Landmark:</strong> <em>Sanju @ Sanjay Singh Sengar v. State of MP (2002)</em> — words in a quarrel without persistent goading ≠ instigation for abetment of suicide.</div>`
+    }
+  },
+
+  // ── CRIMINAL CONSPIRACY ──
+  {
+    topic: "Criminal Law",
+    num: "§61",
+    tag: "Criminal Conspiracy · BNS Sec. 61",
+    q: "Q. What is Criminal Conspiracy? Minimum persons?",
+    a: `Agreement between <span class='hl'>2 or more</span> to do an <span class='hl'>illegal act</span><br>or legal act by <span class='hl'>illegal means</span>.`,
+    detail: `<strong>Agreement itself = the offence</strong> — no overt act needed (exceptions exist).<br><strong>Trap 1:</strong> Conspiracy ≠ Abetment by conspiracy — conspiracy is a <strong>substantive offence</strong>.<br><strong>Trap 2:</strong> Husband &amp; wife alone cannot constitute a conspiracy (common law rule).<br><strong>Landmark:</strong> <em>Kehar Singh v. State (Delhi Admin.)</em> — conspiracy from circumstantial evidence.`,
+    exam: "PU BA.LLB · CLAT · AILET",
+    ref: "BNS Sec. 61 · IPC Sec. 120-A, 120-B",
+    back: {
+      label: "Conspiracy vs Abetment",
+      content: `<table class='c-table'><tr><th>Point</th><th>Criminal Conspiracy (Sec. 61)</th><th>Abetment by Conspiracy (Sec. 45)</th></tr><tr><td>Nature</td><td>Substantive offence</td><td>Mode of abetment</td></tr><tr><td>Persons</td><td>2 or more</td><td>1 abettor + abetted person</td></tr><tr><td>Act needed?</td><td>Agreement itself = offence</td><td>Act or omission must follow conspiracy</td></tr><tr><td>Withdrawal</td><td>Possible before overt act</td><td>Difficult once instigation done</td></tr><tr><td>Punishment</td><td>Same as abetment of that offence</td><td>Same as the offence abetted</td></tr></table>`
+    }
+  },
+
+  // ── COMMON INTENTION ──
+  {
+    topic: "Criminal Law",
+    num: "§3(5)",
+    tag: "Common Intention · BNS Sec. 3(5)",
+    q: "Q. Common Intention — min. persons? Is it a substantive offence?",
+    a: `Pre-arranged plan + <span class='hl'>act done in furtherance</span>.<br>Min. <span class='hl'>2 persons</span>. <span class='hl'>NOT</span> a substantive offence.`,
+    detail: `<strong>BNS Sec. 3(5) / IPC Sec. 34:</strong> Rule of evidence — fixes liability but does not create offence.<br><strong>Must be read with substantive offence</strong> charged (e.g., Sec. 103 r/w Sec. 3(5) BNS).<br><strong>Meeting of minds</strong> essential — can be formed on the spot.<br><strong>Landmark:</strong> <em>Mahbub Shah v. Emperor (1945)</em>`,
+    exam: "PU BA.LLB · CLAT · AILET",
+    ref: "BNS Sec. 3(5) · IPC Sec. 34",
+    back: {
+      label: "Common Intention vs Common Object",
+      content: `<table class='c-table'><tr><th>Point</th><th>Common Intention (Sec. 3(5))</th><th>Common Object (Sec. 190)</th></tr><tr><td>Min. persons</td><td>2</td><td>5 (unlawful assembly)</td></tr><tr><td>Pre-plan needed</td><td>Yes — prior meeting of minds</td><td>No — object may emerge</td></tr><tr><td>Nature</td><td>Rule of evidence only</td><td>Substantive offence (Sec. 189 BNS)</td></tr><tr><td>Trap</td><td>Not an offence by itself</td><td>Member liable even without active participation</td></tr><tr><td>Landmark</td><td>Mahbub Shah (1945)</td><td>Mizaji v. State of UP (1959)</td></tr></table>`
+    }
+  },
+
+  // ── COMMON OBJECT ──
+  {
+    topic: "Criminal Law",
+    num: "§190",
+    tag: "Common Object · BNS Sec. 190 · Unlawful Assembly",
+    q: "Q. Common Object — minimum persons? What is unlawful assembly?",
+    a: `Needs <span class='hl'>5 or more persons</span> (Unlawful Assembly).<br>Member liable for acts done in prosecution of <span class='hl'>common object</span>.`,
+    detail: `<strong>Sec. 189 BNS (= Sec. 141 IPC):</strong> Assembly of 5+ persons with common object = Unlawful Assembly.<br><strong>5 objects listed:</strong> Overawe govt, resist legal process, commit crime, take/retain property, compel someone.<br><strong>Trap:</strong> Even if member did not participate actively — still liable under Sec. 190 BNS (= Sec. 149 IPC).`,
+    exam: "PU BA.LLB · CLAT · AILET",
+    ref: "BNS Sec. 189–190 · IPC Sec. 141, 149",
+    back: {
+      label: "Unlawful Assembly Rules",
+      content: `<div class='card-detail'><strong>Unlawful assembly requires:</strong><br>1. 5 or more persons<br>2. Common object (one of the 5 listed in Sec. 189)<br>3. Object must be unlawful<br><br><strong>Rioting (Sec. 191 BNS = Sec. 146 IPC):</strong> Unlawful assembly + use of force or violence.<br><br><strong>Constructive liability:</strong> Even a member who joins without knowing the object but remains after learning it — becomes part of unlawful assembly.<br><br><strong>Police can disperse:</strong> Sec. 196 BNSS (Sec. 129 CrPC) — magistrate can command dispersal; force may be used.<br><br><strong>Landmark:</strong> <em>Masalti v. State of UP (1964)</em> — individual identification not required if membership in unlawful assembly proved.</div>`
+    }
+  },
+
+  // ── ART. 352 GROUNDS ──
+  {
+    topic: "Emergency Provisions",
+    num: "352",
+    tag: "Article 352 · National Emergency · Grounds",
+    q: "Q. Article 352 — grounds, who proclaims, cabinet requirement?",
+    a: `Proclaimed by <span class='hl'>President</span>.<br>Grounds: <span class='hl'>War · External Aggression · Armed Rebellion</span>`,
+    detail: `<strong>Written Cabinet recommendation mandatory</strong> (44th Amendment 1978).<br><strong>"Armed Rebellion"</strong> replaced "Internal Disturbance" via 44th Amendment.<br><strong>Part of India</strong> can be placed under emergency (44th Amendment).<br><strong>Revocation:</strong> Lok Sabha passes disapproval by simple majority — President must revoke.`,
+    exam: "PU BA.LLB · CLAT · AILET",
+    ref: "Constitution · Art. 352",
+    back: {
+      label: "Times Proclaimed",
+      content: `<div class='card-detail'><strong>National Emergency proclaimed 3 times:</strong><br><br><strong>1962:</strong> India-China War — Ground: External Aggression<br><strong>1971:</strong> India-Pakistan War — Ground: External Aggression<br><strong>1975–77:</strong> Indira Gandhi govt — Ground: Internal Disturbance (now "Armed Rebellion") — most controversial; revoked after 1977 elections.<br><br><strong>44th Constitutional Amendment (1978):</strong> Passed after Emergency excesses — changed "internal disturbance" to "armed rebellion"; made Cabinet recommendation in writing mandatory; allowed Lok Sabha to revoke by simple majority.<br><br><strong>Effect:</strong> Parliament can legislate on State List subjects during National Emergency.</div>`
+    }
+  },
+
+  // ── ART. 352 TIMELINES ──
+  {
+    topic: "Emergency Provisions",
+    num: "352 ⏱",
+    tag: "Article 352 · Timelines — HIGH FREQUENCY MCQ",
+    q: "Q. Parliament approval period for National Emergency? Renewal? Majority required?",
+    a: `Approval within <span class='hl'>1 month</span>.<br>Renewal every <span class='hl'>6 months</span> by <span class='hl'>special majority</span>.`,
+    detail: `<strong>Special majority = 2/3 members present &amp; voting AND majority of total membership.</strong><br><strong>14 days:</strong> If LS dissolved — RS approves alone; LS must ratify within 14 days of reconstitution.<br><strong>Revocation:</strong> Simple majority of Lok Sabha — Rajya Sabha cannot pass disapproval.`,
+    exam: "PU BA.LLB · CLAT · AILET",
+    ref: "Constitution · Art. 352 · 44th Amendment 1978",
+    back: {
+      label: "All Timelines",
+      content: `<div class='tl-row'><div class='tl-box'><div class='tl-num'>1 month</div><div class='tl-lbl'>Parliament must approve (both Houses, special majority)</div></div><div class='tl-box'><div class='tl-num'>6 months</div><div class='tl-lbl'>Renewed every 6 months by special majority — no upper limit</div></div><div class='tl-box'><div class='tl-num'>2/3 + 50%</div><div class='tl-lbl'>Special majority required for approval &amp; renewal</div></div><div class='tl-box'><div class='tl-num'>14 days</div><div class='tl-lbl'>LS must ratify after reconstitution if dissolved during proclamation</div></div></div><div class='card-detail' style='margin-top:10px'><strong>Revocation by simple majority of LS</strong> — not special majority.<br><strong>Rajya Sabha CANNOT pass disapproval resolution</strong> — only Lok Sabha can.</div>`
+    }
+  },
+
+  // ── ART. 356 ──
+  {
+    topic: "Emergency Provisions",
+    num: "356",
+    tag: "Article 356 · President's Rule · State Emergency",
+    q: "Q. Article 356 — grounds, approval, maximum duration?",
+    a: `Failure of constitutional machinery in State.<br>Max: <span class='hl'>3 years</span> in steps of <span class='hl'>6 months</span>.`,
+    detail: `<strong>Parliament approval within 2 months</strong> (simple majority).<br><strong>Beyond 1 year:</strong> National Emergency must also be in force OR EC certifies elections impossible.<br><strong>Landmark:</strong> <em>S.R. Bommai v. Union of India (1994)</em> — floor test mandatory before imposition; subject to judicial review.<br><strong>Trap:</strong> Art. 356 = simple majority (not special like Art. 352).`,
+    exam: "PU BA.LLB · CLAT · AILET",
+    ref: "Constitution · Art. 356 · S.R. Bommai 1994",
+    back: {
+      label: "President's Rule Timelines",
+      content: `<div class='tl-row'><div class='tl-box'><div class='tl-num'>2 months</div><div class='tl-lbl'>Parliament must approve (simple majority)</div></div><div class='tl-box'><div class='tl-num'>6 months</div><div class='tl-lbl'>Renewed every 6 months by simple majority</div></div><div class='tl-box'><div class='tl-num'>1 year</div><div class='tl-lbl'>Max without special conditions — NE must be in force OR EC certifies elections impossible for extension</div></div><div class='tl-box'><div class='tl-num'>3 years</div><div class='tl-lbl'>Absolute maximum — fresh proclamation needed after 3 years</div></div></div><div class='card-detail' style='margin-top:8px'><strong>Used 100+ times</strong> in India's history — highly abused before S.R. Bommai judgment.</div>`
+    }
+  },
+
+  // ── ART. 358 vs 359 ──
+  {
+    topic: "Emergency Provisions",
+    num: "358 / 359",
+    tag: "Article 358 vs 359 · HIGHEST FREQUENCY TRAP",
+    q: "Q. Difference between Art. 358 and Art. 359?",
+    a: `<span class='hl'>Art. 358</span> = Art. 19 auto-suspended (war/external aggression only).<br><span class='hl'>Art. 359</span> = President's Order suspends enforcement of specified FRs.`,
+    detail: `<strong>Art. 358:</strong> Only triggered by war/external aggression — NOT armed rebellion.<br><strong>Art. 359:</strong> Any National Emergency; cannot suspend Art. 20 &amp; 21 (44th Amendment).<br><strong>Art. 358</strong> = automatic; <strong>Art. 359</strong> = requires Presidential Order.`,
+    exam: "PU BA.LLB · CLAT · AILET",
+    ref: "Constitution · Art. 358, 359 · 44th Amendment 1978",
+    back: {
+      label: "358 vs 359 Comparison",
+      content: `<table class='c-table'><tr><th>Point</th><th>Art. 358</th><th>Art. 359</th></tr><tr><td>Which FRs?</td><td>Art. 19 only (6 freedoms)</td><td>Any FR except Art. 20 &amp; 21</td></tr><tr><td>Suspension</td><td>Automatic — no order needed</td><td>Requires Presidential Order</td></tr><tr><td>Triggered by</td><td>War / external aggression ONLY</td><td>Any National Emergency (Art. 352)</td></tr><tr><td>Scope</td><td>Entire country</td><td>Whole or part of India</td></tr><tr><td>Art. 20 &amp; 21</td><td>Not affected</td><td>Cannot be suspended (44th Amend.)</td></tr></table>`
+    }
+  },
+
+  // ── ART. 360 ──
+  {
+    topic: "Emergency Provisions",
+    num: "360",
+    tag: "Article 360 · Financial Emergency",
+    q: "Q. Article 360 — grounds? Has it ever been proclaimed?",
+    a: `Threat to <span class='hl'>financial stability or credit</span> of India or any part.<br><span class='hl'>Never proclaimed</span> in India's history.`,
+    detail: `<strong>Parliament approval:</strong> 2 months, simple majority.<br><strong>Duration:</strong> Indefinite — no 6-month renewal once approved.<br><strong>Consequences:</strong> President can reduce salaries of <strong>judges of SC &amp; HCs</strong>.<br><strong>Trap:</strong> Financial Emergency has <strong>NEVER been used</strong> since 1950.`,
+    exam: "PU BA.LLB · CLAT · AILET",
+    ref: "Constitution · Art. 360",
+    back: {
+      label: "All 3 Emergencies Compared",
+      content: `<table class='c-table'><tr><th></th><th>Art. 352</th><th>Art. 356</th><th>Art. 360</th></tr><tr><td><strong>Approval</strong></td><td>1 month · Special majority</td><td>2 months · Simple majority</td><td>2 months · Simple majority</td></tr><tr><td><strong>Renewal</strong></td><td>Every 6 months</td><td>Every 6 months</td><td>Indefinite</td></tr><tr><td><strong>Max duration</strong></td><td>No limit</td><td>3 years</td><td>Indefinite</td></tr><tr><td><strong>Times used</strong></td><td>3 times</td><td>100+ times</td><td>NEVER</td></tr></table>`
+    }
+  },
+
+  // ── ART. 76 + 145 ──
+  {
+    topic: "Constitutional Functionaries",
+    num: "76 · 145",
+    tag: "Art. 76 — Attorney General · Art. 145 — SC Rules",
+    q: "Q. Who appoints AG? Qualification? Art. 145 key rule?",
+    a: `AG appointed by <span class='hl'>President</span>.<br>Must qualify as <span class='hl'>Judge of Supreme Court</span>.`,
+    detail: `<strong>AG holds office at President's pleasure</strong> — no fixed tenure.<br><strong>AG is NOT Cabinet member</strong> — can participate in Parliament but <strong>cannot vote</strong>.<br><strong>Art. 145(3):</strong> Constitutional questions must be heard by minimum <strong>5 judges</strong>.<br><strong>Trap:</strong> Solicitor General is NOT mentioned in the Constitution.`,
+    exam: "PU BA.LLB · CLAT · AILET",
+    ref: "Constitution · Art. 76, 145",
+    back: {
+      label: "AG Full Profile",
+      content: `<div class='card-detail'><strong>Qualification (Art. 76(1)):</strong> Citizen of India + qualified to be SC Judge = 5 years as HC Judge OR 10 years as HC advocate.<br><br><strong>Rights of AG (Art. 76(2)):</strong><br>• Right of audience in all courts in India<br>• Right to participate (not vote) in proceedings of both Houses of Parliament and Parliamentary Committees<br>• All the privileges available to a Member of Parliament<br><br><strong>AG's role:</strong> Advises Govt on legal matters, appears in SC for Govt, performs other duties assigned by President.<br><br><strong>Removal:</strong> No specified procedure — holds office at pleasure of President. Can resign voluntarily.<br><br><strong>Solicitor General &amp; Additional SG:</strong> Assist AG — statutory positions, not Constitutional.</div>`
+    }
+  },
+
+  // ── ART. 123 ──
+  {
+    topic: "Ordinance Power",
+    num: "123",
+    tag: "Art. 123 · Presidential Ordinance Power & Scope",
+    q: "Q. When can President promulgate Ordinance? Its force?",
+    a: `When <span class='hl'>Parliament is not in session</span> + President satisfied <span class='hl'>immediate action</span> needed.<br>Has same force as <span class='hl'>Act of Parliament</span>.`,
+    detail: `<strong>Scope:</strong> Union List &amp; Concurrent List — NOT State List.<br><strong>Both Houses must be in recess</strong> — if even one in session, no Ordinance for joint matters.<br><strong>Trap:</strong> Re-promulgation without placing before legislature = unconstitutional.<br><strong>Landmark:</strong> <em>Krishna Kumar Singh v. State of Bihar (2017)</em> — 7-judge bench.`,
+    exam: "PU BA.LLB · CLAT · AILET",
+    ref: "Constitution · Art. 123",
+    back: {
+      label: "Ordinance Limitations",
+      content: `<div class='card-detail'><strong>Cannot do what Art. 123 Ordinance cannot:</strong><br>• Cannot amend the Constitution<br>• Cannot extend duration of Lok Sabha<br>• Cannot abrogate or abridge Fundamental Rights (subject to same limits as Parliament)<br><br><strong>Judicial review:</strong> <em>R.C. Cooper v. Union of India (1970)</em> — President's "satisfaction" is not immune; subject to judicial scrutiny if mala fide or based on irrelevant considerations.<br><br><strong>Repromulgation trap:</strong> <em>Krishna Kumar Singh (2017)</em> — Ordnances cannot be repromulgated as a substitute for parliamentary deliberation — amounts to fraud on Constitution.<br><br><strong>Art. 213:</strong> Identical power for Governor at State level — same 6-week lapse rule applies.</div>`
+    }
+  },
+
+  // ── ORDINANCE TIMELINES ──
+  {
+    topic: "Ordinance Power",
+    num: "123 / 213 ⏱",
+    tag: "Ordinance Timelines · Art. 123 vs Art. 213",
+    q: "Q. How long does an Ordinance remain valid? When does it lapse?",
+    a: `Lapses <span class='hl'>6 weeks</span> after Parliament/Legislature reassembles<br>— unless approved or withdrawn earlier.`,
+    detail: `<strong>Earlier lapse if:</strong> Both Houses pass disapproval resolution.<br><strong>Withdrawal:</strong> President/Governor may withdraw at any time (prospective only).<br><strong>Art. 213 (Governor):</strong> Same 6-week rule — State Legislature must reassemble.`,
+    exam: "PU BA.LLB · CLAT · AILET",
+    ref: "Constitution · Art. 123, 213",
+    back: {
+      label: "123 vs 213 Comparison",
+      content: `<table class='c-table'><tr><th>Point</th><th>Art. 123 · President</th><th>Art. 213 · Governor</th></tr><tr><td>When</td><td>Both Houses in recess</td><td>State Legislature in recess</td></tr><tr><td>Lapses after</td><td>6 weeks of reassembly</td><td>6 weeks of reassembly</td></tr><tr><td>Subject matter</td><td>Union + Concurrent List</td><td>State + Concurrent List</td></tr><tr><td>President's instructions</td><td>Not required</td><td>Required for certain Bills needing President's assent</td></tr><tr><td>Repromulgation</td><td>Unconstitutional (Krishna Kumar Singh)</td><td>Same rule applies</td></tr></table>`
+    }
+  },
+
+  // ── ART. 124 + 214 ──
+  {
+    topic: "Constitutional Functionaries",
+    num: "124 · 214",
+    tag: "Art. 124 — Supreme Court · Art. 214 — High Courts",
+    q: "Q. Who establishes SC and HC? Retirement ages? Strength?",
+    a: `SC: <span class='hl'>Art. 124</span> — CJI + 33 Judges, retire at <span class='hl'>65</span>.<br>HC: <span class='hl'>Art. 214</span> — judges retire at <span class='hl'>62</span>.`,
+    detail: `<strong>Both appointed by President of India.</strong><br><strong>SC Judge removal:</strong> Art. 124(4) — address by Parliament (special majority) + President order.<br><strong>Collegium:</strong> Not in Constitution — evolved via <em>Second Judges Case (1993)</em> &amp; <em>Third Judges Case (1998)</em>.<br><strong>Trap:</strong> SC strength of 34 (CJI + 33) set by Parliament — not the Constitution directly.`,
+    exam: "PU BA.LLB · CLAT · AILET",
+    ref: "Constitution · Art. 124, 214, 217",
+    back: {
+      label: "SC vs HC Comparison",
+      content: `<table class='c-table'><tr><th>Point</th><th>Supreme Court (Art. 124)</th><th>High Court (Art. 214)</th></tr><tr><td>Established by</td><td>"There shall be a Supreme Court"</td><td>"Each State shall have a HC"</td></tr><tr><td>Strength</td><td>CJI + 33 other judges</td><td>Determined by President</td></tr><tr><td>Retirement</td><td>65 years</td><td>62 years</td></tr><tr><td>Removal</td><td>Art. 124(4) — Parliament address</td><td>Same as SC — Art. 217</td></tr><tr><td>Appointment</td><td>President after Collegium recommendation</td><td>President + CJI + Governor</td></tr><tr><td>Jurisdiction</td><td>Original + Appellate + Advisory</td><td>Original + Appellate + Writ</td></tr></table>`
+    }
+  },
+
+  // ── ART. 148 ──
+  {
+    topic: "Constitutional Functionaries",
+    num: "148",
+    tag: "Article 148 · Comptroller & Auditor General (CAG)",
+    q: "Q. Who appoints CAG? Tenure? How removed?",
+    a: `CAG appointed by <span class='hl'>President</span>.<br>Tenure: <span class='hl'>6 years OR age 65</span> — whichever earlier.<br>Removed same way as <span class='hl'>SC Judge</span>.`,
+    detail: `<strong>Salary:</strong> Charged to Consolidated Fund of India — ensures independence.<br><strong>Not eligible</strong> for further Govt office after retirement.<br><strong>Called:</strong> "Guardian of the Public Purse" &amp; "Friend, Philosopher &amp; Guide of PAC."<br><strong>Trap:</strong> CAG audits — does NOT control expenditure in advance.`,
+    exam: "PU BA.LLB · CLAT · AILET",
+    ref: "Constitution · Art. 148–151",
+    back: {
+      label: "CAG Functions",
+      content: `<div class='card-detail'><strong>Art. 149:</strong> Duties &amp; powers of CAG — audits all receipts and expenditure of Union &amp; States.<br><br><strong>Reports (Art. 151):</strong><br>• CAG's audit report on Union accounts → presented to President → laid before Parliament<br>• CAG's audit report on State accounts → presented to Governor → laid before State Legislature<br><br><strong>Public Accounts Committee (PAC):</strong> Examines CAG's reports — traditionally chaired by Leader of Opposition.<br><br><strong>Removal procedure:</strong> Same as SC Judge — address by both Houses of Parliament on grounds of proved misbehaviour or incapacity; then Presidential order.<br><br><strong>Trap:</strong> CAG does NOT pre-audit — only post-audit. Pre-sanction is Finance Ministry's role.</div>`
+    }
+  },
+
+  // ── ART. 72 vs 161 ──
+  {
+    topic: "Constitutional Functionaries",
+    num: "72 · 161",
+    tag: "Art. 72 — President's Pardon · Art. 161 — Governor's Pardon",
+    q: "Q. 5 types of mercy under Art. 72? What can President do that Governor CANNOT?",
+    a: `<span class='hl'>Pardon · Reprieve · Respite · Remission · Commutation</span><br>President can pardon <span class='hl'>death sentence + court-martial</span>. Governor cannot.`,
+    detail: `<strong>Pardon:</strong> Full acquittal — wipes out conviction entirely.<br><strong>Reprieve:</strong> Temporary stay of sentence.<br><strong>Respite:</strong> Reduced sentence due to special circumstances.<br><strong>Remission:</strong> Reduces quantum — nature unchanged.<br><strong>Commutation:</strong> Substitutes lesser punishment.<br><strong>Landmark:</strong> <em>Epuru Sudhakar v. Govt. of AP (2006)</em> — pardon power subject to judicial review if arbitrary.`,
+    exam: "PU BA.LLB · CLAT · AILET",
+    ref: "Constitution · Art. 72, 161",
+    back: {
+      label: "Art. 72 vs Art. 161",
+      content: `<table class='c-table'><tr><th>Point</th><th>Art. 72 · President</th><th>Art. 161 · Governor</th></tr><tr><td>Death sentence</td><td>✅ Can pardon</td><td>❌ Cannot pardon</td></tr><tr><td>Court-martial</td><td>✅ Can pardon</td><td>❌ Cannot pardon</td></tr><tr><td>Union law offences</td><td>✅ Yes</td><td>❌ No</td></tr><tr><td>State law offences</td><td>✅ Yes</td><td>✅ Yes</td></tr><tr><td>Acts on advice of</td><td>Union Council of Ministers</td><td>State Council of Ministers</td></tr><tr><td>Judicial review</td><td>Yes — Epuru Sudhakar 2006</td><td>Yes — same principle</td></tr></table>`
+    }
+  }
+
+];
+
+// ═══════════════════════════════════════════
+// STATE
+// ═══════════════════════════════════════════
+let allCards = [...ALL_CARDS];
+let filteredCards = [...allCards];
+let currentIndex = 0;
+let knownSet = new Set();
+let isFlipped = false;
+let activeFilter = 'all';
+let activeTopic = 'All Topics';
+
+// Build topics list
+function getTopics() {
+  const map = {};
+  allCards.forEach(c => {
+    map[c.topic] = (map[c.topic] || 0) + 1;
+  });
+  return map;
+}
+
+// ═══════════════════════════════════════════
+// RENDER
+// ═══════════════════════════════════════════
+function renderCard() {
+  const scene = document.getElementById('cardScene');
+  const flipper = document.getElementById('cardFlipper');
+
+  // Reset flip
+  isFlipped = false;
+  scene.classList.remove('flipped');
+
+  if (filteredCards.length === 0) {
+    document.getElementById('stage').innerHTML = `<div class='done-screen show'><div class='done-title'>No Cards Found</div><div class='done-sub'>Try changing your filter or topic.</div></div>`;
+    return;
+  }
+
+  const card = filteredCards[currentIndex];
+  if (!card) return;
+
+  // Known state
+  const known = knownSet.has(allCards.indexOf(card));
+  scene.classList.toggle('known', known);
+
+  // FRONT
+  document.getElementById('frontNum').textContent = card.num;
+  document.getElementById('frontBody').innerHTML = `
+    <div class="topic-tag">${card.tag}</div>
+    <div class="card-q">${card.q}</div>
+    <div class="card-a">${card.a}</div>
+    <div class="divider"></div>
+    <div class="card-detail">${card.detail}</div>
+  `;
+  document.getElementById('frontExam').textContent = card.exam;
+  document.getElementById('frontRef').textContent = card.ref;
+
+  // BACK
+  document.getElementById('backLabel').textContent = card.back.label;
+  document.getElementById('backNum').textContent = card.num;
+  document.getElementById('backBody').innerHTML = card.back.content;
+  document.getElementById('backExam').textContent = card.exam;
+  document.getElementById('backRef').textContent = card.ref;
+
+  // Counter
+  document.getElementById('curIdx').textContent = currentIndex + 1;
+  document.getElementById('filterTotal').textContent = filteredCards.length;
+
+  // Buttons
+  document.getElementById('prevBtn').disabled = currentIndex === 0;
+  document.getElementById('nextBtn').disabled = currentIndex === filteredCards.length - 1;
+
+  // Progress
+  updateProgress();
+
+  // Animate in
+  scene.style.animation = 'none';
+  scene.offsetHeight;
+  scene.style.animation = 'cardIn 0.35s ease both';
+}
+
+function updateProgress() {
+  const known = knownSet.size;
+  const total = allCards.length;
+  const pct = total > 0 ? Math.round((known / total) * 100) : 0;
+  document.getElementById('progressBar').style.width = pct + '%';
+  document.getElementById('knownCount').textContent = known;
+  document.getElementById('totalCount').textContent = total;
+}
+
+// ═══════════════════════════════════════════
+// NAVIGATION
+// ═══════════════════════════════════════════
+function navigate(dir) {
+  const newIdx = currentIndex + dir;
+  if (newIdx < 0 || newIdx >= filteredCards.length) return;
+  currentIndex = newIdx;
+  renderCard();
+}
+
+function flipCard() {
+  isFlipped = !isFlipped;
+  document.getElementById('cardScene').classList.toggle('flipped', isFlipped);
+}
+
+function markKnown() {
+  const card = filteredCards[currentIndex];
+  const globalIdx = allCards.indexOf(card);
+  if (knownSet.has(globalIdx)) {
+    knownSet.delete(globalIdx);
+  } else {
+    knownSet.add(globalIdx);
+  }
+  renderCard();
+}
+
+function shuffleCards() {
+  for (let i = filteredCards.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [filteredCards[i], filteredCards[j]] = [filteredCards[j], filteredCards[i]];
+  }
+  currentIndex = 0;
+  renderCard();
+}
+
+// ═══════════════════════════════════════════
+// FILTERS
+// ═══════════════════════════════════════════
+function applyFilters() {
+  let base = activeTopic === 'All Topics'
+    ? [...allCards]
+    : allCards.filter(c => c.topic === activeTopic);
+
+  if (activeFilter === 'known') {
+    base = base.filter(c => knownSet.has(allCards.indexOf(c)));
+  } else if (activeFilter === 'unknown') {
+    base = base.filter(c => !knownSet.has(allCards.indexOf(c)));
+  }
+
+  filteredCards = base;
+  currentIndex = 0;
+  renderCard();
+}
+
+function setFilter(type, btn) {
+  activeFilter = type;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  applyFilters();
+}
+
+function setTopic(topic) {
+  activeTopic = topic;
+  applyFilters();
+  renderTopicPanel();
+  togglePanel();
+}
+
+// ═══════════════════════════════════════════
+// TOPIC PANEL
+// ═══════════════════════════════════════════
+function renderTopicPanel() {
+  const list = document.getElementById('topicList');
+  const topics = getTopics();
+  const total = allCards.length;
+
+  let html = `<div class="topic-item ${activeTopic === 'All Topics' ? 'active' : ''}" onclick="setTopic('All Topics')">
+    <span class="topic-item-name">All Topics</span>
+    <span class="topic-count">${total}</span>
+  </div>`;
+
+  Object.entries(topics).forEach(([name, count]) => {
+    html += `<div class="topic-item ${activeTopic === name ? 'active' : ''}" onclick="setTopic('${name}')">
+      <span class="topic-item-name">${name}</span>
+      <span class="topic-count">${count}</span>
+    </div>`;
+  });
+
+  list.innerHTML = html;
+}
+
+function togglePanel() {
+  const panel = document.getElementById('topicPanel');
+  const overlay = document.getElementById('overlay');
+  panel.classList.toggle('open');
+  overlay.classList.toggle('show');
+}
+
+function restartSession() {
+  document.getElementById('doneScreen').classList.remove('show');
+  currentIndex = 0;
+  renderCard();
+}
+
+// ═══════════════════════════════════════════
+// TOUCH SWIPE
+// ═══════════════════════════════════════════
+let touchStartX = 0, touchStartY = 0;
+document.getElementById('cardScene').addEventListener('touchstart', e => {
+  touchStartX = e.touches[0].clientX;
+  touchStartY = e.touches[0].clientY;
+}, { passive: true });
+
+document.getElementById('cardScene').addEventListener('touchend', e => {
+  const dx = e.changedTouches[0].clientX - touchStartX;
+  const dy = e.changedTouches[0].clientY - touchStartY;
+  // Only register horizontal swipes (dx > dy)
+  if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.5) {
+    if (dx < 0) navigate(1);   // swipe left = next
+    else navigate(-1);          // swipe right = prev
+  }
+}, { passive: true });
+
+// ═══════════════════════════════════════════
+// KEYBOARD
+// ═══════════════════════════════════════════
+document.addEventListener('keydown', e => {
+  if (e.target.tagName === 'INPUT') return;
+  switch(e.key) {
+    case 'ArrowLeft':  navigate(-1); break;
+    case 'ArrowRight': navigate(1); break;
+    case ' ': e.preventDefault(); flipCard(); break;
+    case 'k': case 'K': markKnown(); break;
+    case 's': case 'S': shuffleCards(); break;
+  }
+});
+
+// ═══════════════════════════════════════════
+// INIT
+// ═══════════════════════════════════════════
+renderTopicPanel();
+renderCard();
+</script>
+</body>
+</html>

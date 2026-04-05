@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pacific Law Academy — Flash Cards</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1B2A4A;
+    --navy-dark: #0d1b2e;
+    --navy-mid: #152238;
+    --gold: #C8922A;
+    --gold-light: #e8b84b;
+    --gold-pale: rgba(200,146,42,0.15);
+    --gold-border: rgba(200,146,42,0.35);
+    --text: #ffffff;
+    --sub: #a0b8cc;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--navy-dark);
+    font-family: 'Source Sans 3', sans-serif;
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(ellipse 70% 50% at 15% 20%, rgba(200,146,42,0.06) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 40% at 85% 80%, rgba(27,42,74,0.8) 0%, transparent 60%);
+  }
+
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image: linear-gradient(rgba(200,146,42,0.03) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(200,146,42,0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  .container {
+    position: relative;
+    z-index: 10;
+    max-width: 860px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .badge {
+    display: inline-block;
+    border: 1px solid var(--gold-border);
+    background: var(--gold-pale);
+    color: var(--gold-light);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 6px 18px;
+    border-radius: 2px;
+    margin-bottom: 28px;
+    animation: fadeDown 0.6s ease both;
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 6vw, 3.6rem);
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 16px;
+    animation: fadeDown 0.6s 0.1s ease both;
+  }
+
+  h1 span { color: var(--gold-light); font-style: italic; }
+
+  .subtitle {
+    color: var(--sub);
+    font-size: 1rem;
+    line-height: 1.6;
+    max-width: 480px;
+    margin: 0 auto 48px;
+    animation: fadeDown 0.6s 0.2s ease both;
+  }
+
+  .divider {
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 0 auto 48px;
+    animation: fadeDown 0.6s 0.25s ease both;
+  }
+
+  .cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 48px;
+    animation: fadeUp 0.7s 0.3s ease both;
+  }
+
+  @media (max-width: 560px) {
+    .cards { grid-template-columns: 1fr; }
+  }
+
+  .card {
+    position: relative;
+    background: var(--navy-mid);
+    border: 1px solid var(--gold-border);
+    border-radius: 8px;
+    padding: 32px 28px 28px;
+    text-decoration: none;
+    color: var(--text);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    overflow: hidden;
+    cursor: pointer;
+  }
+
+  .card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(200,146,42,0.07) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.25s ease;
+  }
+
+  .card:hover { transform: translateY(-4px); border-color: var(--gold); box-shadow: 0 16px 48px rgba(0,0,0,0.4), 0 0 0 1px rgba(200,146,42,0.2); }
+  .card:hover::before { opacity: 1; }
+
+  .card-icon { font-size: 2rem; line-height: 1; }
+
+  .card-label { font-size: 10px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); }
+
+  .card-title { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; line-height: 1.25; }
+
+  .card-desc { font-size: 0.875rem; color: var(--sub); line-height: 1.55; flex: 1; }
+
+  .card-arrow {
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--gold-light);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: gap 0.2s ease;
+  }
+
+  .card:hover .card-arrow { gap: 14px; }
+
+  .card-arrow svg { width: 16px; height: 16px; stroke: var(--gold-light); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+  .card-corner {
+    position: absolute;
+    top: 0; right: 0;
+    width: 48px; height: 48px;
+    border-left: 1px solid var(--gold-border);
+    border-bottom: 1px solid var(--gold-border);
+    border-bottom-left-radius: 8px;
+    opacity: 0.5;
+  }
+
+  footer { color: var(--sub); font-size: 0.8rem; opacity: 0.6; animation: fadeUp 0.7s 0.5s ease both; }
+
+  @keyframes fadeDown { from { opacity: 0; transform: translateY(-16px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeUp   { from { opacity: 0; transform: translateY(16px);  } to { opacity: 1; transform: translateY(0); } }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="badge">Pacific Law Academy</div>
+  <h1>Law <span>Flash Cards</span></h1>
+  <p class="subtitle">Select a topic below to begin your revision session. Click any card to flip between question and answer.</p>
+  <div class="divider"></div>
+
+  <div class="cards">
+
+    <a class="card" href="Appointments.html">
+      <div class="card-corner"></div>
+      <div class="card-icon">⚖️</div>
+      <div class="card-label">Topic 1</div>
+      <div class="card-title">Constitutional Appointments 2025–26</div>
+      <div class="card-desc">Key appointments, offices, and constitutional provisions for the current academic year.</div>
+      <div class="card-arrow">Start studying <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+    </a>
+
+    <a class="card" href="Flashcards.html">
+      <div class="card-corner"></div>
+      <div class="card-icon">📚</div>
+      <div class="card-label">Topic 2</div>
+      <div class="card-title">PLA Master Flash Cards</div>
+      <div class="card-desc">Comprehensive flash cards covering core law subjects for BA.LLB 2026 preparation.</div>
+      <div class="card-arrow">Start studying <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+    </a>
+
+    <a class="card" href="Constitution.html">
+      <div class="card-corner"></div>
+      <div class="card-icon">📜</div>
+      <div class="card-label">Topic 3</div>
+      <div class="card-title">Constitution — 50 Cards</div>
+      <div class="card-desc">50 essential flash cards covering the Indian Constitution for CLAT & BA.LLB exam prep.</div>
+      <div class="card-arrow">Start studying <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+    </a>
+
+    <a class="card" href="LegalMaxim.html">
+      <div class="card-corner"></div>
+      <div class="card-icon">🏛️</div>
+      <div class="card-label">Topic 4</div>
+      <div class="card-title">Legal Maxims</div>
+      <div class="card-desc">Latin legal maxims and their meanings — essential for CLAT, AILET & BA.LLB exams.</div>
+      <div class="card-arrow">Start studying <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+    </a>
+
+  </div>
+
+  <footer>Pacific Law Academy &nbsp;·&nbsp; All rights reserved</footer>
+</div>
+
+</body>
+</html>

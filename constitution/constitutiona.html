@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Constitution of India – Article Quick Reference | Pacific Law Academy Panchkula</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0e0e0e;
+    --surface: #161616;
+    --card: #1c1c1c;
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --saffron: #e07b35;
+    --green: #4a8c5c;
+    --white: #f0ece0;
+    --muted: #7a7468;
+    --border: #2a2a2a;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--white);
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: var(--surface);
+    border-bottom: 2px solid var(--gold);
+    padding: 18px 40px 16px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    position: sticky;
+    top: 68px;
+    z-index: 100;
+  }
+
+  .emblem {
+    font-size: 48px;
+    line-height: 1;
+    filter: drop-shadow(0 0 8px rgba(201,168,76,0.5));
+  }
+
+  .header-text h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--gold);
+    letter-spacing: 0.04em;
+    line-height: 1.1;
+  }
+
+  .header-text p {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-top: 3px;
+  }
+
+  .tri-strip {
+    height: 4px;
+    background: linear-gradient(90deg, var(--saffron) 33.3%, white 33.3% 66.6%, var(--green) 66.6%);
+  }
+
+  /* ── PLA BRAND BANNER ── */
+  .pla-banner {
+    background: linear-gradient(100deg, #0c0800 0%, #201400 40%, #2a1c00 60%, #0c0800 100%);
+    border-bottom: 3px solid var(--gold);
+    border-top: 3px solid var(--saffron);
+    padding: 12px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+    position: sticky;
+    top: 0;
+    z-index: 101;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+  }
+  .pla-logo-area {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .pla-crest {
+    width: 58px;
+    height: 58px;
+    background: linear-gradient(145deg, #c9a84c 0%, #a07820 50%, #c9a84c 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    box-shadow: 0 0 20px rgba(201,168,76,0.5), 0 0 40px rgba(201,168,76,0.2), inset 0 1px 0 rgba(255,255,255,0.3);
+    flex-shrink: 0;
+    border: 2px solid #e8c97a;
+  }
+  .pla-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-weight: 900;
+    color: #f0d878;
+    letter-spacing: 0.05em;
+    line-height: 1;
+    text-shadow: 0 0 30px rgba(201,168,76,0.6), 0 2px 4px rgba(0,0,0,0.5);
+  }
+  .pla-tagline {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9.5px;
+    color: #8a7a54;
+    letter-spacing: 0.1em;
+    margin-top: 5px;
+  }
+  .pla-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 6px;
+  }
+  .pla-courses {
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+  .pla-pill {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background: rgba(201,168,76,0.15);
+    border: 1px solid rgba(201,168,76,0.45);
+    color: var(--gold-light);
+    padding: 4px 10px;
+    transition: background 0.2s;
+  }
+  .pla-pill:hover { background: rgba(201,168,76,0.3); }
+  .pla-contact {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: #9a8e76;
+    letter-spacing: 0.06em;
+    text-align: right;
+  }
+  .pla-contact span {
+    color: #f0d878;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.12em;
+    text-shadow: 0 0 10px rgba(201,168,76,0.4);
+  }
+
+  /* ── PLA FOOTER ── */
+  .pla-footer {
+    background: linear-gradient(100deg, #0c0800, #201400, #2a1c00, #0c0800);
+    border-top: 3px solid var(--gold);
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+  .pla-footer-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .pla-footer-logo { font-size: 26px; }
+  .pla-footer-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 0.04em;
+  }
+  .pla-footer-addr {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9.5px;
+    color: #7a6a48;
+    letter-spacing: 0.08em;
+    margin-top: 3px;
+  }
+  .pla-footer-addr span { color: #c9a84c; font-weight: 600; }
+  .pla-footer-right {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9.5px;
+    color: #6a5a38;
+    text-align: right;
+    letter-spacing: 0.06em;
+    line-height: 2;
+  }
+  .pla-footer-right b { color: #a09070; font-size: 10.5px; }
+
+  /* ── SEARCH ── */
+  .search-bar {
+    background: var(--surface);
+    padding: 12px 40px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+
+  .search-bar input {
+    background: var(--card);
+    border: 1px solid var(--border);
+    color: var(--white);
+    padding: 7px 14px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    width: 260px;
+    border-radius: 2px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  .search-bar input:focus { border-color: var(--gold); }
+  .search-bar input::placeholder { color: var(--muted); }
+
+  .search-bar label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  /* ── LAYOUT ── */
+  .page {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    min-height: calc(100vh - 120px);
+  }
+
+  /* ── SIDEBAR NAV ── */
+  nav {
+    background: var(--surface);
+    border-right: 1px solid var(--border);
+    padding: 20px 0;
+    position: sticky;
+    top: 97px;
+    height: calc(100vh - 97px);
+    overflow-y: auto;
+  }
+
+  nav::-webkit-scrollbar { width: 4px; }
+  nav::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+  .nav-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    padding: 8px 18px 4px;
+  }
+
+  nav a {
+    display: block;
+    padding: 6px 18px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+    text-decoration: none;
+    border-left: 2px solid transparent;
+    transition: all 0.15s;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  nav a:hover {
+    color: var(--gold-light);
+    border-left-color: var(--gold);
+    background: rgba(201,168,76,0.06);
+  }
+
+  /* ── MAIN CONTENT ── */
+  main {
+    padding: 28px 32px 60px;
+    overflow-y: auto;
+  }
+
+  .part-block {
+    margin-bottom: 32px;
+  }
+
+  .part-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .part-badge {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    background: var(--gold);
+    color: #000;
+    padding: 2px 8px;
+    border-radius: 1px;
+    white-space: nowrap;
+  }
+
+  .part-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--gold-light);
+  }
+
+  .part-range {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: var(--muted);
+    margin-left: auto;
+  }
+
+  /* ── ARTICLE GRID ── */
+  .articles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 6px;
+  }
+
+  .article-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    padding: 9px 12px;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    transition: border-color 0.15s, background 0.15s;
+  }
+
+  .article-card:hover {
+    border-color: var(--gold);
+    background: rgba(201,168,76,0.04);
+  }
+
+  .art-num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--gold);
+    min-width: 38px;
+    padding-top: 1px;
+  }
+
+  .art-body {}
+
+  .art-title {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--white);
+    line-height: 1.3;
+  }
+
+  .art-note {
+    font-size: 10.5px;
+    color: var(--muted);
+    margin-top: 2px;
+    line-height: 1.35;
+  }
+
+  /* highlight match */
+  mark {
+    background: rgba(201,168,76,0.35);
+    color: var(--white);
+    border-radius: 1px;
+    padding: 0 1px;
+  }
+
+  .hidden { display: none !important; }
+
+  /* footer */
+  footer {
+    text-align: center;
+    padding: 20px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: var(--muted);
+    border-top: 1px solid var(--border);
+    letter-spacing: 0.08em;
+  }
+
+  @media (max-width: 768px) {
+    .page { grid-template-columns: 1fr; }
+    nav { display: none; }
+    header { padding: 16px 20px; }
+    main { padding: 16px; }
+    .articles-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="tri-strip"></div>
+
+<!-- PLA BRAND BANNER -->
+<div class="pla-banner">
+  <div class="pla-logo-area">
+    <div class="pla-crest">⚖️</div>
+    <div>
+      <div class="pla-name">Pacific Law Academy</div>
+      <div class="pla-tagline">📍 DSS 264/1, Sector 20, Panchkula &nbsp;|&nbsp; Panchkula's Premier Law Entrance Institute</div>
+    </div>
+  </div>
+  <div class="pla-info">
+    <div class="pla-courses">
+      <span class="pla-pill">CLAT</span>
+      <span class="pla-pill">AILET</span>
+      <span class="pla-pill">PU BA.LLB 5-Year</span>
+      <span class="pla-pill">BA.LLB</span>
+      <span class="pla-pill">BCOM.LLB</span>
+    </div>
+    <div class="pla-contact">
+      📞 <span>7087157073</span>
+    </div>
+  </div>
+</div>
+
+<header>
+  <div class="emblem">📜</div>
+  <div class="header-text">
+    <h1>Constitution of India — Article Quick Reference</h1>
+    <p>All 22 Parts · 395 Articles · CLAT &nbsp;|&nbsp; AILET &nbsp;|&nbsp; PU BA.LLB 5-Year &nbsp;|&nbsp; BA.LLB &nbsp;|&nbsp; BCOM.LLB · 2026</p>
+  </div>
+</header>
+
+<div class="search-bar">
+  <label>Search:</label>
+  <input type="text" id="searchInput" placeholder="Type article no. or keyword…" oninput="filterArticles(this.value)">
+  <span id="countDisplay" style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--muted);"></span>
+</div>
+
+<div class="page">
+  <nav id="sideNav"></nav>
+  <main id="mainContent"></main>
+</div>
+
+<footer class="pla-footer">
+  <div class="pla-footer-left">
+    <div class="pla-footer-logo">⚖️</div>
+    <div>
+      <div class="pla-footer-name">Pacific Law Academy</div>
+      <div class="pla-footer-addr">📍 DSS 264/1, Sector 20, Panchkula &nbsp;·&nbsp; 📞 <span>7087157073</span></div>
+    </div>
+  </div>
+  <div class="pla-footer-right">
+    <b>CLAT &nbsp;·&nbsp; AILET &nbsp;·&nbsp; PU BA.LLB 5-Year &nbsp;·&nbsp; BA.LLB &nbsp;·&nbsp; BCOM.LLB</b><br>
+    For Educational Use Only &nbsp;·&nbsp; Not for Commercial Distribution &nbsp;·&nbsp; © 2026 Pacific Law Academy
+  </div>
+</footer>
+
+<script>
+const parts = [
+  {
+    id:"p1", part:"Part I", title:"The Union and its Territory", arts:[
+      {n:"1", t:"Name & territory of India"},
+      {n:"2", t:"Admission of new States"},
+      {n:"2A", t:"[Repealed – Sikkim]"},
+      {n:"3", t:"Formation of new States"},
+      {n:"4", t:"Laws re: Arts. 2 & 3 – Supplemental provisions"},
+    ]
+  },
+  {
+    id:"p2", part:"Part II", title:"Citizenship", arts:[
+      {n:"5", t:"Citizenship at commencement"},
+      {n:"6", t:"Rights of migrants from Pakistan"},
+      {n:"7", t:"Rights of migrants to Pakistan"},
+      {n:"8", t:"Overseas Indians – citizenship rights"},
+      {n:"9", t:"Voluntary foreign citizenship – forfeiture"},
+      {n:"10", t:"Continuance of citizenship"},
+      {n:"11", t:"Parliament regulates citizenship"},
+    ]
+  },
+  {
+    id:"p3", part:"Part III", title:"Fundamental Rights", arts:[
+      {n:"12", t:"Definition of 'State'"},
+      {n:"13", t:"Laws inconsistent with FR void"},
+      {n:"14", t:"Right to Equality before law", note:"Equality & anti-arbitrariness"},
+      {n:"15", t:"No discrimination on religion, race, caste, sex, place of birth"},
+      {n:"16", t:"Equal opportunity in public employment"},
+      {n:"17", t:"Abolition of Untouchability"},
+      {n:"18", t:"Abolition of Titles (except military/academic)"},
+      {n:"19", t:"6 Freedoms – speech, assembly, movement, profession…"},
+      {n:"20", t:"Protection against self-incrimination & double jeopardy"},
+      {n:"21", t:"Right to Life & Personal Liberty", note:"Broadest FR; expanded by courts"},
+      {n:"21A", t:"Right to Education (6–14 years) – 86th Amendment"},
+      {n:"22", t:"Protection against arbitrary arrest & detention"},
+      {n:"23", t:"Prohibition of traffic in human beings & forced labour"},
+      {n:"24", t:"Prohibition of child labour (<14 yrs in factories/mines)"},
+      {n:"25", t:"Freedom of conscience & religion"},
+      {n:"26", t:"Freedom to manage religious affairs"},
+      {n:"27", t:"No tax for promotion of any religion"},
+      {n:"28", t:"No religious instruction in State-funded institutions"},
+      {n:"29", t:"Protection of minority cultural & educational interests"},
+      {n:"30", t:"Right of minorities to establish & administer institutions"},
+      {n:"31", t:"[Repealed – Right to Property]"},
+      {n:"31A", t:"Saving of laws re: estates (9th Schedule)"},
+      {n:"31B", t:"Validation of 9th Schedule laws"},
+      {n:"31C", t:"Laws for DPSP – protection from Art. 13"},
+      {n:"32", t:"Right to Constitutional Remedies – 'Heart & Soul' (Ambedkar)"},
+      {n:"33", t:"Parliament may restrict FR for Armed Forces"},
+      {n:"34", t:"Restriction of FR during Martial Law"},
+      {n:"35", t:"Legislation to give effect to FR provisions"},
+    ]
+  },
+  {
+    id:"p4", part:"Part IV", title:"Directive Principles of State Policy (DPSP)", arts:[
+      {n:"36", t:"Definition of 'State' for Part IV"},
+      {n:"37", t:"Application of DPSP – non-justiciable but fundamental"},
+      {n:"38", t:"State to secure social order for welfare"},
+      {n:"39", t:"Certain policy principles – equal pay, health, no concentration of wealth"},
+      {n:"39A", t:"Equal justice & free legal aid"},
+      {n:"40", t:"Organisation of village panchayats"},
+      {n:"41", t:"Right to work, education, public assistance"},
+      {n:"42", t:"Just & humane conditions of work; maternity relief"},
+      {n:"43", t:"Living wage & good conditions for workers"},
+      {n:"43A", t:"Workers' participation in industries"},
+      {n:"43B", t:"Promotion of cooperative societies"},
+      {n:"44", t:"Uniform Civil Code"},
+      {n:"45", t:"Early childhood care and education"},
+      {n:"46", t:"Promotion of SC/ST & weaker sections"},
+      {n:"47", t:"Raise nutrition levels; prohibit intoxicants"},
+      {n:"48", t:"Organise agriculture; prohibit cow slaughter"},
+      {n:"48A", t:"Protect environment, forests, wildlife"},
+      {n:"49", t:"Protect monuments of national importance"},
+      {n:"50", t:"Separation of Judiciary from Executive"},
+      {n:"51", t:"Promote international peace & security"},
+    ]
+  },
+  {
+    id:"p4a", part:"Part IVA", title:"Fundamental Duties", arts:[
+      {n:"51A", t:"11 Fundamental Duties of citizens", note:"Added by 42nd Amend. 1976; 11th duty by 86th Amend. 2002"},
+    ]
+  },
+  {
+    id:"p5", part:"Part V", title:"The Union (Executive, Legislature, Judiciary)", arts:[
+      {n:"52", t:"President of India"},
+      {n:"53", t:"Executive power vested in President"},
+      {n:"54", t:"Election of President – Electoral College"},
+      {n:"55", t:"Manner of election of President"},
+      {n:"56", t:"Term of President – 5 years"},
+      {n:"57", t:"Eligibility for re-election"},
+      {n:"58", t:"Qualifications for President"},
+      {n:"59", t:"Conditions of President's office"},
+      {n:"60", t:"Oath of President"},
+      {n:"61", t:"Impeachment of President"},
+      {n:"62", t:"Time of election to fill vacancy"},
+      {n:"63", t:"Vice-President of India"},
+      {n:"64", t:"VP as ex-officio Chairman of Rajya Sabha"},
+      {n:"65", t:"VP to act as President"},
+      {n:"66", t:"Election of VP"},
+      {n:"67", t:"Term of VP – 5 years"},
+      {n:"68", t:"Time of election to fill VP vacancy"},
+      {n:"69", t:"Oath of VP"},
+      {n:"70", t:"Discharge of Presidential functions in contingencies"},
+      {n:"71", t:"Matters relating to election of President/VP"},
+      {n:"72", t:"Presidential pardon, reprieve, respite, remission"},
+      {n:"73", t:"Extent of executive power of Union"},
+      {n:"74", t:"Council of Ministers to aid & advise President"},
+      {n:"75", t:"Appointment of PM & Ministers; collective responsibility"},
+      {n:"76", t:"Attorney General of India"},
+      {n:"77", t:"Conduct of Government business"},
+      {n:"78", t:"PM's duty to furnish info to President"},
+      {n:"79", t:"Parliament = President + Rajya Sabha + Lok Sabha"},
+      {n:"80", t:"Composition of Rajya Sabha (250 max)"},
+      {n:"81", t:"Composition of Lok Sabha (550 max)"},
+      {n:"82", t:"Readjustment after each census"},
+      {n:"83", t:"Duration of Houses – LS 5 yrs; RS permanent"},
+      {n:"84", t:"Qualifications for Parliament membership"},
+      {n:"85", t:"Sessions, prorogation, dissolution of Parliament"},
+      {n:"86", t:"Right of President to address Parliament"},
+      {n:"87", t:"Special address by President"},
+      {n:"88", t:"Ministers' & AG's right to speak in Parliament"},
+      {n:"89", t:"Chairman & Deputy Chairman of Rajya Sabha"},
+      {n:"90", t:"Vacation & removal of Deputy Chairman RS"},
+      {n:"91", t:"Chairman's powers during vacancy"},
+      {n:"92", t:"Chairman not to preside during removal motion"},
+      {n:"93", t:"Speaker & Deputy Speaker of Lok Sabha"},
+      {n:"94", t:"Vacation & removal of Speaker/Deputy Speaker"},
+      {n:"95", t:"Speaker's powers when vacant"},
+      {n:"96", t:"Speaker not to preside during removal motion"},
+      {n:"97", t:"Salaries of Chairman, Speaker, Deputies"},
+      {n:"98", t:"Secretariat of Parliament"},
+      {n:"99", t:"Oath/Affirmation by Members"},
+      {n:"100", t:"Quorum, voting, casting vote"},
+      {n:"101", t:"Vacation of seats"},
+      {n:"102", t:"Disqualification of members"},
+      {n:"103", t:"Decision on questions of disqualification"},
+      {n:"104", t:"Penalty for sitting when disqualified"},
+      {n:"105", t:"Powers & privileges of Parliament & members"},
+      {n:"106", t:"Salaries & allowances of members"},
+      {n:"107", t:"Provisions for introduction & passing of Bills"},
+      {n:"108", t:"Joint sitting of both Houses"},
+      {n:"109", t:"Special procedure for Money Bills"},
+      {n:"110", t:"Definition of Money Bill"},
+      {n:"111", t:"Assent to Bills"},
+      {n:"112", t:"Annual Financial Statement (Budget)"},
+      {n:"113", t:"Procedure in Parliament for estimates"},
+      {n:"114", t:"Appropriation Bills"},
+      {n:"115", t:"Supplementary grants"},
+      {n:"116", t:"Votes on account, credit, exceptional grants"},
+      {n:"117", t:"Special provisions for Financial Bills"},
+      {n:"118", t:"Rules of procedure in Parliament"},
+      {n:"119", t:"Regulation of procedure in financial matters"},
+      {n:"120", t:"Language to be used in Parliament"},
+      {n:"121", t:"Restriction on discussion in Parliament re: judiciary"},
+      {n:"122", t:"Courts not to inquire into proceedings of Parliament"},
+      {n:"123", t:"President's power to promulgate Ordinances"},
+      {n:"124", t:"Establishment of Supreme Court"},
+      {n:"125", t:"Salaries of SC Judges"},
+      {n:"126", t:"Appointment of acting Chief Justice"},
+      {n:"127", t:"Appointment of ad hoc Judges"},
+      {n:"128", t:"Attendance of retired SC Judges"},
+      {n:"129", t:"SC as Court of Record"},
+      {n:"130", t:"Seat of Supreme Court"},
+      {n:"131", t:"Original jurisdiction – inter-State, Centre-State disputes"},
+      {n:"132", t:"Appellate jurisdiction – constitutional cases"},
+      {n:"133", t:"Appellate jurisdiction – civil cases"},
+      {n:"134", t:"Appellate jurisdiction – criminal cases"},
+      {n:"134A", t:"Certificate for appeal to SC"},
+      {n:"135", t:"Jurisdiction of existing Federal Court"},
+      {n:"136", t:"Special leave to appeal – SLP"},
+      {n:"137", t:"Review of SC judgments"},
+      {n:"138", t:"Enlargement of SC jurisdiction"},
+      {n:"139", t:"Conferment of habeas corpus powers"},
+      {n:"139A", t:"Transfer of cases"},
+      {n:"140", t:"Ancillary powers of SC"},
+      {n:"141", t:"SC law binding on all courts"},
+      {n:"142", t:"SC decrees enforceable; complete justice"},
+      {n:"143", t:"President can seek SC's advisory opinion"},
+      {n:"144", t:"Civil & Judicial authorities to act in SC's aid"},
+      {n:"144A", t:"[Repealed]"},
+      {n:"145", t:"Rules of SC"},
+      {n:"146", t:"Officers & servants of SC"},
+      {n:"147", t:"Interpretation of constitutional provisions"},
+      {n:"148", t:"Comptroller & Auditor General of India"},
+      {n:"149", t:"Duties & powers of CAG"},
+      {n:"150", t:"Form of accounts of Union & States"},
+      {n:"151", t:"Audit reports of CAG"},
+    ]
+  },
+  {
+    id:"p6", part:"Part VI", title:"The States", arts:[
+      {n:"152", t:"Definition of 'State' for Part VI"},
+      {n:"153", t:"Governor of each State"},
+      {n:"154", t:"Executive power vested in Governor"},
+      {n:"155", t:"Appointment of Governor by President"},
+      {n:"156", t:"Term of Governor – 5 years (pleasure of President)"},
+      {n:"157", t:"Qualifications for Governor"},
+      {n:"158", t:"Conditions of Governor's office"},
+      {n:"159", t:"Oath of Governor"},
+      {n:"160", t:"Discharge of Governor's functions"},
+      {n:"161", t:"Power of Governor to grant pardons"},
+      {n:"162", t:"Extent of executive power of States"},
+      {n:"163", t:"Council of Ministers to aid & advise Governor"},
+      {n:"164", t:"Appointment of CM & Ministers"},
+      {n:"165", t:"Advocate General of State"},
+      {n:"166", t:"Conduct of State Government business"},
+      {n:"167", t:"CM's duty to furnish info to Governor"},
+      {n:"168", t:"Constitution of State Legislatures"},
+      {n:"169", t:"Abolition or creation of Vidhan Parishad (Legislative Council)"},
+      {n:"170", t:"Composition of Vidhan Sabhas (Legislative Assemblies)"},
+      {n:"171", t:"Composition of Vidhan Parishads"},
+      {n:"172", t:"Duration of State Legislatures"},
+      {n:"173", t:"Qualifications for State Legislature membership"},
+      {n:"174", t:"Sessions, prorogation, dissolution"},
+      {n:"175", t:"Governor's right to address State Legislature"},
+      {n:"176", t:"Special address by Governor"},
+      {n:"177–187", t:"Speaker/Chairman, conduct, privileges of State Legislature"},
+      {n:"188", t:"Oath/Affirmation by members"},
+      {n:"189–196", t:"Quorum, voting, bills, Money Bills in States"},
+      {n:"197", t:"Restriction re: Legislative Councils on certain Bills"},
+      {n:"198–199", t:"Money Bill procedure in States"},
+      {n:"200", t:"Governor's assent to Bills"},
+      {n:"201", t:"Bills reserved for President's consideration"},
+      {n:"202", t:"Annual Financial Statement of States"},
+      {n:"203–207", t:"Procedure for financial matters in State Legislatures"},
+      {n:"208", t:"Rules of procedure in State Legislatures"},
+      {n:"209–212", t:"Language, restriction on courts re: State Legislature"},
+      {n:"213", t:"Governor's power to promulgate Ordinances"},
+      {n:"214", t:"High Courts for States"},
+      {n:"215", t:"HC as Court of Record"},
+      {n:"216", t:"Constitution of HCs"},
+      {n:"217", t:"Appointment & conditions of HC Judges"},
+      {n:"218", t:"SC provisions to apply to HCs"},
+      {n:"219", t:"Oath of HC Judges"},
+      {n:"220", t:"Restriction on HC Judges after retirement"},
+      {n:"221", t:"Salaries of HC Judges"},
+      {n:"222", t:"Transfer of HC Judges"},
+      {n:"223", t:"Acting Chief Justice of HC"},
+      {n:"224", t:"Additional & acting Judges"},
+      {n:"224A", t:"Attendance of retired HC Judges"},
+      {n:"225", t:"Jurisdiction of existing HCs"},
+      {n:"226", t:"HC's power to issue writs"},
+      {n:"226A", t:"[Repealed]"},
+      {n:"227", t:"Power of HC to superintend subordinate courts"},
+      {n:"228", t:"Transfer of constitutional cases to HC"},
+      {n:"228A", t:"[Repealed]"},
+      {n:"229", t:"Officers & servants of HC"},
+      {n:"230", t:"Extension of HC jurisdiction to Union Territories"},
+      {n:"231", t:"Common HC for two or more States"},
+      {n:"232–237", t:"Subordinate courts – district judges, appointment, conditions"},
+    ]
+  },
+  {
+    id:"p7", part:"Part VII", title:"[Repealed – States in Part B]", arts:[
+      {n:"238", t:"[Repealed by 7th Amendment 1956]"},
+    ]
+  },
+  {
+    id:"p8", part:"Part VIII", title:"Union Territories", arts:[
+      {n:"239", t:"Administration of UTs"},
+      {n:"239A", t:"Local Legislatures for UTs"},
+      {n:"239AA", t:"Special provisions for Delhi (NCT)", note:"Art. 239AA + 239AB = Delhi-specific"},
+      {n:"239AB", t:"Provision if President's Rule in Delhi"},
+      {n:"239B", t:"Power of Administrator to promulgate Ordinances"},
+      {n:"240", t:"Power of President re: UTs"},
+      {n:"241", t:"High Courts for UTs"},
+      {n:"242", t:"[Repealed]"},
+    ]
+  },
+  {
+    id:"p9", part:"Part IX", title:"Panchayats", arts:[
+      {n:"243", t:"Definitions"},
+      {n:"243A–243O", t:"Constitution, composition, reservations, elections, finances, powers of Panchayats", note:"73rd Amendment 1992"},
+    ]
+  },
+  {
+    id:"p9a", part:"Part IX-A", title:"Municipalities", arts:[
+      {n:"243P–243ZG", t:"Municipalities – constitution, elections, wards, finances, 12th Schedule", note:"74th Amendment 1992"},
+    ]
+  },
+  {
+    id:"p9b", part:"Part IX-B", title:"Co-operative Societies", arts:[
+      {n:"243ZH–243ZT", t:"Co-operative societies – constitution, elections, accounts, audit", note:"97th Amendment 2011"},
+    ]
+  },
+  {
+    id:"p10", part:"Part X", title:"Scheduled & Tribal Areas", arts:[
+      {n:"244", t:"Administration of Scheduled & Tribal Areas"},
+      {n:"244A", t:"Autonomous State for Assam tribal areas"},
+    ]
+  },
+  {
+    id:"p11", part:"Part XI", title:"Relations between Union and States", arts:[
+      {n:"245", t:"Extent of laws by Parliament & State Legislatures"},
+      {n:"246", t:"Subject matter of laws – 3 Lists (Union, State, Concurrent)"},
+      {n:"246A", t:"Special provision for GST (101st Amendment)"},
+      {n:"247", t:"Parliament may establish courts for Union List"},
+      {n:"248", t:"Residuary powers of Parliament"},
+      {n:"249", t:"Parliament can legislate on State List if national interest"},
+      {n:"250", t:"Parliament can legislate on State List during Emergency"},
+      {n:"251", t:"Union law prevails over State law in Arts. 249 & 250"},
+      {n:"252", t:"Parliament to legislate for 2+ States on request"},
+      {n:"253", t:"Legislation for international agreements"},
+      {n:"254", t:"Inconsistency between Union & State laws"},
+      {n:"255", t:"Recommendations, previous sanction – formality"},
+      {n:"256", t:"States' obligation to comply with Union laws"},
+      {n:"257", t:"Control of Union over States on certain matters"},
+      {n:"257A", t:"[Repealed]"},
+      {n:"258", t:"Power of Union to confer powers on States"},
+      {n:"258A", t:"Power of States to entrust functions to Union"},
+      {n:"259–261", t:"Armed Forces, public acts, records, judicial proceedings"},
+      {n:"262", t:"Adjudication of inter-State water disputes"},
+      {n:"263", t:"Inter-State Council"},
+    ]
+  },
+  {
+    id:"p12", part:"Part XII", title:"Finance, Property, Contracts & Suits", arts:[
+      {n:"264", t:"Interpretation (Finance Commission etc.)"},
+      {n:"265", t:"No tax except by authority of law"},
+      {n:"266", t:"Consolidated Funds & Public Accounts"},
+      {n:"267", t:"Contingency Fund"},
+      {n:"268", t:"Duties levied by Union, collected by States"},
+      {n:"268A", t:"[Repealed – Service Tax]"},
+      {n:"269", t:"Taxes levied & collected by Union, assigned to States"},
+      {n:"269A", t:"Levy & collection of GST in inter-State trade"},
+      {n:"270", t:"Taxes levied & distributed between Union & States"},
+      {n:"271", t:"Surcharges for Union purposes"},
+      {n:"272", t:"[Repealed]"},
+      {n:"273", t:"Grants in lieu of jute export duty"},
+      {n:"274", t:"Prior recommendation of President for Bills affecting taxes"},
+      {n:"275", t:"Grants from Union to certain States"},
+      {n:"276", t:"Taxes on professions, callings, employments"},
+      {n:"277", t:"Savings for existing State taxes"},
+      {n:"278", t:"[Repealed]"},
+      {n:"279", t:"Calculation of 'net proceeds'"},
+      {n:"279A", t:"Goods & Services Tax Council", note:"101st Amendment 2016"},
+      {n:"280", t:"Finance Commission – every 5 years"},
+      {n:"281", t:"Recommendations of Finance Commission"},
+      {n:"282", t:"Expenditure defrayable by Union / State"},
+      {n:"283", t:"Custody of Consolidated Funds & Contingency Funds"},
+      {n:"284", t:"Custody of suitors' deposits"},
+      {n:"285", t:"Union property exempt from State taxation"},
+      {n:"286", t:"Restrictions on imposition of taxes on sale of goods"},
+      {n:"287", t:"Exemption from taxes on electricity"},
+      {n:"288", t:"Exemption from taxes on water/electricity for Union schemes"},
+      {n:"289", t:"State property & income exempt from Union taxation"},
+      {n:"290", t:"Adjustment of expenses between Union & States"},
+      {n:"290A", t:"Annual payment to temples (Kerala & Tamil Nadu)"},
+      {n:"291", t:"[Repealed – Privy Purse]"},
+      {n:"292", t:"Borrowing by Government of India"},
+      {n:"293", t:"Borrowing by States"},
+      {n:"294", t:"Succession to assets/liabilities"},
+      {n:"295", t:"Succession to other property"},
+      {n:"296", t:"Property accruing by escheat or lapse"},
+      {n:"297", t:"Things of value in territorial waters vest in Union"},
+      {n:"298", t:"Power to carry on trade"},
+      {n:"299", t:"Contracts"},
+      {n:"300", t:"Suits & proceedings"},
+      {n:"300A", t:"Right to property – cannot be deprived without law"},
+    ]
+  },
+  {
+    id:"p13", part:"Part XIII", title:"Trade, Commerce & Intercourse", arts:[
+      {n:"301", t:"Freedom of trade, commerce, intercourse throughout India"},
+      {n:"302", t:"Parliament may restrict trade in public interest"},
+      {n:"303", t:"Restrictions on legislative powers re: trade"},
+      {n:"304", t:"State may restrict trade (with President's sanction)"},
+      {n:"305", t:"Saving of existing laws"},
+      {n:"306", t:"[Repealed]"},
+      {n:"307", t:"Appointment of authority for Arts. 301–304"},
+    ]
+  },
+  {
+    id:"p14", part:"Part XIV", title:"Services under Union & States", arts:[
+      {n:"308", t:"Interpretation for Part XIV"},
+      {n:"309", t:"Parliament/Legislature may regulate recruitment & conditions"},
+      {n:"310", t:"Tenure of office of persons serving Union/State"},
+      {n:"311", t:"Dismissal, removal, reduction of rank – protection"},
+      {n:"312", t:"All-India Services (IAS, IPS, IFS)"},
+      {n:"312A", t:"Power to vary / revoke conditions of service of officers"},
+      {n:"313", t:"Transitional provisions"},
+      {n:"314", t:"[Repealed]"},
+      {n:"315", t:"Public Service Commissions for Union & States"},
+      {n:"316", t:"Appointment & term of members"},
+      {n:"317", t:"Removal of UPSC/SPSC member"},
+      {n:"318", t:"Power to make regulations"},
+      {n:"319", t:"Restrictions on members after retirement"},
+      {n:"320", t:"Functions of PSC"},
+      {n:"321", t:"Power to extend functions of PSC"},
+      {n:"322", t:"Expenses of PSC"},
+      {n:"323", t:"Annual reports of PSC"},
+    ]
+  },
+  {
+    id:"p14a", part:"Part XIV-A", title:"Tribunals", arts:[
+      {n:"323A", t:"Administrative Tribunals"},
+      {n:"323B", t:"Tribunals for other matters"},
+    ]
+  },
+  {
+    id:"p15", part:"Part XV", title:"Elections", arts:[
+      {n:"324", t:"Superintendence of elections – Election Commission of India"},
+      {n:"325", t:"No exclusion from electoral roll on grounds of religion, race, caste or sex"},
+      {n:"326", t:"Universal Adult Franchise – Lok Sabha & State Assemblies"},
+      {n:"327", t:"Parliament's power re: elections"},
+      {n:"328", t:"State Legislature's power re: elections"},
+      {n:"329", t:"Courts not to interfere in electoral matters"},
+      {n:"329A", t:"[Repealed]"},
+    ]
+  },
+  {
+    id:"p16", part:"Part XVI", title:"Special Provisions for Certain Classes", arts:[
+      {n:"330", t:"Reservation of seats for SC/ST in Lok Sabha"},
+      {n:"331", t:"Anglo-Indian representation in Lok Sabha"},
+      {n:"332", t:"Reservation of seats for SC/ST in State Assemblies"},
+      {n:"333", t:"Representation of Anglo-Indians in State Assemblies"},
+      {n:"334", t:"Reservation of seats to cease after 80 years (extended by amendments)"},
+      {n:"335", t:"Claims of SC/ST in services & posts"},
+      {n:"336", t:"Special provision for Anglo-Indians in services"},
+      {n:"337", t:"Special provision re: educational grants for Anglo-Indians"},
+      {n:"338", t:"National Commission for SC"},
+      {n:"338A", t:"National Commission for ST"},
+      {n:"338B", t:"National Commission for OBCs", note:"102nd Amendment 2018"},
+      {n:"339", t:"Control of Union over welfare of Scheduled Tribes"},
+      {n:"340", t:"Appointment of Commission for OBCs"},
+      {n:"341", t:"Scheduled Castes"},
+      {n:"342", t:"Scheduled Tribes"},
+      {n:"342A", t:"Socially and Educationally Backward Classes"},
+    ]
+  },
+  {
+    id:"p17", part:"Part XVII", title:"Official Language", arts:[
+      {n:"343", t:"Official language of Union – Hindi (Devanagari script)"},
+      {n:"344", t:"Commission & Committee on Official Language"},
+      {n:"345", t:"Official language(s) of States"},
+      {n:"346", t:"Official language for communication between Union & States"},
+      {n:"347", t:"Special provision relating to language spoken by a section of population"},
+      {n:"348", t:"Language to be used in SC/HCs and legislation"},
+      {n:"349", t:"Special procedure for laws relating to language"},
+      {n:"350", t:"Language for representations for redress of grievances"},
+      {n:"350A", t:"Facilities for instruction in mother tongue"},
+      {n:"350B", t:"Special Officer for Linguistic Minorities"},
+      {n:"351", t:"Directive for development of Hindi language"},
+    ]
+  },
+  {
+    id:"p18", part:"Part XVIII", title:"Emergency Provisions", arts:[
+      {n:"352", t:"Proclamation of National Emergency (Art. 352) – war, external aggression, armed rebellion"},
+      {n:"353", t:"Effect of National Emergency on executive & legislative power"},
+      {n:"354", t:"Application of Art. 268–279 during National Emergency"},
+      {n:"355", t:"Union's duty to protect States against external aggression"},
+      {n:"356", t:"President's Rule / State Emergency (Art. 356) – failure of constitutional machinery"},
+      {n:"357", t:"Exercise of legislative powers during Art. 356"},
+      {n:"358", t:"Suspension of Art. 19 during National Emergency"},
+      {n:"359", t:"Suspension of enforcement of FR during Emergency"},
+      {n:"359A", t:"[Repealed]"},
+      {n:"360", t:"Proclamation of Financial Emergency"},
+    ]
+  },
+  {
+    id:"p19", part:"Part XIX", title:"Miscellaneous", arts:[
+      {n:"361", t:"Protection of President & Governors from legal proceedings"},
+      {n:"361A", t:"Protection of publications re: Parliamentary proceedings"},
+      {n:"361B", t:"Disqualification for appointment on remunerative political posts"},
+      {n:"362", t:"[Repealed]"},
+      {n:"363", t:"Bar to court jurisdiction re: certain treaties"},
+      {n:"363A", t:"Recognition of Rulers of Indian States – [Repealed]"},
+      {n:"364", t:"Special provisions for major ports & aerodromes"},
+      {n:"365", t:"Effect of failure to comply with Union directions"},
+      {n:"366", t:"Definitions"},
+      {n:"367", t:"Interpretation"},
+    ]
+  },
+  {
+    id:"p20", part:"Part XX", title:"Amendment of the Constitution", arts:[
+      {n:"368", t:"Power of Parliament to amend & procedure", note:"3 types: simple majority, special majority, special majority + ratification"},
+    ]
+  },
+  {
+    id:"p21", part:"Part XXI", title:"Temporary, Transitional & Special Provisions", arts:[
+      {n:"369", t:"Temporary power to Parliament re: State List"},
+      {n:"370", t:"Special provisions for J&K [Abrogated 2019 by Art. 370(3)]"},
+      {n:"371", t:"Special provisions for Maharashtra & Gujarat"},
+      {n:"371A–371J", t:"Special provisions for various States (Nagaland, Assam, Manipur, Andhra, Sikkim, Mizoram, Arunachal, Goa, Karnataka)"},
+      {n:"372", t:"Continuance of existing laws & repeal"},
+      {n:"372A", t:"Power of President to adapt laws"},
+      {n:"373", t:"Power of President to make order in respect of preventive detention"},
+      {n:"374", t:"Provisions regarding Federal Court Judges & pending proceedings"},
+      {n:"375", t:"Courts, authorities & officers to continue"},
+      {n:"376", t:"Provisions regarding HC Judges"},
+      {n:"377", t:"Provisions regarding CAG"},
+      {n:"378", t:"Provisions regarding PSCs"},
+      {n:"378A", t:"Special provisions for duration of Andhra Pradesh Assembly"},
+      {n:"379–391", t:"[Repealed transitional provisions]"},
+      {n:"392", t:"Power of President to remove difficulties"},
+    ]
+  },
+  {
+    id:"p22", part:"Part XXII", title:"Short Title, Commencement & Authoritative Text", arts:[
+      {n:"393", t:"Short title – Constitution of India"},
+      {n:"394", t:"Commencement – 26 January 1950"},
+      {n:"394A", t:"Authoritative text in Hindi"},
+      {n:"395", t:"Repeals – Government of India Act 1935 etc."},
+    ]
+  },
+];
+
+// Build nav & main
+const nav = document.getElementById('sideNav');
+const main = document.getElementById('mainContent');
+
+parts.forEach(p => {
+  // Nav link
+  const a = document.createElement('a');
+  a.href = '#' + p.id;
+  a.textContent = p.part + ' – ' + p.title;
+  a.title = p.title;
+  nav.appendChild(a);
+
+  // Part block
+  const block = document.createElement('div');
+  block.className = 'part-block';
+  block.id = p.id;
+
+  const header = document.createElement('div');
+  header.className = 'part-header';
+  header.innerHTML = `
+    <span class="part-badge">${p.part}</span>
+    <span class="part-title">${p.title}</span>
+    <span class="part-range">${p.arts.length} article${p.arts.length > 1 ? 's' : ''}</span>
+  `;
+  block.appendChild(header);
+
+  const grid = document.createElement('div');
+  grid.className = 'articles-grid';
+
+  p.arts.forEach(art => {
+    const card = document.createElement('div');
+    card.className = 'article-card';
+    card.dataset.search = ('art ' + art.n + ' article ' + art.n + ' ' + art.t + ' ' + (art.note||'')).toLowerCase();
+    card.innerHTML = `
+      <div class="art-num">Art.${art.n}</div>
+      <div class="art-body">
+        <div class="art-title">${art.t}</div>
+        ${art.note ? `<div class="art-note">${art.note}</div>` : ''}
+      </div>
+    `;
+    grid.appendChild(card);
+  });
+
+  block.appendChild(grid);
+  main.appendChild(block);
+});
+
+// Search
+let total = document.querySelectorAll('.article-card').length;
+document.getElementById('countDisplay').textContent = `${total} articles`;
+
+function filterArticles(query) {
+  const q = query.trim().toLowerCase();
+  const cards = document.querySelectorAll('.article-card');
+  let visible = 0;
+
+  cards.forEach(card => {
+    const match = !q || card.dataset.search.includes(q);
+    card.classList.toggle('hidden', !match);
+    if (match) visible++;
+
+    // Highlight
+    if (q && match) {
+      card.querySelectorAll('.art-title, .art-note').forEach(el => {
+        el.innerHTML = el.textContent.replace(new RegExp(`(${q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')})`, 'gi'), '<mark>$1</mark>');
+      });
+    } else {
+      card.querySelectorAll('.art-title, .art-note').forEach(el => {
+        el.innerHTML = el.textContent;
+      });
+    }
+  });
+
+  // Show/hide part blocks
+  document.querySelectorAll('.part-block').forEach(block => {
+    const anyVisible = [...block.querySelectorAll('.article-card')].some(c => !c.classList.contains('hidden'));
+    block.classList.toggle('hidden', !anyVisible);
+  });
+
+  document.getElementById('countDisplay').textContent = q ? `${visible} of ${total} articles` : `${total} articles`;
+}
+</script>
+</body>
+</html>

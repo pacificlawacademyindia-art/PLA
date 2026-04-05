@@ -1,0 +1,2070 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Class Test 5 — Indian Contract Act | Pacific Law Academy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,400&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+    --ink: #1a1208;
+    --paper: #f5f0e8;
+    --cream: #ede8da;
+    --gold: #b8860b;
+    --gold-light: #d4a017;
+    --rust: #8b3a0f;
+    --forest: #1e3d2f;
+    --accent: #c0392b;
+    --indigo: #2c3e7a;
+    --line: rgba(26,18,8,0.15);
+    --shadow: rgba(26,18,8,0.12);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Source Serif 4', Georgia, serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.7;
+  }
+
+  @media print {
+    body { background: white; color: black; font-size: 10.5pt; }
+    .no-print { display: none !important; }
+    .page-break { page-break-before: always; }
+    .header-band { background: black !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .meta-strip { background: #555 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .section-title { color: black !important; border-color: black !important; }
+    .answer-key { page-break-before: always; }
+    .q-number { color: black !important; }
+    .difficulty { display: none; }
+    a { text-decoration: none; color: black; }
+    .question-block { break-inside: avoid; }
+  }
+
+  /* ── HEADER ── */
+  .header-band {
+    background: var(--indigo);
+    color: var(--paper);
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .header-band::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      -45deg, transparent, transparent 12px,
+      rgba(255,255,255,0.025) 12px, rgba(255,255,255,0.025) 24px
+    );
+  }
+  .header-band::after {
+    content: '§';
+    position: absolute;
+    right: 40px; top: 50%;
+    transform: translateY(-50%);
+    font-family: 'Playfair Display', serif;
+    font-size: 140px;
+    font-weight: 900;
+    color: rgba(255,255,255,0.04);
+    line-height: 1;
+    pointer-events: none;
+  }
+  .header-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 34px 40px 30px;
+    position: relative;
+    z-index: 1;
+  }
+  .academy-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 12px;
+    letter-spacing: 3.5px;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    margin-bottom: 8px;
+  }
+  .test-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 900;
+    line-height: 1.1;
+    color: var(--paper);
+    margin-bottom: 5px;
+  }
+  .test-subtitle {
+    font-size: 14.5px;
+    color: rgba(245,240,232,0.72);
+    font-style: italic;
+    letter-spacing: 0.3px;
+  }
+
+  .meta-strip {
+    background: var(--gold);
+    color: var(--ink);
+    padding: 10px 40px;
+    display: flex;
+    gap: 28px;
+    flex-wrap: wrap;
+    align-items: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+  .meta-item span { opacity: 0.62; font-weight: 400; }
+
+  /* ── INSTRUCTIONS ── */
+  .instructions {
+    max-width: 900px;
+    margin: 24px auto;
+    padding: 18px 28px;
+    background: var(--cream);
+    border-left: 4px solid var(--indigo);
+    border-radius: 0 4px 4px 0;
+  }
+  .instructions h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--indigo);
+    margin-bottom: 8px;
+  }
+  .instructions ul {
+    list-style: none;
+    display: flex; flex-wrap: wrap; gap: 6px 28px;
+    font-size: 13px;
+  }
+  .instructions ul li::before { content: '◆ '; color: var(--gold); font-size: 10px; }
+
+  /* ── SYLLABUS STRIP ── */
+  .syllabus-strip {
+    max-width: 900px;
+    margin: 0 auto 4px;
+    padding: 0 40px;
+  }
+  .syllabus-inner {
+    background: var(--indigo);
+    color: rgba(245,240,232,0.85);
+    padding: 12px 20px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-family: 'JetBrains Mono', monospace;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 16px;
+    align-items: center;
+  }
+  .syllabus-inner strong {
+    color: var(--gold-light);
+    margin-right: 6px;
+    letter-spacing: 1px;
+  }
+  .topic-pill {
+    background: rgba(255,255,255,0.12);
+    padding: 2px 8px;
+    border-radius: 2px;
+    font-size: 10.5px;
+    letter-spacing: 0.5px;
+  }
+
+  /* ── MAIN ── */
+  .main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 40px 60px;
+  }
+
+  /* ── SECTION TITLE ── */
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 14.5px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--indigo);
+    border-bottom: 2px solid var(--indigo);
+    padding-bottom: 6px;
+    margin: 38px 0 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-title::before {
+    content: '';
+    display: inline-block;
+    width: 16px; height: 16px;
+    background: var(--gold);
+    flex-shrink: 0;
+  }
+  .section-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--gold);
+    margin-left: auto;
+    font-weight: 700;
+  }
+
+  /* ── QUESTION ── */
+  .question-block {
+    margin-bottom: 20px;
+    padding: 15px 18px 13px;
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    position: relative;
+    transition: box-shadow 0.2s;
+  }
+  .question-block:hover { box-shadow: 0 3px 12px var(--shadow); }
+
+  /* difficulty stripe on left */
+  .question-block.easy { border-left: 3px solid #2ecc71; }
+  .question-block.medium { border-left: 3px solid #e67e22; }
+  .question-block.hard { border-left: 3px solid #c0392b; }
+
+  .q-row {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    margin-bottom: 10px;
+  }
+  .q-number {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11.5px;
+    font-weight: 700;
+    color: var(--gold);
+    min-width: 36px;
+    padding-top: 2px;
+    flex-shrink: 0;
+  }
+  .q-text {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.55;
+    color: var(--ink);
+    flex: 1;
+  }
+  .difficulty {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 2px 6px;
+    border-radius: 2px;
+    flex-shrink: 0;
+    align-self: flex-start;
+    margin-top: 3px;
+  }
+  .difficulty.easy { background: #eafaf1; color: #27ae60; }
+  .difficulty.medium { background: #fef5e7; color: #d35400; }
+  .difficulty.hard { background: #fdedec; color: #c0392b; }
+
+  .case-ref {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--indigo);
+    background: #eef0fa;
+    padding: 2px 8px;
+    border-radius: 2px;
+    margin-bottom: 8px;
+    display: inline-block;
+    letter-spacing: 0.3px;
+  }
+
+  .options-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px 14px;
+    padding-left: 46px;
+  }
+  .option {
+    font-size: 13px;
+    padding: 3px 0;
+    color: #2a2010;
+    display: flex;
+    gap: 6px;
+    align-items: flex-start;
+  }
+  .opt-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11.5px;
+    font-weight: 700;
+    color: var(--rust);
+    flex-shrink: 0;
+    min-width: 20px;
+  }
+
+  /* ── ANSWER KEY ── */
+  .answer-key {
+    margin-top: 52px;
+    padding-top: 32px;
+    border-top: 3px double var(--indigo);
+  }
+  .answer-key-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 900;
+    color: var(--indigo);
+    margin-bottom: 5px;
+  }
+  .answer-key-sub {
+    font-size: 13px;
+    color: var(--rust);
+    font-style: italic;
+    margin-bottom: 30px;
+  }
+  .ans-section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--indigo);
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 4px;
+    margin: 24px 0 12px;
+  }
+  .ans-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6px 10px;
+  }
+  .ans-item {
+    font-size: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 6px 8px;
+    background: var(--cream);
+    border-radius: 3px;
+    border-left: 3px solid var(--gold);
+  }
+  .ans-qnum {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    font-weight: 700;
+    color: var(--rust);
+  }
+  .ans-val {
+    font-weight: 600;
+    color: var(--indigo);
+    font-size: 12px;
+    line-height: 1.3;
+  }
+  .ans-note {
+    font-size: 10.5px;
+    color: #5a4a30;
+    font-style: italic;
+    line-height: 1.35;
+    margin-top: 2px;
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    background: var(--indigo);
+    color: rgba(245,240,232,0.65);
+    text-align: center;
+    padding: 18px;
+    font-size: 12px;
+    letter-spacing: 1px;
+    margin-top: 40px;
+  }
+  .footer strong { color: var(--gold-light); }
+
+  /* ── PRINT BUTTON ── */
+  .print-btn {
+    position: fixed;
+    bottom: 28px; right: 28px;
+    background: var(--indigo);
+    color: var(--paper);
+    border: none;
+    padding: 12px 22px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 4px 16px var(--shadow);
+    z-index: 999;
+    transition: background 0.2s, color 0.2s;
+  }
+  .print-btn:hover { background: var(--gold); color: var(--ink); }
+
+  @media (max-width: 640px) {
+    .header-inner { padding: 24px 18px; }
+    .test-title { font-size: 26px; }
+    .main { padding: 0 16px 40px; }
+    .options-grid { grid-template-columns: 1fr; }
+    .ans-grid { grid-template-columns: repeat(2, 1fr); }
+    .meta-strip { padding: 10px 18px; gap: 14px; }
+    .syllabus-strip { padding: 0 16px; }
+    .instructions { margin: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<button class="print-btn no-print" id="print-btn">⎙ Print / PDF</button>
+
+<!-- ═══ HEADER ═══ -->
+<div class="header-band">
+  <div class="header-inner">
+    <div class="academy-name">Pacific Law Academy · Panchkula · PU Law Entrance 2026</div>
+    <div class="test-title">Class Test 5 — Indian Contract Act, 1872</div>
+    <div class="test-subtitle">Landmark Cases · Key Doctrines · Essentials · Voidable &amp; Void Agreements · Quasi-Contracts · Specific Relief</div>
+  </div>
+</div>
+<div class="meta-strip">
+  <div class="meta-item">TOTAL QUESTIONS: <span>100</span></div>
+  <div class="meta-item">MARKS: <span>100 × 1 = 100</span></div>
+  <div class="meta-item">TIME: <span>75 Minutes</span></div>
+  <div class="meta-item">NEGATIVE MARKING: <span>0.25 per wrong answer</span></div>
+  <div class="meta-item">DIFFICULTY: <span>Basic → Intermediate → Advanced</span></div>
+</div>
+
+<!-- SYLLABUS -->
+<div class="syllabus-strip">
+  <div class="syllabus-inner">
+    <strong>Topics:</strong>
+    <span class="topic-pill">Formation</span>
+    <span class="topic-pill">Offer &amp; Acceptance</span>
+    <span class="topic-pill">Consideration</span>
+    <span class="topic-pill">Capacity</span>
+    <span class="topic-pill">Free Consent</span>
+    <span class="topic-pill">Void &amp; Voidable</span>
+    <span class="topic-pill">Contingent</span>
+    <span class="topic-pill">Performance</span>
+    <span class="topic-pill">Quasi-Contracts</span>
+    <span class="topic-pill">Breach &amp; Remedies</span>
+    <span class="topic-pill">Indemnity &amp; Guarantee</span>
+    <span class="topic-pill">Agency</span>
+    <span class="topic-pill">Landmark Cases</span>
+  </div>
+</div>
+
+<!-- INSTRUCTIONS -->
+<div class="instructions">
+  <h3>Instructions</h3>
+  <ul>
+    <li>Each question carries 1 mark. Choose the BEST option.</li>
+    <li>0.25 mark deducted per wrong answer — do not guess blindly.</li>
+    <li>Green border = Easy | Orange border = Medium | Red border = Hard</li>
+    <li>Case-law references shown in blue boxes above relevant questions.</li>
+    <li>Answer Key with explanatory notes is at the end of this paper.</li>
+  </ul>
+</div>
+
+<!-- ═══ MAIN ═══ -->
+<div class="main">
+
+<!-- ══════════════════════════════════════════
+     SECTION A — BASICS & FORMATION (Q.1–20)
+══════════════════════════════════════════ -->
+<div class="section-title">
+  Section A — Basics, Offer, Acceptance &amp; Consideration
+  <span class="section-num">Q.1 – Q.20</span>
+</div>
+
+<div class="question-block easy">
+  <div class="q-row">
+    <div class="q-number">Q.1</div>
+    <div class="q-text">The Indian Contract Act, 1872 came into force on:</div>
+    <span class="difficulty easy">Easy</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> 1 January 1872</div>
+    <div class="option"><span class="opt-label">(B)</span> 1 September 1872</div>
+    <div class="option"><span class="opt-label">(C)</span> 1 March 1872</div>
+    <div class="option"><span class="opt-label">(D)</span> 26 January 1872</div>
+  </div>
+</div>
+
+<div class="question-block easy">
+  <div class="q-row">
+    <div class="q-number">Q.2</div>
+    <div class="q-text">Under Section 2(h) of the Indian Contract Act, 1872, a contract is defined as:</div>
+    <span class="difficulty easy">Easy</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Every promise made between two parties</div>
+    <div class="option"><span class="opt-label">(B)</span> An agreement enforceable by law</div>
+    <div class="option"><span class="opt-label">(C)</span> Every set of promises forming consideration</div>
+    <div class="option"><span class="opt-label">(D)</span> An obligation accepted by competent parties</div>
+  </div>
+</div>
+
+<div class="question-block easy">
+  <div class="q-row">
+    <div class="q-number">Q.3</div>
+    <div class="q-text">Which of the following is NOT an essential element of a valid contract?</div>
+    <span class="difficulty easy">Easy</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Lawful consideration</div>
+    <div class="option"><span class="opt-label">(B)</span> Free consent</div>
+    <div class="option"><span class="opt-label">(C)</span> Registration of the contract</div>
+    <div class="option"><span class="opt-label">(D)</span> Competent parties</div>
+  </div>
+</div>
+
+<div class="question-block easy">
+  <div class="q-row">
+    <div class="q-number">Q.4</div>
+    <div class="q-text">A proposal made to the world at large is called:</div>
+    <span class="difficulty easy">Easy</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Standing offer</div>
+    <div class="option"><span class="opt-label">(B)</span> Specific offer</div>
+    <div class="option"><span class="opt-label">(C)</span> General offer</div>
+    <div class="option"><span class="opt-label">(D)</span> Cross offer</div>
+  </div>
+</div>
+
+<div class="question-block easy">
+  <div class="case-ref">📋 Carlill v Carbolic Smoke Ball Co. (1893) UK | Harbhajan Lal v Harcharan Lal (India)</div>
+  <div class="q-row">
+    <div class="q-number">Q.5</div>
+    <div class="q-text">The leading case establishing that a general offer can be accepted by any person who performs the stated conditions is:</div>
+    <span class="difficulty easy">Easy</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Lalman Shukla v Gauri Dutt</div>
+    <div class="option"><span class="opt-label">(B)</span> Carlill v Carbolic Smoke Ball Co.</div>
+    <div class="option"><span class="opt-label">(C)</span> Balfour v Balfour</div>
+    <div class="option"><span class="opt-label">(D)</span> Mohori Bibee v Dharmodas Ghose</div>
+  </div>
+</div>
+
+<div class="question-block easy">
+  <div class="case-ref">📋 Lalman Shukla v Gauri Dutt (1913) Allahabad HC</div>
+  <div class="q-row">
+    <div class="q-number">Q.6</div>
+    <div class="q-text">In Lalman Shukla v Gauri Dutt, the court held that the plaintiff was not entitled to the reward because:</div>
+    <span class="difficulty easy">Easy</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> He was a minor at the time of performance</div>
+    <div class="option"><span class="opt-label">(B)</span> He had no knowledge of the offer at the time he performed the act</div>
+    <div class="option"><span class="opt-label">(C)</span> The offer had lapsed before he found the boy</div>
+    <div class="option"><span class="opt-label">(D)</span> The contract was void for want of consideration</div>
+  </div>
+</div>
+
+<div class="question-block easy">
+  <div class="q-row">
+    <div class="q-number">Q.7</div>
+    <div class="q-text">Under Section 2(b) of the ICA, 1872, when is a proposal said to be accepted?</div>
+    <span class="difficulty easy">Easy</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> When the offeree signs the proposal</div>
+    <div class="option"><span class="opt-label">(B)</span> When the offeree signifies assent to the proposal</div>
+    <div class="option"><span class="opt-label">(C)</span> When the offeror receives notice of performance</div>
+    <div class="option"><span class="opt-label">(D)</span> When consideration passes from offeree to offeror</div>
+  </div>
+</div>
+
+<div class="question-block medium">
+  <div class="q-row">
+    <div class="q-number">Q.8</div>
+    <div class="q-text">Two parties make identical offers to each other unaware of the other's offer. This is known as:</div>
+    <span class="difficulty medium">Medium</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Conditional offer</div>
+    <div class="option"><span class="opt-label">(B)</span> Counter offer</div>
+    <div class="option"><span class="opt-label">(C)</span> Cross offer</div>
+    <div class="option"><span class="opt-label">(D)</span> Standing offer</div>
+  </div>
+</div>
+
+<div class="question-block medium">
+  <div class="q-row">
+    <div class="q-number">Q.9</div>
+    <div class="q-text">Under the Indian Contract Act, acceptance by post is complete against the proposer when the letter of acceptance is:</div>
+    <span class="difficulty medium">Medium</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Written by the acceptor</div>
+    <div class="option"><span class="opt-label">(B)</span> Posted by the acceptor</div>
+    <div class="option"><span class="opt-label">(C)</span> Received by the proposer</div>
+    <div class="option"><span class="opt-label">(D)</span> Read by the proposer</div>
+  </div>
+</div>
+
+<div class="question-block easy">
+  <div class="q-row">
+    <div class="q-number">Q.10</div>
+    <div class="q-text">"Past consideration is good consideration" — this rule applies in:</div>
+    <span class="difficulty easy">Easy</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> English law only</div>
+    <div class="option"><span class="opt-label">(B)</span> Indian law only</div>
+    <div class="option"><span class="opt-label">(C)</span> Both English and Indian law equally</div>
+    <div class="option"><span class="opt-label">(D)</span> Neither English nor Indian law</div>
+  </div>
+</div>
+
+<div class="question-block medium">
+  <div class="case-ref">📋 Chinnaya v Ramayya (1882) Madras HC</div>
+  <div class="q-row">
+    <div class="q-number">Q.11</div>
+    <div class="q-text">In Chinnaya v Ramayya, the court established that consideration under Indian law:</div>
+    <span class="difficulty medium">Medium</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Must move from the promisee only</div>
+    <div class="option"><span class="opt-label">(B)</span> May move from the promisee or any other person</div>
+    <div class="option"><span class="opt-label">(C)</span> Must always be monetary in nature</div>
+    <div class="option"><span class="opt-label">(D)</span> Cannot be past consideration under any circumstances</div>
+  </div>
+</div>
+
+<div class="question-block easy">
+  <div class="q-row">
+    <div class="q-number">Q.12</div>
+    <div class="q-text">Which Section of the Indian Contract Act states that an agreement without consideration is void?</div>
+    <span class="difficulty easy">Easy</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Section 10</div>
+    <div class="option"><span class="opt-label">(B)</span> Section 23</div>
+    <div class="option"><span class="opt-label">(C)</span> Section 25</div>
+    <div class="option"><span class="opt-label">(D)</span> Section 27</div>
+  </div>
+</div>
+
+<div class="question-block medium">
+  <div class="q-row">
+    <div class="q-number">Q.13</div>
+    <div class="q-text">A promises to pay B ₹5,000 for his past act of saving A's life without being asked. This agreement is:</div>
+    <span class="difficulty medium">Medium</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Void — consideration is past</div>
+    <div class="option"><span class="opt-label">(B)</span> Valid — Section 25(2) exception applies</div>
+    <div class="option"><span class="opt-label">(C)</span> Voidable — at A's option</div>
+    <div class="option"><span class="opt-label">(D)</span> Illegal — no consideration in law</div>
+  </div>
+</div>
+
+<div class="question-block medium">
+  <div class="q-row">
+    <div class="q-number">Q.14</div>
+    <div class="q-text">The doctrine that "consideration need not be adequate but must be real" is reflected in which Section of the ICA?</div>
+    <span class="difficulty medium">Medium</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Section 2(d) Explanation</div>
+    <div class="option"><span class="opt-label">(B)</span> Section 25 Explanation 2</div>
+    <div class="option"><span class="opt-label">(C)</span> Section 10</div>
+    <div class="option"><span class="opt-label">(D)</span> Section 23</div>
+  </div>
+</div>
+
+<div class="question-block medium">
+  <div class="q-row">
+    <div class="q-number">Q.15</div>
+    <div class="q-text">Which of the following agreements is valid WITHOUT consideration under Section 25 of ICA?</div>
+    <span class="difficulty medium">Medium</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Agreement to pay time-barred debt, made in writing and signed</div>
+    <div class="option"><span class="opt-label">(B)</span> An oral promise to deliver goods next year</div>
+    <div class="option"><span class="opt-label">(C)</span> Agreement to perform a natural obligation</div>
+    <div class="option"><span class="opt-label">(D)</span> A verbal gift of land</div>
+  </div>
+</div>
+
+<div class="question-block easy">
+  <div class="q-row">
+    <div class="q-number">Q.16</div>
+    <div class="q-text">An offer can be revoked:</div>
+    <span class="difficulty easy">Easy</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> At any time before acceptance is complete against the offeror</div>
+    <div class="option"><span class="opt-label">(B)</span> Only after acceptance</div>
+    <div class="option"><span class="opt-label">(C)</span> After posting the letter of acceptance</div>
+    <div class="option"><span class="opt-label">(D)</span> Never once communicated</div>
+  </div>
+</div>
+
+<div class="question-block medium">
+  <div class="q-row">
+    <div class="q-number">Q.17</div>
+    <div class="q-text">Which Section of the ICA provides that acceptance must be absolute and unqualified?</div>
+    <span class="difficulty medium">Medium</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Section 5</div>
+    <div class="option"><span class="opt-label">(B)</span> Section 7</div>
+    <div class="option"><span class="opt-label">(C)</span> Section 9</div>
+    <div class="option"><span class="opt-label">(D)</span> Section 13</div>
+  </div>
+</div>
+
+<div class="question-block medium">
+  <div class="q-row">
+    <div class="q-number">Q.18</div>
+    <div class="q-text">Under ICA, a "standing offer" or "tender" is:</div>
+    <span class="difficulty medium">Medium</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> An offer that becomes a contract upon its communication</div>
+    <div class="option"><span class="opt-label">(B)</span> An offer that may be accepted in portions over time</div>
+    <div class="option"><span class="opt-label">(C)</span> An irrevocable offer binding both parties immediately</div>
+    <div class="option"><span class="opt-label">(D)</span> An offer that lapses after 30 days by default</div>
+  </div>
+</div>
+
+<div class="question-block medium">
+  <div class="q-row">
+    <div class="q-number">Q.19</div>
+    <div class="q-text">A promises to pay B a debt which is time-barred under the Limitation Act. The promise is made in writing and signed by A. This agreement is:</div>
+    <span class="difficulty medium">Medium</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Void</div>
+    <div class="option"><span class="opt-label">(B)</span> Valid</div>
+    <div class="option"><span class="opt-label">(C)</span> Voidable</div>
+    <div class="option"><span class="opt-label">(D)</span> Illegal</div>
+  </div>
+</div>
+
+<div class="question-block hard">
+  <div class="q-row">
+    <div class="q-number">Q.20</div>
+    <div class="q-text">The maxim "ex nudo pacto non oritur actio" means:</div>
+    <span class="difficulty hard">Hard</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> A contract without free consent is void</div>
+    <div class="option"><span class="opt-label">(B)</span> No action arises from a bare/naked agreement without consideration</div>
+    <div class="option"><span class="opt-label">(C)</span> Acceptance must be absolute</div>
+    <div class="option"><span class="opt-label">(D)</span> The law does not concern itself with trifles</div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     SECTION B — CAPACITY & FREE CONSENT (Q.21–40)
+══════════════════════════════════════════ -->
+<div class="section-title">
+  Section B — Capacity to Contract &amp; Free Consent
+  <span class="section-num">Q.21 – Q.40</span>
+</div>
+
+<div class="question-block easy">
+  <div class="q-row">
+    <div class="q-number">Q.21</div>
+    <div class="q-text">Under Section 11 of the ICA, the following person is NOT competent to contract:</div>
+    <span class="difficulty easy">Easy</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> A person who has attained majority</div>
+    <div class="option"><span class="opt-label">(B)</span> A person of sound mind</div>
+    <div class="option"><span class="opt-label">(C)</span> A minor</div>
+    <div class="option"><span class="opt-label">(D)</span> A person not disqualified by any law</div>
+  </div>
+</div>
+
+<div class="question-block easy">
+  <div class="case-ref">📋 Mohori Bibee v Dharmodas Ghose (1903) Privy Council</div>
+  <div class="q-row">
+    <div class="q-number">Q.22</div>
+    <div class="q-text">In the landmark Privy Council case Mohori Bibee v Dharmodas Ghose, it was held that a contract entered into by a minor is:</div>
+    <span class="difficulty easy">Easy</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Valid, but voidable at the minor's option</div>
+    <div class="option"><span class="opt-label">(B)</span> Void ab initio — absolutely void</div>
+    <div class="option"><span class="opt-label">(C)</span> Valid, if ratified after attaining majority</div>
+    <div class="option"><span class="opt-label">(D)</span> Voidable at the option of the other party</div>
+  </div>
+</div>
+
+<div class="question-block medium">
+  <div class="q-row">
+    <div class="q-number">Q.23</div>
+    <div class="q-text">A minor who has received a benefit under a void contract:</div>
+    <span class="difficulty medium">Medium</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Must restore the benefit under Section 65 of ICA</div>
+    <div class="option"><span class="opt-label">(B)</span> Need not restore the benefit as Section 65 does not apply to minors</div>
+    <div class="option"><span class="opt-label">(C)</span> Must restore under the doctrine of unjust enrichment always</div>
+    <div class="option"><span class="opt-label">(D)</span> Must restore under specific performance provisions</div>
+  </div>
+</div>
+
+<div class="question-block medium">
+  <div class="case-ref">📋 Raj Rani v Prem Adib (1949) Bombay HC</div>
+  <div class="q-row">
+    <div class="q-number">Q.24</div>
+    <div class="q-text">Under the doctrine of restitution as applied to minors in India, courts may order restoration of benefit received by a minor under a void contract based on:</div>
+    <span class="difficulty medium">Medium</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Section 65 ICA directly</div>
+    <div class="option"><span class="opt-label">(B)</span> Section 33 of the Specific Relief Act, 1963</div>
+    <div class="option"><span class="opt-label">(C)</span> Section 41 ICA</div>
+    <div class="option"><span class="opt-label">(D)</span> The Transfer of Property Act, 1882</div>
+  </div>
+</div>
+
+<div class="question-block easy">
+  <div class="q-row">
+    <div class="q-number">Q.25</div>
+    <div class="q-text">Under Section 14 of the ICA, consent is said to be free when it is not caused by:</div>
+    <span class="difficulty easy">Easy</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Coercion, undue influence, fraud, misrepresentation or mistake</div>
+    <div class="option"><span class="opt-label">(B)</span> Delay, frustration, or impossibility</div>
+    <div class="option"><span class="opt-label">(C)</span> Lack of consideration or illegal object</div>
+    <div class="option"><span class="opt-label">(D)</span> Breach, repudiation, or novation</div>
+  </div>
+</div>
+
+<div class="question-block medium">
+  <div class="q-row">
+    <div class="q-number">Q.26</div>
+    <div class="q-text">Under Section 15, "coercion" includes committing or threatening to commit any act forbidden by the Indian Penal Code. The effect of coercion on a contract is that it becomes:</div>
+    <span class="difficulty medium">Medium</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Void ab initio</div>
+    <div class="option"><span class="opt-label">(B)</span> Voidable at the option of the party whose consent was so caused</div>
+    <div class="option"><span class="opt-label">(C)</span> Illegal and punishable</div>
+    <div class="option"><span class="opt-label">(D)</span> Valid if ratified subsequently</div>
+  </div>
+</div>
+
+<div class="question-block medium">
+  <div class="case-ref">📋 Ranganayakamma v Alwar Setti (1889) Madras HC</div>
+  <div class="q-row">
+    <div class="q-number">Q.27</div>
+    <div class="q-text">In Ranganayakamma v Alwar Setti, the court applied which doctrine to set aside an adoption deed signed by a widow who was threatened that her deceased husband's body would not be removed unless she signed?</div>
+    <span class="difficulty medium">Medium</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Undue influence</div>
+    <div class="option"><span class="opt-label">(B)</span> Coercion</div>
+    <div class="option"><span class="opt-label">(C)</span> Misrepresentation</div>
+    <div class="option"><span class="opt-label">(D)</span> Common mistake</div>
+  </div>
+</div>
+
+<div class="question-block medium">
+  <div class="q-row">
+    <div class="q-number">Q.28</div>
+    <div class="q-text">Under Section 16(2), a person is deemed to be in a position to dominate the will of another when he holds a REAL OR APPARENT AUTHORITY over the other. Which of the following is NOT an example of this relationship?</div>
+    <span class="difficulty medium">Medium</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Doctor and patient</div>
+    <div class="option"><span class="opt-label">(B)</span> Parent and child</div>
+    <div class="option"><span class="opt-label">(C)</span> Two merchants of equal standing</div>
+    <div class="option"><span class="opt-label">(D)</span> Creditor and debtor in distress</div>
+  </div>
+</div>
+
+<div class="question-block hard">
+  <div class="case-ref">📋 Wajid Khan v Raja Ewaz Ali Khan (1891) Allahabad HC</div>
+  <div class="q-row">
+    <div class="q-number">Q.29</div>
+    <div class="q-text">Under Section 16(3), when a contract is between parties in a fiduciary relationship, the burden of proving that the contract was NOT caused by undue influence lies on:</div>
+    <span class="difficulty hard">Hard</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> The party who appears to have dominated the will</div>
+    <div class="option"><span class="opt-label">(B)</span> The party claiming undue influence</div>
+    <div class="option"><span class="opt-label">(C)</span> The court, which examines evidence suo motu</div>
+    <div class="option"><span class="opt-label">(D)</span> Equally on both parties</div>
+  </div>
+</div>
+
+<div class="question-block medium">
+  <div class="q-row">
+    <div class="q-number">Q.30</div>
+    <div class="q-text">The distinction between "fraud" (Section 17) and "misrepresentation" (Section 18) under ICA is that:</div>
+    <span class="difficulty medium">Medium</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Fraud involves innocent false statement; misrepresentation involves deliberate falsehood</div>
+    <div class="option"><span class="opt-label">(B)</span> Fraud involves deliberate/dishonest false statement; misrepresentation involves innocent false statement</div>
+    <div class="option"><span class="opt-label">(C)</span> Both are identical in Indian law</div>
+    <div class="option"><span class="opt-label">(D)</span> Misrepresentation makes a contract void; fraud makes it voidable</div>
+  </div>
+</div>
+
+<div class="question-block hard">
+  <div class="case-ref">📋 Shree Hanuman Cotton Mills v Tata Aircraft Ltd (1969) SC</div>
+  <div class="q-row">
+    <div class="q-number">Q.31</div>
+    <div class="q-text">"Mere silence is not fraud" under ICA — which of the following is an EXCEPTION to this rule?</div>
+    <span class="difficulty hard">Hard</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Commercial contracts between equals</div>
+    <div class="option"><span class="opt-label">(B)</span> Contracts of utmost good faith (uberrima fides) like insurance; or where silence is equivalent to speech</div>
+    <div class="option"><span class="opt-label">(C)</span> Contracts involving immovable property only</div>
+    <div class="option"><span class="opt-label">(D)</span> All contracts worth over ₹10,000</div>
+  </div>
+</div>
+
+<div class="question-block medium">
+  <div class="q-row">
+    <div class="q-number">Q.32</div>
+    <div class="q-text">When consent to a contract is given under a "mistake of fact" which is bilateral (both parties under the same mistake), the contract is:</div>
+    <span class="difficulty medium">Medium</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Voidable at either party's option</div>
+    <div class="option"><span class="opt-label">(B)</span> Void — Section 20</div>
+    <div class="option"><span class="opt-label">(C)</span> Valid — mistake of fact does not affect consent</div>
+    <div class="option"><span class="opt-label">(D)</span> Illegal</div>
+  </div>
+</div>
+
+<div class="question-block hard">
+  <div class="q-row">
+    <div class="q-number">Q.33</div>
+    <div class="q-text">Mistake of law of a foreign country is treated under ICA as:</div>
+    <span class="difficulty hard">Hard</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Mistake of law of India — no relief available</div>
+    <div class="option"><span class="opt-label">(B)</span> Mistake of fact — relief available under Section 21</div>
+    <div class="option"><span class="opt-label">(C)</span> Absolutely irrelevant to the contract</div>
+    <div class="option"><span class="opt-label">(D)</span> Ground for frustration of contract</div>
+  </div>
+</div>
+
+<div class="question-block medium">
+  <div class="q-row">
+    <div class="q-number">Q.34</div>
+    <div class="q-text">Under Section 19A (Undue Influence), the court may set aside such a contract:</div>
+    <span class="difficulty medium">Medium</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Absolutely</div>
+    <div class="option"><span class="opt-label">(B)</span> Conditionally — if any benefit has been received, it shall be restored</div>
+    <div class="option"><span class="opt-label">(C)</span> Only by a High Court or Supreme Court</div>
+    <div class="option"><span class="opt-label">(D)</span> Only if the innocent party suffered monetary loss</div>
+  </div>
+</div>
+
+<div class="question-block hard">
+  <div class="case-ref">📋 Subhas Chandra Das Mushib v Ganga Prasad Das Mushib (1967) SC</div>
+  <div class="q-row">
+    <div class="q-number">Q.35</div>
+    <div class="q-text">The Supreme Court, in the context of undue influence under Section 16, held that the presumption of undue influence in fiduciary relationships is:</div>
+    <span class="difficulty hard">Hard</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Irrebuttable — cannot be overcome by any evidence</div>
+    <div class="option"><span class="opt-label">(B)</span> Rebuttable — can be displaced by showing fair dealing, independent advice, or adequacy of consideration</div>
+    <div class="option"><span class="opt-label">(C)</span> Only presumed in cases involving property transfers</div>
+    <div class="option"><span class="opt-label">(D)</span> Applicable only when the dominated party is a minor</div>
+  </div>
+</div>
+
+<div class="question-block medium">
+  <div class="q-row">
+    <div class="q-number">Q.36</div>
+    <div class="q-text">A person of "unsound mind" under Section 12 of ICA can validly contract:</div>
+    <span class="difficulty medium">Medium</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Never under any circumstances</div>
+    <div class="option"><span class="opt-label">(B)</span> During lucid intervals, when he understands the contract and can form a rational judgment</div>
+    <div class="option"><span class="opt-label">(C)</span> Only for necessaries as defined by the court</div>
+    <div class="option"><span class="opt-label">(D)</span> Only through a legal guardian always</div>
+  </div>
+</div>
+
+<div class="question-block easy">
+  <div class="q-row">
+    <div class="q-number">Q.37</div>
+    <div class="q-text">Under Section 68 ICA, if a person supplies necessaries to a minor or a lunatic, he is entitled to:</div>
+    <span class="difficulty easy">Easy</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Sue the minor or lunatic personally for the amount</div>
+    <div class="option"><span class="opt-label">(B)</span> Be reimbursed from the property of the minor or lunatic</div>
+    <div class="option"><span class="opt-label">(C)</span> File a criminal complaint for non-payment</div>
+    <div class="option"><span class="opt-label">(D)</span> No remedy — the contract being void</div>
+  </div>
+</div>
+
+<div class="question-block medium">
+  <div class="q-row">
+    <div class="q-number">Q.38</div>
+    <div class="q-text">A contract induced by "active concealment of a material fact" amounts to:</div>
+    <span class="difficulty medium">Medium</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Mere misrepresentation under Section 18</div>
+    <div class="option"><span class="opt-label">(B)</span> Fraud under Section 17(b)</div>
+    <div class="option"><span class="opt-label">(C)</span> Coercion under Section 15</div>
+    <div class="option"><span class="opt-label">(D)</span> Mistake under Section 20</div>
+  </div>
+</div>
+
+<div class="question-block hard">
+  <div class="q-row">
+    <div class="q-number">Q.39</div>
+    <div class="q-text">If A makes a misrepresentation to B and B, before entering the contract, discovers the truth but proceeds with the contract, B can later:</div>
+    <span class="difficulty hard">Hard</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Avoid the contract as misrepresentation already vitiates consent</div>
+    <div class="option"><span class="opt-label">(B)</span> NOT avoid the contract — having discovered truth and proceeded, he is disentitled</div>
+    <div class="option"><span class="opt-label">(C)</span> Claim damages but not rescission</div>
+    <div class="option"><span class="opt-label">(D)</span> File a criminal complaint under IPC only</div>
+  </div>
+</div>
+
+<div class="question-block hard">
+  <div class="q-row">
+    <div class="q-number">Q.40</div>
+    <div class="q-text">The doctrine of "constructive notice" in contract law means that a party:</div>
+    <span class="difficulty hard">Hard</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Has actual knowledge of a fact</div>
+    <div class="option"><span class="opt-label">(B)</span> Is deemed to know facts which he would have discovered with reasonable care</div>
+    <div class="option"><span class="opt-label">(C)</span> Must give written notice before rescinding a contract</div>
+    <div class="option"><span class="opt-label">(D)</span> Has been informed of all terms by the other party</div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     SECTION C — VOID, VOIDABLE & UNLAWFUL AGREEMENTS (Q.41–55)
+══════════════════════════════════════════ -->
+<div class="section-title">
+  Section C — Void, Voidable &amp; Unlawful Agreements
+  <span class="section-num">Q.41 – Q.55</span>
+</div>
+
+<div class="question-block easy">
+  <div class="q-row">
+    <div class="q-number">Q.41</div>
+    <div class="q-text">Under Section 23 of ICA, the consideration or object of a contract is unlawful if it is:</div>
+    <span class="difficulty easy">Easy</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Forbidden by law, fraudulent, or injurious to person or property</div>
+    <div class="option"><span class="opt-label">(B)</span> Without monetary value</div>
+    <div class="option"><span class="opt-label">(C)</span> Unregistered under the Registration Act</div>
+    <div class="option"><span class="opt-label">(D)</span> Not in writing</div>
+  </div>
+</div>
+
+<div class="question-block medium">
+  <div class="q-row">
+    <div class="q-number">Q.42</div>
+    <div class="q-text">Under Section 27, every agreement by which anyone is restrained from exercising a lawful profession or trade is:</div>
+    <span class="difficulty medium">Medium</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Voidable</div>
+    <div class="option"><span class="opt-label">(B)</span> Valid if reasonable in time and area</div>
+    <div class="option"><span class="opt-label">(C)</span> Void, subject to exceptions (sale of goodwill, partnership dissolution)</div>
+    <div class="option"><span class="opt-label">(D)</span> Illegal and penalised</div>
+  </div>
+</div>
+
+<div class="question-block hard">
+  <div class="case-ref">📋 Niranjan Shankar Golikari v Century Spinning (1967) SC India</div>
+  <div class="q-row">
+    <div class="q-number">Q.43</div>
+    <div class="q-text">The Supreme Court, in Niranjan Shankar Golikari v Century Spinning, held that a negative covenant in a service contract (not to work for a competitor during the term of employment) is:</div>
+    <span class="difficulty hard">Hard</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Always void under Section 27</div>
+    <div class="option"><span class="opt-label">(B)</span> Enforceable during the subsistence of the contract if reasonable</div>
+    <div class="option"><span class="opt-label">(C)</span> Only enforceable through criminal law</div>
+    <div class="option"><span class="opt-label">(D)</span> Valid only if registered</div>
+  </div>
+</div>
+
+<div class="question-block medium">
+  <div class="q-row">
+    <div class="q-number">Q.44</div>
+    <div class="q-text">An agreement to refer a dispute to arbitration is NOT hit by Section 28 (agreements in restraint of legal proceedings) because:</div>
+    <span class="difficulty medium">Medium</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Arbitration is considered faster</div>
+    <div class="option"><span class="opt-label">(B)</span> Section 28 itself creates an exception for arbitration agreements</div>
+    <div class="option"><span class="opt-label">(C)</span> The Arbitration Act overrides the Contract Act</div>
+    <div class="option"><span class="opt-label">(D)</span> Courts have created a judicial exception over time</div>
+  </div>
+</div>
+
+<div class="question-block easy">
+  <div class="q-row">
+    <div class="q-number">Q.45</div>
+    <div class="q-text">Under Section 30, agreements by way of wager are:</div>
+    <span class="difficulty easy">Easy</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Voidable</div>
+    <div class="option"><span class="opt-label">(B)</span> Void</div>
+    <div class="option"><span class="opt-label">(C)</span> Valid in states where gambling is permitted</div>
+    <div class="option"><span class="opt-label">(D)</span> Illegal in all circumstances</div>
+  </div>
+</div>
+
+<div class="question-block hard">
+  <div class="q-row">
+    <div class="q-number">Q.46</div>
+    <div class="q-text">The key distinction between a "wager" (void under Section 30) and a "contingent contract" (valid under Section 31) is:</div>
+    <span class="difficulty hard">Hard</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> A wager requires money; a contingent contract does not</div>
+    <div class="option"><span class="opt-label">(B)</span> In a wager both parties have no other interest except winning/losing; a contingent contract involves a collateral interest apart from the uncertain event</div>
+    <div class="option"><span class="opt-label">(C)</span> Wagers are illegal; contingent contracts involve legal events only</div>
+    <div class="option"><span class="opt-label">(D)</span> A contingent contract requires a written document; a wager does not</div>
+  </div>
+</div>
+
+<div class="question-block medium">
+  <div class="q-row">
+    <div class="q-number">Q.47</div>
+    <div class="q-text">Under Section 24, if part of a single consideration supports multiple objects and any one object is unlawful, the agreement is:</div>
+    <span class="difficulty medium">Medium</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Partly valid and partly void</div>
+    <div class="option"><span class="opt-label">(B)</span> Entirely void</div>
+    <div class="option"><span class="opt-label">(C)</span> Voidable at court's discretion</div>
+    <div class="option"><span class="opt-label">(D)</span> Valid — the unlawful part is severed automatically</div>
+  </div>
+</div>
+
+<div class="question-block hard">
+  <div class="case-ref">📋 Gherulal Parakh v Mahadeodas (1959) SC India</div>
+  <div class="q-row">
+    <div class="q-number">Q.48</div>
+    <div class="q-text">In Gherulal Parakh v Mahadeodas, the Supreme Court distinguished between an agreement being "void" under Section 30 (wagering) and "illegal" under Section 23. The significance is:</div>
+    <span class="difficulty hard">Hard</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> A wagering contract, being merely void (not illegal under ICA), does not taint collateral transactions</div>
+    <div class="option"><span class="opt-label">(B)</span> A wagering contract is illegal and taints all collateral transactions</div>
+    <div class="option"><span class="opt-label">(C)</span> Void and illegal mean the same thing under ICA</div>
+    <div class="option"><span class="opt-label">(D)</span> Void contracts under Section 30 can be ratified; illegal ones cannot</div>
+  </div>
+</div>
+
+<div class="question-block medium">
+  <div class="q-row">
+    <div class="q-number">Q.49</div>
+    <div class="q-text">A contingent contract to do something on the happening of an IMPOSSIBLE event is:</div>
+    <span class="difficulty medium">Medium</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Voidable</div>
+    <div class="option"><span class="opt-label">(B)</span> Void</div>
+    <div class="option"><span class="opt-label">(C)</span> Enforceable only in equity</div>
+    <div class="option"><span class="opt-label">(D)</span> Valid if the parties knew of the impossibility</div>
+  </div>
+</div>
+
+<div class="question-block medium">
+  <div class="q-row">
+    <div class="q-number">Q.50</div>
+    <div class="q-text">Under the doctrine of "severability" in contract law, courts may enforce part of an agreement if:</div>
+    <span class="difficulty medium">Medium</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> The illegal part is minor and incidental</div>
+    <div class="option"><span class="opt-label">(B)</span> The valid and invalid parts are distinctly separable and the valid part can stand independently</div>
+    <div class="option"><span class="opt-label">(C)</span> Both parties consent to severing the illegal clause after the dispute arises</div>
+    <div class="option"><span class="opt-label">(D)</span> The contract is not in writing</div>
+  </div>
+</div>
+
+<div class="question-block hard">
+  <div class="q-row">
+    <div class="q-number">Q.51</div>
+    <div class="q-text">The principle "in pari delicto potior est conditio possidentis" applies in contracts with unlawful objects/consideration. It means:</div>
+    <span class="difficulty hard">Hard</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> The party who paid shall always be refunded</div>
+    <div class="option"><span class="opt-label">(B)</span> Where both parties are equally at fault, the one in possession is in a stronger position — neither party can sue the other</div>
+    <div class="option"><span class="opt-label">(C)</span> The court shall divide the loss equally between parties</div>
+    <div class="option"><span class="opt-label">(D)</span> The contract is unenforceable only against the innocent party</div>
+  </div>
+</div>
+
+<div class="question-block medium">
+  <div class="q-row">
+    <div class="q-number">Q.52</div>
+    <div class="q-text">Under Section 26, an agreement in restraint of marriage (other than of a minor) is:</div>
+    <span class="difficulty medium">Medium</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Void</div>
+    <div class="option"><span class="opt-label">(B)</span> Voidable</div>
+    <div class="option"><span class="opt-label">(C)</span> Valid if reasonable</div>
+    <div class="option"><span class="opt-label">(D)</span> Illegal and punishable</div>
+  </div>
+</div>
+
+<div class="question-block medium">
+  <div class="q-row">
+    <div class="q-number">Q.53</div>
+    <div class="q-text">Agreements whose meaning is absolutely uncertain are under which Section?</div>
+    <span class="difficulty medium">Medium</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Section 26</div>
+    <div class="option"><span class="opt-label">(B)</span> Section 29</div>
+    <div class="option"><span class="opt-label">(C)</span> Section 32</div>
+    <div class="option"><span class="opt-label">(D)</span> Section 56</div>
+  </div>
+</div>
+
+<div class="question-block hard">
+  <div class="q-row">
+    <div class="q-number">Q.54</div>
+    <div class="q-text">"Public policy" as a ground for invalidating contracts under Section 23 — which of the following agreements is NOT considered against public policy under Indian case law?</div>
+    <span class="difficulty hard">Hard</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Agreement to defraud creditors</div>
+    <div class="option"><span class="opt-label">(B)</span> Maintenance and champerty agreements</div>
+    <div class="option"><span class="opt-label">(C)</span> A valid arbitration agreement</div>
+    <div class="option"><span class="opt-label">(D)</span> Agreement to suppress criminal prosecution for a compoundable offence (per SC)</div>
+  </div>
+</div>
+
+<div class="question-block hard">
+  <div class="q-row">
+    <div class="q-number">Q.55</div>
+    <div class="q-text">The term "stifling of prosecution" in contract law refers to:</div>
+    <span class="difficulty hard">Hard</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Employing a private investigator</div>
+    <div class="option"><span class="opt-label">(B)</span> Agreement to suppress or abstain from prosecuting a non-compoundable criminal offence in exchange for money — void as against public policy</div>
+    <div class="option"><span class="opt-label">(C)</span> A valid settlement agreement in civil matters</div>
+    <div class="option"><span class="opt-label">(D)</span> Agreement between lawyers not to take a case</div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     SECTION D — PERFORMANCE, DISCHARGE & FRUSTRATION (Q.56–70)
+══════════════════════════════════════════ -->
+<div class="section-title">
+  Section D — Performance, Discharge &amp; Doctrine of Frustration
+  <span class="section-num">Q.56 – Q.70</span>
+</div>
+
+<div class="question-block easy">
+  <div class="q-row">
+    <div class="q-number">Q.56</div>
+    <div class="q-text">A contract may be discharged by which of the following modes?</div>
+    <span class="difficulty easy">Easy</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Performance, agreement, impossibility, lapse of time, operation of law, breach</div>
+    <div class="option"><span class="opt-label">(B)</span> Performance and breach only</div>
+    <div class="option"><span class="opt-label">(C)</span> Novation and payment only</div>
+    <div class="option"><span class="opt-label">(D)</span> Court order only</div>
+  </div>
+</div>
+
+<div class="question-block medium">
+  <div class="q-row">
+    <div class="q-number">Q.57</div>
+    <div class="q-text">"Novation" under Section 62 of ICA means:</div>
+    <span class="difficulty medium">Medium</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Renewal of the existing contract on the same terms</div>
+    <div class="option"><span class="opt-label">(B)</span> Substitution of a new contract in place of an old one, with consent of all parties</div>
+    <div class="option"><span class="opt-label">(C)</span> Extension of time for performance</div>
+    <div class="option"><span class="opt-label">(D)</span> Partial discharge of obligations</div>
+  </div>
+</div>
+
+<div class="question-block medium">
+  <div class="case-ref">📋 Taylor v Caldwell (1863) — Doctrine of Frustration | Section 56 ICA</div>
+  <div class="q-row">
+    <div class="q-number">Q.58</div>
+    <div class="q-text">The doctrine of frustration under Section 56 was significantly shaped by the English case Taylor v Caldwell. The principle established is:</div>
+    <span class="difficulty medium">Medium</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> A contract is discharged when a third party makes performance impossible</div>
+    <div class="option"><span class="opt-label">(B)</span> When performance of a contract becomes impossible due to an event not caused by either party, the contract is void</div>
+    <div class="option"><span class="opt-label">(C)</span> Impossibility of performance is never an excuse under English law</div>
+    <div class="option"><span class="opt-label">(D)</span> Frustration applies only to personal service contracts</div>
+  </div>
+</div>
+
+<div class="question-block hard">
+  <div class="case-ref">📋 Satyabrata Ghose v Mugneeram Bangur (1954) SC India</div>
+  <div class="q-row">
+    <div class="q-number">Q.59</div>
+    <div class="q-text">In the landmark Indian case Satyabrata Ghose v Mugneeram Bangur, the Supreme Court clarified the scope of Section 56 ICA by holding that:</div>
+    <span class="difficulty hard">Hard</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Section 56 adopts the English doctrine of frustration in its entirety</div>
+    <div class="option"><span class="opt-label">(B)</span> Section 56 is a complete code and the word "impossible" includes impracticability — the English doctrine is embodied in this Section</div>
+    <div class="option"><span class="opt-label">(C)</span> Frustration can be pleaded only by the buyer in a contract of sale</div>
+    <div class="option"><span class="opt-label">(D)</span> Only physical impossibility, not legal impossibility, is covered by Section 56</div>
+  </div>
+</div>
+
+<div class="question-block hard">
+  <div class="q-row">
+    <div class="q-number">Q.60</div>
+    <div class="q-text">Which of the following does NOT constitute "frustration" under Section 56 ICA?</div>
+    <span class="difficulty hard">Hard</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Destruction of the specific subject matter of contract</div>
+    <div class="option"><span class="opt-label">(B)</span> Death of a party in a personal service contract</div>
+    <div class="option"><span class="opt-label">(C)</span> A contract becoming merely more expensive or difficult to perform</div>
+    <div class="option"><span class="opt-label">(D)</span> Subsequent illegality making the contract unlawful</div>
+  </div>
+</div>
+
+<div class="question-block medium">
+  <div class="q-row">
+    <div class="q-number">Q.61</div>
+    <div class="q-text">Under Section 65 ICA, when a contract is found void or voidable and is rescinded, any person who received any advantage thereunder is:</div>
+    <span class="difficulty medium">Medium</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Not required to restore any benefit</div>
+    <div class="option"><span class="opt-label">(B)</span> Bound to restore it or make compensation</div>
+    <div class="option"><span class="opt-label">(C)</span> Required to pay double the amount to the other party</div>
+    <div class="option"><span class="opt-label">(D)</span> Entitled to keep the advantage as the contract was void</div>
+  </div>
+</div>
+
+<div class="question-block medium">
+  <div class="q-row">
+    <div class="q-number">Q.62</div>
+    <div class="q-text">Under Section 39 ICA, when a party refuses to perform his obligation under a contract (anticipatory breach), the other party may:</div>
+    <span class="difficulty medium">Medium</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Only sue after the due date of performance arrives</div>
+    <div class="option"><span class="opt-label">(B)</span> Either rescind the contract immediately or wait until performance is due</div>
+    <div class="option"><span class="opt-label">(C)</span> Apply for specific performance only</div>
+    <div class="option"><span class="opt-label">(D)</span> Demand enhanced performance from the defaulting party</div>
+  </div>
+</div>
+
+<div class="question-block hard">
+  <div class="case-ref">📋 Hadley v Baxendale (1854) — Remoteness of Damage | Section 73 ICA</div>
+  <div class="q-row">
+    <div class="q-number">Q.63</div>
+    <div class="q-text">Under Section 73 ICA (read with Hadley v Baxendale), compensation for breach of contract may be claimed for:</div>
+    <span class="difficulty hard">Hard</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> All losses, remote or proximate</div>
+    <div class="option"><span class="opt-label">(B)</span> Losses arising naturally in the usual course from the breach, or losses which the parties knew at the time of contracting would likely result from breach</div>
+    <div class="option"><span class="opt-label">(C)</span> Only losses that are proven beyond reasonable doubt</div>
+    <div class="option"><span class="opt-label">(D)</span> Only consequential losses, never direct losses</div>
+  </div>
+</div>
+
+<div class="question-block medium">
+  <div class="q-row">
+    <div class="q-number">Q.64</div>
+    <div class="q-text">Under Section 74 ICA (Penalty / Liquidated Damages), a pre-agreed sum in a contract as compensation for breach:</div>
+    <span class="difficulty medium">Medium</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Must be paid in full regardless of actual loss</div>
+    <div class="option"><span class="opt-label">(B)</span> Allows the court to award only reasonable compensation, not exceeding the pre-agreed sum</div>
+    <div class="option"><span class="opt-label">(C)</span> Is payable only if the party proves actual loss equal to or exceeding that sum</div>
+    <div class="option"><span class="opt-label">(D)</span> Is void as against public policy</div>
+  </div>
+</div>
+
+<div class="question-block hard">
+  <div class="case-ref">📋 ONGC v Saw Pipes Ltd (2003) SC India</div>
+  <div class="q-row">
+    <div class="q-number">Q.65</div>
+    <div class="q-text">In ONGC v Saw Pipes Ltd, the Supreme Court clarified the law on liquidated damages/penalty under Section 74 by holding that:</div>
+    <span class="difficulty hard">Hard</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Indian courts follow the English distinction between penalty and liquidated damages strictly</div>
+    <div class="option"><span class="opt-label">(B)</span> The court must allow at least the stipulated amount if breach is proved, as Section 74 does not follow English penalty/liquidated damages distinction — reasonable compensation up to stipulated sum is the rule</div>
+    <div class="option"><span class="opt-label">(C)</span> Section 74 applies only to government contracts</div>
+    <div class="option"><span class="opt-label">(D)</span> No damages can be awarded without proof of exact loss under Section 74</div>
+  </div>
+</div>
+
+<div class="question-block medium">
+  <div class="q-row">
+    <div class="q-number">Q.66</div>
+    <div class="q-text">"Quantum meruit" (as much as earned) is a remedy available when:</div>
+    <span class="difficulty medium">Medium</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> A party claims full contract price after partial performance</div>
+    <div class="option"><span class="opt-label">(B)</span> Work has been done but the contract was subsequently discovered to be void, or where one party prevents the other from completing performance</div>
+    <div class="option"><span class="opt-label">(C)</span> Both parties mutually rescind the contract</div>
+    <div class="option"><span class="opt-label">(D)</span> A party refuses to perform and seeks damages</div>
+  </div>
+</div>
+
+<div class="question-block easy">
+  <div class="q-row">
+    <div class="q-number">Q.67</div>
+    <div class="q-text">Under Section 63, a promisee may:</div>
+    <span class="difficulty easy">Easy</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Never waive performance of a promise made in his favour</div>
+    <div class="option"><span class="opt-label">(B)</span> Dispense with or remit performance, wholly or in part</div>
+    <div class="option"><span class="opt-label">(C)</span> Only accept performance in full</div>
+    <div class="option"><span class="opt-label">(D)</span> Extend time unilaterally without consent of the promisor</div>
+  </div>
+</div>
+
+<div class="question-block hard">
+  <div class="q-row">
+    <div class="q-number">Q.68</div>
+    <div class="q-text">The doctrine of "accord and satisfaction" refers to:</div>
+    <span class="difficulty hard">Hard</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Performance of the original contract in full</div>
+    <div class="option"><span class="opt-label">(B)</span> Agreement (accord) to accept a lesser or different performance, followed by actual performance (satisfaction) — this discharges the original obligation</div>
+    <div class="option"><span class="opt-label">(C)</span> Agreement to rescind a contract and start fresh</div>
+    <div class="option"><span class="opt-label">(D)</span> Court order for specific performance</div>
+  </div>
+</div>
+
+<div class="question-block medium">
+  <div class="q-row">
+    <div class="q-number">Q.69</div>
+    <div class="q-text">Under Section 55 (time as essence of contract), if time is fixed for performance and it is not essential, breach of time obligation entitles the affected party to:</div>
+    <span class="difficulty medium">Medium</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Repudiate the contract immediately</div>
+    <div class="option"><span class="opt-label">(B)</span> Claim compensation for loss caused by delay, but not to repudiate</div>
+    <div class="option"><span class="opt-label">(C)</span> Extend time indefinitely</div>
+    <div class="option"><span class="opt-label">(D)</span> No remedy at all</div>
+  </div>
+</div>
+
+<div class="question-block hard">
+  <div class="q-row">
+    <div class="q-number">Q.70</div>
+    <div class="q-text">The "principle of mitigation of loss" under Section 73 ICA requires that:</div>
+    <span class="difficulty hard">Hard</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> The party who breaches must mitigate damages caused to the innocent party</div>
+    <div class="option"><span class="opt-label">(B)</span> The innocent party must take reasonable steps to reduce loss after breach — failure to mitigate disentitles that party from recovering avoidable loss</div>
+    <div class="option"><span class="opt-label">(C)</span> Courts shall automatically reduce damages if the loss appears excessive</div>
+    <div class="option"><span class="opt-label">(D)</span> Mitigation is relevant only in tort law, not contract law</div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     SECTION E — QUASI-CONTRACTS, INDEMNITY, GUARANTEE & AGENCY (Q.71–100)
+══════════════════════════════════════════ -->
+<div class="section-title">
+  Section E — Quasi-Contracts · Indemnity · Guarantee · Bailment · Agency
+  <span class="section-num">Q.71 – Q.100</span>
+</div>
+
+<div class="question-block easy">
+  <div class="q-row">
+    <div class="q-number">Q.71</div>
+    <div class="q-text">Quasi-contracts under the Indian Contract Act are based on the principle of:</div>
+    <span class="difficulty easy">Easy</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Estoppel</div>
+    <div class="option"><span class="opt-label">(B)</span> Unjust enrichment — "nemo debet locupletari aliena jactura"</div>
+    <div class="option"><span class="opt-label">(C)</span> Good faith performance</div>
+    <div class="option"><span class="opt-label">(D)</span> Consent of the parties</div>
+  </div>
+</div>
+
+<div class="question-block medium">
+  <div class="q-row">
+    <div class="q-number">Q.72</div>
+    <div class="q-text">Under Section 70 (quasi-contract), when a person lawfully does something for another or delivers something, not intending to do so gratuitously, and the other party enjoys the benefit, such other party is:</div>
+    <span class="difficulty medium">Medium</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Bound to pay only if a prior contract existed</div>
+    <div class="option"><span class="opt-label">(B)</span> Bound to compensate for it even without any express contract</div>
+    <div class="option"><span class="opt-label">(C)</span> Not bound as there was no meeting of minds</div>
+    <div class="option"><span class="opt-label">(D)</span> Bound to pay only the market price of the benefit</div>
+  </div>
+</div>
+
+<div class="question-block easy">
+  <div class="q-row">
+    <div class="q-number">Q.73</div>
+    <div class="q-text">Under Section 124, a contract of indemnity is one where one party promises to:</div>
+    <span class="difficulty easy">Easy</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Guarantee the debt of a third party</div>
+    <div class="option"><span class="opt-label">(B)</span> Save the other from loss caused by the promisor's own conduct or conduct of any other person</div>
+    <div class="option"><span class="opt-label">(C)</span> Lend money to the other party</div>
+    <div class="option"><span class="opt-label">(D)</span> Perform the contract in place of the original promisor</div>
+  </div>
+</div>
+
+<div class="question-block medium">
+  <div class="case-ref">📋 Gajanan Moreshwar v Moreshwar Madan (1942) Bombay HC</div>
+  <div class="q-row">
+    <div class="q-number">Q.74</div>
+    <div class="q-text">In Gajanan Moreshwar v Moreshwar Madan, the court held that the indemnified party's right to be indemnified arises:</div>
+    <span class="difficulty medium">Medium</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Only after he has actually paid the loss</div>
+    <div class="option"><span class="opt-label">(B)</span> As soon as his liability becomes absolute, even before actual payment — he can compel indemnifier to set aside funds</div>
+    <div class="option"><span class="opt-label">(C)</span> Only upon filing a suit in court</div>
+    <div class="option"><span class="opt-label">(D)</span> Only if the indemnifier caused the loss directly</div>
+  </div>
+</div>
+
+<div class="question-block easy">
+  <div class="q-row">
+    <div class="q-number">Q.75</div>
+    <div class="q-text">Under Section 126, a contract of guarantee involves:</div>
+    <span class="difficulty easy">Easy</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Two parties — creditor and surety only</div>
+    <div class="option"><span class="opt-label">(B)</span> Three parties — principal debtor, creditor, and surety</div>
+    <div class="option"><span class="opt-label">(C)</span> Only the principal debtor and the creditor</div>
+    <div class="option"><span class="opt-label">(D)</span> The surety and an indemnifier</div>
+  </div>
+</div>
+
+<div class="question-block medium">
+  <div class="q-row">
+    <div class="q-number">Q.76</div>
+    <div class="q-text">The key distinction between a "contract of indemnity" and a "contract of guarantee" is:</div>
+    <span class="difficulty medium">Medium</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Indemnity involves one promise; guarantee involves two promises</div>
+    <div class="option"><span class="opt-label">(B)</span> In indemnity there are 2 parties and liability is primary; in guarantee there are 3 parties and the surety's liability is secondary to the principal debtor's</div>
+    <div class="option"><span class="opt-label">(C)</span> Guarantee requires consideration; indemnity does not</div>
+    <div class="option"><span class="opt-label">(D)</span> Indemnity covers criminal loss; guarantee covers civil loss only</div>
+  </div>
+</div>
+
+<div class="question-block hard">
+  <div class="q-row">
+    <div class="q-number">Q.77</div>
+    <div class="q-text">Under Section 133 ICA, a surety is discharged from liability if the creditor:</div>
+    <span class="difficulty hard">Hard</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Merely agrees to give the principal debtor more time, without the surety's consent</div>
+    <div class="option"><span class="opt-label">(B)</span> Notifies the surety before giving time to the principal debtor</div>
+    <div class="option"><span class="opt-label">(C)</span> Demands payment from the surety first</div>
+    <div class="option"><span class="opt-label">(D)</span> Files a suit against the principal debtor only</div>
+  </div>
+</div>
+
+<div class="question-block medium">
+  <div class="q-row">
+    <div class="q-number">Q.78</div>
+    <div class="q-text">The right of "subrogation" available to a surety upon payment means:</div>
+    <span class="difficulty medium">Medium</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> The surety steps into the shoes of the creditor and can exercise all rights the creditor had against the principal debtor</div>
+    <div class="option"><span class="opt-label">(B)</span> The surety can demand a new guarantee from the debtor</div>
+    <div class="option"><span class="opt-label">(C)</span> The surety is discharged from all future liability</div>
+    <div class="option"><span class="opt-label">(D)</span> The creditor must refund the payment to the surety</div>
+  </div>
+</div>
+
+<div class="question-block easy">
+  <div class="q-row">
+    <div class="q-number">Q.79</div>
+    <div class="q-text">Under Section 148, "bailment" is defined as the delivery of goods by one person (bailor) to another (bailee) for some purpose, on the condition that they shall:</div>
+    <span class="difficulty easy">Easy</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Be permanently transferred to the bailee</div>
+    <div class="option"><span class="opt-label">(B)</span> Be returned or disposed of according to directions when the purpose is accomplished</div>
+    <div class="option"><span class="opt-label">(C)</span> Be sold by the bailee to recover costs</div>
+    <div class="option"><span class="opt-label">(D)</span> Always remain with the bailor</div>
+  </div>
+</div>
+
+<div class="question-block medium">
+  <div class="q-row">
+    <div class="q-number">Q.80</div>
+    <div class="q-text">The standard of care required of a bailee under ICA is:</div>
+    <span class="difficulty medium">Medium</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Absolute care — strict liability regardless of fault</div>
+    <div class="option"><span class="opt-label">(B)</span> Such care as a man of ordinary prudence would take of his own goods of similar bulk, quality, and value</div>
+    <div class="option"><span class="opt-label">(C)</span> Minimal care — the bailor accepts all risk</div>
+    <div class="option"><span class="opt-label">(D)</span> Care only when the bailee benefits from the bailment</div>
+  </div>
+</div>
+
+<div class="question-block medium">
+  <div class="q-row">
+    <div class="q-number">Q.81</div>
+    <div class="q-text">A "finder of lost goods" under Section 71 stands in the position of a bailee. He is entitled to:</div>
+    <span class="difficulty medium">Medium</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Keep the goods indefinitely</div>
+    <div class="option"><span class="opt-label">(B)</span> Sell the goods if the owner cannot be found with reasonable effort and the goods are perishable or expenses exceed the value</div>
+    <div class="option"><span class="opt-label">(C)</span> Claim ownership after one year</div>
+    <div class="option"><span class="opt-label">(D)</span> Return the goods without any claim for expenses</div>
+  </div>
+</div>
+
+<div class="question-block easy">
+  <div class="q-row">
+    <div class="q-number">Q.82</div>
+    <div class="q-text">Under Section 182, an "agent" is defined as a person employed to do an act for another or to represent another in dealings with third persons. The person for whom such act is done is called:</div>
+    <span class="difficulty easy">Easy</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> The trustee</div>
+    <div class="option"><span class="opt-label">(B)</span> The principal</div>
+    <div class="option"><span class="opt-label">(C)</span> The bailor</div>
+    <div class="option"><span class="opt-label">(D)</span> The indemnifier</div>
+  </div>
+</div>
+
+<div class="question-block medium">
+  <div class="q-row">
+    <div class="q-number">Q.83</div>
+    <div class="q-text">"Ostensible" or "apparent" authority of an agent means:</div>
+    <span class="difficulty medium">Medium</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Authority expressly given by the principal</div>
+    <div class="option"><span class="opt-label">(B)</span> Authority which the principal has held out the agent as having, even if not actually given — the principal is bound to third parties who relied on it</div>
+    <div class="option"><span class="opt-label">(C)</span> Authority given in an emergency</div>
+    <div class="option"><span class="opt-label">(D)</span> Authority arising by operation of law</div>
+  </div>
+</div>
+
+<div class="question-block medium">
+  <div class="case-ref">📋 Watteau v Fenwick (1893) — Undisclosed Principal | Section 226 ICA</div>
+  <div class="q-row">
+    <div class="q-number">Q.84</div>
+    <div class="q-text">Under the doctrine of "undisclosed principal," an agent who contracts on behalf of an undisclosed principal:</div>
+    <span class="difficulty medium">Medium</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Is personally never liable to the third party</div>
+    <div class="option"><span class="opt-label">(B)</span> Both the agent and the principal may be held liable at the election of the third party once the principal is discovered</div>
+    <div class="option"><span class="opt-label">(C)</span> Makes the contract void as no consent of the third party was given</div>
+    <div class="option"><span class="opt-label">(D)</span> Only the agent is liable — the undisclosed principal is never bound</div>
+  </div>
+</div>
+
+<div class="question-block hard">
+  <div class="q-row">
+    <div class="q-number">Q.85</div>
+    <div class="q-text">Under Section 196 ICA, "ratification" of an agent's act requires that:</div>
+    <span class="difficulty hard">Hard</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> The ratification must relate back only prospectively</div>
+    <div class="option"><span class="opt-label">(B)</span> The principal must have existed and been competent at the time of the act; ratification relates back to the original act (retroactive)</div>
+    <div class="option"><span class="opt-label">(C)</span> Ratification requires fresh consideration</div>
+    <div class="option"><span class="opt-label">(D)</span> Only courts can ratify acts done without authority</div>
+  </div>
+</div>
+
+<div class="question-block medium">
+  <div class="q-row">
+    <div class="q-number">Q.86</div>
+    <div class="q-text">An agency of "necessity" arises when:</div>
+    <span class="difficulty medium">Medium</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> A person acts for another voluntarily in a true emergency where it is impossible to obtain express authority</div>
+    <div class="option"><span class="opt-label">(B)</span> The agent wishes to earn higher commission</div>
+    <div class="option"><span class="opt-label">(C)</span> A third party demands that an agent be appointed</div>
+    <div class="option"><span class="opt-label">(D)</span> The principal is a minor</div>
+  </div>
+</div>
+
+<div class="question-block hard">
+  <div class="q-row">
+    <div class="q-number">Q.87</div>
+    <div class="q-text">Under Section 201, agency is terminated by:</div>
+    <span class="difficulty hard">Hard</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Revocation by the principal, renunciation by the agent, or operation of law (death, insanity, insolvency)</div>
+    <div class="option"><span class="opt-label">(B)</span> Breach of contract by the principal only</div>
+    <div class="option"><span class="opt-label">(C)</span> Death of the third party with whom the agent is dealing</div>
+    <div class="option"><span class="opt-label">(D)</span> Only by order of a civil court</div>
+  </div>
+</div>
+
+<div class="question-block hard">
+  <div class="q-row">
+    <div class="q-number">Q.88</div>
+    <div class="q-text">The maxim "delegatus non potest delegare" in agency law means:</div>
+    <span class="difficulty hard">Hard</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> A delegate can always further delegate his authority</div>
+    <div class="option"><span class="opt-label">(B)</span> An agent to whom authority is delegated cannot further delegate it to a sub-agent, except in certain circumstances under Sections 190–193</div>
+    <div class="option"><span class="opt-label">(C)</span> Only the principal can terminate the agency</div>
+    <div class="option"><span class="opt-label">(D)</span> Delegation is always binding on the principal</div>
+  </div>
+</div>
+
+<div class="question-block medium">
+  <div class="q-row">
+    <div class="q-number">Q.89</div>
+    <div class="q-text">Under Sections 69–72 (quasi-contracts), which of the following is correctly matched?</div>
+    <span class="difficulty medium">Medium</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> S.69 — Supply of necessaries to incapable persons</div>
+    <div class="option"><span class="opt-label">(B)</span> S.69 — Payment by interested person of money due by another; S.70 — Obligation of person enjoying benefit of non-gratuitous act</div>
+    <div class="option"><span class="opt-label">(C)</span> S.71 — Payment by mistake</div>
+    <div class="option"><span class="opt-label">(D)</span> S.72 — Finder of lost goods</div>
+  </div>
+</div>
+
+<div class="question-block hard">
+  <div class="q-row">
+    <div class="q-number">Q.90</div>
+    <div class="q-text">Under Section 72, money paid by mistake or coercion must be repaid by the recipient. The word "coercion" in Section 72 is interpreted as:</div>
+    <span class="difficulty hard">Hard</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Only coercion as defined in Section 15</div>
+    <div class="option"><span class="opt-label">(B)</span> Broader than Section 15 — includes compulsion or duress, even payment under protest to avoid adverse consequences</div>
+    <div class="option"><span class="opt-label">(C)</span> The same as undue influence under Section 16</div>
+    <div class="option"><span class="opt-label">(D)</span> Limited to criminal threats only</div>
+  </div>
+</div>
+
+<div class="question-block hard">
+  <div class="case-ref">📋 M/s Alopi Prasad v Union of India (1960) SC — Frustration & Government Contracts</div>
+  <div class="q-row">
+    <div class="q-number">Q.91</div>
+    <div class="q-text">The Supreme Court in Alopi Prasad v Union of India held that:</div>
+    <span class="difficulty hard">Hard</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Government contracts are exempt from Section 56</div>
+    <div class="option"><span class="opt-label">(B)</span> A contract is not frustrated merely because performance has become more onerous or expensive — commercial hardship alone is not frustration</div>
+    <div class="option"><span class="opt-label">(C)</span> Section 56 does not apply to contracts for supply of goods</div>
+    <div class="option"><span class="opt-label">(D)</span> Government may unilaterally vary contract terms without frustration</div>
+  </div>
+</div>
+
+<div class="question-block hard">
+  <div class="case-ref">📋 B.P. Refinery (Westernport) Pty Ltd v Shire of Hastings (1977) — Implied Terms</div>
+  <div class="q-row">
+    <div class="q-number">Q.92</div>
+    <div class="q-text">The test for implying a term into a contract under Indian contract law (read with common law principles) requires that the term must be:</div>
+    <span class="difficulty hard">Hard</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Beneficial to both parties and in writing</div>
+    <div class="option"><span class="opt-label">(B)</span> Reasonable and equitable; necessary to give business efficacy; obvious; capable of clear expression; and consistent with express terms</div>
+    <div class="option"><span class="opt-label">(C)</span> Orally agreed between parties before signing</div>
+    <div class="option"><span class="opt-label">(D)</span> Approved by a court prior to execution</div>
+  </div>
+</div>
+
+<div class="question-block hard">
+  <div class="q-row">
+    <div class="q-number">Q.93</div>
+    <div class="q-text">Under Section 74, the phrase "whether or not actual damage or loss is proved" (added by amendment) means:</div>
+    <span class="difficulty hard">Hard</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> The stipulated sum is always awarded in full</div>
+    <div class="option"><span class="opt-label">(B)</span> Reasonable compensation may be awarded even without proof of specific loss, but cannot exceed the stipulated amount</div>
+    <div class="option"><span class="opt-label">(C)</span> No proof of breach is needed to claim damages</div>
+    <div class="option"><span class="opt-label">(D)</span> Section 74 overrides Section 73 in all cases</div>
+  </div>
+</div>
+
+<div class="question-block hard">
+  <div class="case-ref">📋 Central Inland Water Transport Corp v Brojo Nath Ganguly (1986) SC India</div>
+  <div class="q-row">
+    <div class="q-number">Q.94</div>
+    <div class="q-text">In Central Inland Water Transport Corp v Brojo Nath Ganguly, the Supreme Court invoked Section 23 (public policy) to strike down a service contract clause allowing termination on one month's notice without cause. The court applied the doctrine of:</div>
+    <span class="difficulty hard">Hard</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Frustration</div>
+    <div class="option"><span class="opt-label">(B)</span> Unconscionability — holding that grossly unfair terms in contracts with unequal bargaining power are void under Section 23</div>
+    <div class="option"><span class="opt-label">(C)</span> Restraint of trade under Section 27</div>
+    <div class="option"><span class="opt-label">(D)</span> Misrepresentation under Section 18</div>
+  </div>
+</div>
+
+<div class="question-block hard">
+  <div class="q-row">
+    <div class="q-number">Q.95</div>
+    <div class="q-text">The doctrine of "promissory estoppel" in India (not codified under ICA) operates to prevent a party from resiling from a promise when the other party has acted in reliance. The leading Supreme Court case establishing this doctrine is:</div>
+    <span class="difficulty hard">Hard</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Mohori Bibee v Dharmodas Ghose</div>
+    <div class="option"><span class="opt-label">(B)</span> Union of India v Anglo Afghan Agencies (1968) SC</div>
+    <div class="option"><span class="opt-label">(C)</span> ONGC v Saw Pipes Ltd</div>
+    <div class="option"><span class="opt-label">(D)</span> Satyabrata Ghose v Mugneeram</div>
+  </div>
+</div>
+
+<div class="question-block hard">
+  <div class="q-row">
+    <div class="q-number">Q.96</div>
+    <div class="q-text">The "parole evidence rule" in contract law (embodied in Sections 91–100 of the Indian Evidence Act) states that:</div>
+    <span class="difficulty hard">Hard</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Oral evidence can always override a written contract</div>
+    <div class="option"><span class="opt-label">(B)</span> When a contract is reduced to writing, oral evidence cannot be admitted to contradict, vary, add to or subtract from its terms; exceptions include fraud, misrepresentation, illegality, collateral contract</div>
+    <div class="option"><span class="opt-label">(C)</span> Written contracts are always unenforceable unless witnessed</div>
+    <div class="option"><span class="opt-label">(D)</span> All contracts must be in writing to be enforceable</div>
+  </div>
+</div>
+
+<div class="question-block hard">
+  <div class="case-ref">📋 LIC v Escorts Ltd (1986) SC | Motilal Padampat Sugar Mills v UP (1979) SC</div>
+  <div class="q-row">
+    <div class="q-number">Q.97</div>
+    <div class="q-text">Promissory estoppel cannot be pleaded against the Government to prevent exercise of its legislative or sovereign functions. This limitation was recognized in:</div>
+    <span class="difficulty hard">Hard</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Gajanan Moreshwar v Moreshwar Madan</div>
+    <div class="option"><span class="opt-label">(B)</span> Motilal Padampat Sugar Mills v State of UP</div>
+    <div class="option"><span class="opt-label">(C)</span> Satyabrata Ghose v Mugneeram Bangur</div>
+    <div class="option"><span class="opt-label">(D)</span> Niranjan Shankar v Century Spinning</div>
+  </div>
+</div>
+
+<div class="question-block hard">
+  <div class="q-row">
+    <div class="q-number">Q.98</div>
+    <div class="q-text">Under Section 226, the contracts of an agent bind the principal when the agent acts within the scope of his authority. If an agent exceeds his authority and the principal does NOT ratify, the position is:</div>
+    <span class="difficulty hard">Hard</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> The principal is always bound as the agent had apparent authority</div>
+    <div class="option"><span class="opt-label">(B)</span> The agent is personally bound to the third party, and the principal is not bound for the excess beyond authority</div>
+    <div class="option"><span class="opt-label">(C)</span> The contract is void ab initio</div>
+    <div class="option"><span class="opt-label">(D)</span> The third party can sue both the principal and agent jointly always</div>
+  </div>
+</div>
+
+<div class="question-block hard">
+  <div class="case-ref">📋 Balfour v Balfour (1919) — Intention to Create Legal Relations</div>
+  <div class="q-row">
+    <div class="q-number">Q.99</div>
+    <div class="q-text">The doctrine of "intention to create legal relations" (recognised in English law through Balfour v Balfour) holds relevance in Indian contract law because Section 10 requires agreements to be "enforceable by law." Which type of agreement is presumed to NOT have legal intention?</div>
+    <span class="difficulty hard">Hard</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Commercial agreements between business partners</div>
+    <div class="option"><span class="opt-label">(B)</span> Social and domestic agreements between family members in normal circumstances</div>
+    <div class="option"><span class="opt-label">(C)</span> Contracts for supply of goods and services</div>
+    <div class="option"><span class="opt-label">(D)</span> All agreements signed before a notary</div>
+  </div>
+</div>
+
+<div class="question-block hard">
+  <div class="case-ref">📋 Specific Relief Act, 1963 | Section 56 ICA | Foakes v Beer (1884)</div>
+  <div class="q-row">
+    <div class="q-number">Q.100</div>
+    <div class="q-text">The rule in Foakes v Beer (payment of lesser sum in full satisfaction of a greater debt does not discharge the whole debt — "part payment is no satisfaction") — under Indian Contract Act, this rule is modified because:</div>
+    <span class="difficulty hard">Hard</span>
+  </div>
+  <div class="options-grid">
+    <div class="option"><span class="opt-label">(A)</span> Section 63 of ICA allows a promisee to accept less than full performance and this acceptance is a complete discharge</div>
+    <div class="option"><span class="opt-label">(B)</span> Section 74 allows payment of reduced sums in all cases</div>
+    <div class="option"><span class="opt-label">(C)</span> Indian courts follow Foakes v Beer strictly</div>
+    <div class="option"><span class="opt-label">(D)</span> The rule in Foakes v Beer has been codified in Section 27 ICA</div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════
+     ANSWER KEY
+════════════════════════════════════ -->
+<div class="answer-key page-break">
+  <div class="answer-key-title">Answer Key &amp; Explanatory Notes</div>
+  <div class="answer-key-sub">Indian Contract Act, 1872 — Class Test 5 · Pacific Law Academy</div>
+
+  <div class="ans-section-title">Section A — Basics, Offer, Acceptance &amp; Consideration (Q.1–20)</div>
+  <div class="ans-grid">
+    <div class="ans-item"><span class="ans-qnum">Q.1</span><span class="ans-val">(B) 1 September 1872</span><span class="ans-note">ICA came into force on 1 September 1872.</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.2</span><span class="ans-val">(B) An agreement enforceable by law</span><span class="ans-note">S.2(h): Contract = Agreement + Enforceability.</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.3</span><span class="ans-val">(C) Registration of the contract</span><span class="ans-note">Registration is not an essential element under S.10 ICA.</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.4</span><span class="ans-val">(C) General offer</span><span class="ans-note">A proposal to the world at large is a general offer — e.g., reward advertisements.</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.5</span><span class="ans-val">(B) Carlill v Carbolic Smoke Ball Co.</span><span class="ans-note">Classic general offer case — performance = acceptance.</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.6</span><span class="ans-val">(B) No knowledge of the offer at time of performance</span><span class="ans-note">Acceptance requires knowledge of the offer — S.2(b) ICA.</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.7</span><span class="ans-val">(B) When the offeree signifies assent to the proposal</span><span class="ans-note">S.2(b) ICA defines acceptance.</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.8</span><span class="ans-val">(C) Cross offer</span><span class="ans-note">Cross offers do not constitute a contract — no meeting of minds.</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.9</span><span class="ans-val">(B) Posted by the acceptor</span><span class="ans-note">S.4 ICA — Postal rule: acceptance complete against proposer when posted.</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.10</span><span class="ans-val">(B) Indian law only</span><span class="ans-note">S.2(d) ICA: consideration may be past, present, or future. English law does not recognise past consideration.</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.11</span><span class="ans-val">(B) May move from the promisee or any other person</span><span class="ans-note">Chinnaya v Ramayya: consideration can flow from a stranger — unlike English law.</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.12</span><span class="ans-val">(C) Section 25</span><span class="ans-note">S.25 ICA: agreement without consideration is void (with exceptions).</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.13</span><span class="ans-val">(B) Valid — S.25(2) exception</span><span class="ans-note">S.25(2): voluntary compensation for past voluntary services is valid.</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.14</span><span class="ans-val">(B) Section 25 Explanation 2</span><span class="ans-note">Explanation 2 to S.25: inadequacy of consideration may be evidence of coercion but does not void the contract itself.</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.15</span><span class="ans-val">(A) Agreement to pay time-barred debt (in writing &amp; signed)</span><span class="ans-note">S.25(3): time-barred debt promise in writing is enforceable without new consideration.</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.16</span><span class="ans-val">(A) Before acceptance is complete against the offeror</span><span class="ans-note">S.5 ICA: offer can be revoked before acceptance is complete.</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.17</span><span class="ans-val">(B) Section 7</span><span class="ans-note">S.7 ICA: acceptance must be absolute and unqualified.</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.18</span><span class="ans-val">(B) An offer that may be accepted in portions over time</span><span class="ans-note">Standing/continuing offer — each acceptance creates a fresh contract.</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.19</span><span class="ans-val">(B) Valid</span><span class="ans-note">S.25(3) ICA: promise to pay time-barred debt in writing &amp; signed is enforceable.</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.20</span><span class="ans-val">(B) No action arises from a bare agreement without consideration</span><span class="ans-note">Latin maxim behind S.25 ICA — basis of consideration doctrine.</span></div>
+  </div>
+
+  <div class="ans-section-title">Section B — Capacity to Contract &amp; Free Consent (Q.21–40)</div>
+  <div class="ans-grid">
+    <div class="ans-item"><span class="ans-qnum">Q.21</span><span class="ans-val">(C) A minor</span><span class="ans-note">S.11 ICA: minors, persons of unsound mind, and those disqualified by law are incompetent.</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.22</span><span class="ans-val">(B) Void ab initio</span><span class="ans-note">Mohori Bibee (1903): minor's contract is absolutely void — the Privy Council settled this definitively.</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.23</span><span class="ans-val">(B) S.65 does not apply to minors</span><span class="ans-note">S.65 applies only to void/voidable contracts — a minor's agreement is not a contract at all.</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.24</span><span class="ans-val">(B) Section 33 Specific Relief Act, 1963</span><span class="ans-note">Courts restore benefits under equitable powers under S.33 SRA, not S.65 ICA.</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.25</span><span class="ans-val">(A) Coercion, undue influence, fraud, misrepresentation or mistake</span><span class="ans-note">S.14 ICA defines free consent — vitiating factors.</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.26</span><span class="ans-val">(B) Voidable at the option of the aggrieved party</span><span class="ans-note">S.19 ICA: consent caused by coercion → voidable at option of party coerced.</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.27</span><span class="ans-val">(B) Coercion</span><span class="ans-note">The act (withholding body) was under religious custom — Madras HC held it amounted to coercion.</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.28</span><span class="ans-val">(C) Two merchants of equal standing</span><span class="ans-note">Equal commercial parties have no dominant-subordinate relationship under S.16(2).</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.29</span><span class="ans-val">(A) The party who appears to have dominated the will</span><span class="ans-note">S.16(3): reverse burden of proof in fiduciary relationships.</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.30</span><span class="ans-val">(B) Fraud = deliberate; Misrepresentation = innocent</span><span class="ans-note">Critical distinction — affects remedies. Fraud gives right to damages; misrepresentation does not (under ICA).</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.31</span><span class="ans-val">(B) Uberrima fides contracts; or where silence = speech</span><span class="ans-note">S.17 Explanation: silence is fraudulent where duty to speak exists.</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.32</span><span class="ans-val">(B) Void — Section 20</span><span class="ans-note">S.20: bilateral mistake of fact (both parties mistaken) = void contract.</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.33</span><span class="ans-val">(B) Mistake of fact — relief available</span><span class="ans-note">S.21: mistake of law of India = no relief. Mistake of foreign law = treated as mistake of fact.</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.34</span><span class="ans-val">(B) Conditionally — benefit must be restored</span><span class="ans-note">S.19A: court may set aside on terms — equity requires restoration of benefits.</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.35</span><span class="ans-val">(B) Rebuttable presumption</span><span class="ans-note">Displaced by evidence of fair dealing, independent advice, adequacy of consideration.</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.36</span><span class="ans-val">(B) During lucid intervals</span><span class="ans-note">S.12: person of unsound mind can contract during lucid intervals.</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.37</span><span class="ans-val">(B) Reimbursed from their property</span><span class="ans-note">S.68: quasi-contractual claim — not a personal liability on the incapable person.</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.38</span><span class="ans-val">(B) Fraud under S.17(b)</span><span class="ans-note">Active concealment = active deception = fraud.</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.39</span><span class="ans-val">(B) Cannot avoid — discovery bars rescission</span><span class="ans-note">S.19 Proviso: if party discovers misrepresentation and still affirms, right to avoid is lost.</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.40</span><span class="ans-val">(B) Deemed to know facts discoverable with reasonable care</span><span class="ans-note">Constructive notice bars a party from claiming ignorance of what due diligence would have revealed.</span></div>
+  </div>
+
+  <div class="ans-section-title">Section C — Void, Voidable &amp; Unlawful Agreements (Q.41–55)</div>
+  <div class="ans-grid">
+    <div class="ans-item"><span class="ans-qnum">Q.41</span><span class="ans-val">(A) Forbidden by law, fraudulent, injurious</span><span class="ans-note">S.23 ICA lists the grounds rendering consideration/object unlawful.</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.42</span><span class="ans-val">(C) Void — with exceptions</span><span class="ans-note">S.27: void subject to exceptions (sale of goodwill, partnership dissolution, SRA S.42).</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.43</span><span class="ans-val">(B) Enforceable during subsistence of contract if reasonable</span><span class="ans-note">SC distinguished S.27 (post-employment) from negative covenant during employment term.</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.44</span><span class="ans-val">(B) S.28 itself creates an exception for arbitration</span><span class="ans-note">S.28 (as amended) expressly permits arbitration agreements.</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.45</span><span class="ans-val">(B) Void</span><span class="ans-note">S.30: wagering agreements are void. Note: Maharashtra/Gujarat — also illegal (by state amendment).</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.46</span><span class="ans-val">(B) Collateral interest distinguishes contingent from wager</span><span class="ans-note">Key doctrinal distinction — insurance has insurable interest; wager has none.</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.47</span><span class="ans-val">(B) Entirely void</span><span class="ans-note">S.24: one unlawful object/consideration taints the whole agreement.</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.48</span><span class="ans-val">(A) Wagering contract (void) does not taint collateral transactions</span><span class="ans-note">Gherulal: wagering = void but not illegal under ICA → collateral contracts survive.</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.49</span><span class="ans-val">(B) Void</span><span class="ans-note">S.36: contingent contract on impossible event = void.</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.50</span><span class="ans-val">(B) Valid and invalid parts are distinctly separable</span><span class="ans-note">Severability requires the valid part to stand on its own without the illegal part.</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.51</span><span class="ans-val">(B) Possessor in stronger position when both at fault</span><span class="ans-note">Applied under S.23 — courts leave parties where they are when equally guilty.</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.52</span><span class="ans-val">(A) Void</span><span class="ans-note">S.26: restraint of marriage of adult = void (unlike English law where it is voidable).</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.53</span><span class="ans-val">(B) Section 29</span><span class="ans-note">S.29: agreements with uncertain meaning are void.</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.54</span><span class="ans-val">(C) A valid arbitration agreement</span><span class="ans-note">Arbitration is expressly saved. Maintenance/champerty, fraud on creditors = against public policy.</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.55</span><span class="ans-val">(B) Agreement to suppress non-compoundable prosecution for money</span><span class="ans-note">Stifling non-compoundable offences = void as opposed to public policy under S.23.</span></div>
+  </div>
+
+  <div class="ans-section-title">Section D — Performance, Discharge &amp; Frustration (Q.56–70)</div>
+  <div class="ans-grid">
+    <div class="ans-item"><span class="ans-qnum">Q.56</span><span class="ans-val">(A) Performance, agreement, impossibility, lapse of time, breach</span><span class="ans-note">Six modes of discharge of a contract.</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.57</span><span class="ans-val">(B) Substitution of new contract</span><span class="ans-note">S.62: novation requires consent of all parties and discharges the old contract.</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.58</span><span class="ans-val">(B) Contract void when performance impossible without fault</span><span class="ans-note">Taylor v Caldwell: implied condition the subject matter continues to exist.</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.59</span><span class="ans-val">(B) S.56 is a complete code; "impossible" = impracticable</span><span class="ans-note">Satyabrata Ghose (1954): landmark SC ruling on frustration under Indian law.</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.60</span><span class="ans-val">(C) Mere commercial difficulty / increased expense</span><span class="ans-note">Hardship, inflation, price rise = not frustration. Only radical change of obligation qualifies.</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.61</span><span class="ans-val">(B) Bound to restore or compensate</span><span class="ans-note">S.65 ICA: restitution principle upon rescission/void contract.</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.62</span><span class="ans-val">(B) Rescind immediately or wait for due date</span><span class="ans-note">S.39: anticipatory breach — innocent party has election of remedies.</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.63</span><span class="ans-val">(B) Natural consequences or losses known at contracting time</span><span class="ans-note">Hadley v Baxendale two-limb test codified in S.73 ICA.</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.64</span><span class="ans-val">(B) Court awards reasonable compensation ≤ stipulated sum</span><span class="ans-note">S.74: no English distinction between penalty/LD — reasonable compensation is the rule.</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.65</span><span class="ans-val">(B) Reasonable compensation up to stipulated sum; no strict LD/penalty distinction</span><span class="ans-note">ONGC v Saw Pipes: major SC ruling on S.74 ICA scope.</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.66</span><span class="ans-val">(B) Void contract later discovered; or one party prevents completion</span><span class="ans-note">Quantum meruit = equitable remedy for reasonable remuneration for work done.</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.67</span><span class="ans-val">(B) Dispense with or remit performance wholly or in part</span><span class="ans-note">S.63: promisee may waive performance — part acceptance = full discharge under Indian law.</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.68</span><span class="ans-val">(B) Accord + satisfaction = discharge of original obligation</span><span class="ans-note">Under S.63 ICA read with S.62 — accord and satisfaction discharges original contract.</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.69</span><span class="ans-val">(B) Claim compensation, but not repudiate</span><span class="ans-note">S.55 para 2: if time not essence, breach of time → compensation only.</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.70</span><span class="ans-val">(B) Innocent party must take reasonable steps to mitigate</span><span class="ans-note">S.73 Explanation: failure to mitigate = no compensation for avoidable loss.</span></div>
+  </div>
+
+  <div class="ans-section-title">Section E — Quasi-Contracts · Indemnity · Guarantee · Bailment · Agency (Q.71–100)</div>
+  <div class="ans-grid">
+    <div class="ans-item"><span class="ans-qnum">Q.71</span><span class="ans-val">(B) Unjust enrichment</span><span class="ans-note">Quasi-contracts (S.68–72): no consent needed — law imposes obligation to prevent unjust enrichment.</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.72</span><span class="ans-val">(B) Bound to compensate without express contract</span><span class="ans-note">S.70: obligation imposed by law upon person enjoying benefit of non-gratuitous act.</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.73</span><span class="ans-val">(B) Save the other from loss</span><span class="ans-note">S.124: contract of indemnity — 2 parties, primary liability on indemnifier.</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.74</span><span class="ans-val">(B) Right arises when liability becomes absolute</span><span class="ans-note">Gajanan Moreshwar: path-breaking — indemnified need not pay first; can seek indemnifier's action when liability absolute.</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.75</span><span class="ans-val">(B) Three parties: principal debtor, creditor, surety</span><span class="ans-note">S.126: guarantee involves a tripartite relationship.</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.76</span><span class="ans-val">(B) 2 parties, primary liability vs 3 parties, secondary liability</span><span class="ans-note">Key distinction tested frequently in exams — indemnity primary, guarantee secondary.</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.77</span><span class="ans-val">(A) Gives more time without surety's consent</span><span class="ans-note">S.133: variation of terms (including time extension) without surety's consent discharges surety.</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.78</span><span class="ans-val">(A) Surety steps into creditor's shoes</span><span class="ans-note">S.140: right of subrogation — surety acquires all rights of creditor after payment.</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.79</span><span class="ans-val">(B) Returned or disposed of per directions</span><span class="ans-note">S.148: essential feature of bailment — delivery + return or disposal per purpose.</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.80</span><span class="ans-val">(B) Care of a man of ordinary prudence for similar goods</span><span class="ans-note">S.151: uniform standard of care for bailee regardless of benefit.</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.81</span><span class="ans-val">(B) Sell if owner not found and goods perishable/expenses exceed value</span><span class="ans-note">S.168–169: finder's rights including right of sale in certain conditions.</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.82</span><span class="ans-val">(B) The principal</span><span class="ans-note">S.182: agent + principal — agency is the relationship, principal is the represented party.</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.83</span><span class="ans-val">(B) Authority held out by principal to third parties</span><span class="ans-note">Apparent authority — principal estopped from denying it as against third parties who relied on it.</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.84</span><span class="ans-val">(B) Both agent and principal may be held liable at third party's election</span><span class="ans-note">S.226+233: undisclosed principal doctrine — third party may sue either once discovered.</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.85</span><span class="ans-val">(B) Principal must exist and be competent; ratification relates back retroactively</span><span class="ans-note">S.196–200: ratification rules — retroactive effect, existing principal, full knowledge.</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.86</span><span class="ans-val">(A) Emergency where express authority impossible to obtain</span><span class="ans-note">Agency of necessity — rare; requires genuine emergency and reasonable action.</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.87</span><span class="ans-val">(A) Revocation, renunciation, death, insanity, insolvency</span><span class="ans-note">S.201: agency terminated by acts or operation of law.</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.88</span><span class="ans-val">(B) An agent cannot further delegate, subject to exceptions in S.190–193</span><span class="ans-note">Latin maxim of non-delegation — reflects S.190 ICA restriction on sub-agency.</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.89</span><span class="ans-val">(B) S.69 = payment by interested person; S.70 = enjoying benefit of non-gratuitous act</span><span class="ans-note">Standard Section-to-principle matching in quasi-contracts.</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.90</span><span class="ans-val">(B) Broader than S.15 — includes compulsion and payment under protest</span><span class="ans-note">SC has interpreted S.72 "coercion" broadly — State of Maharashtra v Lalji Raja and other cases.</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.91</span><span class="ans-val">(B) Increased expense / hardship alone is not frustration</span><span class="ans-note">Alopi Prasad (1960): foundational SC ruling on limits of Section 56 doctrine.</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.92</span><span class="ans-val">(B) Reasonable, equitable, necessary, obvious, clear, consistent with express terms</span><span class="ans-note">BP Refinery five-limb test for implied terms — adopted in Indian courts.</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.93</span><span class="ans-val">(B) Reasonable compensation even without proof of specific loss ≤ stipulated amount</span><span class="ans-note">Post-amendment S.74: shifts Indian law further from strict proof requirement.</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.94</span><span class="ans-val">(B) Unconscionability — S.23 public policy used to strike down unfair terms</span><span class="ans-note">Central Inland: landmark SC case applying S.23 to unequal power contracts — Indian version of unconscionability doctrine.</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.95</span><span class="ans-val">(B) Union of India v Anglo Afghan Agencies (1968) SC</span><span class="ans-note">First major SC case applying promissory estoppel against the government — later refined in Motilal Padampat.</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.96</span><span class="ans-val">(B) Written contract = final record; oral evidence cannot contradict it</span><span class="ans-note">Parol evidence rule — Sections 91–100 Indian Evidence Act / Bharatiya Sakshya Adhiniyam.</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.97</span><span class="ans-val">(B) Motilal Padampat Sugar Mills v State of UP (1979)</span><span class="ans-note">SC held promissory estoppel cannot override constitutional or statutory powers but can bind government in executive/commercial matters.</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.98</span><span class="ans-val">(B) Agent personally bound; principal not bound for excess</span><span class="ans-note">S.227: principal bound within authority; agent personally liable for excess.</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.99</span><span class="ans-val">(B) Social and domestic agreements</span><span class="ans-note">Balfour v Balfour: husband-wife domestic arrangement = no legal relations intended. Applied in India under S.10 requirement of enforceability.</span></div>
+    <div class="ans-item"><span class="ans-qnum">Q.100</span><span class="ans-val">(A) Section 63 ICA — promisee may accept less &amp; this is complete discharge</span><span class="ans-note">S.63 modifies Foakes v Beer rule — in India, acceptance of lesser sum by promisee discharges the whole debt (unlike English law).</span></div>
+  </div>
+
+</div><!-- end answer-key -->
+
+</div><!-- end main -->
+
+<div class="footer">
+  <strong>Pacific Law Academy</strong> · DSS 264/1, Sector 20, Panchkula · 📞 7087157073 · @Pacificlawacademyindia<br>
+  <span style="font-size:11px; opacity:0.55; margin-top:4px; display:block;">Class Test 5 | Indian Contract Act, 1872 | 100 Questions | PU Law Entrance 2026</span>
+</div>
+
+<script>
+document.getElementById("print-btn").addEventListener("click", function() { window.print(); });
+</script>
+</body>
+</html>

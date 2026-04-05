@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PLA – Constitutional Appointments 2025–26</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy:#1B2A4A; --navy-dark:#0d1b2e;
+  --gold:#C8922A; --gold-light:#e8b84b;
+  --gold-pale:rgba(200,146,42,0.13); --gold-border:rgba(200,146,42,0.35);
+  --text:#ffffff; --sub:#a0b8cc; --blue:#8eb4d4;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--navy-dark);font-family:'Source Sans 3',sans-serif;color:var(--text);min-height:100vh;}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:radial-gradient(ellipse 80% 50% at 20% 20%,rgba(200,146,42,0.04) 0%,transparent 60%);}
+.header{position:relative;z-index:10;padding:20px 36px 16px;
+  border-bottom:1px solid rgba(200,146,42,0.2);
+  background:rgba(13,27,46,0.95);backdrop-filter:blur(10px);
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.logo{display:flex;align-items:center;gap:12px;}
+.logo-badge{width:36px;height:36px;border:2px solid var(--gold);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Playfair Display',serif;font-size:15px;font-weight:900;color:var(--gold);position:relative;}
+.logo-badge::before{content:'';position:absolute;inset:3px;border:1px solid rgba(200,146,42,0.3);}
+.logo-name{font-family:'Playfair Display',serif;font-size:15px;font-weight:900;color:var(--gold);letter-spacing:2px;}
+.logo-sub{font-size:10px;color:var(--sub);letter-spacing:2px;text-transform:uppercase;margin-top:1px;}
+.hdr-right{display:flex;flex-direction:column;align-items:flex-end;gap:5px;}
+.hdr-title{font-size:11px;color:var(--gold);letter-spacing:1.5px;text-transform:uppercase;}
+.prog-bar{width:180px;height:3px;background:rgba(255,255,255,0.08);}
+.prog-fill{height:100%;background:linear-gradient(90deg,var(--gold),var(--gold-light));transition:width 0.4s;}
+.prog-txt{font-size:10px;color:var(--sub);text-align:right;}
+.stage{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;padding:28px 16px 110px;}
+.card-scene{width:860px;max-width:96vw;perspective:1200px;cursor:pointer;}
+.card-flipper{width:100%;position:relative;transform-style:preserve-3d;
+  transition:transform 0.65s cubic-bezier(0.4,0.2,0.2,1);min-height:490px;}
+.card-scene.flipped .card-flipper{transform:rotateY(180deg);}
+.card-face{backface-visibility:hidden;-webkit-backface-visibility:hidden;
+  border:2.5px solid var(--gold);box-shadow:0 20px 60px rgba(0,0,0,0.5);
+  display:flex;flex-direction:column;overflow:hidden;}
+@media(min-width:601px){.card-face{position:absolute;inset:0;}}
+@media(max-width:600px){
+  .card-flipper{transform-style:flat;transition:none;min-height:unset;}
+  .card-scene.flipped .card-flipper{transform:none;}
+  .card-front{display:flex;} .card-back{display:none;}
+  .card-scene.flipped .card-front{display:none;}
+  .card-scene.flipped .card-back{display:flex;}
+}
+.card-front{background:var(--navy);} .card-back{transform:rotateY(180deg);background:#162035;}
+@media(max-width:600px){.card-back{transform:none;}}
+.card-face::before{content:'';position:absolute;top:0;left:0;width:140px;height:140px;
+  border-bottom-right-radius:100%;background:rgba(200,146,42,0.09);}
+.card-face::after{content:'';position:absolute;bottom:0;right:0;width:120px;height:120px;
+  border-top-left-radius:100%;background:rgba(200,146,42,0.05);}
+.gold-line{position:absolute;bottom:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--gold),var(--gold-light),var(--gold));}
+.f-head{display:flex;justify-content:space-between;align-items:flex-start;
+  padding:18px 28px 0;position:relative;z-index:2;}
+.f-brand{font-family:'Playfair Display',serif;font-size:11px;color:var(--gold);letter-spacing:3px;text-transform:uppercase;}
+.f-num{font-family:'Playfair Display',serif;font-size:50px;font-weight:900;color:rgba(200,146,42,0.14);line-height:1;}
+.f-body{flex:1;display:flex;flex-direction:column;justify-content:center;padding:8px 28px 6px;position:relative;z-index:2;}
+.f-foot{display:flex;justify-content:space-between;align-items:center;padding:0 28px 14px;position:relative;z-index:2;}
+.topic-tag{display:inline-block;background:var(--gold-pale);border:1px solid var(--gold-border);
+  color:var(--gold);font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+  padding:3px 12px;margin-bottom:12px;width:fit-content;}
+.card-q{font-size:12px;font-weight:700;color:var(--blue);letter-spacing:0.5px;text-transform:uppercase;margin-bottom:12px;line-height:1.5;}
+.names-wrap{display:flex;gap:14px;margin-bottom:10px;}
+.name-box{flex:1;background:var(--gold-pale);border:1px solid var(--gold-border);padding:13px 14px;position:relative;}
+.name-ordinal{font-size:10px;font-weight:700;color:var(--gold);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:4px;}
+.name-person{font-family:'Playfair Display',serif;font-size:19px;font-weight:900;color:#fff;line-height:1.2;}
+.name-since{font-size:10px;color:var(--sub);margin-top:4px;font-weight:600;}
+.name-role{font-size:9.5px;color:var(--gold);letter-spacing:0.5px;margin-top:2px;font-style:italic;}
+.divider{width:48px;height:2px;background:var(--gold);margin:9px 0;}
+.card-detail{font-size:12.5px;color:var(--sub);line-height:1.72;}
+.card-detail strong{color:var(--gold);font-weight:700;}
+.ft-exam{font-size:10px;letter-spacing:2px;color:#3d5570;text-transform:uppercase;font-weight:700;}
+.ft-ref{font-size:10px;color:#3d5570;font-weight:600;letter-spacing:1px;}
+.flip-hint{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);
+  font-size:9px;color:rgba(200,146,42,0.4);letter-spacing:2px;text-transform:uppercase;z-index:3;pointer-events:none;}
+.b-head{display:flex;justify-content:space-between;align-items:center;padding:16px 28px 0;position:relative;z-index:2;}
+.b-label{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-weight:700;}
+.b-body{flex:1;display:flex;flex-direction:column;justify-content:center;padding:8px 28px 12px;position:relative;z-index:2;overflow-y:auto;}
+.c-table{width:100%;border-collapse:collapse;font-size:12px;font-family:'Source Sans 3',sans-serif;}
+.c-table th{background:rgba(200,146,42,0.18);color:var(--gold);font-weight:700;padding:5px 8px;text-align:left;border:1px solid rgba(200,146,42,0.2);}
+.c-table td{padding:5px 8px;color:#c0d4e4;border:1px solid rgba(255,255,255,0.05);vertical-align:top;line-height:1.4;}
+.c-table tr:nth-child(even) td{background:rgba(255,255,255,0.025);}
+.known-badge{position:absolute;top:12px;right:12px;background:rgba(40,167,69,0.2);
+  border:1px solid rgba(40,167,69,0.5);color:#5cb85c;font-size:9px;font-weight:700;
+  letter-spacing:1.5px;text-transform:uppercase;padding:3px 10px;z-index:5;display:none;}
+.card-scene.known .known-badge{display:block;}
+.card-scene.known .card-face{border-color:rgba(92,184,92,0.4);}
+.controls{display:flex;align-items:center;gap:16px;margin-top:20px;position:relative;z-index:1;}
+@media(max-width:600px){
+  .controls{position:fixed;bottom:0;left:0;right:0;margin-top:0;
+    background:rgba(10,20,35,0.97);border-top:1px solid rgba(200,146,42,0.2);
+    padding:10px 16px 16px;gap:10px;z-index:50;justify-content:space-between;}
+  .kb-hint{display:none;}
+  .names-wrap{flex-direction:column;gap:10px;}
+  .name-person{font-size:16px;}
+  .f-body{padding:8px 16px 6px;}
+  .b-body{padding:8px 16px 10px;}
+  .f-head,.b-head{padding:14px 16px 0;}
+  .f-foot{padding:0 16px 12px;}
+  .card-detail{font-size:11.5px;}
+  .header{padding:14px 16px;}
+}
+.ctrl-btn{background:transparent;border:1.5px solid var(--gold-border);color:var(--gold);
+  width:44px;height:44px;display:flex;align-items:center;justify-content:center;
+  cursor:pointer;transition:all 0.2s;font-size:18px;}
+.ctrl-btn:hover:not(:disabled){background:var(--gold);color:var(--navy-dark);}
+.ctrl-btn:disabled{opacity:0.25;cursor:not-allowed;}
+.ctrl-center{display:flex;flex-direction:column;align-items:center;gap:7px;}
+.ctrl-counter{font-family:'Playfair Display',serif;font-size:14px;color:var(--sub);}
+.ctrl-counter strong{color:var(--gold);font-size:20px;}
+.ctrl-actions{display:flex;gap:7px;}
+.action-btn{border:1.5px solid;padding:5px 12px;font-size:11px;font-weight:700;
+  letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;font-family:'Source Sans 3',sans-serif;transition:all 0.2s;}
+.btn-known{border-color:rgba(92,184,92,0.5);color:#5cb85c;background:rgba(92,184,92,0.08);}
+.btn-known:hover{background:rgba(92,184,92,0.2);}
+.btn-flip{border-color:var(--gold-border);color:var(--blue);background:transparent;}
+.btn-flip:hover{background:rgba(142,180,212,0.1);}
+.btn-shuffle{border-color:var(--gold-border);color:var(--gold);background:transparent;}
+.btn-shuffle:hover{background:var(--gold-pale);}
+.kb-hint{margin-top:12px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+.kb-key{display:flex;align-items:center;gap:5px;font-size:10px;color:#3d5570;letter-spacing:1px;}
+.key{border:1px solid #2a3d55;background:rgba(255,255,255,0.03);padding:2px 7px;font-size:10px;color:#4a6080;}
+@keyframes cardIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+.card-scene{animation:cardIn 0.35s ease both;}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="logo">
+    <div class="logo-badge">P</div>
+    <div>
+      <div class="logo-name">PACIFIC LAW ACADEMY</div>
+      <div class="logo-sub">PU BA.LLB 2026 &nbsp;·&nbsp; Constitutional Appointments 2025–26</div>
+    </div>
+  </div>
+  <div class="hdr-right">
+    <div class="hdr-title">Appointments Master Deck · 20 Cards</div>
+    <div class="prog-bar"><div class="prog-fill" id="progFill" style="width:0%"></div></div>
+    <div class="prog-txt"><span id="knownCt">0</span> known / <span id="totalCt">20</span> total</div>
+  </div>
+</div>
+
+<div class="stage">
+  <div class="card-scene" id="scene" onclick="flip()">
+    <div class="known-badge">✓ KNOWN</div>
+    <div class="card-flipper" id="flipper">
+      <div class="card-face card-front" id="front">
+        <div class="f-head"><div class="f-brand">Pacific Law Academy</div><div class="f-num" id="fNum"></div></div>
+        <div class="f-body" id="fBody"></div>
+        <div class="f-foot"><div class="ft-exam">PU BA.LLB · CLAT · AILET</div><div class="ft-ref" id="fRef"></div></div>
+        <div class="gold-line"></div>
+        <div class="flip-hint">TAP TO SEE FULL DETAIL ↻</div>
+      </div>
+      <div class="card-face card-back" id="back">
+        <div class="b-head"><div class="b-label" id="bLabel"></div><div class="f-num" id="bNum" style="font-size:38px;"></div></div>
+        <div class="b-body" id="bBody"></div>
+        <div class="f-foot"><div class="ft-exam">PU BA.LLB · CLAT · AILET</div><div class="ft-ref" id="bRef"></div></div>
+        <div class="gold-line"></div>
+        <div class="flip-hint">TAP TO GO BACK ↻</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="controls">
+    <button class="ctrl-btn" id="prevBtn" onclick="nav(-1)">&#8592;</button>
+    <div class="ctrl-center">
+      <div class="ctrl-counter"><strong id="curN">1</strong> / <span id="totN">20</span></div>
+      <div class="ctrl-actions">
+        <button class="action-btn btn-flip" onclick="flip()">↻ Flip</button>
+        <button class="action-btn btn-known" onclick="markKnown()">✓ Known</button>
+        <button class="action-btn btn-shuffle" onclick="shuffle()">⇌ Shuffle</button>
+      </div>
+    </div>
+    <button class="ctrl-btn" id="nextBtn" onclick="nav(1)">&#8594;</button>
+  </div>
+
+  <div class="kb-hint">
+    <div class="kb-key"><span class="key">←</span> Prev</div>
+    <div class="kb-key"><span class="key">→</span> Next</div>
+    <div class="kb-key"><span class="key">Space</span> Flip</div>
+    <div class="kb-key"><span class="key">K</span> Known</div>
+    <div class="kb-key"><span class="key">S</span> Shuffle</div>
+  </div>
+</div>
+
+<script>
+const CARDS = [
+  {
+    num:"01", tag:"Head of State & Government", ref:"Art. 52, 74",
+    q:"Current President & Prime Minister of India?",
+    n1:{ordinal:"15th President of India", name:"Droupadi Murmu", since:"Since 25 July 2022", role:"1st tribal woman President"},
+    n2:{ordinal:"PM — 3rd consecutive term", name:"Narendra Modi", since:"Since 9 June 2024", role:"18th Lok Sabha, NDA majority"},
+    detail:"<strong>Murmu:</strong> First tribal &amp; second woman President. Defeated Yashwant Sinha in 2022 election.<br><strong>Modi:</strong> Only 2nd PM after Nehru to win 3 consecutive terms.<br><strong>Trap:</strong> President = head of state; PM = head of govt. Real executive power with PM + Cabinet (Art. 74).",
+    bLabel:"Key Facts",
+    back:"<table class='c-table'><tr><th>Office</th><th>Person</th><th>Ordinal</th><th>Since</th></tr><tr><td>President</td><td>Droupadi Murmu</td><td>15th</td><td>25 Jul 2022</td></tr><tr><td>Prime Minister</td><td>Narendra Modi</td><td>3rd consecutive</td><td>9 Jun 2024</td></tr></table><div class='card-detail' style='margin-top:10px'><strong>President elected by:</strong> Elected MPs (both Houses) + Elected MLAs. Nominated members do NOT vote for President (they DO vote for VP).<br><strong>Trap:</strong> Droupadi Murmu also sent Presidential Reference under Art. 143 (2025) on Arts. 200 &amp; 201 — landmark case.</div>",
+    bRef:"Art. 52, 74, 54"
+  },
+  {
+    num:"02", tag:"Vice President & Lok Sabha Speaker", ref:"Art. 63, 93",
+    q:"Current Vice President & Speaker of Lok Sabha?",
+    n1:{ordinal:"15th Vice President of India", name:"C.P. Radhakrishnan", since:"Since 12 Sep 2025", role:"Ex-officio Chairman, Rajya Sabha"},
+    n2:{ordinal:"Speaker, 18th Lok Sabha", name:"Om Birla", since:"Since 2019 (re-elected 2024)", role:"MP from Kota-Bundi, Rajasthan"},
+    detail:"<strong>Radhakrishnan:</strong> Replaced Jagdeep Dhankhar who resigned citing health. Won by 152-vote margin.<br><strong>Om Birla:</strong> Only 2nd Speaker elected for consecutive terms (17th &amp; 18th LS).<br><strong>Trap:</strong> Deputy Speaker post vacant since 16th Lok Sabha. Last was Dr. M. Thambidurai.",
+    bLabel:"VP & Speaker Facts",
+    back:"<table class='c-table'><tr><th>Office</th><th>Person</th><th>Ordinal</th><th>Note</th></tr><tr><td>Vice President</td><td>C.P. Radhakrishnan</td><td>15th</td><td>Replaced Jagdeep Dhankhar (resigned)</td></tr><tr><td>LS Speaker</td><td>Om Birla</td><td>18th LS</td><td>Re-elected Jun 2024</td></tr></table><div class='card-detail' style='margin-top:10px'><strong>VP Election:</strong> All members of both Houses vote (elected + nominated). State legislators have NO role.<br><strong>VP Removal:</strong> RS majority + LS agreement; 14 days notice required. Speaker removed by LS simple majority.</div>",
+    bRef:"Art. 63, 67, 93, 94"
+  },
+  {
+    num:"03", tag:"Chief Justice of India & Attorney General", ref:"Art. 124, 76",
+    q:"Current CJI & Attorney General of India?",
+    n1:{ordinal:"53rd Chief Justice of India", name:"Justice Surya Kant", since:"Since 24 Nov 2025", role:"Tenure till 9 Feb 2027"},
+    n2:{ordinal:"16th Attorney General of India", name:"R. Venkataramani", since:"Since 1 Oct 2022 (reappointed till 2027)", role:"Highest law officer of India"},
+    detail:"<strong>Justice Surya Kant:</strong> Succeeds CJI B.R. Gavai (52nd CJI). Born in Hisar, Haryana. Part of 5-Judge bench in Art. 200/201 Presidential Reference.<br><strong>R. Venkataramani:</strong> AG is not a Cabinet member — can participate in Parliament debates but cannot vote.<br><strong>Trap:</strong> SG Tushar Mehta assists AG — SG not mentioned in Constitution.",
+    bLabel:"CJI & AG Key Facts",
+    back:"<table class='c-table'><tr><th>Office</th><th>Person</th><th>Ordinal</th><th>Since</th></tr><tr><td>CJI</td><td>Justice Surya Kant</td><td>53rd</td><td>24 Nov 2025</td></tr><tr><td>Attorney General</td><td>R. Venkataramani</td><td>16th</td><td>1 Oct 2022</td></tr></table><div class='card-detail' style='margin-top:10px'><strong>Preceding CJIs (recent):</strong> 52nd = B.R. Gavai | 51st = Sanjiv Khanna | 50th = D.Y. Chandrachud<br><strong>AG Qualification (Art. 76):</strong> Must qualify as SC Judge = 5 yrs HC judge OR 10 yrs HC advocate.<br><strong>Retirement age CJI:</strong> 65 years.</div>",
+    bRef:"Art. 124, 76"
+  },
+  {
+    num:"04", tag:"CAG & Chief Election Commissioner", ref:"Art. 148, 324",
+    q:"Current CAG & Chief Election Commissioner?",
+    n1:{ordinal:"16th CAG of India", name:"K. Sanjay Murthy", since:"Since 21 Nov 2024", role:"Replaced Girish Chandra Murmu"},
+    n2:{ordinal:"Chief Election Commissioner", name:"Gyanesh Kumar", since:"Since 19 Feb 2025", role:"1st CEC under new CEC Act 2023"},
+    detail:"<strong>K. Sanjay Murthy:</strong> 1988 batch IAS (Tamil Nadu cadre). Tenure = 6 years or age 65, whichever earlier.<br><strong>Gyanesh Kumar:</strong> 1988 batch IAS (Kerala cadre). First CEC appointed under the Chief Election Commissioner and Other Election Commissioners Act, 2023. Term till 26 Jan 2029.<br><strong>Trap:</strong> CAG removed same as SC Judge — address by both Houses + Presidential order.",
+    bLabel:"CAG & CEC Facts",
+    back:"<table class='c-table'><tr><th>Office</th><th>Person</th><th>Note</th><th>Since</th></tr><tr><td>CAG</td><td>K. Sanjay Murthy</td><td>16th CAG</td><td>21 Nov 2024</td></tr><tr><td>CEC</td><td>Gyanesh Kumar</td><td>1st under new law</td><td>19 Feb 2025</td></tr></table><div class='card-detail' style='margin-top:10px'><strong>CAG (Art. 148):</strong> Tenure = 6 years or age 65. Salary charged to CFI. Cannot hold further govt office.<br><strong>CEC Appointment (new law):</strong> Selected by 3-member committee: PM + Home Minister + Leader of Opposition.<br><strong>Trap:</strong> Old law: CEC appointed by President on PM's advice alone. New law adds LoP — major change.</div>",
+    bRef:"Art. 148, 324"
+  },
+  {
+    num:"05", tag:"RBI Governor & UPSC Chairman", ref:"Art. 315",
+    q:"Current RBI Governor & UPSC Chairman?",
+    n1:{ordinal:"26th Governor of RBI", name:"Sanjay Malhotra", since:"Since 11 Dec 2024", role:"Replaced Shaktikanta Das"},
+    n2:{ordinal:"UPSC Chairman", name:"Dr. Ajay Kumar", since:"Since May 2025", role:"Constitutional body under Art. 315"},
+    detail:"<strong>Sanjay Malhotra:</strong> 1990 batch IAS (Rajasthan cadre). Former Revenue Secretary. RBI Governor appointed by Central Govt (not President directly).<br><strong>Dr. Ajay Kumar:</strong> UPSC is a constitutional body — Chairman &amp; members appointed by President.<br><strong>Trap:</strong> RBI Governor is NOT a constitutional post — statutory under RBI Act 1934.",
+    bLabel:"RBI & UPSC Facts",
+    back:"<table class='c-table'><tr><th>Office</th><th>Person</th><th>Ordinal</th><th>Since</th></tr><tr><td>RBI Governor</td><td>Sanjay Malhotra</td><td>26th</td><td>11 Dec 2024</td></tr><tr><td>UPSC Chairman</td><td>Dr. Ajay Kumar</td><td>Current</td><td>May 2025</td></tr></table><div class='card-detail' style='margin-top:10px'><strong>UPSC (Art. 315–323):</strong> Chairman &amp; members appointed by President. Removed same as SC Judge. Cannot hold further Govt office post retirement.<br><strong>Trap:</strong> UPSC Chairman's salary charged to CFI. State equivalent = SPSC.<br><strong>RBI:</strong> Established 1935. HQ Mumbai. Issues currency, controls monetary policy.</div>",
+    bRef:"Art. 315–323, RBI Act 1934"
+  },
+  {
+    num:"06", tag:"Finance Commission & Solicitor General", ref:"Art. 280",
+    q:"16th Finance Commission Chairman & Solicitor General?",
+    n1:{ordinal:"16th Finance Commission Chairman", name:"Dr. Arvind Panagariya", since:"Since Jan 2024", role:"Submits report by Oct 2025 for 2026–31"},
+    n2:{ordinal:"Solicitor General of India", name:"Tushar Mehta", since:"Reappointed till 2026", role:"2nd highest law officer; assists AG"},
+    detail:"<strong>16th Finance Commission:</strong> Constituted every 5 years under Art. 280. Recommends Centre-State tax revenue sharing.<br><strong>Tushar Mehta:</strong> SG assists AG in SC. Not mentioned in Constitution — created by statute.<br><strong>Trap:</strong> 15th FC Chairman was N.K. Singh. FC recommendations are binding in practice but advisory in law.",
+    bLabel:"FC & SG Key Facts",
+    back:"<table class='c-table'><tr><th>Office</th><th>Person</th><th>Ordinal</th><th>Note</th></tr><tr><td>Finance Commission</td><td>Dr. Arvind Panagariya</td><td>16th</td><td>Report period 2026–31</td></tr><tr><td>Solicitor General</td><td>Tushar Mehta</td><td>Current SG</td><td>Reappointed 2026</td></tr></table><div class='card-detail' style='margin-top:10px'><strong>Finance Commission (Art. 280):</strong> Appointed by President. Recommends: (1) Division of taxes (2) Grants-in-aid to states (3) Measures to augment CFI.<br><strong>15th FC:</strong> N.K. Singh (2020–26). <strong>16th FC:</strong> Panagariya (2026–31).<br><strong>Trap:</strong> FC is quasi-judicial — its recommendations cannot be rejected by Parliament without reasons.</div>",
+    bRef:"Art. 280"
+  },
+  {
+    num:"07", tag:"Chief of Army Staff & Chief of Defence Staff", ref:"Defence Forces",
+    q:"Current COAS & Chief of Defence Staff?",
+    n1:{ordinal:"29th Chief of Army Staff (COAS)", name:"General Upendra Dwivedi", since:"Since 30 June 2024", role:"Succeeded Gen. Manoj Pande"},
+    n2:{ordinal:"Chief of Defence Staff (CDS)", name:"General Anil Chauhan", since:"Tenure extended till May 2026", role:"First CDS = Gen. Bipin Rawat (2020)"},
+    detail:"<strong>Gen. Upendra Dwivedi:</strong> 29th COAS. From Jammu &amp; Kashmir Rifles. Succeeded Gen. Manoj Pande who retired June 2024.<br><strong>Gen. Anil Chauhan:</strong> CDS post created in 2020. Second person to hold office. Tenure extended by Central Govt.<br><strong>Trap:</strong> CDS is not a constitutional post — created by executive order. First CDS was Gen. Bipin Rawat (died in helicopter crash Dec 2021).",
+    bLabel:"Armed Forces Chiefs",
+    back:"<table class='c-table'><tr><th>Post</th><th>Name</th><th>Since</th><th>Note</th></tr><tr><td>COAS</td><td>Gen. Upendra Dwivedi</td><td>30 Jun 2024</td><td>29th COAS</td></tr><tr><td>CDS</td><td>Gen. Anil Chauhan</td><td>Sep 2022</td><td>Extended till May 2026</td></tr><tr><td>CNS</td><td>Admiral Dinesh Tripathi</td><td>Apr 2024</td><td>Chief of Naval Staff</td></tr><tr><td>CAS</td><td>ACM Amar Preet Singh</td><td>Sep 2024</td><td>Chief of Air Staff</td></tr></table>",
+    bRef:"Defence Forces HQ"
+  },
+  {
+    num:"08", tag:"Cabinet Secretary & National Security Advisor", ref:"Art. 77",
+    q:"Current Cabinet Secretary & National Security Advisor?",
+    n1:{ordinal:"Cabinet Secretary of India", name:"Dr. T.V. Somanathan", since:"Since Aug 2024", role:"Highest civil servant; IAS 1987 batch, TN cadre"},
+    n2:{ordinal:"National Security Advisor (NSA)", name:"Ajit Doval", since:"Since 2014 (3rd term)", role:"5th NSA; only IPS officer to be NSA"},
+    detail:"<strong>T.V. Somanathan:</strong> Former Finance Secretary. Cabinet Secretary is the highest-ranked IAS officer — heads Cabinet Secretariat.<br><strong>Ajit Doval:</strong> Former Director IB. Awarded Padma Vibhushan 2025. NSA is not a constitutional post.<br><strong>Trap:</strong> Cabinet Secretary is NOT a constitutional post — created by statute under Government of India (Transaction of Business) Rules.",
+    bLabel:"Senior Executive Appointments",
+    back:"<table class='c-table'><tr><th>Post</th><th>Name</th><th>Since</th><th>Note</th></tr><tr><td>Cabinet Secretary</td><td>Dr. T.V. Somanathan</td><td>Aug 2024</td><td>IAS 1987 TN cadre</td></tr><tr><td>NSA</td><td>Ajit Doval</td><td>2014 (3rd term)</td><td>Only IPS to be NSA</td></tr></table><div class='card-detail' style='margin-top:10px'><strong>Trap:</strong> Cabinet Secretary chairs Senior Selection Committee for IAS postings. Does NOT attend Cabinet meetings — only coordinates.<br><strong>NSA rank:</strong> Equivalent to Cabinet Minister rank. Reports to PM directly.</div>",
+    bRef:"Art. 77, Transaction Rules"
+  },
+  {
+    num:"09", tag:"NHRC Chairman & CVC", ref:"Art. 343",
+    q:"Current NHRC Chairman & Chief Vigilance Commissioner?",
+    n1:{ordinal:"NHRC Chairperson", name:"Justice V. Ramasubramanian", since:"Since December 2024", role:"Former SC Judge; replaced Justice Arun Mishra"},
+    n2:{ordinal:"Chief Vigilance Commissioner (CVC)", name:"Praveen Kumar Srivastava", since:"Current", role:"Heads Central Vigilance Commission"},
+    detail:"<strong>Justice V. Ramasubramanian:</strong> NHRC Chairperson must be a retired CJI or SC Judge. Tenure = 3 years or age 70.<br><strong>CVC:</strong> Statutory body — not constitutional. Established by CVC Act 2003. Oversees vigilance in Central Govt departments.<br><strong>Trap:</strong> NHRC is statutory — Protection of Human Rights Act, 1993. Not a constitutional body.",
+    bLabel:"NHRC & CVC Facts",
+    back:"<table class='c-table'><tr><th>Post</th><th>Name</th><th>Since</th><th>Note</th></tr><tr><td>NHRC Chair</td><td>Justice V. Ramasubramanian</td><td>Dec 2024</td><td>Must be retired CJI/SC Judge</td></tr><tr><td>CVC</td><td>Praveen Kumar Srivastava</td><td>Current</td><td>CVC Act 2003</td></tr></table><div class='card-detail' style='margin-top:10px'><strong>NHRC Composition:</strong> Chairperson + 4 members (2 must be retired HC Chief Justices). Appointed by President on PM's recommendation.<br><strong>CVC Appointment:</strong> 3-member committee: PM + Home Minister + Leader of Opposition in LS.<br><strong>Trap:</strong> CVC has no powers over judiciary or armed forces.</div>",
+    bRef:"Protection of HR Act 1993, CVC Act 2003"
+  },
+  {
+    num:"10", tag:"SEBI & RBI Board", ref:"SEBI Act 1992",
+    q:"Current SEBI Chairman & Controller General of Accounts?",
+    n1:{ordinal:"SEBI Chairperson", name:"Tuhin Kanta Pandey", since:"Since March 2025", role:"Replaced Madhabi Puri Buch"},
+    n2:{ordinal:"27th Controller General of Accounts", name:"C.A. Kalyani", since:"Since September 2025", role:"Principal Accounts Adviser to Govt of India"},
+    detail:"<strong>Tuhin Kanta Pandey:</strong> Former DIPAM Secretary. SEBI = Securities &amp; Exchange Board of India (statutory body, SEBI Act 1992).<br><strong>C.A. Kalyani:</strong> 27th CGA. CGA maintains accounts of Union Govt under Ministry of Finance.<br><strong>Trap:</strong> SEBI is a statutory body — not constitutional. SEBI Chair appointed by Central Govt.",
+    bLabel:"Financial Regulatory Appointments",
+    back:"<table class='c-table'><tr><th>Post</th><th>Name</th><th>Ordinal</th><th>Since</th></tr><tr><td>SEBI Chair</td><td>Tuhin Kanta Pandey</td><td>Current</td><td>Mar 2025</td></tr><tr><td>CGA</td><td>C.A. Kalyani</td><td>27th CGA</td><td>Sep 2025</td></tr></table><div class='card-detail' style='margin-top:10px'><strong>SEBI:</strong> Est. 1988 (statutory 1992). HQ Mumbai. Regulates securities market. Chairperson 3-year term.<br><strong>Previous SEBI Chair:</strong> Madhabi Puri Buch (first woman SEBI chair) — resigned amid controversy.<br><strong>CGA vs CAG:</strong> CGA = accounts keeping. CAG = auditing. Both under Finance Ministry umbrella but independent in function.</div>",
+    bRef:"SEBI Act 1992, CGA Rules"
+  },
+  {
+    num:"11", tag:"Governors — Punjab & Haryana", ref:"Art. 153",
+    q:"Current Governors of Punjab & Haryana?",
+    n1:{ordinal:"Governor of Punjab", name:"Gulab Chand Kataria", since:"Since Feb 2023", role:"Also: Administrator, Chandigarh (UT)"},
+    n2:{ordinal:"Governor of Haryana", name:"Bandaru Dattatraya", since:"Since 2019", role:"Former Union Labour Minister"},
+    detail:"<strong>Kataria:</strong> Former CM of Rajasthan. Governor of Punjab also serves as Administrator of Chandigarh UT.<br><strong>Dattatraya:</strong> Longest-serving Governor of Haryana in recent times.<br><strong>Trap:</strong> Governor appointed by President (Art. 155) — acts on aid &amp; advice of State Cabinet. Personal immunity under Art. 361.",
+    bLabel:"Governors — Punjab & Haryana",
+    back:"<table class='c-table'><tr><th>State</th><th>Governor</th><th>Since</th><th>Note</th></tr><tr><td>Punjab</td><td>Gulab Chand Kataria</td><td>Feb 2023</td><td>Also Admin, Chandigarh</td></tr><tr><td>Haryana</td><td>Bandaru Dattatraya</td><td>2019</td><td>Former Union Minister</td></tr></table><div class='card-detail' style='margin-top:10px'><strong>Governor's qualification (Art. 157):</strong> Indian citizen + 35 years of age. No fixed tenure — holds office at pleasure of President.<br><strong>Art. 155:</strong> Appointed by President. <strong>Art. 156:</strong> Holds office at President's pleasure (typically 5 years).<br><strong>Trap:</strong> Governor can be transferred — not limited to one state.</div>",
+    bRef:"Art. 153–161"
+  },
+  {
+    num:"12", tag:"Chief Ministers — Punjab & Haryana", ref:"Art. 163–164",
+    q:"Current Chief Ministers of Punjab & Haryana?",
+    n1:{ordinal:"Chief Minister of Punjab", name:"Bhagwant Mann", since:"Since March 2022", role:"Aam Aadmi Party; re-elected 2022"},
+    n2:{ordinal:"Chief Minister of Haryana", name:"Nayab Singh Saini", since:"Since Oct 2024", role:"BJP; succeeded Manohar Lal Khattar"},
+    detail:"<strong>Bhagwant Mann:</strong> AAP's first CM in Punjab. Former comedian and MP. Led AAP to landslide (92/117 seats).<br><strong>Nayab Saini:</strong> Became CM after BJP won 2024 Haryana Assembly elections. OBC leader from Kurukshetra.<br><strong>Trap:</strong> CM appointed by Governor but must command majority in Assembly. Art. 164 — CM holds office at Governor's pleasure.",
+    bLabel:"Punjab & Haryana CMs",
+    back:"<table class='c-table'><tr><th>State</th><th>CM</th><th>Party</th><th>Since</th></tr><tr><td>Punjab</td><td>Bhagwant Mann</td><td>AAP</td><td>Mar 2022</td></tr><tr><td>Haryana</td><td>Nayab Singh Saini</td><td>BJP</td><td>Oct 2024</td></tr></table><div class='card-detail' style='margin-top:10px'><strong>Art. 163:</strong> Council of Ministers aids &amp; advises Governor — Governor acts on their advice (subject to exceptions like Art. 200).<br><strong>Art. 164:</strong> CM appointed by Governor; other ministers on CM's advice. Collective responsibility to Assembly.<br><strong>Trap:</strong> CM need not be a member of Legislature at time of appointment — but must become one within 6 months.</div>",
+    bRef:"Art. 163–164"
+  },
+  {
+    num:"13", tag:"Rajya Sabha — Leader & Opposition Leader", ref:"Art. 84",
+    q:"Leader of Rajya Sabha & Leader of Opposition in RS?",
+    n1:{ordinal:"Leader of Rajya Sabha (Govt side)", name:"J.P. Nadda", since:"Since 2024", role:"Also: BJP National President"},
+    n2:{ordinal:"Leader of Opposition, Rajya Sabha", name:"Mallikarjun Kharge", since:"Since 2022", role:"Also: Congress President"},
+    detail:"<strong>Nadda:</strong> Leader of House in RS is the PM or nominee — traditionally the senior-most Cabinet minister in RS.<br><strong>Kharge:</strong> Leader of Opposition in RS. Also President of Indian National Congress.<br><strong>Trap:</strong> LoP in RS is official constitutional-status post — entitled to Cabinet Minister rank &amp; facilities. LoP in LS = Rahul Gandhi (18th Lok Sabha — first LoP since 16th LS).",
+    bLabel:"Rajya Sabha Key Posts",
+    back:"<table class='c-table'><tr><th>Post</th><th>Person</th><th>Note</th></tr><tr><td>RS Chairman (ex-officio VP)</td><td>C.P. Radhakrishnan</td><td>15th VP</td></tr><tr><td>Deputy Chairman, RS</td><td>Harivansh Narayan Singh</td><td>JD(U)</td></tr><tr><td>Leader of House RS</td><td>J.P. Nadda</td><td>BJP President</td></tr><tr><td>LoP, RS</td><td>Mallikarjun Kharge</td><td>Congress President</td></tr><tr><td>LoP, Lok Sabha</td><td>Rahul Gandhi</td><td>First LoP since 2014</td></tr></table>",
+    bRef:"Art. 84, 89"
+  },
+  {
+    num:"14", tag:"Lokpal & CBI Director", ref:"Lokpal Act 2013",
+    q:"Current Lokpal Chairperson & CBI Director?",
+    n1:{ordinal:"Lokpal Chairperson", name:"Justice A.M. Khanwilkar", since:"Since 2022", role:"Former SC Judge; statutory post under Lokpal Act 2013"},
+    n2:{ordinal:"CBI Director", name:"Praveen Sood", since:"Since 2023", role:"IPS 1986 batch, Karnataka cadre"},
+    detail:"<strong>Lokpal:</strong> Statutory body — Lokpal &amp; Lokayuktas Act 2013. Investigates corruption by public servants including PM, MPs, Ministers.<br><strong>CBI Director:</strong> Appointed by 3-member committee — PM + CJI + Leader of Opposition LS. Fixed tenure of 2 years (extendable).<br><strong>Trap:</strong> Lokpal ≠ CBI. Lokpal is ombudsman; CBI is investigative agency under DSPE Act 1946.",
+    bLabel:"Anti-Corruption Bodies",
+    back:"<table class='c-table'><tr><th>Post</th><th>Person</th><th>Since</th><th>Note</th></tr><tr><td>Lokpal Chair</td><td>Justice A.M. Khanwilkar</td><td>2022</td><td>Former SC Judge</td></tr><tr><td>CBI Director</td><td>Praveen Sood</td><td>2023</td><td>Fixed 2-yr tenure</td></tr></table><div class='card-detail' style='margin-top:10px'><strong>Lokpal jurisdiction:</strong> PM (limited), Cabinet Ministers, MPs, Group A-B-C-D Govt employees, Chairpersons/Directors of central govt bodies.<br><strong>CBI Director appointment:</strong> PM + LoP + CJI committee — Vineet Narain case (1997) mandated fixed tenure to ensure independence.<br><strong>Trap:</strong> CBI needs permission of state govt to operate in state (General Consent — withdrawn by several states).</div>",
+    bRef:"Lokpal Act 2013, DSPE Act 1946"
+  },
+  {
+    num:"15", tag:"IAS — Punjab Chief Secretary & DGP", ref:"Art. 312",
+    q:"Senior State Appointments — Punjab Chief Secretary & DGP?",
+    n1:{ordinal:"Chief Secretary, Punjab", name:"K.A.P. Sinha", since:"Current", role:"Highest civil servant in Punjab state govt"},
+    n2:{ordinal:"DGP, Punjab Police", name:"Gaurav Yadav", since:"Current", role:"Head of Punjab Police — IPS officer"},
+    detail:"<strong>Chief Secretary:</strong> Highest-ranked IAS officer in state. Heads state civil service. Not a constitutional post — administrative position.<br><strong>DGP:</strong> Head of state police force. IPS officer. Appointed by state govt in consultation with UPSC.<br><strong>Trap:</strong> DGP minimum tenure = 2 years (SC ruling in Prakash Singh v. Union of India 2006 — police reform mandate).",
+    bLabel:"State Civil Service Key Posts",
+    back:"<table class='c-table'><tr><th>Post</th><th>Name</th><th>Note</th></tr><tr><td>Chief Secretary, Punjab</td><td>K.A.P. Sinha</td><td>IAS — highest state civil servant</td></tr><tr><td>DGP, Punjab</td><td>Gaurav Yadav</td><td>IPS — heads state police</td></tr></table><div class='card-detail' style='margin-top:10px'><strong>All India Services (Art. 312):</strong> IAS, IPS, IFoS — recruited by UPSC, controlled by Centre but serve states.<br><strong>Chief Secretary:</strong> Heads state Cabinet Secretariat. Principal advisor to CM. Coordinates between departments.<br><strong>Prakash Singh Guidelines (2006):</strong> DGP min 2-yr tenure, State Security Commission mandatory, separation of investigation from law &amp; order.</div>",
+    bRef:"Art. 312, UPSC"
+  },
+  {
+    num:"16", tag:"Education & UGC", ref:"Art. 246",
+    q:"Current UGC Chairman & CBSE Chairperson?",
+    n1:{ordinal:"UGC Chairman", name:"Dr. Vineet Joshi", since:"Since April 2025", role:"University Grants Commission — statutory body"},
+    n2:{ordinal:"CBSE Chairperson", name:"Rahul Singh (IAS)", since:"Since March 2024", role:"Central Board of Secondary Education"},
+    detail:"<strong>UGC:</strong> Statutory body under UGC Act 1956. Grants recognition to universities, funds HE institutions. Reports to Ministry of Education.<br><strong>CBSE:</strong> Autonomous body under Dept. of School Education. Conducts board exams (Class 10 &amp; 12) and NEET (earlier), now NTA for NEET.<br><strong>Trap:</strong> Education is in Concurrent List (Art. 246, List III) after 42nd Amendment 1976 — was on State List earlier.",
+    bLabel:"Education Regulatory Bodies",
+    back:"<table class='c-table'><tr><th>Body</th><th>Head</th><th>Since</th><th>Note</th></tr><tr><td>UGC</td><td>Dr. Vineet Joshi</td><td>Apr 2025</td><td>UGC Act 1956</td></tr><tr><td>CBSE</td><td>Rahul Singh IAS</td><td>Mar 2024</td><td>Autonomous under MoE</td></tr><tr><td>AICTE</td><td>Prof. TG Sitharam</td><td>Current</td><td>Technical education regulator</td></tr><tr><td>NMC</td><td>Dr. Abhijat Sheth</td><td>Jul 2025</td><td>Medical education regulator</td></tr></table>",
+    bRef:"UGC Act 1956, 42nd Amendment"
+  },
+  {
+    num:"17", tag:"NCW & NCBC", ref:"Art. 15(3), 340",
+    q:"Current NCW Chairperson & NCBC Chairperson?",
+    n1:{ordinal:"9th NCW Chairperson", name:"Vijaya Kishore Rahatkar", since:"Since Oct 2024", role:"National Commission for Women — statutory body"},
+    n2:{ordinal:"NCBC Chairperson", name:"Hansraj Gangaram Ahir", since:"Current", role:"National Commission for Backward Classes — constitutional body"},
+    detail:"<strong>NCW:</strong> Statutory body — National Commission for Women Act 1990. Protects &amp; promotes rights of women. Chairperson + 5 members.<br><strong>NCBC:</strong> Constitutional body — Art. 338B (102nd Amendment 2018). Safeguards socially &amp; educationally backward classes.<br><strong>Trap:</strong> NCBC is constitutional (after 102nd Amend.). NCW is statutory. SC/ST Commission (Art. 338) is constitutional.",
+    bLabel:"Constitutional vs Statutory Commissions",
+    back:"<table class='c-table'><tr><th>Commission</th><th>Head</th><th>Constitutional?</th><th>Article</th></tr><tr><td>NCW</td><td>Vijaya Kishore Rahatkar</td><td>No — Statutory</td><td>NCW Act 1990</td></tr><tr><td>NCBC</td><td>Hansraj Ahir</td><td>Yes — Art. 338B</td><td>102nd Amend 2018</td></tr><tr><td>NCSC</td><td>Art. 338 body</td><td>Yes</td><td>Art. 338</td></tr><tr><td>NCST</td><td>Art. 338A body</td><td>Yes</td><td>Art. 338A</td></tr></table>",
+    bRef:"Art. 338, 338A, 338B, NCW Act 1990"
+  },
+  {
+    num:"18", tag:"Sports & Cultural Bodies", ref:"Art. 19",
+    q:"President of BCCI & IOA President?",
+    n1:{ordinal:"36th BCCI President (Interim)", name:"Rajeev Shukla", since:"Since June 2025 (interim)", role:"Roger Binny was President from Oct 2022"},
+    n2:{ordinal:"IOA President", name:"P.T. Usha", since:"Since Dec 2022", role:"First woman IOA President; Olympic legend"},
+    detail:"<strong>BCCI:</strong> Not a constitutional/statutory body — registered society. BCCI controls Indian cricket; affiliated to ICC.<br><strong>P.T. Usha:</strong> First woman &amp; first Olympian to be IOA President. Also nominated member of Rajya Sabha.<br><strong>Trap:</strong> BCCI not under RTI (Supreme Court controversy). IOA is National Olympic Committee affiliated to IOC.",
+    bLabel:"Sports Bodies",
+    back:"<table class='c-table'><tr><th>Body</th><th>Head</th><th>Note</th></tr><tr><td>BCCI (Interim)</td><td>Rajeev Shukla</td><td>Roger Binny was President 2022–25</td></tr><tr><td>IOA</td><td>P.T. Usha</td><td>First woman IOA President</td></tr></table><div class='card-detail' style='margin-top:10px'><strong>BCCI structure:</strong> President + Secretary + Treasurer + Vice Presidents. Elections via state associations.<br><strong>Lodha Committee (2016):</strong> SC-mandated reforms for BCCI — one state one vote, age limit 70, cooling-off period.<br><strong>IOA:</strong> Founded 1927. Affiliated to International Olympic Committee (IOC). HQ New Delhi.</div>",
+    bRef:"BCCI Constitution, Olympic Charter"
+  },
+  {
+    num:"19", tag:"Supreme Court — Recent Landmark Bench", ref:"Art. 124, 145",
+    q:"Key SC Judges involved in 2025 Presidential Reference (Art. 200/201)?",
+    n1:{ordinal:"52nd CJI (led Presidential Reference bench)", name:"Justice B.R. Gavai", since:"Tenure: Apr–Nov 2025", role:"Succeeded Sanjiv Khanna; first Buddhist CJI"},
+    n2:{ordinal:"53rd CJI — current", name:"Justice Surya Kant", since:"Since 24 Nov 2025", role:"From Haryana; part of Art. 200/201 5-judge bench"},
+    detail:"<strong>B.R. Gavai:</strong> First Buddhist CJI of India. Led 5-judge Constitution Bench on Presidential Reference (2025 INSC 1333). Retired Nov 2025.<br><strong>Surya Kant:</strong> Born in Hisar. Became youngest Advocate General of Haryana (2000). CJI since Nov 24, 2025.<br><strong>Trap:</strong> 51st CJI = Sanjiv Khanna | 52nd = B.R. Gavai | 53rd = Surya Kant (current).",
+    bLabel:"Recent CJI Succession",
+    back:"<table class='c-table'><tr><th>Ordinal</th><th>CJI</th><th>Tenure</th><th>Note</th></tr><tr><td>50th</td><td>D.Y. Chandrachud</td><td>2022–2024</td><td>Son of Y.V. Chandrachud (16th CJI)</td></tr><tr><td>51st</td><td>Sanjiv Khanna</td><td>Nov 2024–Apr 2025</td><td>Shortest recent tenure</td></tr><tr><td>52nd</td><td>B.R. Gavai</td><td>Apr–Nov 2025</td><td>1st Buddhist CJI</td></tr><tr><td>53rd</td><td>Surya Kant</td><td>Nov 2025–Feb 2027</td><td>Current CJI</td></tr></table>",
+    bRef:"Art. 124, 143"
+  },
+  {
+    num:"20", tag:"Master Quick Reference — All Key Appointments", ref:"Constitution of India",
+    q:"PLA Master List — Who holds which post in 2025–26?",
+    n1:{ordinal:"President (15th)", name:"Droupadi Murmu", since:"Jul 2022", role:"Vice President (15th): C.P. Radhakrishnan"},
+    n2:{ordinal:"CJI (53rd)", name:"Justice Surya Kant", since:"Nov 2025", role:"AG (16th): R. Venkataramani"},
+    detail:"<strong>Quick recall — all key appointments in one card.</strong><br>Flip for full master table. This is the night-before-exam revision card.",
+    bLabel:"Master Appointments Table 2025–26",
+    back:`<table class='c-table'>
+<tr><th>Post</th><th>Name</th><th>Ordinal / Note</th></tr>
+<tr><td>President</td><td>Droupadi Murmu</td><td>15th</td></tr>
+<tr><td>Vice President</td><td>C.P. Radhakrishnan</td><td>15th (replaced Dhankhar)</td></tr>
+<tr><td>PM</td><td>Narendra Modi</td><td>3rd consecutive term</td></tr>
+<tr><td>LS Speaker</td><td>Om Birla</td><td>18th LS</td></tr>
+<tr><td>CJI</td><td>Justice Surya Kant</td><td>53rd</td></tr>
+<tr><td>AG</td><td>R. Venkataramani</td><td>16th</td></tr>
+<tr><td>CAG</td><td>K. Sanjay Murthy</td><td>16th (since Nov 2024)</td></tr>
+<tr><td>CEC</td><td>Gyanesh Kumar</td><td>1st under new CEC Act 2023</td></tr>
+<tr><td>RBI Governor</td><td>Sanjay Malhotra</td><td>26th (since Dec 2024)</td></tr>
+<tr><td>UPSC Chairman</td><td>Dr. Ajay Kumar</td><td>Since May 2025</td></tr>
+<tr><td>COAS</td><td>Gen. Upendra Dwivedi</td><td>29th (since Jun 2024)</td></tr>
+<tr><td>CDS</td><td>Gen. Anil Chauhan</td><td>Extended till May 2026</td></tr>
+</table>`,
+    bRef:"All Constitutional & Key Offices"
+  }
+];
+
+let cards = [...CARDS], idx = 0, flipped = false, knownSet = new Set();
+
+function nameBox(n){
+  return `<div class="name-box">
+    <div class="name-ordinal">${n.ordinal}</div>
+    <div class="name-person">${n.name}</div>
+    <div class="name-since">${n.since}</div>
+    <div class="name-role">${n.role}</div>
+  </div>`;
+}
+
+function render(){
+  const c = cards[idx];
+  flipped = false;
+  document.getElementById('scene').classList.remove('flipped');
+  document.getElementById('scene').classList.toggle('known', knownSet.has(CARDS.indexOf(c)));
+
+  document.getElementById('fNum').textContent = c.num;
+  document.getElementById('fBody').innerHTML =
+    `<div class="topic-tag">${c.tag}</div>
+     <div class="card-q">Q. ${c.q}</div>
+     <div class="names-wrap">${nameBox(c.n1)}${nameBox(c.n2)}</div>
+     <div class="divider"></div>
+     <div class="card-detail">${c.detail}</div>`;
+  document.getElementById('fRef').textContent = c.ref;
+
+  document.getElementById('bLabel').textContent = c.bLabel;
+  document.getElementById('bNum').textContent = c.num;
+  document.getElementById('bBody').innerHTML = c.back;
+  document.getElementById('bRef').textContent = c.bRef||c.ref;
+
+  document.getElementById('curN').textContent = idx+1;
+  document.getElementById('totN').textContent = cards.length;
+  document.getElementById('prevBtn').disabled = idx===0;
+  document.getElementById('nextBtn').disabled = idx===cards.length-1;
+
+  const known = knownSet.size, total = CARDS.length;
+  document.getElementById('progFill').style.width = (total?(known/total*100):0)+'%';
+  document.getElementById('knownCt').textContent = known;
+  document.getElementById('totalCt').textContent = total;
+
+  const s = document.getElementById('scene');
+  s.style.animation='none'; s.offsetHeight; s.style.animation='cardIn 0.35s ease both';
+}
+
+function flip(){
+  flipped=!flipped;
+  document.getElementById('scene').classList.toggle('flipped',flipped);
+}
+function nav(d){
+  const n=idx+d;
+  if(n<0||n>=cards.length)return;
+  idx=n; render();
+}
+function markKnown(){
+  const c=cards[idx], gi=CARDS.indexOf(c);
+  knownSet.has(gi)?knownSet.delete(gi):knownSet.add(gi);
+  render();
+}
+function shuffle(){
+  for(let i=cards.length-1;i>0;i--){
+    const j=Math.floor(Math.random()*(i+1));
+    [cards[i],cards[j]]=[cards[j],cards[i]];
+  }
+  idx=0; render();
+}
+
+// touch swipe
+let tx=0,ty=0;
+document.getElementById('scene').addEventListener('touchstart',e=>{tx=e.touches[0].clientX;ty=e.touches[0].clientY;},{passive:true});
+document.getElementById('scene').addEventListener('touchend',e=>{
+  const dx=e.changedTouches[0].clientX-tx,dy=e.changedTouches[0].clientY-ty;
+  if(Math.abs(dx)>50&&Math.abs(dx)>Math.abs(dy)*1.5){dx<0?nav(1):nav(-1);}
+},{passive:true});
+
+document.addEventListener('keydown',e=>{
+  if(e.target.tagName==='INPUT')return;
+  if(e.key==='ArrowLeft')nav(-1);
+  else if(e.key==='ArrowRight')nav(1);
+  else if(e.key===' '){e.preventDefault();flip();}
+  else if(e.key==='k'||e.key==='K')markKnown();
+  else if(e.key==='s'||e.key==='S')shuffle();
+});
+
+render();
+</script>
+</body>
+</html>
